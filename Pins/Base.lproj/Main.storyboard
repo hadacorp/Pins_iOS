@@ -38,12 +38,21 @@
                                     <constraint firstAttribute="width" constant="30" id="p5b-ae-Il0"/>
                                 </constraints>
                             </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="park" translatesAutoresizingMaskIntoConstraints="NO" id="Ixc-Hm-X6C">
+                                <rect key="frame" x="0.0" y="89" width="414" height="250"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="250" id="zUI-lv-jXe"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Jvd-vV-mdR" firstAttribute="leading" secondItem="i8u-co-RDk" secondAttribute="leading" constant="33" id="2BL-2z-ckY"/>
                             <constraint firstItem="i8u-co-RDk" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="2tV-Gk-gtQ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Ixc-Hm-X6C" secondAttribute="trailing" id="73I-sV-z3u"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="leading" secondItem="Ixc-Hm-X6C" secondAttribute="leading" id="GSS-eY-E4e"/>
+                            <constraint firstItem="Ixc-Hm-X6C" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="45" id="Iat-ug-LNn"/>
                             <constraint firstItem="af5-aP-hSj" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="-20" id="TPh-9f-rEd"/>
                             <constraint firstItem="af5-aP-hSj" firstAttribute="centerY" secondItem="i8u-co-RDk" secondAttribute="centerY" id="V4d-t7-hTF"/>
                             <constraint firstItem="Jvd-vV-mdR" firstAttribute="centerY" secondItem="i8u-co-RDk" secondAttribute="centerY" id="qE8-rs-nd9"/>
@@ -59,6 +68,7 @@
     <resources>
         <image name="bell" catalog="system" width="128" height="124"/>
         <image name="mappin.and.ellipse" catalog="system" width="118" height="128"/>
+        <image name="park" width="980" height="625"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
