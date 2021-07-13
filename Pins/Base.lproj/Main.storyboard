@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dnP-kv-eXh">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
@@ -62,7 +62,95 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="28.985507246376812" y="88.392857142857139"/>
+            <point key="canvasLocation" x="460.86956521739131" y="-662.27678571428567"/>
+        </scene>
+        <!--Intro Controller-->
+        <scene sceneID="Fug-Xu-sXT">
+            <objects>
+                <viewController id="dnP-kv-eXh" customClass="IntroController" customModule="Pins" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="TS7-iD-XHh">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ldy-C7-ls8">
+                                <rect key="frame" x="20" y="544" width="374" height="50"/>
+                                <color key="backgroundColor" red="0.19293445349999999" green="0.66368025539999997" blue="0.88266950850000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Zhi-Ar-hLq"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="처음이에요">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="firstLoginButtonListener:" destination="dnP-kv-eXh" eventType="touchUpInside" id="dvS-ax-2zv"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Jf-AL-ug3">
+                                <rect key="frame" x="20" y="614" width="374" height="50"/>
+                                <color key="backgroundColor" red="0.15634256599999999" green="0.49819850919999997" blue="0.88357692960000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="cM3-mF-Ta0"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="기존 회원이에요">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="sxD-Y4-6WG"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="0Jf-AL-ug3" firstAttribute="top" secondItem="sxD-Y4-6WG" secondAttribute="top" constant="570" id="Ezu-Uq-heg"/>
+                            <constraint firstItem="0Jf-AL-ug3" firstAttribute="centerX" secondItem="sxD-Y4-6WG" secondAttribute="centerX" id="Huj-Q3-nVp"/>
+                            <constraint firstItem="Ldy-C7-ls8" firstAttribute="top" secondItem="sxD-Y4-6WG" secondAttribute="top" constant="500" id="man-lS-qHx"/>
+                            <constraint firstItem="sxD-Y4-6WG" firstAttribute="trailing" secondItem="0Jf-AL-ug3" secondAttribute="trailing" constant="20" id="sGp-18-Zpj"/>
+                            <constraint firstItem="Ldy-C7-ls8" firstAttribute="centerX" secondItem="sxD-Y4-6WG" secondAttribute="centerX" id="tye-j1-jKd"/>
+                            <constraint firstItem="sxD-Y4-6WG" firstAttribute="trailing" secondItem="Ldy-C7-ls8" secondAttribute="trailing" constant="20" id="vOi-e0-Q4m"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="exsitingLoginButton" destination="0Jf-AL-ug3" id="ITx-DE-kS2"/>
+                        <outlet property="firstLoginButton" destination="Ldy-C7-ls8" id="rjh-bg-ZoY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lEV-bD-FrY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1964" y="-664"/>
+        </scene>
+        <!--Sign Up Controller-->
+        <scene sceneID="bjF-b9-dyb">
+            <objects>
+                <viewController storyboardIdentifier="vcLogin" id="jXz-vM-cK1" customClass="SignUpController" customModule="Pins" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="kS3-AQ-wiJ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="1R8-m6-eR6"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="e0X-SX-S5Z"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="P45-28-WUB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-344.92753623188406" y="-665.625"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="fXa-ek-urB">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="F0m-km-Qlc" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="eai-mk-vax">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="jXz-vM-cK1" kind="relationship" relationship="rootViewController" id="9FJ-af-Imr"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6mx-88-SmA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1255.072463768116" y="-665.625"/>
         </scene>
     </scenes>
     <resources>
