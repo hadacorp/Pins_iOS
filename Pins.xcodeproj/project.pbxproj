@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		B74B0773269DC0B9001816E9 /* IntroController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74B0772269DC0B9001816E9 /* IntroController.swift */; };
 		B74B0775269DC6B8001816E9 /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74B0774269DC6B8001816E9 /* SignUpController.swift */; };
+		B7C7CFF0269F4B4700843216 /* Noto_Sans_KR in Resources */ = {isa = PBXBuildFile; fileRef = B7C7CFEF269F4B4700843216 /* Noto_Sans_KR */; };
 		B7E7AD372693307700E1CF93 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E7AD362693307700E1CF93 /* AppDelegate.swift */; };
 		B7E7AD392693307700E1CF93 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E7AD382693307700E1CF93 /* SceneDelegate.swift */; };
 		B7E7AD3B2693307700E1CF93 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E7AD3A2693307700E1CF93 /* ViewController.swift */; };
@@ -20,6 +21,7 @@
 /* Begin PBXFileReference section */
 		B74B0772269DC0B9001816E9 /* IntroController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroController.swift; sourceTree = "<group>"; };
 		B74B0774269DC6B8001816E9 /* SignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
+		B7C7CFEF269F4B4700843216 /* Noto_Sans_KR */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Noto_Sans_KR; sourceTree = "<group>"; };
 		B7E7AD332693307700E1CF93 /* Pins.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pins.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7E7AD362693307700E1CF93 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B7E7AD382693307700E1CF93 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -41,6 +43,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B7C7CFEC269F4B1800843216 /* font */ = {
+			isa = PBXGroup;
+			children = (
+				B7C7CFEF269F4B4700843216 /* Noto_Sans_KR */,
+			);
+			path = font;
+			sourceTree = "<group>";
+		};
 		B7E7AD2A2693307700E1CF93 = {
 			isa = PBXGroup;
 			children = (
@@ -60,6 +70,7 @@
 		B7E7AD352693307700E1CF93 /* Pins */ = {
 			isa = PBXGroup;
 			children = (
+				B7C7CFEC269F4B1800843216 /* font */,
 				B7E7AD362693307700E1CF93 /* AppDelegate.swift */,
 				B7E7AD382693307700E1CF93 /* SceneDelegate.swift */,
 				B7E7AD3A2693307700E1CF93 /* ViewController.swift */,
@@ -130,6 +141,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B7C7CFF0269F4B4700843216 /* Noto_Sans_KR in Resources */,
 				B7E7AD432693307900E1CF93 /* LaunchScreen.storyboard in Resources */,
 				B7E7AD402693307900E1CF93 /* Assets.xcassets in Resources */,
 				B7E7AD3E2693307700E1CF93 /* Main.storyboard in Resources */,
