@@ -1,5 +1,6 @@
 import UIKit
 
+@available(iOS 13.0, *)
 class IntroController: UIViewController {
 
     @IBOutlet weak var firstLoginButton: UIButton!
