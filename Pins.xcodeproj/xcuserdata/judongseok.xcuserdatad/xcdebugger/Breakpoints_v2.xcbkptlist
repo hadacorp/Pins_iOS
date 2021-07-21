@@ -68,5 +68,145 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "CB2FEDE6-7D09-439E-AA07-87328564EE65"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pins/MainViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "15"
+            endingLineNumber = "15"
+            landmarkName = "MainViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "CB2FEDE6-7D09-439E-AA07-87328564EE65 - 7dbb8d825c21e833"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Pins.MainViewController.bannerImageArray.getter : Swift.Array&lt;Swift.Optional&lt;__C.UIImage&gt;&gt;"
+                  moduleName = "Pins"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/judongseok/Desktop/Programming/SwiftProject/Pins/Pins/MainViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "8"
+                  endingLineNumber = "8"
+                  offsetFromSymbolStart = "108">
+               </Location>
+               <Location
+                  uuid = "CB2FEDE6-7D09-439E-AA07-87328564EE65 - e4f4ce293907a8c7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Pins.MainViewController.bannerImageArray.setter : Swift.Array&lt;Swift.Optional&lt;__C.UIImage&gt;&gt;"
+                  moduleName = "Pins"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/judongseok/Desktop/Programming/SwiftProject/Pins/Pins/MainViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "8"
+                  endingLineNumber = "8"
+                  offsetFromSymbolStart = "128">
+               </Location>
+               <Location
+                  uuid = "CB2FEDE6-7D09-439E-AA07-87328564EE65 - deec0794f9f66f2e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Pins.MainViewController.bannerImageArray.modify : Swift.Array&lt;Swift.Optional&lt;__C.UIImage&gt;&gt;"
+                  moduleName = "Pins"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/judongseok/Desktop/Programming/SwiftProject/Pins/Pins/MainViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  uuid = "CB2FEDE6-7D09-439E-AA07-87328564EE65 - dac8a4d4d78393f0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Pins.MainViewController.bannerImageArray.modify : Swift.Array&lt;Swift.Optional&lt;__C.UIImage&gt;&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "Pins"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/judongseok/Desktop/Programming/SwiftProject/Pins/Pins/MainViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "8"
+                  endingLineNumber = "8"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  uuid = "CB2FEDE6-7D09-439E-AA07-87328564EE65 - ae320b497068657"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Pins.MainViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; Pins.MainViewController"
+                  moduleName = "Pins"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/judongseok/Desktop/Programming/SwiftProject/Pins/Pins/MainViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "8"
+                  endingLineNumber = "8"
+                  offsetFromSymbolStart = "156">
+               </Location>
+               <Location
+                  uuid = "CB2FEDE6-7D09-439E-AA07-87328564EE65 - 3cccb2b09791c03d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Pins.MainViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;Pins.MainViewController&gt;"
+                  moduleName = "Pins"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/judongseok/Desktop/Programming/SwiftProject/Pins/Pins/MainViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "8"
+                  endingLineNumber = "8"
+                  offsetFromSymbolStart = "132">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3802ACF8-0AEB-4CC1-9614-C7697058C10F"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pins/MainViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "76"
+            endingLineNumber = "76"
+            landmarkName = "collectionView(_:layout:sizeForItemAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A79AF43F-F898-47B7-B46B-3E734000897C"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pins/MainViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "74"
+            endingLineNumber = "74"
+            landmarkName = "collectionView(_:layout:sizeForItemAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>
