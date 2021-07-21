@@ -2,8 +2,16 @@ import UIKit
 
 class MainViewController: UIViewController {
 
+    
+    // 화면 스크린 가로 세로 사이즈
+    private var SCREEN_WIDTH = UIScreen.main.bounds.width
+    private var SCREEN_HEIGHT = UIScreen.main.bounds.height
+    
+    
     // 메인 뷰 배너 아울렛
     @IBOutlet weak var mainViewBanner: UICollectionView!
+    
+   
     // 배너 이미지 목록 리스트
     var bannerImageArray = [
         UIImage(named: "mainBanner"),
@@ -28,7 +36,7 @@ class MainViewController: UIViewController {
     
     // 배너 타이머
     func bannerTimer() {
-        let _: Timer = Timer.scheduledTimer(withTimeInterval: 3, repeats: true) { (Timer) in
+        let _: Timer = Timer.scheduledTimer(withTimeInterval: 4.5, repeats: true) { (Timer) in
             self.bannerMove()
         }
     }
@@ -56,13 +64,16 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = mainViewBanner.dequeueReusableCell(withReuseIdentifier: "BannerCell", for: indexPath) as! BannerCell
         cell.imageView.image = bannerImageArray[indexPath.row]
+        
         return cell
     }
     
     // UICollectionViewDelegateFlowLayout 상속
     //컬렉션뷰 사이즈 설정
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: mainViewBanner.frame.size.width, height:  mainViewBanner.frame.height)
+        var w = mainViewBanner.frame.width
+        var h = mainViewBanner.frame.height
+        return CGSize(width: mainViewBanner.frame.width, height: mainViewBanner.frame.height)
     }
     
     //컬렉션뷰 감속 끝났을 때 현재 페이지 체크
@@ -70,4 +81,3 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         nowPage = Int(scrollView.contentOffset.x) / Int(scrollView.frame.width)
     }
 }
-
