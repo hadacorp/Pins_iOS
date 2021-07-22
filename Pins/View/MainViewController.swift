@@ -21,6 +21,8 @@ class MainViewController: UIViewController {
         
         // 배너 자동 스크롤 타이머 적용
         bannerTimer()
+        // 배너 컨트롤 버튼 init 적용
+        initBannerCtrlBtnList()
     }
     
     // MARK:- Banner func
@@ -37,11 +39,26 @@ class MainViewController: UIViewController {
         // 맨 처음 페이지로 돌아감
             mainViewBanner.scrollToItem(at: NSIndexPath(item: 0, section: 0) as IndexPath, at: .right, animated: true)
             nowPage = 0
+            // 스크롤로 변경했을 때 버튼 변경
+            changeBannerCtrlBtnColor()
             return
         }
         // 다음 페이지로 전환
         nowPage += 1
+        // 스크롤로 변경했을 때 버튼 변경
+        changeBannerCtrlBtnColor()
         mainViewBanner.scrollToItem(at: NSIndexPath(item: nowPage, section: 0) as IndexPath, at: .right, animated: true)
+    }
+    // 배너 컨트롤 버튼 init
+    func initBannerCtrlBtnList(){
+        // 현재 뷰에 생성해논 배열들 추가
+        for btn in viewModel.bannerCtrlBtnList {
+            self.view.addSubview(btn.button)
+        }
+    }
+    func changeBannerCtrlBtnColor(){
+        // nowPage를 받아와 해당 인덱스 버튼 background opacity 1
+        viewModel.changeBannerCtrlBtnBgColor(cur: nowPage)
     }
 }
 
@@ -70,5 +87,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     //컬렉션뷰 감속 끝났을 때 현재 페이지 체크
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         nowPage = Int(scrollView.contentOffset.x) / Int(scrollView.frame.width)
+        // 스크롤로 변경했을 때 버튼 변경
+        changeBannerCtrlBtnColor()
     }
 }
