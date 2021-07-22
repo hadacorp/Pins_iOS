@@ -12,6 +12,8 @@
 		B7C7CFF0269F4B4700843216 /* Noto_Sans_KR in Resources */ = {isa = PBXBuildFile; fileRef = B7C7CFEF269F4B4700843216 /* Noto_Sans_KR */; };
 		B7E48A7226A3162000650BA9 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E48A7126A3162000650BA9 /* MainViewController.swift */; };
 		B7E48A7426A31B6300650BA9 /* BannerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E48A7326A31B6300650BA9 /* BannerCell.swift */; };
+		B7E60DEA26A9AFA200ECD359 /* BannerImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E60DE926A9AFA200ECD359 /* BannerImageModel.swift */; };
+		B7E60DEC26A9B0D700ECD359 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E60DEB26A9B0D700ECD359 /* MainViewModel.swift */; };
 		B7E7AD372693307700E1CF93 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E7AD362693307700E1CF93 /* AppDelegate.swift */; };
 		B7E7AD392693307700E1CF93 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E7AD382693307700E1CF93 /* SceneDelegate.swift */; };
 		B7E7AD3B2693307700E1CF93 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E7AD3A2693307700E1CF93 /* ViewController.swift */; };
@@ -26,6 +28,8 @@
 		B7C7CFEF269F4B4700843216 /* Noto_Sans_KR */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Noto_Sans_KR; sourceTree = "<group>"; };
 		B7E48A7126A3162000650BA9 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		B7E48A7326A31B6300650BA9 /* BannerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerCell.swift; sourceTree = "<group>"; };
+		B7E60DE926A9AFA200ECD359 /* BannerImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerImageModel.swift; sourceTree = "<group>"; };
+		B7E60DEB26A9B0D700ECD359 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		B7E7AD332693307700E1CF93 /* Pins.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pins.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7E7AD362693307700E1CF93 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B7E7AD382693307700E1CF93 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -55,6 +59,30 @@
 			path = font;
 			sourceTree = "<group>";
 		};
+		B7E60DE626A9AF4D00ECD359 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B7E60DE926A9AFA200ECD359 /* BannerImageModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B7E60DE726A9AF5600ECD359 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				B7E60DEB26A9B0D700ECD359 /* MainViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		B7E60DE826A9AF5D00ECD359 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B7E48A7126A3162000650BA9 /* MainViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		B7E7AD2A2693307700E1CF93 = {
 			isa = PBXGroup;
 			children = (
@@ -74,13 +102,15 @@
 		B7E7AD352693307700E1CF93 /* Pins */ = {
 			isa = PBXGroup;
 			children = (
+				B7E60DE826A9AF5D00ECD359 /* View */,
+				B7E60DE726A9AF5600ECD359 /* ViewModel */,
+				B7E60DE626A9AF4D00ECD359 /* Model */,
 				B7C7CFEC269F4B1800843216 /* font */,
 				B7E7AD362693307700E1CF93 /* AppDelegate.swift */,
 				B7E7AD382693307700E1CF93 /* SceneDelegate.swift */,
 				B7E7AD3A2693307700E1CF93 /* ViewController.swift */,
 				B7E7AD3C2693307700E1CF93 /* Main.storyboard */,
 				B7E48A7326A31B6300650BA9 /* BannerCell.swift */,
-				B7E48A7126A3162000650BA9 /* MainViewController.swift */,
 				B7E7AD3F2693307900E1CF93 /* Assets.xcassets */,
 				B7E7AD412693307900E1CF93 /* LaunchScreen.storyboard */,
 				B7E7AD442693307900E1CF93 /* Info.plist */,
@@ -164,10 +194,12 @@
 				B7E48A7426A31B6300650BA9 /* BannerCell.swift in Sources */,
 				B74B0775269DC6B8001816E9 /* SignUpController.swift in Sources */,
 				B7E7AD3B2693307700E1CF93 /* ViewController.swift in Sources */,
+				B7E60DEA26A9AFA200ECD359 /* BannerImageModel.swift in Sources */,
 				B74B0773269DC0B9001816E9 /* IntroController.swift in Sources */,
 				B7E48A7226A3162000650BA9 /* MainViewController.swift in Sources */,
 				B7E7AD372693307700E1CF93 /* AppDelegate.swift in Sources */,
 				B7E7AD392693307700E1CF93 /* SceneDelegate.swift in Sources */,
+				B7E60DEC26A9B0D700ECD359 /* MainViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
