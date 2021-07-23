@@ -52,8 +52,23 @@ class MainViewController: UIViewController {
     // 배너 컨트롤 버튼 init
     func initBannerCtrlBtnList(){
         // 현재 뷰에 생성해논 배열들 추가
+        var i = 0
         for btn in viewModel.bannerCtrlBtnList {
             self.view.addSubview(btn.button)
+            // constraint 적용하기 위해
+            btn.button.translatesAutoresizingMaskIntoConstraints = false
+            btn.button.bottomAnchor.constraint(equalTo: mainViewBanner.bottomAnchor, constant: -8).isActive = true
+            
+            // leading으로 갈 값
+            let leadingMinus = (CGFloat(13 * viewModel.numOfBannerBtnList) + CGFloat(8 * CGFloat(viewModel.numOfBannerBtnList - 1))) / 2
+            // 시작될 중심 값
+            let positionX = (view.frame.width / 2) + CGFloat(21 * i)
+            
+            btn.button.leadingAnchor.constraint(equalTo: mainViewBanner.leadingAnchor, constant:
+                                                    (positionX - leadingMinus)).isActive = true
+            i += 1
+            btn.button.heightAnchor.constraint(equalToConstant: 8).isActive = true
+            btn.button.widthAnchor.constraint(equalToConstant: 13).isActive = true
         }
     }
     func changeBannerCtrlBtnColor(){
