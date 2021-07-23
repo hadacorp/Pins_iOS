@@ -17,7 +17,6 @@
 		B7E60DEE26A9B67700ECD359 /* BannerCtrlBtnModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E60DED26A9B67700ECD359 /* BannerCtrlBtnModel.swift */; };
 		B7E7AD372693307700E1CF93 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E7AD362693307700E1CF93 /* AppDelegate.swift */; };
 		B7E7AD392693307700E1CF93 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E7AD382693307700E1CF93 /* SceneDelegate.swift */; };
-		B7E7AD3B2693307700E1CF93 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E7AD3A2693307700E1CF93 /* ViewController.swift */; };
 		B7E7AD3E2693307700E1CF93 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7E7AD3C2693307700E1CF93 /* Main.storyboard */; };
 		B7E7AD402693307900E1CF93 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B7E7AD3F2693307900E1CF93 /* Assets.xcassets */; };
 		B7E7AD432693307900E1CF93 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7E7AD412693307900E1CF93 /* LaunchScreen.storyboard */; };
@@ -35,7 +34,6 @@
 		B7E7AD332693307700E1CF93 /* Pins.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pins.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7E7AD362693307700E1CF93 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B7E7AD382693307700E1CF93 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B7E7AD3A2693307700E1CF93 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B7E7AD3D2693307700E1CF93 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B7E7AD3F2693307900E1CF93 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B7E7AD422693307900E1CF93 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -81,6 +79,7 @@
 		B7E60DE826A9AF5D00ECD359 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B74B0774269DC6B8001816E9 /* SignUpController.swift */,
 				B7E48A7126A3162000650BA9 /* MainViewController.swift */,
 			);
 			path = View;
@@ -111,14 +110,12 @@
 				B7C7CFEC269F4B1800843216 /* font */,
 				B7E7AD362693307700E1CF93 /* AppDelegate.swift */,
 				B7E7AD382693307700E1CF93 /* SceneDelegate.swift */,
-				B7E7AD3A2693307700E1CF93 /* ViewController.swift */,
 				B7E7AD3C2693307700E1CF93 /* Main.storyboard */,
 				B7E48A7326A31B6300650BA9 /* BannerCell.swift */,
 				B7E7AD3F2693307900E1CF93 /* Assets.xcassets */,
 				B7E7AD412693307900E1CF93 /* LaunchScreen.storyboard */,
 				B7E7AD442693307900E1CF93 /* Info.plist */,
 				B74B0772269DC0B9001816E9 /* IntroController.swift */,
-				B74B0774269DC6B8001816E9 /* SignUpController.swift */,
 			);
 			path = Pins;
 			sourceTree = "<group>";
@@ -197,7 +194,6 @@
 				B7E48A7426A31B6300650BA9 /* BannerCell.swift in Sources */,
 				B7E60DEE26A9B67700ECD359 /* BannerCtrlBtnModel.swift in Sources */,
 				B74B0775269DC6B8001816E9 /* SignUpController.swift in Sources */,
-				B7E7AD3B2693307700E1CF93 /* ViewController.swift in Sources */,
 				B7E60DEA26A9AFA200ECD359 /* BannerImageModel.swift in Sources */,
 				B74B0773269DC0B9001816E9 /* IntroController.swift in Sources */,
 				B7E48A7226A3162000650BA9 /* MainViewController.swift in Sources */,
