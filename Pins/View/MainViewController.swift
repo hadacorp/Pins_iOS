@@ -5,6 +5,7 @@ class MainViewController: UIViewController {
     // MARK:- @IBOutlet Properties
     // 메인 뷰 배너 아울렛
     @IBOutlet weak var mainViewBanner: UICollectionView!
+    @IBOutlet weak var promiseText: UILabel!
     
     // MARK:- Private Properties
     // 뷰 모델 초기화
@@ -24,7 +25,6 @@ class MainViewController: UIViewController {
         // 배너 컨트롤 버튼 init 적용
         initBannerCtrlBtnList()
     }
-    
     // MARK:- Banner func
     // 배너 타이머
     func bannerTimer() {
