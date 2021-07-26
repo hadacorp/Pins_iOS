@@ -8,6 +8,7 @@
 import UIKit
 
 class MainViewModel {
+    // MARK:- Properties
     // 배너 이미지 리스트
     let bannerImageList: [BannerImageModel] = [
         BannerImageModel(name: "mainBanner"),
@@ -17,8 +18,25 @@ class MainViewModel {
         BannerImageModel(name: "mainBanner")
     ]
     
+    // 배너 컨트롤 버튼 리스트
     var bannerCtrlBtnList: [BannerCtrlBtnModel] = []
     
+    // 약속 카드 리스트
+    var promiseCardList: [PromiseCardModel] = []
+    // MARK:- Promise func
+    func initPromiseCardDesign(){
+        for _ in 0 ..< 5 {
+            let card = PromiseCardModel(tag: "맛집탐방", thumbnail: UIImageView(image: #imageLiteral(resourceName: "park")), title: "매운 음식 좋아하시는 분! 저랑 같이 가요", time: "7/17 토요일 12:00")
+            card.simbolPin.frame = CGRect(x: 6, y: 6, width: 20, height: 20)
+            
+            promiseCardList.append(card)
+        }
+    }
+    
+    var numOfPromiseCardList: Int{
+        return promiseCardList.count
+    }
+    // MARK:- Banner func
     var numOfBannerBtnList: Int{
         return bannerCtrlBtnList.count
     }
@@ -49,8 +67,9 @@ class MainViewModel {
             }
         }
     }
-    
+    // MARK:- init
     init() {
         initBannerCtrlBtnList()
+        initPromiseCardDesign()
     }
 }

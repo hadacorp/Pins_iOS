@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B739F7F326AEE85A002FD1A5 /* PromiseCardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B739F7F226AEE85A002FD1A5 /* PromiseCardModel.swift */; };
 		B74B0773269DC0B9001816E9 /* IntroController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74B0772269DC0B9001816E9 /* IntroController.swift */; };
 		B74B0775269DC6B8001816E9 /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74B0774269DC6B8001816E9 /* SignUpController.swift */; };
 		B759564826ADAC9A005710D3 /* NotoSansKR-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = B759564226ADAC99005710D3 /* NotoSansKR-Black.otf */; };
@@ -28,6 +29,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B739F7F226AEE85A002FD1A5 /* PromiseCardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromiseCardModel.swift; sourceTree = "<group>"; };
 		B74B0772269DC0B9001816E9 /* IntroController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroController.swift; sourceTree = "<group>"; };
 		B74B0774269DC6B8001816E9 /* SignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
 		B759564226ADAC99005710D3 /* NotoSansKR-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Black.otf"; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 			children = (
 				B7E60DE926A9AFA200ECD359 /* BannerImageModel.swift */,
 				B7E60DED26A9B67700ECD359 /* BannerCtrlBtnModel.swift */,
+				B739F7F226AEE85A002FD1A5 /* PromiseCardModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -212,6 +215,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B7E48A7426A31B6300650BA9 /* BannerCell.swift in Sources */,
+				B739F7F326AEE85A002FD1A5 /* PromiseCardModel.swift in Sources */,
 				B7E60DEE26A9B67700ECD359 /* BannerCtrlBtnModel.swift in Sources */,
 				B74B0775269DC6B8001816E9 /* SignUpController.swift in Sources */,
 				B7E60DEA26A9AFA200ECD359 /* BannerImageModel.swift in Sources */,
