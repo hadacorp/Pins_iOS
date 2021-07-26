@@ -15,6 +15,8 @@ class MainViewController: UIViewController {
     private var nowPage: Int = 0
     // 동적 생성 스크롤 뷰
     private var scrollView = UIScrollView()
+    // 메인 뷰 배너 width
+    private var bannerWidth = UIScreen.main.bounds.width;
     // MARK:- Functions
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,11 +45,11 @@ class MainViewController: UIViewController {
     
     func positionSetting(){
         // auto scroll position 맞춰주기
-        if(mainViewBanner.contentOffset.x <= 1500){
-            mainViewBanner.contentOffset.x = CGFloat(375 * (viewModel.numOfBannerImageList * 2 - 1))
+        if(mainViewBanner.contentOffset.x <= bannerWidth * 4){
+            mainViewBanner.contentOffset.x = bannerWidth *  CGFloat((viewModel.numOfBannerImageList * 2 - 1))
         }
-        else if(mainViewBanner.contentOffset.x >= 3750){
-            mainViewBanner.contentOffset.x = CGFloat(375 * (viewModel.numOfBannerImageList))
+        else if(mainViewBanner.contentOffset.x >= bannerWidth * 10){
+            mainViewBanner.contentOffset.x = bannerWidth * CGFloat((viewModel.numOfBannerImageList))
         }
     }
     
@@ -55,10 +57,10 @@ class MainViewController: UIViewController {
     func bannerMove() {
         // 자동으로 움직일 때 포지션 맞춰주기
         positionSetting()
-        mainViewBanner.scrollRectToVisible(CGRect(x: mainViewBanner.contentOffset.x + 375, y: 0, width: mainViewBanner.frame.width, height: mainViewBanner.frame.height), animated: true)
+        mainViewBanner.scrollRectToVisible(CGRect(x: mainViewBanner.contentOffset.x + bannerWidth, y: 0, width: mainViewBanner.frame.width, height: mainViewBanner.frame.height), animated: true)
         
         // 자동으로 움직일때 페이지 세팅
-        nowPage = (Int(mainViewBanner.contentOffset.x / 375 - 5) + 1) % 5
+        nowPage = (Int(mainViewBanner.contentOffset.x / bannerWidth - 5) + 1) % 5
         changeBannerCtrlBtnColor()
     }
     // 배너 컨트롤 버튼 init
@@ -189,7 +191,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     // UICollectionViewDelegateFlowLayout 상속
     //컬렉션뷰 사이즈 설정
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        collectionView.contentOffset = CGPoint(x: 375 * viewModel.numOfBannerImageList, y: 0)
+        collectionView.contentOffset = CGPoint(x: Int(bannerWidth) * viewModel.numOfBannerImageList, y: 0)
         return CGSize(width: mainViewBanner.frame.width, height: mainViewBanner.frame.height)
     }
     
