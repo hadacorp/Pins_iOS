@@ -1,7 +1,8 @@
 import UIKit
+import Foundation
 
 class MainViewController: UIViewController {
-
+    
     // MARK:- @IBOutlet Properties
     // 메인 뷰 배너 아울렛
     @IBOutlet weak var mainViewBanner: UICollectionView!
@@ -39,22 +40,26 @@ class MainViewController: UIViewController {
             self.bannerMove()
         }
     }
+    
+    func positionSetting(){
+        // auto scroll position 맞춰주기
+        if(mainViewBanner.contentOffset.x <= 1500){
+            mainViewBanner.contentOffset.x = CGFloat(375 * (viewModel.numOfBannerImageList * 2 - 1))
+        }
+        else if(mainViewBanner.contentOffset.x >= 3750){
+            mainViewBanner.contentOffset.x = CGFloat(375 * (viewModel.numOfBannerImageList))
+        }
+    }
+    
     // 배너 움직이는 매서드
     func bannerMove() {
-        // 현재페이지가 마지막 페이지일 경우
-        if nowPage == viewModel.numOfBannerImageList - 1 {
-        // 맨 처음 페이지로 돌아감
-            mainViewBanner.scrollToItem(at: NSIndexPath(item: 0, section: 0) as IndexPath, at: .right, animated: true)
-            nowPage = 0
-            // 스크롤로 변경했을 때 버튼 변경
-            changeBannerCtrlBtnColor()
-            return
-        }
-        // 다음 페이지로 전환
-        nowPage += 1
-        // 스크롤로 변경했을 때 버튼 변경
+        // 자동으로 움직일 때 포지션 맞춰주기
+        positionSetting()
+        mainViewBanner.scrollRectToVisible(CGRect(x: mainViewBanner.contentOffset.x + 375, y: 0, width: mainViewBanner.frame.width, height: mainViewBanner.frame.height), animated: true)
+        
+        // 자동으로 움직일때 페이지 세팅
+        nowPage = (Int(mainViewBanner.contentOffset.x / 375 - 5) + 1) % 5
         changeBannerCtrlBtnColor()
-        mainViewBanner.scrollToItem(at: NSIndexPath(item: nowPage, section: 0) as IndexPath, at: .right, animated: true)
     }
     // 배너 컨트롤 버튼 init
     func initBannerCtrlBtnList(){
@@ -84,6 +89,7 @@ class MainViewController: UIViewController {
     }
     
     // MARK:- ScrollView func
+    // 메인 베너 스크롤 뷰 동적 생성
     func initScrollView(){
         scrollView = UIScrollView()
         scrollView.delegate = self
@@ -126,6 +132,7 @@ class MainViewController: UIViewController {
             i += 1
         }
     }
+    // 약속 카드 타이틀 초기화
     func initPromiseCardTitle(card: PromiseCardModel, background: UIView){
         card.title.translatesAutoresizingMaskIntoConstraints = false
         card.title.centerXAnchor.constraint(equalTo: background.centerXAnchor).isActive = true
@@ -164,51 +171,60 @@ class MainViewController: UIViewController {
 extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     //컬렉션뷰 개수 설정
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel.numOfBannerImageList
+        return viewModel.numOfBannerImageList * 3
     }
     
     //컬렉션뷰 셀 설정
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = mainViewBanner.dequeueReusableCell(withReuseIdentifier: "BannerCell", for: indexPath) as! BannerCell
-        cell.imageView.image = viewModel.bannerImageList[indexPath.row].image
         
+        var index = indexPath.item
+        if index > viewModel.numOfBannerImageList - 1 {
+            index -= viewModel.numOfBannerImageList
+        }
+        cell.imageView.image = viewModel.bannerImageList[index % viewModel.numOfBannerImageList].image
         return cell
     }
     
     // UICollectionViewDelegateFlowLayout 상속
     //컬렉션뷰 사이즈 설정
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        collectionView.contentOffset = CGPoint(x: 375 * viewModel.numOfBannerImageList, y: 0)
         return CGSize(width: mainViewBanner.frame.width, height: mainViewBanner.frame.height)
     }
     
     //컬렉션뷰 감속 끝났을 때 현재 페이지 체크
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        // 직접 스크롤 했을 때 포지션 세팅
+        positionSetting()
+        // 직접 스크롤 했을 때 페이지 세팅
         nowPage = Int(scrollView.contentOffset.x) / Int(scrollView.frame.width)
+        nowPage = nowPage % viewModel.numOfBannerImageList
         // 스크롤로 변경했을 때 버튼 변경
         changeBannerCtrlBtnColor()
     }
 }
 // MARK:- Shadow
 extension CALayer {
-  func applySketchShadow(
-    color: UIColor = .black,
-    alpha: Float = 0.5,
-    x: CGFloat = 0,
-    y: CGFloat = 2,
-    blur: CGFloat = 4,
-    spread: CGFloat = 0)
-  {
-    masksToBounds = false
-    shadowColor = color.cgColor
-    shadowOpacity = alpha
-    shadowOffset = CGSize(width: x, height: y)
-    shadowRadius = blur / 2.0
-    if spread == 0 {
-      shadowPath = nil
-    } else {
-      let dx = -spread
-      let rect = bounds.insetBy(dx: dx, dy: dx)
-      shadowPath = UIBezierPath(rect: rect).cgPath
+    func applySketchShadow(
+        color: UIColor = .black,
+        alpha: Float = 0.5,
+        x: CGFloat = 0,
+        y: CGFloat = 2,
+        blur: CGFloat = 4,
+        spread: CGFloat = 0)
+    {
+        masksToBounds = false
+        shadowColor = color.cgColor
+        shadowOpacity = alpha
+        shadowOffset = CGSize(width: x, height: y)
+        shadowRadius = blur / 2.0
+        if spread == 0 {
+            shadowPath = nil
+        } else {
+            let dx = -spread
+            let rect = bounds.insetBy(dx: dx, dy: dx)
+            shadowPath = UIBezierPath(rect: rect).cgPath
+        }
     }
-  }
 }
