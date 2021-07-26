@@ -82,7 +82,7 @@
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="nzQ-Xr-2D8" firstAttribute="bottom" secondItem="Yif-MG-WvM" secondAttribute="bottom" constant="40" id="7MX-dv-NOF"/>
                             <constraint firstItem="Vwr-18-Zhc" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="5" id="HZB-EI-DPs"/>
