@@ -12,7 +12,8 @@ class MainViewController: UIViewController {
     private let viewModel = MainViewModel()
     // 메인 뷰 배너 페이지 카운트
     private var nowPage: Int = 0
-    
+    // 동적 생성 스크롤 뷰
+    private var scrollView = UIScrollView()
     // MARK:- Functions
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +25,13 @@ class MainViewController: UIViewController {
         bannerTimer()
         // 배너 컨트롤 버튼 init 적용
         initBannerCtrlBtnList()
+        
+        // 약속 스크롤 뷰 init 적용
+        initScrollView()
+        // 약속 스크롤에 들어갈 카드뷰 init 적용
+        initPromiseCardList()
     }
+    
     // MARK:- Banner func
     // 배너 타이머
     func bannerTimer() {
@@ -75,6 +82,50 @@ class MainViewController: UIViewController {
         // nowPage를 받아와 해당 인덱스 버튼 background opacity 1
         viewModel.changeBannerCtrlBtnBgColor(cur: nowPage)
     }
+    
+    // MARK:- ScrollView func
+    func initScrollView(){
+        scrollView = UIScrollView()
+        scrollView.delegate = self
+        
+        view.addSubview(scrollView)
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
+        scrollView.topAnchor.constraint(equalTo: mainViewBanner.bottomAnchor, constant: 48).isActive = true
+        scrollView.heightAnchor.constraint(equalToConstant: 224).isActive = true
+        scrollView.widthAnchor.constraint(equalToConstant: view.bounds.width).isActive = true
+        
+        scrollView.contentSize = CGSize(width: viewModel.numOfPromiseCardList * 172 + 16, height: 248)
+        scrollView.showsHorizontalScrollIndicator = false
+    }
+    // MARK:- Promise func
+    func initPromiseCardList(){
+        var i = 0
+        for card in viewModel.promiseCardList {
+            let background = UIView()
+            background.addSubview(card.simbolPin)
+            background.addSubview(card.tag)
+            background.addSubview(card.thumbnail)
+            background.addSubview(card.title)
+            background.addSubview(card.time)
+            
+            card.thumbnail.translatesAutoresizingMaskIntoConstraints = false
+            card.thumbnail.heightAnchor.constraint(equalToConstant: 60).isActive = true
+            card.thumbnail.widthAnchor.constraint(equalToConstant: 60).isActive = true
+            card.thumbnail.centerXAnchor.constraint(equalTo: background.centerXAnchor).isActive = true
+            card.thumbnail.topAnchor.constraint(equalTo: background.topAnchor, constant: 31).isActive = true
+            
+            scrollView.addSubview(background)
+            background.translatesAutoresizingMaskIntoConstraints = false
+            background.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: CGFloat(16 + (172 * i))).isActive = true
+            background.widthAnchor.constraint(equalToConstant: 164).isActive = true
+            background.heightAnchor.constraint(equalToConstant: 224).isActive = true
+            background.frame = CGRect(x: 0, y: 0, width: 164, height: 224)
+            background.backgroundColor = .white
+            background.layer.applySketchShadow(x: 0, y: 8, blur: 16, spread: 0)
+            i += 1
+        }
+    }
 }
 
 // MARK:- Extensions
@@ -105,4 +156,28 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         // 스크롤로 변경했을 때 버튼 변경
         changeBannerCtrlBtnColor()
     }
+}
+// MARK:- Shadow
+extension CALayer {
+  func applySketchShadow(
+    color: UIColor = .black,
+    alpha: Float = 0.5,
+    x: CGFloat = 0,
+    y: CGFloat = 2,
+    blur: CGFloat = 4,
+    spread: CGFloat = 0)
+  {
+    masksToBounds = false
+    shadowColor = color.cgColor
+    shadowOpacity = alpha
+    shadowOffset = CGSize(width: x, height: y)
+    shadowRadius = blur / 2.0
+    if spread == 0 {
+      shadowPath = nil
+    } else {
+      let dx = -spread
+      let rect = bounds.insetBy(dx: dx, dy: dx)
+      shadowPath = UIBezierPath(rect: rect).cgPath
+    }
+  }
 }
