@@ -120,6 +120,7 @@ class MainViewController: UIViewController {
             initPromiseCardThumbnail(card: card, background: background)
             initPromiseCardTag(card: card, background: background)
             initPromiseCardTitle(card: card, background: background)
+            initPromiseCardTime(card: card, background: background)
             
             scrollView.addSubview(background)
             background.translatesAutoresizingMaskIntoConstraints = false
@@ -165,6 +166,15 @@ class MainViewController: UIViewController {
         card.tag.topAnchor.constraint(equalTo: background.topAnchor, constant: 6).isActive = true
         card.tag.textColor = #colorLiteral(red: 0.0431372549, green: 0.6392156863, blue: 0.8705882353, alpha: 1)
         card.tag.font = UIFont(name: "NotoSansKR-Regular", size: 13)
+    }
+    
+    // 약속 카드 시간 초기화
+    func initPromiseCardTime(card: PromiseCardModel, background: UIView){
+        card.time.translatesAutoresizingMaskIntoConstraints = false
+        card.time.centerXAnchor.constraint(equalTo: background.centerXAnchor).isActive = true
+        card.time.topAnchor.constraint(equalTo: background.topAnchor, constant: 181).isActive = true
+        card.time.textColor = #colorLiteral(red: 0.3764705882, green: 0.3764705882, blue: 0.3764705882, alpha: 1)
+        card.time.font = UIFont(name: "NotoSansKR-Regular", size: 13)
     }
 }
 
