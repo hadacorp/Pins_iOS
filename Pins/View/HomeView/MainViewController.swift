@@ -1,4 +1,5 @@
 import UIKit
+import SnapKit
 import Foundation
 
 class MainViewController: UIViewController {
@@ -17,6 +18,11 @@ class MainViewController: UIViewController {
     private var scrollView = UIScrollView()
     // 메인 뷰 배너 width
     private var bannerWidth = UIScreen.main.bounds.width;
+    
+    // 메인 뷰 약속 스크롤 뷰
+    private let promiseScrollView = PromiseScrollView()
+    // 메인 뷰 약속 카드 뷰
+    private let promiseCardView = PromiseCardView()
     // MARK:- Functions
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +34,7 @@ class MainViewController: UIViewController {
         bannerTimer()
         // 배너 컨트롤 버튼 init 적용
         initBannerCtrlBtnList()
+        
         
         // 약속 스크롤 뷰 init 적용
         initScrollView()
@@ -90,92 +97,17 @@ class MainViewController: UIViewController {
         viewModel.changeBannerCtrlBtnBgColor(cur: nowPage)
     }
     
-    // MARK:- ScrollView func
-    // 메인 베너 스크롤 뷰 동적 생성
+    // MARK:- Promise func
+    // 약속 카드 스크롤 뷰 동적 생성
     func initScrollView(){
         scrollView = UIScrollView()
         scrollView.delegate = self
         
-        view.addSubview(scrollView)
-        scrollView.translatesAutoresizingMaskIntoConstraints = false
-        scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
-        scrollView.topAnchor.constraint(equalTo: mainViewBanner.bottomAnchor, constant: 48).isActive = true
-        scrollView.heightAnchor.constraint(equalToConstant: 256).isActive = true
-        scrollView.widthAnchor.constraint(equalToConstant: view.bounds.width).isActive = true
-        
-        scrollView.contentSize = CGSize(width: viewModel.numOfPromiseCardList * 172 + 16, height: 224)
-        scrollView.showsHorizontalScrollIndicator = false
+        promiseScrollView.initScrollView(scrollView: scrollView, view: view, width: viewModel.numOfPromiseCardList * 172 + 16)
     }
-    // MARK:- Promise func
+    // 약속 카드 스크롤 안에 들어갈 카드리스트 생성
     func initPromiseCardList(){
-        var i = 0
-        for card in viewModel.promiseCardList {
-            let background = UIView()
-            background.addSubview(card.simbolPin)
-            background.addSubview(card.tag)
-            background.addSubview(card.thumbnail)
-            background.addSubview(card.title)
-            background.addSubview(card.time)
-            
-            scrollView.addSubview(background)
-            background.translatesAutoresizingMaskIntoConstraints = false
-            background.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: CGFloat(16 + (172 * i))).isActive = true
-            background.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 8).isActive = true
-            background.widthAnchor.constraint(equalToConstant: 164).isActive = true
-            background.heightAnchor.constraint(equalToConstant: 224).isActive = true
-            background.frame = CGRect(x: 0, y: 0, width: 164, height: 224)
-            background.backgroundColor = .white
-            background.layer.cornerRadius = 8
-            background.layer.applySketchShadow(color: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), alpha: 0.08, x: 0, y: 8, blur: 16, spread: 0)
-            
-            
-            initPromiseCardThumbnail(card: card, background: background)
-            initPromiseCardTag(card: card, background: background)
-            initPromiseCardTitle(card: card, background: background)
-            initPromiseCardTime(card: card, background: background)
-            i += 1
-        }
-    }
-    // 약속 카드 타이틀 초기화
-    func initPromiseCardTitle(card: PromiseCardModel, background: UIView){
-        card.title.translatesAutoresizingMaskIntoConstraints = false
-        card.title.centerXAnchor.constraint(equalTo: background.centerXAnchor).isActive = true
-        card.title.topAnchor.constraint(equalTo: background.topAnchor, constant: 99).isActive = true
-        card.title.widthAnchor.constraint(equalToConstant: 148).isActive = true
-        card.title.heightAnchor.constraint(equalToConstant: 60).isActive = true
-        card.title.textColor = #colorLiteral(red: 0.06666666667, green: 0.06666666667, blue: 0.06666666667, alpha: 1)
-        card.title.font = UIFont(name: "NotoSansKR-Medium", size: 14)
-        card.title.textAlignment = .center
-        card.title.numberOfLines = 2
-    }
-    
-    // 약속 카드 썸네일 초기화
-    func initPromiseCardThumbnail(card: PromiseCardModel, background: UIView){
-        card.thumbnail.layer.cornerRadius = 30
-        card.thumbnail.clipsToBounds = true
-        
-        card.thumbnail.translatesAutoresizingMaskIntoConstraints = false
-        card.thumbnail.heightAnchor.constraint(equalToConstant: 60).isActive = true
-        card.thumbnail.widthAnchor.constraint(equalToConstant: 60).isActive = true
-        card.thumbnail.centerXAnchor.constraint(equalTo: background.centerXAnchor).isActive = true
-        card.thumbnail.topAnchor.constraint(equalTo: background.topAnchor, constant: 31).isActive = true
-    }
-    // 약속 카드 태그 초기화
-    func initPromiseCardTag(card: PromiseCardModel, background: UIView){
-        card.tag.translatesAutoresizingMaskIntoConstraints = false
-        card.tag.leadingAnchor.constraint(equalTo: background.leadingAnchor, constant: 30).isActive = true
-        card.tag.topAnchor.constraint(equalTo: background.topAnchor, constant: 6).isActive = true
-        card.tag.textColor = #colorLiteral(red: 0.0431372549, green: 0.6392156863, blue: 0.8705882353, alpha: 1)
-        card.tag.font = UIFont(name: "NotoSansKR-Regular", size: 13)
-    }
-    
-    // 약속 카드 시간 초기화
-    func initPromiseCardTime(card: PromiseCardModel, background: UIView){
-        card.time.translatesAutoresizingMaskIntoConstraints = false
-        card.time.centerXAnchor.constraint(equalTo: background.centerXAnchor).isActive = true
-        card.time.topAnchor.constraint(equalTo: background.topAnchor, constant: 181).isActive = true
-        card.time.textColor = #colorLiteral(red: 0.3764705882, green: 0.3764705882, blue: 0.3764705882, alpha: 1)
-        card.time.font = UIFont(name: "NotoSansKR-Regular", size: 13)
+        promiseCardView.initial(cardList: viewModel.promiseCardList, scrollView: scrollView)
     }
 }
 
