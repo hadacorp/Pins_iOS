@@ -117,11 +117,6 @@ class MainViewController: UIViewController {
             background.addSubview(card.title)
             background.addSubview(card.time)
             
-            initPromiseCardThumbnail(card: card, background: background)
-            initPromiseCardTag(card: card, background: background)
-            initPromiseCardTitle(card: card, background: background)
-            initPromiseCardTime(card: card, background: background)
-            
             scrollView.addSubview(background)
             background.translatesAutoresizingMaskIntoConstraints = false
             background.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: CGFloat(16 + (172 * i))).isActive = true
@@ -132,6 +127,12 @@ class MainViewController: UIViewController {
             background.backgroundColor = .white
             background.layer.cornerRadius = 8
             background.layer.applySketchShadow(color: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), alpha: 0.08, x: 0, y: 8, blur: 16, spread: 0)
+            
+            
+            initPromiseCardThumbnail(card: card, background: background)
+            initPromiseCardTag(card: card, background: background)
+            initPromiseCardTitle(card: card, background: background)
+            initPromiseCardTime(card: card, background: background)
             i += 1
         }
     }
