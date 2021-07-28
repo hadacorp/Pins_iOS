@@ -19,10 +19,13 @@ class MainViewController: UIViewController {
     // 메인 뷰 배너 width
     private var bannerWidth = UIScreen.main.bounds.width;
     
+    // MARK:- Private Views
     // 메인 뷰 약속 스크롤 뷰
     private let promiseScrollView = PromiseScrollView()
     // 메인 뷰 약속 카드 뷰
     private let promiseCardView = PromiseCardView()
+    // 메인 뷰 배너 컨트롤 버튼
+    private let bannerCtrlBtnView = BannerCtrlBtnView()
     // MARK:- Functions
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,26 +75,9 @@ class MainViewController: UIViewController {
     }
     // 배너 컨트롤 버튼 init
     func initBannerCtrlBtnList(){
-        // 현재 뷰에 생성해논 배열들 추가
-        var i = 0
-        for btn in viewModel.bannerCtrlBtnList {
-            self.view.addSubview(btn.button)
-            // constraint 적용하기 위해
-            btn.button.translatesAutoresizingMaskIntoConstraints = false
-            btn.button.bottomAnchor.constraint(equalTo: mainViewBanner.bottomAnchor, constant: -8).isActive = true
-            
-            // leading으로 갈 값
-            let leadingMinus = (CGFloat(13 * viewModel.numOfBannerBtnList) + CGFloat(8 * CGFloat(viewModel.numOfBannerBtnList - 1))) / 2
-            // 시작될 중심 값
-            let positionX = (view.frame.width / 2) + CGFloat(21 * i)
-            
-            btn.button.leadingAnchor.constraint(equalTo: mainViewBanner.leadingAnchor, constant:
-                                                    (positionX - leadingMinus)).isActive = true
-            i += 1
-            btn.button.heightAnchor.constraint(equalToConstant: 8).isActive = true
-            btn.button.widthAnchor.constraint(equalToConstant: 13).isActive = true
-        }
+        bannerCtrlBtnView.initial(parent: self.view, list: viewModel.bannerCtrlBtnList, anchor: mainViewBanner)
     }
+    // 현재 위치한 인덱스의 버튼 색깔 변경
     func changeBannerCtrlBtnColor(){
         // nowPage를 받아와 해당 인덱스 버튼 background opacity 1
         viewModel.changeBannerCtrlBtnBgColor(cur: nowPage)
@@ -147,29 +133,5 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         nowPage = nowPage % viewModel.numOfBannerImageList
         // 스크롤로 변경했을 때 버튼 변경
         changeBannerCtrlBtnColor()
-    }
-}
-// MARK:- Shadow
-extension CALayer {
-    func applySketchShadow(
-        color: UIColor = .black,
-        alpha: Float = 0.5,
-        x: CGFloat = 0,
-        y: CGFloat = 2,
-        blur: CGFloat = 4,
-        spread: CGFloat = 0)
-    {
-        masksToBounds = false
-        shadowColor = color.cgColor
-        shadowOpacity = alpha
-        shadowOffset = CGSize(width: x, height: y)
-        shadowRadius = blur / 2.0
-        if spread == 0 {
-            shadowPath = nil
-        } else {
-            let dx = -spread
-            let rect = bounds.insetBy(dx: dx, dy: dx)
-            shadowPath = UIBezierPath(rect: rect).cgPath
-        }
     }
 }
