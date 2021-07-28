@@ -8,8 +8,11 @@
 import UIKit
 
 class PromiseScrollView {
+    // 메인 뷰 약속 카드 뷰
+    private let promiseCardView = PromiseCardView()
+    
     let scrollView = UIScrollView()
-    func initScrollView(scrollView: UIScrollView, view: UIView, width: Int){
+    func initial(view: UIView, width: Int, cardList: [PromiseCardModel]){
         view.addSubview(scrollView)
         
         scrollView.snp.makeConstraints { (scroll) in
@@ -20,5 +23,7 @@ class PromiseScrollView {
         
         scrollView.contentSize = CGSize(width: width, height: 224)
         scrollView.showsHorizontalScrollIndicator = false
+        
+        promiseCardView.initial(cardList: cardList, scrollView: scrollView)
     }
 }

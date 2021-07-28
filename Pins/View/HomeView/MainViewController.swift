@@ -16,17 +16,12 @@ class MainViewController: UIViewController {
     // 메인 뷰 배너 페이지 카운트
     public var nowPage: Int = 0
     
-    // MARK:- Private Properties
-    // 동적 생성 스크롤 뷰
-    private var scrollView = UIScrollView()
-    
     // MARK:- Private Views
     // 메인 뷰 약속 스크롤 뷰
     private let promiseScrollView = PromiseScrollView()
-    // 메인 뷰 약속 카드 뷰
-    private let promiseCardView = PromiseCardView()
     // 메인 뷰 배너 컨트롤 버튼
     private let bannerCtrlBtnView = BannerCtrlBtnView()
+    
     // MARK:- Functions
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,8 +31,6 @@ class MainViewController: UIViewController {
         initBannerCtrlBtnList()
         // 약속 스크롤 뷰 init 적용
         initScrollView()
-        // 약속 스크롤에 들어갈 카드뷰 init 적용
-        initPromiseCardList()
     }
     
     // MARK:- Banner func
@@ -56,10 +49,6 @@ class MainViewController: UIViewController {
     // MARK:- Promise func
     // 약속 카드 스크롤 뷰 동적 생성
     func initScrollView(){
-        promiseScrollView.initScrollView(scrollView: scrollView, view: view, width: viewModel.numOfPromiseCardList * 172 + 16)
-    }
-    // 약속 카드 스크롤 안에 들어갈 카드리스트 생성
-    func initPromiseCardList(){
-        promiseCardView.initial(cardList: viewModel.promiseCardList, scrollView: scrollView)
+        promiseScrollView.initial(view: view, width: viewModel.numOfPromiseCardList * 172 + 16, cardList: viewModel.promiseCardList)
     }
 }
