@@ -23,6 +23,8 @@
 		B792C92A26B1AB6900DC7339 /* PromiseCardTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B792C92926B1AB6900DC7339 /* PromiseCardTimeView.swift */; };
 		B792C92C26B1AC0800DC7339 /* PromiseCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B792C92B26B1AC0800DC7339 /* PromiseCardView.swift */; };
 		B792C93126B1B28F00DC7339 /* PromiseScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B792C93026B1B28F00DC7339 /* PromiseScrollView.swift */; };
+		B792C93326B1BA3700DC7339 /* CALayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B792C93226B1BA3700DC7339 /* CALayer.swift */; };
+		B792C93526B1BDF900DC7339 /* BannerCtrlBtnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B792C93426B1BDF900DC7339 /* BannerCtrlBtnView.swift */; };
 		B7E48A7226A3162000650BA9 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E48A7126A3162000650BA9 /* MainViewController.swift */; };
 		B7E48A7426A31B6300650BA9 /* BannerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E48A7326A31B6300650BA9 /* BannerCell.swift */; };
 		B7E60DEA26A9AFA200ECD359 /* BannerImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E60DE926A9AFA200ECD359 /* BannerImageModel.swift */; };
@@ -53,6 +55,8 @@
 		B792C92926B1AB6900DC7339 /* PromiseCardTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromiseCardTimeView.swift; sourceTree = "<group>"; };
 		B792C92B26B1AC0800DC7339 /* PromiseCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromiseCardView.swift; sourceTree = "<group>"; };
 		B792C93026B1B28F00DC7339 /* PromiseScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromiseScrollView.swift; sourceTree = "<group>"; };
+		B792C93226B1BA3700DC7339 /* CALayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CALayer.swift; sourceTree = "<group>"; };
+		B792C93426B1BDF900DC7339 /* BannerCtrlBtnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerCtrlBtnView.swift; sourceTree = "<group>"; };
 		B7E48A7126A3162000650BA9 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		B7E48A7326A31B6300650BA9 /* BannerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerCell.swift; sourceTree = "<group>"; };
 		B7E60DE926A9AFA200ECD359 /* BannerImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerImageModel.swift; sourceTree = "<group>"; };
@@ -123,6 +127,7 @@
 		B792C92826B1AAF900DC7339 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				B792C93226B1BA3700DC7339 /* CALayer.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -130,6 +135,7 @@
 		B792C92D26B1B19F00DC7339 /* Banner */ = {
 			isa = PBXGroup;
 			children = (
+				B792C93426B1BDF900DC7339 /* BannerCtrlBtnView.swift */,
 			);
 			path = Banner;
 			sourceTree = "<group>";
@@ -341,10 +347,12 @@
 				B74B0773269DC0B9001816E9 /* IntroController.swift in Sources */,
 				B7E48A7226A3162000650BA9 /* MainViewController.swift in Sources */,
 				B792C92A26B1AB6900DC7339 /* PromiseCardTimeView.swift in Sources */,
+				B792C93326B1BA3700DC7339 /* CALayer.swift in Sources */,
 				B792C92526B1A96C00DC7339 /* PromiseCardTagView.swift in Sources */,
 				B7E7AD372693307700E1CF93 /* AppDelegate.swift in Sources */,
 				B792C93126B1B28F00DC7339 /* PromiseScrollView.swift in Sources */,
 				B7E7AD392693307700E1CF93 /* SceneDelegate.swift in Sources */,
+				B792C93526B1BDF900DC7339 /* BannerCtrlBtnView.swift in Sources */,
 				B792C92726B1AA3100DC7339 /* PromiseCardThumbnailView.swift in Sources */,
 				B7E60DEC26A9B0D700ECD359 /* MainViewModel.swift in Sources */,
 				B792C92326B1A44A00DC7339 /* PromiseCardTitleView.swift in Sources */,
