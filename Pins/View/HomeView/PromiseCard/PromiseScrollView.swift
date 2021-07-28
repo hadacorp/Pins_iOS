@@ -7,7 +7,8 @@
 
 import UIKit
 
-class PromiseScrollView: NSObject {
+class PromiseScrollView {
+    let scrollView = UIScrollView()
     func initScrollView(scrollView: UIScrollView, view: UIView, width: Int){
         view.addSubview(scrollView)
         

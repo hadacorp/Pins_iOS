@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2F173C0E86540DE71BA934A7 /* Pods_Pins.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 894D86B83D6538419804C4BD /* Pods_Pins.framework */; };
 		B739F7F326AEE85A002FD1A5 /* PromiseCardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B739F7F226AEE85A002FD1A5 /* PromiseCardModel.swift */; };
+		B7438BEE26B1E33D00EBE6A1 /* UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7438BED26B1E33D00EBE6A1 /* UICollectionView.swift */; };
 		B74B0773269DC0B9001816E9 /* IntroController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74B0772269DC0B9001816E9 /* IntroController.swift */; };
 		B74B0775269DC6B8001816E9 /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74B0774269DC6B8001816E9 /* SignUpController.swift */; };
 		B759564826ADAC9A005710D3 /* NotoSansKR-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = B759564226ADAC99005710D3 /* NotoSansKR-Black.otf */; };
@@ -41,6 +42,7 @@
 		06956C7A3660E21B923080F8 /* Pods-Pins.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pins.release.xcconfig"; path = "Target Support Files/Pods-Pins/Pods-Pins.release.xcconfig"; sourceTree = "<group>"; };
 		894D86B83D6538419804C4BD /* Pods_Pins.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pins.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B739F7F226AEE85A002FD1A5 /* PromiseCardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromiseCardModel.swift; sourceTree = "<group>"; };
+		B7438BED26B1E33D00EBE6A1 /* UICollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionView.swift; sourceTree = "<group>"; };
 		B74B0772269DC0B9001816E9 /* IntroController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroController.swift; sourceTree = "<group>"; };
 		B74B0774269DC6B8001816E9 /* SignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
 		B759564226ADAC99005710D3 /* NotoSansKR-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Black.otf"; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				B792C93226B1BA3700DC7339 /* CALayer.swift */,
+				B7438BED26B1E33D00EBE6A1 /* UICollectionView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -156,6 +159,7 @@
 		B7E60DE626A9AF4D00ECD359 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B7E48A7326A31B6300650BA9 /* BannerCell.swift */,
 				B7E60DE926A9AFA200ECD359 /* BannerImageModel.swift */,
 				B7E60DED26A9B67700ECD359 /* BannerCtrlBtnModel.swift */,
 				B739F7F226AEE85A002FD1A5 /* PromiseCardModel.swift */,
@@ -209,7 +213,6 @@
 				B7E7AD362693307700E1CF93 /* AppDelegate.swift */,
 				B7E7AD382693307700E1CF93 /* SceneDelegate.swift */,
 				B7E7AD3C2693307700E1CF93 /* Main.storyboard */,
-				B7E48A7326A31B6300650BA9 /* BannerCell.swift */,
 				B7E7AD3F2693307900E1CF93 /* Assets.xcassets */,
 				B7E7AD412693307900E1CF93 /* LaunchScreen.storyboard */,
 				B7E7AD442693307900E1CF93 /* Info.plist */,
@@ -348,6 +351,7 @@
 				B7E48A7226A3162000650BA9 /* MainViewController.swift in Sources */,
 				B792C92A26B1AB6900DC7339 /* PromiseCardTimeView.swift in Sources */,
 				B792C93326B1BA3700DC7339 /* CALayer.swift in Sources */,
+				B7438BEE26B1E33D00EBE6A1 /* UICollectionView.swift in Sources */,
 				B792C92526B1A96C00DC7339 /* PromiseCardTagView.swift in Sources */,
 				B7E7AD372693307700E1CF93 /* AppDelegate.swift in Sources */,
 				B792C93126B1B28F00DC7339 /* PromiseScrollView.swift in Sources */,

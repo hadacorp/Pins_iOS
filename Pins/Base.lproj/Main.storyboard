@@ -97,7 +97,6 @@
                     </view>
                     <connections>
                         <outlet property="mainViewBanner" destination="Yif-MG-WvM" id="Kfh-oQ-Ptz"/>
-                        <outlet property="promiseText" destination="nzQ-Xr-2D8" id="Qb8-rA-IBr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
