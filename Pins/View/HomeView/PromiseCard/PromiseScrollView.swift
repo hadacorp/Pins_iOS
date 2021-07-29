@@ -12,11 +12,11 @@ class PromiseScrollView {
     private let promiseCardView = PromiseCardView()
     
     let scrollView = UIScrollView()
-    func initial(view: UIView, width: Int, cardList: [PromiseCardModel]){
+    func initial(promiseText: UIView, view: UIView, width: Int, cardList: [PromiseCardModel]){
         view.addSubview(scrollView)
         
         scrollView.snp.makeConstraints { (scroll) in
-            scroll.top.equalTo(366)
+            scroll.top.equalTo(promiseText).offset(26)
             scroll.height.equalTo(256)
             scroll.width.equalTo(view)
         }

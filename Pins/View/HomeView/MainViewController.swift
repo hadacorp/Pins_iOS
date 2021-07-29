@@ -7,7 +7,8 @@ class MainViewController: UIViewController {
     // MARK:- @IBOutlet Properties
     // 메인 뷰 배너 아울렛
     @IBOutlet weak var mainViewBanner: UICollectionView!
-    
+    // 약속 텍스트
+    @IBOutlet weak var promiseText: UILabel!
     // MARK:- Public Properties
     // 뷰 모델 초기화
     public let viewModel = MainViewModel()
@@ -21,7 +22,8 @@ class MainViewController: UIViewController {
     private let promiseScrollView = PromiseScrollView()
     // 메인 뷰 배너 컨트롤 버튼
     private let bannerCtrlBtnView = BannerCtrlBtnView()
-    
+    // 메인 뷰 참가 신청 스크롤 뷰
+    private let joinScrollView = JoinScrollView()
     // MARK:- Functions
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,10 +32,13 @@ class MainViewController: UIViewController {
         // 배너 컨트롤 버튼 init 적용
         initBannerCtrlBtnList()
         // 약속 스크롤 뷰 init 적용
-        initScrollView()
+        initCardScrollView()
+        // 참가 신청 스크롤 뷰 init 적용
+        initJoinScrollView()
     }
     
     // MARK:- Banner func
+    // 배너 init
     func initBannerCollectionView(){
         // 델리게이트와 데이터 소스를 어디서 처리할 것인지 작성
         mainViewBanner.delegate = self
@@ -48,7 +53,13 @@ class MainViewController: UIViewController {
     
     // MARK:- Promise func
     // 약속 카드 스크롤 뷰 동적 생성
-    func initScrollView(){
-        promiseScrollView.initial(view: view, width: viewModel.numOfPromiseCardList * 172 + 16, cardList: viewModel.promiseCardList)
+    func initCardScrollView(){
+        promiseScrollView.initial(promiseText: promiseText, view: self.view, width: viewModel.numOfPromiseCardList * 172 + 16, cardList: viewModel.promiseCardList)
+    }
+    
+    // MARK:- Join func
+    func initJoinScrollView(){
+        let width = view.frame.width - 32
+        joinScrollView.initial(parent: self.view, constraint: promiseScrollView.scrollView, width: viewModel.numOfJoinCardList * Int(width) + 16, cardList: viewModel.joinCardList)
     }
 }

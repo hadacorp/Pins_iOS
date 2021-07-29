@@ -97,6 +97,7 @@
                     </view>
                     <connections>
                         <outlet property="mainViewBanner" destination="Yif-MG-WvM" id="Kfh-oQ-Ptz"/>
+                        <outlet property="promiseText" destination="nzQ-Xr-2D8" id="1RT-aZ-7rp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -155,7 +156,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lEV-bD-FrY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1964" y="-664"/>
+            <point key="canvasLocation" x="-1965.217391304348" y="-664.28571428571422"/>
         </scene>
         <!--Sign Up Controller-->
         <scene sceneID="bjF-b9-dyb">
