@@ -23,6 +23,23 @@ class MainViewModel {
     
     // 약속 카드 리스트
     var promiseCardList: [PromiseCardModel] = []
+    
+    // 참가 신청한 핀
+    var joinCardList: [JoinCardModel] = []
+    
+    // MARK:- Join func
+    func initJoinCardList(){
+        for _ in 0 ..< 5 {
+            let card = JoinCardModel(tag: "등산/캠핑", thumbnail: UIImageView(image: #imageLiteral(resourceName: "park")), title: "주말 광교산 등산 모집!!", time: "7/20 화요일 14:00", rule: "남자만 8/9")
+            
+            joinCardList.append(card)
+        }
+    }
+    
+    var numOfJoinCardList: Int{
+        return joinCardList.count
+    }
+    
     // MARK:- Promise func
     func initPromiseCardDesign(){
         for _ in 0 ..< 5 {
@@ -71,5 +88,6 @@ class MainViewModel {
     init() {
         initBannerCtrlBtnList()
         initPromiseCardDesign()
+        initJoinCardList()
     }
 }

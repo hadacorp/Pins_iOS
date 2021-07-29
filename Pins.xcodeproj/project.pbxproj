@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		2F173C0E86540DE71BA934A7 /* Pods_Pins.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 894D86B83D6538419804C4BD /* Pods_Pins.framework */; };
 		B739F7F326AEE85A002FD1A5 /* PromiseCardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B739F7F226AEE85A002FD1A5 /* PromiseCardModel.swift */; };
+		B73C51E926B2EB1D00219FD3 /* JoinCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73C51E826B2EB1D00219FD3 /* JoinCardView.swift */; };
+		B73C51EB26B2EBE500219FD3 /* JoinCardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73C51EA26B2EBE500219FD3 /* JoinCardModel.swift */; };
+		B73C51ED26B2F26400219FD3 /* JoinScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73C51EC26B2F26400219FD3 /* JoinScrollView.swift */; };
+		B73C51EF26B2F40200219FD3 /* JoinHeadLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73C51EE26B2F40200219FD3 /* JoinHeadLabelView.swift */; };
+		B73C51F126B2F72500219FD3 /* JoinBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73C51F026B2F72500219FD3 /* JoinBackgroundView.swift */; };
 		B7438BEE26B1E33D00EBE6A1 /* UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7438BED26B1E33D00EBE6A1 /* UICollectionView.swift */; };
 		B74B0773269DC0B9001816E9 /* IntroController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74B0772269DC0B9001816E9 /* IntroController.swift */; };
 		B74B0775269DC6B8001816E9 /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74B0774269DC6B8001816E9 /* SignUpController.swift */; };
@@ -42,6 +47,11 @@
 		06956C7A3660E21B923080F8 /* Pods-Pins.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pins.release.xcconfig"; path = "Target Support Files/Pods-Pins/Pods-Pins.release.xcconfig"; sourceTree = "<group>"; };
 		894D86B83D6538419804C4BD /* Pods_Pins.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pins.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B739F7F226AEE85A002FD1A5 /* PromiseCardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromiseCardModel.swift; sourceTree = "<group>"; };
+		B73C51E826B2EB1D00219FD3 /* JoinCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinCardView.swift; sourceTree = "<group>"; };
+		B73C51EA26B2EBE500219FD3 /* JoinCardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinCardModel.swift; sourceTree = "<group>"; };
+		B73C51EC26B2F26400219FD3 /* JoinScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinScrollView.swift; sourceTree = "<group>"; };
+		B73C51EE26B2F40200219FD3 /* JoinHeadLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinHeadLabelView.swift; sourceTree = "<group>"; };
+		B73C51F026B2F72500219FD3 /* JoinBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinBackgroundView.swift; sourceTree = "<group>"; };
 		B7438BED26B1E33D00EBE6A1 /* UICollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionView.swift; sourceTree = "<group>"; };
 		B74B0772269DC0B9001816E9 /* IntroController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroController.swift; sourceTree = "<group>"; };
 		B74B0774269DC6B8001816E9 /* SignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
@@ -103,9 +113,21 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		B73C51E726B2EA2D00219FD3 /* JoinCard */ = {
+			isa = PBXGroup;
+			children = (
+				B73C51E826B2EB1D00219FD3 /* JoinCardView.swift */,
+				B73C51EC26B2F26400219FD3 /* JoinScrollView.swift */,
+				B73C51EE26B2F40200219FD3 /* JoinHeadLabelView.swift */,
+				B73C51F026B2F72500219FD3 /* JoinBackgroundView.swift */,
+			);
+			path = JoinCard;
+			sourceTree = "<group>";
+		};
 		B792C92026B1A3D400DC7339 /* HomeView */ = {
 			isa = PBXGroup;
 			children = (
+				B73C51E726B2EA2D00219FD3 /* JoinCard */,
 				B792C92D26B1B19F00DC7339 /* Banner */,
 				B792C92126B1A41A00DC7339 /* PromiseCard */,
 				B7E48A7126A3162000650BA9 /* MainViewController.swift */,
@@ -163,6 +185,7 @@
 				B7E60DE926A9AFA200ECD359 /* BannerImageModel.swift */,
 				B7E60DED26A9B67700ECD359 /* BannerCtrlBtnModel.swift */,
 				B739F7F226AEE85A002FD1A5 /* PromiseCardModel.swift */,
+				B73C51EA26B2EBE500219FD3 /* JoinCardModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -342,11 +365,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				B7E48A7426A31B6300650BA9 /* BannerCell.swift in Sources */,
+				B73C51ED26B2F26400219FD3 /* JoinScrollView.swift in Sources */,
 				B739F7F326AEE85A002FD1A5 /* PromiseCardModel.swift in Sources */,
 				B7E60DEE26A9B67700ECD359 /* BannerCtrlBtnModel.swift in Sources */,
 				B74B0775269DC6B8001816E9 /* SignUpController.swift in Sources */,
 				B7E60DEA26A9AFA200ECD359 /* BannerImageModel.swift in Sources */,
+				B73C51F126B2F72500219FD3 /* JoinBackgroundView.swift in Sources */,
 				B792C92C26B1AC0800DC7339 /* PromiseCardView.swift in Sources */,
+				B73C51EB26B2EBE500219FD3 /* JoinCardModel.swift in Sources */,
 				B74B0773269DC0B9001816E9 /* IntroController.swift in Sources */,
 				B7E48A7226A3162000650BA9 /* MainViewController.swift in Sources */,
 				B792C92A26B1AB6900DC7339 /* PromiseCardTimeView.swift in Sources */,
@@ -355,9 +381,11 @@
 				B792C92526B1A96C00DC7339 /* PromiseCardTagView.swift in Sources */,
 				B7E7AD372693307700E1CF93 /* AppDelegate.swift in Sources */,
 				B792C93126B1B28F00DC7339 /* PromiseScrollView.swift in Sources */,
+				B73C51E926B2EB1D00219FD3 /* JoinCardView.swift in Sources */,
 				B7E7AD392693307700E1CF93 /* SceneDelegate.swift in Sources */,
 				B792C93526B1BDF900DC7339 /* BannerCtrlBtnView.swift in Sources */,
 				B792C92726B1AA3100DC7339 /* PromiseCardThumbnailView.swift in Sources */,
+				B73C51EF26B2F40200219FD3 /* JoinHeadLabelView.swift in Sources */,
 				B7E60DEC26A9B0D700ECD359 /* MainViewModel.swift in Sources */,
 				B792C92326B1A44A00DC7339 /* PromiseCardTitleView.swift in Sources */,
 			);
