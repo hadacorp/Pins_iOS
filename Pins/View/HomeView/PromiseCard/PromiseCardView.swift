@@ -46,7 +46,7 @@ class PromiseCardView {
         }
         
         background.backgroundColor = .white
-        background.layer.cornerRadius = 8
+        background.layer.cornerRadius = 16
         background.layer.applySketchShadow(color: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), alpha: 0.08, x: 0, y: 8, blur: 16, spread: 0)
     }
 }
