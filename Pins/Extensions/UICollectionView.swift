@@ -72,13 +72,16 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     //컬렉션뷰 감속 끝났을 때 현재 페이지 체크
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        // 직접 스크롤 했을 때 포지션 세팅
-        positionSetting()
-        // 직접 스크롤 했을 때 페이지 세팅
-        nowPage = Int(scrollView.contentOffset.x) / Int(scrollView.frame.width)
-        nowPage = nowPage % viewModel.numOfBannerImageList
-        // 스크롤로 변경했을 때 버튼 변경
-        changeBannerCtrlBtnColor()
+        if scrollView == mainViewBanner{
+            
+            // 직접 스크롤 했을 때 포지션 세팅
+            positionSetting()
+            // 직접 스크롤 했을 때 페이지 세팅
+            nowPage = Int(scrollView.contentOffset.x) / Int(scrollView.frame.width)
+            nowPage = nowPage % viewModel.numOfBannerImageList
+            // 스크롤로 변경했을 때 버튼 변경
+            changeBannerCtrlBtnColor()
+        }
     }
 }
 
