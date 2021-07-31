@@ -23,6 +23,7 @@
 		B759564B26ADAC9A005710D3 /* NotoSansKR-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = B759564526ADAC99005710D3 /* NotoSansKR-Thin.otf */; };
 		B759564C26ADAC9A005710D3 /* NotoSansKR-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = B759564626ADAC99005710D3 /* NotoSansKR-Light.otf */; };
 		B759564D26ADAC9A005710D3 /* NotoSansKR-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = B759564726ADAC9A005710D3 /* NotoSansKR-Bold.otf */; };
+		B774A04826B5AB2B008D839C /* UIScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B774A04726B5AB2B008D839C /* UIScrollView.swift */; };
 		B792C92326B1A44A00DC7339 /* PromiseCardTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B792C92226B1A44A00DC7339 /* PromiseCardTitleView.swift */; };
 		B792C92526B1A96C00DC7339 /* PromiseCardTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B792C92426B1A96C00DC7339 /* PromiseCardTagView.swift */; };
 		B792C92726B1AA3100DC7339 /* PromiseCardThumbnailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B792C92626B1AA3100DC7339 /* PromiseCardThumbnailView.swift */; };
@@ -61,6 +62,7 @@
 		B759564526ADAC99005710D3 /* NotoSansKR-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Thin.otf"; sourceTree = "<group>"; };
 		B759564626ADAC99005710D3 /* NotoSansKR-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Light.otf"; sourceTree = "<group>"; };
 		B759564726ADAC9A005710D3 /* NotoSansKR-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Bold.otf"; sourceTree = "<group>"; };
+		B774A04726B5AB2B008D839C /* UIScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScrollView.swift; sourceTree = "<group>"; };
 		B792C92226B1A44A00DC7339 /* PromiseCardTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromiseCardTitleView.swift; sourceTree = "<group>"; };
 		B792C92426B1A96C00DC7339 /* PromiseCardTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromiseCardTagView.swift; sourceTree = "<group>"; };
 		B792C92626B1AA3100DC7339 /* PromiseCardThumbnailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromiseCardThumbnailView.swift; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 			children = (
 				B792C93226B1BA3700DC7339 /* CALayer.swift */,
 				B7438BED26B1E33D00EBE6A1 /* UICollectionView.swift */,
+				B774A04726B5AB2B008D839C /* UIScrollView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -374,6 +377,7 @@
 				B792C92C26B1AC0800DC7339 /* PromiseCardView.swift in Sources */,
 				B73C51EB26B2EBE500219FD3 /* JoinCardModel.swift in Sources */,
 				B74B0773269DC0B9001816E9 /* IntroController.swift in Sources */,
+				B774A04826B5AB2B008D839C /* UIScrollView.swift in Sources */,
 				B7E48A7226A3162000650BA9 /* MainViewController.swift in Sources */,
 				B792C92A26B1AB6900DC7339 /* PromiseCardTimeView.swift in Sources */,
 				B792C93326B1BA3700DC7339 /* CALayer.swift in Sources */,

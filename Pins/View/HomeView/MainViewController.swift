@@ -6,6 +6,7 @@ class MainViewController: UIViewController {
     
     // MARK:- @IBOutlet Properties
     // 메인 뷰 배너 아울렛
+    @IBOutlet weak var parentView: UIScrollView!
     @IBOutlet weak var mainViewBanner: UICollectionView!
     // MARK:- Public Properties
     // 뷰 모델 초기화
@@ -42,7 +43,7 @@ class MainViewController: UIViewController {
         // 델리게이트와 데이터 소스를 어디서 처리할 것인지 작성
         mainViewBanner.delegate = self
         mainViewBanner.dataSource = self
-        view.addSubview(mainViewBanner)
+        parentView.addSubview(mainViewBanner)
         bannerTimer()
     }
     
@@ -54,13 +55,13 @@ class MainViewController: UIViewController {
     // MARK:- Promise func
     // 약속 카드 스크롤 뷰 동적 생성
     func initCardScrollView(){
-        promiseScrollView.initial(view: self.view, parent: mainViewBanner, width: viewModel.numOfPromiseCardList * 172 + 16, cardList: viewModel.promiseCardList)
+        promiseScrollView.initial(view: self.parentView, parent: mainViewBanner, width: viewModel.numOfPromiseCardList * 172 + 16, cardList: viewModel.promiseCardList)
     }
     
     // MARK:- Join func
     func initJoinScrollView(){
         scrollView.delegate = self
         let width = UIScreen.main.bounds.width - 32
-        joinScrollView.initial(scrollView: scrollView, parent: self.view, constraint: promiseScrollView.scrollView, width: viewModel.numOfJoinCardList * Int(width) + 32 + ((viewModel.numOfJoinCardList - 1) * Int(width)), cardList: viewModel.joinCardList)
+        joinScrollView.initial(scrollView: scrollView, parent: self.parentView, constraint: promiseScrollView.scrollView, width: viewModel.numOfJoinCardList * Int(width) + 32 + ((viewModel.numOfJoinCardList - 1) * Int(width)), cardList: viewModel.joinCardList)
     }
 }
