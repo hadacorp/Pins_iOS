@@ -17,73 +17,78 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pins" translatesAutoresizingMaskIntoConstraints="NO" id="Vwr-18-Zhc">
-                                <rect key="frame" x="173.5" y="49" width="67" height="35"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="67" id="HwZ-Wz-tCR"/>
-                                    <constraint firstAttribute="height" constant="35" id="ab5-DJ-2vy"/>
-                                </constraints>
-                            </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="buttonNotice0" translatesAutoresizingMaskIntoConstraints="NO" id="JrF-86-XF8">
-                                <rect key="frame" x="364" y="44" width="48" height="48"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="48" id="B1S-da-QvY"/>
-                                    <constraint firstAttribute="height" constant="48" id="Z2E-IW-sS8"/>
-                                </constraints>
-                            </imageView>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" restorationIdentifier="BannerCell" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Yif-MG-WvM" userLabel="main View Banner">
-                                <rect key="frame" x="0.0" y="92" width="414" height="259"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="Yif-MG-WvM" secondAttribute="height" multiplier="1.6:1" id="r6t-I0-9tv"/>
-                                </constraints>
-                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="oNj-hj-FCz">
-                                    <size key="itemSize" width="199" height="131"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" reuseIdentifier="BannerCell" id="CSJ-wV-SyV" customClass="BannerCell" customModule="Pins">
-                                        <rect key="frame" x="0.0" y="64" width="199" height="131"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="199" height="131"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fDL-e8-SDd" userLabel="banner Image View">
-                                                    <rect key="frame" x="0.0" y="0.0" width="199" height="131"/>
-                                                </imageView>
-                                            </subviews>
-                                        </view>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uir-ng-4H4">
+                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pins" translatesAutoresizingMaskIntoConstraints="NO" id="Vwr-18-Zhc">
+                                        <rect key="frame" x="173.5" y="5" width="67" height="35"/>
                                         <constraints>
-                                            <constraint firstItem="fDL-e8-SDd" firstAttribute="leading" secondItem="CSJ-wV-SyV" secondAttribute="leading" id="1GI-bA-tz1"/>
-                                            <constraint firstItem="fDL-e8-SDd" firstAttribute="top" secondItem="CSJ-wV-SyV" secondAttribute="top" id="ZGs-Aa-pue"/>
-                                            <constraint firstAttribute="bottom" secondItem="fDL-e8-SDd" secondAttribute="bottom" id="qeJ-hi-DKV"/>
-                                            <constraint firstAttribute="trailing" secondItem="fDL-e8-SDd" secondAttribute="trailing" id="wvj-zY-7xZ"/>
+                                            <constraint firstAttribute="width" constant="67" id="HwZ-Wz-tCR"/>
+                                            <constraint firstAttribute="height" constant="35" id="ab5-DJ-2vy"/>
                                         </constraints>
-                                        <size key="customSize" width="199" height="131"/>
-                                        <connections>
-                                            <outlet property="imageView" destination="fDL-e8-SDd" id="fPW-nQ-YLB"/>
-                                        </connections>
-                                    </collectionViewCell>
-                                </cells>
-                            </collectionView>
+                                    </imageView>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" restorationIdentifier="BannerCell" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Yif-MG-WvM" userLabel="main View Banner">
+                                        <rect key="frame" x="0.0" y="48" width="414" height="259"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="Yif-MG-WvM" secondAttribute="height" multiplier="1.6:1" id="r6t-I0-9tv"/>
+                                        </constraints>
+                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="oNj-hj-FCz">
+                                            <size key="itemSize" width="412" height="242"/>
+                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        </collectionViewFlowLayout>
+                                        <cells>
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" reuseIdentifier="BannerCell" id="CSJ-wV-SyV" customClass="BannerCell" customModule="Pins">
+                                                <rect key="frame" x="0.0" y="8.5" width="412" height="242"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                                    <rect key="frame" x="0.0" y="0.0" width="412" height="242"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fDL-e8-SDd" userLabel="banner Image View">
+                                                            <rect key="frame" x="0.0" y="0.0" width="412" height="242"/>
+                                                        </imageView>
+                                                    </subviews>
+                                                </view>
+                                                <constraints>
+                                                    <constraint firstItem="fDL-e8-SDd" firstAttribute="leading" secondItem="CSJ-wV-SyV" secondAttribute="leading" id="1GI-bA-tz1"/>
+                                                    <constraint firstItem="fDL-e8-SDd" firstAttribute="top" secondItem="CSJ-wV-SyV" secondAttribute="top" id="ZGs-Aa-pue"/>
+                                                    <constraint firstAttribute="bottom" secondItem="fDL-e8-SDd" secondAttribute="bottom" id="qeJ-hi-DKV"/>
+                                                    <constraint firstAttribute="trailing" secondItem="fDL-e8-SDd" secondAttribute="trailing" id="wvj-zY-7xZ"/>
+                                                </constraints>
+                                                <size key="customSize" width="412" height="242"/>
+                                                <connections>
+                                                    <outlet property="imageView" destination="fDL-e8-SDd" id="fPW-nQ-YLB"/>
+                                                </connections>
+                                            </collectionViewCell>
+                                        </cells>
+                                    </collectionView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="Vwr-18-Zhc" firstAttribute="centerX" secondItem="uir-ng-4H4" secondAttribute="centerX" id="GkO-hk-MHm"/>
+                                    <constraint firstItem="Yif-MG-WvM" firstAttribute="centerX" secondItem="Vwr-18-Zhc" secondAttribute="centerX" id="RfR-jc-hI1"/>
+                                    <constraint firstAttribute="bottom" secondItem="Yif-MG-WvM" secondAttribute="bottom" constant="511" id="UI3-dY-DNo"/>
+                                    <constraint firstItem="Yif-MG-WvM" firstAttribute="leading" secondItem="uir-ng-4H4" secondAttribute="leading" id="aDz-ix-qBc"/>
+                                    <constraint firstItem="Yif-MG-WvM" firstAttribute="top" secondItem="uir-ng-4H4" secondAttribute="top" constant="48" id="cPZ-uc-Yjt"/>
+                                    <constraint firstAttribute="trailing" secondItem="Yif-MG-WvM" secondAttribute="trailing" id="cuM-N7-KM8"/>
+                                    <constraint firstItem="Vwr-18-Zhc" firstAttribute="top" secondItem="uir-ng-4H4" secondAttribute="top" constant="5" id="xfr-eg-Akn"/>
+                                </constraints>
+                            </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Vwr-18-Zhc" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="5" id="HZB-EI-DPs"/>
-                            <constraint firstItem="Yif-MG-WvM" firstAttribute="top" secondItem="Vwr-18-Zhc" secondAttribute="bottom" constant="8" id="IIG-BO-WNL"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Yif-MG-WvM" secondAttribute="trailing" id="PGR-9b-WGn"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="top" secondItem="JrF-86-XF8" secondAttribute="top" id="Y7t-hn-JQ1"/>
-                            <constraint firstItem="Yif-MG-WvM" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="bez-7t-O0z"/>
-                            <constraint firstItem="JrF-86-XF8" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="-2" id="mFo-JQ-KpS"/>
-                            <constraint firstItem="Vwr-18-Zhc" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="p42-20-iwn"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="uir-ng-4H4" secondAttribute="bottom" constant="-34" id="S8L-5F-cPV"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="uir-ng-4H4" secondAttribute="trailing" id="Y2g-Xg-IcD"/>
+                            <constraint firstItem="uir-ng-4H4" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="tag-fA-e6y"/>
+                            <constraint firstItem="uir-ng-4H4" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="xlM-9X-8b3"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="mainViewBanner" destination="Yif-MG-WvM" id="Kfh-oQ-Ptz"/>
+                        <outlet property="parentView" destination="uir-ng-4H4" id="0q1-c1-z9B"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -180,7 +185,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="buttonNotice0" width="48" height="48"/>
         <image name="pins" width="68" height="35"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
