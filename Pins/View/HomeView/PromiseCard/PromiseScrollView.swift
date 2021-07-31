@@ -16,7 +16,6 @@ class PromiseScrollView {
     func initial(view: UIView, parent: UIView, width: Int, cardList: [PromiseCardModel]){
         view.addSubview(promiseArea)
         promiseArea.snp.makeConstraints { (area) in
-            print(parent.frame.height)
             area.bottom.equalTo(parent).offset(296)
             area.height.equalTo(296)
             area.width.equalTo(view)

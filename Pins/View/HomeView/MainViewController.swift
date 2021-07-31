@@ -15,14 +15,19 @@ class MainViewController: UIViewController {
     public var bannerWidth = UIScreen.main.bounds.width;
     // 메인 뷰 배너 페이지 카운트
     public var nowPage: Int = 0
-    
+    // 메인 뷰 참가한 카드 스크롤 뷰
     public let scrollView = UIScrollView()
+    // 참가 신청한 핀 extension에서 방향 정해주기
+    public var vector = 0
+    // 참가 신청한 배너 페이지 카운트
+    public var joinPage: Int = 0
+    
     // MARK:- Private Views
     // 메인 뷰 약속 스크롤 뷰
     private let promiseScrollView = PromiseScrollView()
     // 메인 뷰 배너 컨트롤 버튼
     private let bannerCtrlBtnView = BannerCtrlBtnView()
-    // 메인 뷰 참가 신청 스크롤 뷰
+    // 메인 뷰 참가한 카드 컨텐츠
     private let joinScrollView = JoinScrollView()
     // MARK:- Functions
     override func viewDidLoad() {
@@ -35,6 +40,7 @@ class MainViewController: UIViewController {
         initCardScrollView()
         // 참가 신청 스크롤 뷰 init 적용
         initJoinScrollView()
+        
     }
     
     // MARK:- Banner func
@@ -61,7 +67,8 @@ class MainViewController: UIViewController {
     // MARK:- Join func
     func initJoinScrollView(){
         scrollView.delegate = self
-        let width = UIScreen.main.bounds.width - 32
-        joinScrollView.initial(scrollView: scrollView, parent: self.parentView, constraint: promiseScrollView.scrollView, width: viewModel.numOfJoinCardList * Int(width) + 32 + ((viewModel.numOfJoinCardList - 1) * Int(width)), cardList: viewModel.joinCardList)
+        let width = view.frame.width - 32
+        print(width)
+        joinScrollView.initial(scrollView: scrollView, parent: self.parentView, constraint: promiseScrollView.scrollView, width: viewModel.numOfJoinCardList * Int(width) + 8 * (viewModel.numOfJoinCardList - 1) + 32, cardList: viewModel.joinCardList)
     }
 }

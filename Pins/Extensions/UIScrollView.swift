@@ -7,30 +7,44 @@
 import UIKit
 
 extension MainViewController{
-    func simillerValue() -> Int{
+    
+    func simillerValue() -> [Int]{
         var array: [Int] = []
         for i in 0 ..< viewModel.joinCardList.count{
             array.append((Int(UIScreen.main.bounds.width - 24) * i))
         }
-        var less = Int.max
-        var goal = 0
-        for i in 0 ..< array.count{
-            let value = abs(Int(scrollView.contentOffset.x) - array[i])
-            if less > value{
-                less = value
-                goal = array[i]
-            }
-        }
-        return goal
+        return array
     }
     
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if(scrollView == self.scrollView && scrollView.isDecelerating == true){
-            let goal = simillerValue()
-            UIView.animate(withDuration: 0.5) {
-                print("anime to" + String(goal))
-                scrollView.scrollRectToVisible(CGRect(x: CGFloat(goal), y: 0, width: scrollView.bounds.size.width, height: scrollView.bounds.size.height), animated: false)
+    func scroll(){
+        DispatchQueue.main.async{
+            let goal = self.simillerValue()
+            UIView.animate(withDuration: 2) {
+                self.scrollView.setContentOffset(CGPoint(x: goal[self.joinPage], y: 0), animated: true)
             }
+        }
+    }
+    
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        if(scrollView == self.scrollView){
+            vector = vector - Int(scrollView.contentOffset.x)
+            if(vector < -40 && joinPage < viewModel.joinCardList.count - 1){
+                joinPage += 1
+                scroll()
+            }
+            if(vector > 40 && joinPage > 0){
+                joinPage -= 1
+                scroll()
+            }
+            else{
+                scroll()
+            }
+        }
+    }
+    
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        if(scrollView == self.scrollView){
+            vector = Int(scrollView.contentOffset.x)
         }
     }
 }
