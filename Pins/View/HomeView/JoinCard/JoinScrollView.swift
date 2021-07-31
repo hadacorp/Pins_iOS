@@ -17,7 +17,7 @@ class JoinScrollView{
     func initial(scrollView: UIScrollView, parent: UIView, constraint: UIView, width: Int, cardList: [JoinCardModel]){
         joinBackgroundView.initial(parent: parent, constraint: constraint)
         joinCardView.initial(cardList: cardList, scrollView: scrollView)
-        
+        print(width)
         joinBackgroundView.background.addSubview(scrollView)
         scrollView.snp.makeConstraints { (scroll) in
             scroll.top.equalTo(joinBackgroundView.background).offset(40)
@@ -25,7 +25,6 @@ class JoinScrollView{
             scroll.width.equalTo(parent)
             scroll.centerX.equalTo(parent)
         }
-        print(width)
         scrollView.contentSize = CGSize(width: width, height: 100)
         scrollView.showsHorizontalScrollIndicator = false
     }
