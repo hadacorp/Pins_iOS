@@ -11,7 +11,7 @@ import SnapKit
 class PromiseCardTitleView {
     func initial(card: PromiseCardModel, background: UIView){
         card.title.snp.makeConstraints { (title) in
-            title.width.equalTo(148)
+            title.width.equalTo(132)
             title.height.equalTo(60)
             title.top.equalTo(99)
             title.centerX.equalTo(background)

@@ -11,8 +11,8 @@ import SnapKit
 class PromiseCardTagView {
     func initial(card: PromiseCardModel, background: UIView){
         card.tag.snp.makeConstraints { (tag) in
-            tag.leading.equalTo(30)
-            tag.top.equalTo(6)
+            tag.leading.equalTo(32)
+            tag.top.equalTo(8)
         }
         card.tag.textColor = #colorLiteral(red: 0.0431372549, green: 0.6392156863, blue: 0.8705882353, alpha: 1)
         card.tag.font = UIFont(name: "NotoSansKR-Regular", size: 13)
