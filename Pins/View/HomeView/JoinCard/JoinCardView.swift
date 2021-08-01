@@ -9,12 +9,21 @@ import UIKit
 
 class JoinCardView {
     // 참가 신청 핀 안에 있는 요소들
+    let joinCardTagView = JoinCardTagView()
+    let joinCardTitleView = JoinCardTitleView()
+    let joinCardTimeView = JoinCardTimeView()
+    let joinCardThumbnail = JoinCardThumbnailView()
     
     func initial(cardList: [JoinCardModel], scrollView: UIScrollView){
         // 요소 초기화
         for i in 0 ..< cardList.count{
             let background = UIView()
             addSubViewToScrollView(card: cardList[i], scrollView: scrollView, index: i, background: background)
+            
+            joinCardTagView.initial(card: cardList[i], background: background)
+            joinCardTitleView.initial(card: cardList[i], background: background)
+            joinCardTimeView.initial(card: cardList[i], background: background)
+            joinCardThumbnail.initial(card: cardList[i], background: background)
         }
     }
     
@@ -24,6 +33,10 @@ class JoinCardView {
         background.addSubview(card.simbolPin)
         
         scrollView.addSubview(background)
+        scrollView.addSubview(card.tag)
+        scrollView.addSubview(card.title)
+        scrollView.addSubview(card.time)
+        scrollView.addSubview(card.thumbnail)
         
         background.snp.makeConstraints { (bg) in
             bg.leading.equalTo(16 + (Int(width) + 8) * index)

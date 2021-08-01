@@ -16,7 +16,5 @@ class PromiseCardThumbnailView {
         }
         let maskView = UIImageView(image: UIImage(named: "profileMask"))
         card.thumbnail.mask = maskView
-//        card.thumbnail.layer.cornerRadius = 30
-//        card.thumbnail.clipsToBounds = true
     }
 }

@@ -29,6 +29,8 @@ class MainViewController: UIViewController {
     private let bannerCtrlBtnView = BannerCtrlBtnView()
     // 메인 뷰 참가한 카드 컨텐츠
     private let joinScrollView = JoinScrollView()
+    // 메인 뷰 알림 버튼 이미지
+    private let alarmImageView = AlarmImageView()
     // MARK:- Functions
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,9 +42,14 @@ class MainViewController: UIViewController {
         initCardScrollView()
         // 참가 신청 스크롤 뷰 init 적용
         initJoinScrollView()
-        
+        // 알림 버튼 이미지 init 적용
+        initAlarmImageView()
     }
     
+    // MARK:- Header func
+    func initAlarmImageView(){
+        alarmImageView.initial(parent: parentView)
+    }
     // MARK:- Banner func
     // 배너 init
     func initBannerCollectionView(){
