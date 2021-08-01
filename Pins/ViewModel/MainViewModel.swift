@@ -31,7 +31,7 @@ class MainViewModel {
     func initJoinCardList(){
         for _ in 0 ..< 5 {
             let card = JoinCardModel(tag: "등산/캠핑", thumbnail: UIImageView(image: #imageLiteral(resourceName: "park")), title: "주말 광교산 등산 모집!!", time: "7/20 화요일 14:00", rule: "남자만 8/9")
-            
+            card.simbolPin.frame = CGRect(x: 8, y: 6, width: 20, height: 20)
             joinCardList.append(card)
         }
     }

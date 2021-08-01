@@ -23,6 +23,12 @@
 		B759564B26ADAC9A005710D3 /* NotoSansKR-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = B759564526ADAC99005710D3 /* NotoSansKR-Thin.otf */; };
 		B759564C26ADAC9A005710D3 /* NotoSansKR-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = B759564626ADAC99005710D3 /* NotoSansKR-Light.otf */; };
 		B759564D26ADAC9A005710D3 /* NotoSansKR-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = B759564726ADAC9A005710D3 /* NotoSansKR-Bold.otf */; };
+		B7628F2C26B6A64600CA4B54 /* AlarmImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7628F2B26B6A64600CA4B54 /* AlarmImageView.swift */; };
+		B7628F2E26B6E6FA00CA4B54 /* JoinCardTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7628F2D26B6E6FA00CA4B54 /* JoinCardTagView.swift */; };
+		B7628F3026B6E91700CA4B54 /* JoinCardTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7628F2F26B6E91700CA4B54 /* JoinCardTitleView.swift */; };
+		B7628F3226B6EAC500CA4B54 /* JoinCardTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7628F3126B6EAC500CA4B54 /* JoinCardTimeView.swift */; };
+		B7628F3426B6EEFE00CA4B54 /* JoinCardThumbnailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7628F3326B6EEFE00CA4B54 /* JoinCardThumbnailView.swift */; };
+		B7628F3626B6F1A300CA4B54 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7628F3526B6F1A300CA4B54 /* UIImage.swift */; };
 		B774A04826B5AB2B008D839C /* UIScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B774A04726B5AB2B008D839C /* UIScrollView.swift */; };
 		B792C92326B1A44A00DC7339 /* PromiseCardTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B792C92226B1A44A00DC7339 /* PromiseCardTitleView.swift */; };
 		B792C92526B1A96C00DC7339 /* PromiseCardTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B792C92426B1A96C00DC7339 /* PromiseCardTagView.swift */; };
@@ -62,6 +68,12 @@
 		B759564526ADAC99005710D3 /* NotoSansKR-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Thin.otf"; sourceTree = "<group>"; };
 		B759564626ADAC99005710D3 /* NotoSansKR-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Light.otf"; sourceTree = "<group>"; };
 		B759564726ADAC9A005710D3 /* NotoSansKR-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Bold.otf"; sourceTree = "<group>"; };
+		B7628F2B26B6A64600CA4B54 /* AlarmImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmImageView.swift; sourceTree = "<group>"; };
+		B7628F2D26B6E6FA00CA4B54 /* JoinCardTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinCardTagView.swift; sourceTree = "<group>"; };
+		B7628F2F26B6E91700CA4B54 /* JoinCardTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinCardTitleView.swift; sourceTree = "<group>"; };
+		B7628F3126B6EAC500CA4B54 /* JoinCardTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinCardTimeView.swift; sourceTree = "<group>"; };
+		B7628F3326B6EEFE00CA4B54 /* JoinCardThumbnailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinCardThumbnailView.swift; sourceTree = "<group>"; };
+		B7628F3526B6F1A300CA4B54 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		B774A04726B5AB2B008D839C /* UIScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScrollView.swift; sourceTree = "<group>"; };
 		B792C92226B1A44A00DC7339 /* PromiseCardTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromiseCardTitleView.swift; sourceTree = "<group>"; };
 		B792C92426B1A96C00DC7339 /* PromiseCardTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromiseCardTagView.swift; sourceTree = "<group>"; };
@@ -122,13 +134,26 @@
 				B73C51EC26B2F26400219FD3 /* JoinScrollView.swift */,
 				B73C51EE26B2F40200219FD3 /* JoinHeadLabelView.swift */,
 				B73C51F026B2F72500219FD3 /* JoinBackgroundView.swift */,
+				B7628F2D26B6E6FA00CA4B54 /* JoinCardTagView.swift */,
+				B7628F2F26B6E91700CA4B54 /* JoinCardTitleView.swift */,
+				B7628F3126B6EAC500CA4B54 /* JoinCardTimeView.swift */,
+				B7628F3326B6EEFE00CA4B54 /* JoinCardThumbnailView.swift */,
 			);
 			path = JoinCard;
+			sourceTree = "<group>";
+		};
+		B7628F2A26B6A61600CA4B54 /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				B7628F2B26B6A64600CA4B54 /* AlarmImageView.swift */,
+			);
+			path = Header;
 			sourceTree = "<group>";
 		};
 		B792C92026B1A3D400DC7339 /* HomeView */ = {
 			isa = PBXGroup;
 			children = (
+				B7628F2A26B6A61600CA4B54 /* Header */,
 				B73C51E726B2EA2D00219FD3 /* JoinCard */,
 				B792C92D26B1B19F00DC7339 /* Banner */,
 				B792C92126B1A41A00DC7339 /* PromiseCard */,
@@ -156,6 +181,7 @@
 				B792C93226B1BA3700DC7339 /* CALayer.swift */,
 				B7438BED26B1E33D00EBE6A1 /* UICollectionView.swift */,
 				B774A04726B5AB2B008D839C /* UIScrollView.swift */,
+				B7628F3526B6F1A300CA4B54 /* UIImage.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -380,16 +406,22 @@
 				B774A04826B5AB2B008D839C /* UIScrollView.swift in Sources */,
 				B7E48A7226A3162000650BA9 /* MainViewController.swift in Sources */,
 				B792C92A26B1AB6900DC7339 /* PromiseCardTimeView.swift in Sources */,
+				B7628F3626B6F1A300CA4B54 /* UIImage.swift in Sources */,
 				B792C93326B1BA3700DC7339 /* CALayer.swift in Sources */,
 				B7438BEE26B1E33D00EBE6A1 /* UICollectionView.swift in Sources */,
+				B7628F3426B6EEFE00CA4B54 /* JoinCardThumbnailView.swift in Sources */,
 				B792C92526B1A96C00DC7339 /* PromiseCardTagView.swift in Sources */,
 				B7E7AD372693307700E1CF93 /* AppDelegate.swift in Sources */,
+				B7628F3226B6EAC500CA4B54 /* JoinCardTimeView.swift in Sources */,
 				B792C93126B1B28F00DC7339 /* PromiseScrollView.swift in Sources */,
+				B7628F2C26B6A64600CA4B54 /* AlarmImageView.swift in Sources */,
 				B73C51E926B2EB1D00219FD3 /* JoinCardView.swift in Sources */,
+				B7628F2E26B6E6FA00CA4B54 /* JoinCardTagView.swift in Sources */,
 				B7E7AD392693307700E1CF93 /* SceneDelegate.swift in Sources */,
 				B792C93526B1BDF900DC7339 /* BannerCtrlBtnView.swift in Sources */,
 				B792C92726B1AA3100DC7339 /* PromiseCardThumbnailView.swift in Sources */,
 				B73C51EF26B2F40200219FD3 /* JoinHeadLabelView.swift in Sources */,
+				B7628F3026B6E91700CA4B54 /* JoinCardTitleView.swift in Sources */,
 				B7E60DEC26A9B0D700ECD359 /* MainViewModel.swift in Sources */,
 				B792C92326B1A44A00DC7339 /* PromiseCardTitleView.swift in Sources */,
 			);
