@@ -39,6 +39,10 @@
 		B792C93326B1BA3700DC7339 /* CALayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B792C93226B1BA3700DC7339 /* CALayer.swift */; };
 		B792C93526B1BDF900DC7339 /* BannerCtrlBtnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B792C93426B1BDF900DC7339 /* BannerCtrlBtnView.swift */; };
 		B7C55D3726B848E9005DAEA9 /* JoinCardRuleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C55D3626B848E9005DAEA9 /* JoinCardRuleView.swift */; };
+		B7C55D3B26B85415005DAEA9 /* MyPinBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C55D3A26B85415005DAEA9 /* MyPinBackgroundView.swift */; };
+		B7C55D3D26B854DA005DAEA9 /* MyPinCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C55D3C26B854DA005DAEA9 /* MyPinCardView.swift */; };
+		B7C55D3F26B85A98005DAEA9 /* MyPinHeadLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C55D3E26B85A98005DAEA9 /* MyPinHeadLabelView.swift */; };
+		B7C55D4126B85C41005DAEA9 /* MyPinBtnAllView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C55D4026B85C41005DAEA9 /* MyPinBtnAllView.swift */; };
 		B7E48A7226A3162000650BA9 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E48A7126A3162000650BA9 /* MainViewController.swift */; };
 		B7E48A7426A31B6300650BA9 /* BannerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E48A7326A31B6300650BA9 /* BannerCell.swift */; };
 		B7E60DEA26A9AFA200ECD359 /* BannerImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E60DE926A9AFA200ECD359 /* BannerImageModel.swift */; };
@@ -85,6 +89,10 @@
 		B792C93226B1BA3700DC7339 /* CALayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CALayer.swift; sourceTree = "<group>"; };
 		B792C93426B1BDF900DC7339 /* BannerCtrlBtnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerCtrlBtnView.swift; sourceTree = "<group>"; };
 		B7C55D3626B848E9005DAEA9 /* JoinCardRuleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinCardRuleView.swift; sourceTree = "<group>"; };
+		B7C55D3A26B85415005DAEA9 /* MyPinBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPinBackgroundView.swift; sourceTree = "<group>"; };
+		B7C55D3C26B854DA005DAEA9 /* MyPinCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPinCardView.swift; sourceTree = "<group>"; };
+		B7C55D3E26B85A98005DAEA9 /* MyPinHeadLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPinHeadLabelView.swift; sourceTree = "<group>"; };
+		B7C55D4026B85C41005DAEA9 /* MyPinBtnAllView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPinBtnAllView.swift; sourceTree = "<group>"; };
 		B7E48A7126A3162000650BA9 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		B7E48A7326A31B6300650BA9 /* BannerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerCell.swift; sourceTree = "<group>"; };
 		B7E60DE926A9AFA200ECD359 /* BannerImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerImageModel.swift; sourceTree = "<group>"; };
@@ -156,6 +164,7 @@
 		B792C92026B1A3D400DC7339 /* HomeView */ = {
 			isa = PBXGroup;
 			children = (
+				B7C55D3926B853E3005DAEA9 /* MyPinCard */,
 				B7628F2A26B6A61600CA4B54 /* Header */,
 				B73C51E726B2EA2D00219FD3 /* JoinCard */,
 				B792C92D26B1B19F00DC7339 /* Banner */,
@@ -195,6 +204,17 @@
 				B792C93426B1BDF900DC7339 /* BannerCtrlBtnView.swift */,
 			);
 			path = Banner;
+			sourceTree = "<group>";
+		};
+		B7C55D3926B853E3005DAEA9 /* MyPinCard */ = {
+			isa = PBXGroup;
+			children = (
+				B7C55D3A26B85415005DAEA9 /* MyPinBackgroundView.swift */,
+				B7C55D3C26B854DA005DAEA9 /* MyPinCardView.swift */,
+				B7C55D3E26B85A98005DAEA9 /* MyPinHeadLabelView.swift */,
+				B7C55D4026B85C41005DAEA9 /* MyPinBtnAllView.swift */,
+			);
+			path = MyPinCard;
 			sourceTree = "<group>";
 		};
 		B7C7CFEC269F4B1800843216 /* font */ = {
@@ -417,12 +437,16 @@
 				B792C92526B1A96C00DC7339 /* PromiseCardTagView.swift in Sources */,
 				B7E7AD372693307700E1CF93 /* AppDelegate.swift in Sources */,
 				B7628F3226B6EAC500CA4B54 /* JoinCardTimeView.swift in Sources */,
+				B7C55D3B26B85415005DAEA9 /* MyPinBackgroundView.swift in Sources */,
 				B792C93126B1B28F00DC7339 /* PromiseScrollView.swift in Sources */,
 				B7628F2C26B6A64600CA4B54 /* AlarmImageView.swift in Sources */,
 				B73C51E926B2EB1D00219FD3 /* JoinCardView.swift in Sources */,
+				B7C55D4126B85C41005DAEA9 /* MyPinBtnAllView.swift in Sources */,
 				B7628F2E26B6E6FA00CA4B54 /* JoinCardTagView.swift in Sources */,
+				B7C55D3D26B854DA005DAEA9 /* MyPinCardView.swift in Sources */,
 				B7E7AD392693307700E1CF93 /* SceneDelegate.swift in Sources */,
 				B792C93526B1BDF900DC7339 /* BannerCtrlBtnView.swift in Sources */,
+				B7C55D3F26B85A98005DAEA9 /* MyPinHeadLabelView.swift in Sources */,
 				B792C92726B1AA3100DC7339 /* PromiseCardThumbnailView.swift in Sources */,
 				B73C51EF26B2F40200219FD3 /* JoinHeadLabelView.swift in Sources */,
 				B7628F3026B6E91700CA4B54 /* JoinCardTitleView.swift in Sources */,
