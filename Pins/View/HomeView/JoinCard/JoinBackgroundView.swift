@@ -16,7 +16,7 @@ class JoinBackgroundView {
         parent.addSubview(background)
         
         background.snp.makeConstraints { (bg) in
-            bg.bottom.equalTo(constraint).offset(172)
+            bg.bottom.equalTo(constraint).offset(171)
             bg.leading.equalTo(0)
             bg.height.equalTo(172)
             bg.width.equalTo(constraint)

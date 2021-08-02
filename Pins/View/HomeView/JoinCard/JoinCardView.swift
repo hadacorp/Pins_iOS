@@ -13,6 +13,7 @@ class JoinCardView {
     let joinCardTitleView = JoinCardTitleView()
     let joinCardTimeView = JoinCardTimeView()
     let joinCardThumbnail = JoinCardThumbnailView()
+    let joinCardRule = JoinCardRuleView()
     
     func initial(cardList: [JoinCardModel], scrollView: UIScrollView){
         // 요소 초기화
@@ -24,6 +25,7 @@ class JoinCardView {
             joinCardTitleView.initial(card: cardList[i], background: background)
             joinCardTimeView.initial(card: cardList[i], background: background)
             joinCardThumbnail.initial(card: cardList[i], background: background)
+            joinCardRule.initial(card: cardList[i], background: background)
         }
     }
     
@@ -37,6 +39,7 @@ class JoinCardView {
         scrollView.addSubview(card.title)
         scrollView.addSubview(card.time)
         scrollView.addSubview(card.thumbnail)
+        scrollView.addSubview(card.rule)
         
         background.snp.makeConstraints { (bg) in
             bg.leading.equalTo(16 + (Int(width) + 8) * index)

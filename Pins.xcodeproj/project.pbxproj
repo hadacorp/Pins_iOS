@@ -38,6 +38,7 @@
 		B792C93126B1B28F00DC7339 /* PromiseScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B792C93026B1B28F00DC7339 /* PromiseScrollView.swift */; };
 		B792C93326B1BA3700DC7339 /* CALayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B792C93226B1BA3700DC7339 /* CALayer.swift */; };
 		B792C93526B1BDF900DC7339 /* BannerCtrlBtnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B792C93426B1BDF900DC7339 /* BannerCtrlBtnView.swift */; };
+		B7C55D3726B848E9005DAEA9 /* JoinCardRuleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C55D3626B848E9005DAEA9 /* JoinCardRuleView.swift */; };
 		B7E48A7226A3162000650BA9 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E48A7126A3162000650BA9 /* MainViewController.swift */; };
 		B7E48A7426A31B6300650BA9 /* BannerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E48A7326A31B6300650BA9 /* BannerCell.swift */; };
 		B7E60DEA26A9AFA200ECD359 /* BannerImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E60DE926A9AFA200ECD359 /* BannerImageModel.swift */; };
@@ -83,6 +84,7 @@
 		B792C93026B1B28F00DC7339 /* PromiseScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromiseScrollView.swift; sourceTree = "<group>"; };
 		B792C93226B1BA3700DC7339 /* CALayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CALayer.swift; sourceTree = "<group>"; };
 		B792C93426B1BDF900DC7339 /* BannerCtrlBtnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerCtrlBtnView.swift; sourceTree = "<group>"; };
+		B7C55D3626B848E9005DAEA9 /* JoinCardRuleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinCardRuleView.swift; sourceTree = "<group>"; };
 		B7E48A7126A3162000650BA9 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		B7E48A7326A31B6300650BA9 /* BannerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerCell.swift; sourceTree = "<group>"; };
 		B7E60DE926A9AFA200ECD359 /* BannerImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerImageModel.swift; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 				B7628F2F26B6E91700CA4B54 /* JoinCardTitleView.swift */,
 				B7628F3126B6EAC500CA4B54 /* JoinCardTimeView.swift */,
 				B7628F3326B6EEFE00CA4B54 /* JoinCardThumbnailView.swift */,
+				B7C55D3626B848E9005DAEA9 /* JoinCardRuleView.swift */,
 			);
 			path = JoinCard;
 			sourceTree = "<group>";
@@ -407,6 +410,7 @@
 				B7E48A7226A3162000650BA9 /* MainViewController.swift in Sources */,
 				B792C92A26B1AB6900DC7339 /* PromiseCardTimeView.swift in Sources */,
 				B7628F3626B6F1A300CA4B54 /* UIImage.swift in Sources */,
+				B7C55D3726B848E9005DAEA9 /* JoinCardRuleView.swift in Sources */,
 				B792C93326B1BA3700DC7339 /* CALayer.swift in Sources */,
 				B7438BEE26B1E33D00EBE6A1 /* UICollectionView.swift in Sources */,
 				B7628F3426B6EEFE00CA4B54 /* JoinCardThumbnailView.swift in Sources */,
