@@ -27,6 +27,12 @@ class MainViewModel {
     // 참가 신청한 핀
     var joinCardList: [JoinCardModel] = []
     
+    // 내가 찍은 핀
+    var myPinCardList: [MyPinCardModel] = []
+    
+    // 0: 모임핀, 1: 커뮤니티핀, 2: 이야기핀
+    let category: [Int] = [0, 1, 2]
+    
     // MARK:- Join func
     func initJoinCardList(){
         for _ in 0 ..< 5 {
@@ -52,6 +58,31 @@ class MainViewModel {
     
     var numOfPromiseCardList: Int{
         return promiseCardList.count
+    }
+    // MARK:- MyPin func
+    func initMyPinCardList(){
+        var card: MyPinCardModel? = nil
+        let comment = UILabel()
+        let like = UILabel()
+        comment.text = "7"
+        like.text = "37"
+        
+        for i in category {
+            if i == 0{
+                card = MyPinCardModel(simbol: UIImageView(image: #imageLiteral(resourceName: "simbolPin")), tag: "산책/반려동물", thumbnail: UIImageView(image: #imageLiteral(resourceName: "park")), title: "인계공원에서 강아지 산책시키실 분~", time: "7/19 월요일 14:00", rule: "여자만 0/1", category: 0)
+            }
+            else if i == 1{
+                card = MyPinCardModel(simbol: UIImageView(image: #imageLiteral(resourceName: "simbolPin")), tag: "아파트/이웃", thumbnail: UIImageView(image: #imageLiteral(resourceName: "park")), title: "광교 프루지오 아파트 공동체 - 아파트 생활, 이웃사촌 친목", member: "맴버 157명", rule: "자유 참가", category: 1)
+            }
+            else if i == 2{
+                card = MyPinCardModel(simbol: UIImageView(image: #imageLiteral(resourceName: "simbolPin")), tag: "분실/실종", thumbnail: UIImageView(image: #imageLiteral(resourceName: "park")), title: "주인 잃은 강아지를 보호하고 있어요! 연락주세요.", commentText: comment, likeText: like, category: 2)
+            }
+            myPinCardList.append(card!)
+        }
+    }
+    
+    func getMyPinCardcategory() -> [Int]{
+        return category
     }
     // MARK:- Banner func
     var numOfBannerBtnList: Int{
@@ -89,5 +120,6 @@ class MainViewModel {
         initBannerCtrlBtnList()
         initPromiseCardDesign()
         initJoinCardList()
+        initMyPinCardList()
     }
 }

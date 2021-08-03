@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="414" placeholderIntrinsicHeight="infinite" insetsLayoutMarginsFromSafeArea="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uir-ng-4H4">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="414" placeholderIntrinsicHeight="852" insetsLayoutMarginsFromSafeArea="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uir-ng-4H4">
                                 <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pins" translatesAutoresizingMaskIntoConstraints="NO" id="Vwr-18-Zhc">
@@ -67,9 +67,9 @@
                                     </collectionView>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="Yif-MG-WvM" secondAttribute="bottom" constant="2264" id="5At-uh-DNG"/>
                                     <constraint firstItem="Vwr-18-Zhc" firstAttribute="centerX" secondItem="uir-ng-4H4" secondAttribute="centerX" id="GkO-hk-MHm"/>
                                     <constraint firstItem="Yif-MG-WvM" firstAttribute="centerX" secondItem="Vwr-18-Zhc" secondAttribute="centerX" id="RfR-jc-hI1"/>
-                                    <constraint firstAttribute="bottom" secondItem="Yif-MG-WvM" secondAttribute="bottom" constant="511" id="UI3-dY-DNo"/>
                                     <constraint firstItem="Yif-MG-WvM" firstAttribute="leading" secondItem="uir-ng-4H4" secondAttribute="leading" id="aDz-ix-qBc"/>
                                     <constraint firstItem="Yif-MG-WvM" firstAttribute="top" secondItem="uir-ng-4H4" secondAttribute="top" constant="48" id="cPZ-uc-Yjt"/>
                                     <constraint firstAttribute="trailing" secondItem="Yif-MG-WvM" secondAttribute="trailing" id="cuM-N7-KM8"/>
@@ -80,8 +80,9 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="bottomMargin" secondItem="uir-ng-4H4" secondAttribute="bottom" constant="-34" id="S8L-5F-cPV"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="uir-ng-4H4" secondAttribute="trailing" id="Y2g-Xg-IcD"/>
+                            <constraint firstItem="uir-ng-4H4" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="34" id="cCE-3O-cvj"/>
+                            <constraint firstItem="uir-ng-4H4" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="cfn-Ia-okc"/>
                             <constraint firstItem="uir-ng-4H4" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="tag-fA-e6y"/>
                             <constraint firstItem="uir-ng-4H4" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="xlM-9X-8b3"/>
                         </constraints>

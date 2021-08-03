@@ -10,11 +10,11 @@ import UIKit
 class MyPinBackgroundView {
     let myPinHeadLabelView = MyPinHeadLabelView()
     let myPinBtnAllView = MyPinBtnAllView()
+    var myPinCardBackground: [MyPinCardBackground] = []
     
     let background = UIView()
-    func initial(parent: UIView, constraint: UIView){
+    func initial(parent: UIView, constraint: UIView, array: [Int], cardList: [MyPinCardModel]){
         parent.addSubview(background)
-        print(background)
         background.snp.makeConstraints { (bg) in
             bg.leading.equalTo(constraint).offset(0)
             bg.top.equalTo(constraint).offset(132)
@@ -23,8 +23,17 @@ class MyPinBackgroundView {
         }
         
         background.backgroundColor = #colorLiteral(red: 0.9607843137, green: 0.9607843137, blue: 0.9607843137, alpha: 1)
+        addSubCardVIew(parent: background, array: array, cardList: cardList)
+    }
+    
+    func addSubCardVIew(parent: UIView, array: [Int], cardList: [MyPinCardModel]){
+        myPinHeadLabelView.initial(parent: parent)
+        myPinBtnAllView.initial(parent: parent)
         
-        myPinHeadLabelView.initial(parent: background)
-        myPinBtnAllView.initial(parent: background)
+        for i in 0 ..< array.count{
+            let temp = MyPinCardBackground()
+            temp.initial(parent: parent, index: i, category: array[i], card: cardList[i])
+            myPinCardBackground.append(temp)
+        }
     }
 }
