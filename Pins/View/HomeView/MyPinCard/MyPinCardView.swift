@@ -10,7 +10,7 @@ import UIKit
 class MyPinCardView {
     let myPinBackgroundView = MyPinBackgroundView()
     
-    func initial(parent: UIView, constraint: UIView){
-        myPinBackgroundView.initial(parent: parent, constraint: constraint)
+    func initial(parent: UIView, constraint: UIView, array: [Int], cardList: [MyPinCardModel]){
+        myPinBackgroundView.initial(parent: parent, constraint: constraint, array: array, cardList: cardList)
     }
 }

@@ -79,12 +79,11 @@ class MainViewController: UIViewController {
     func initJoinScrollView(){
         scrollView.delegate = self
         let width = view.frame.width - 32
-        print(width)
         joinScrollView.initial(scrollView: scrollView, parent: self.parentView, constraint: promiseScrollView.scrollView, width: viewModel.numOfJoinCardList * Int(width) + 8 * (viewModel.numOfJoinCardList - 1) + 32, cardList: viewModel.joinCardList)
     }
     
     // MARK:- MyPin func
     func initmyPinCardView(){
-        myPinCardView.initial(parent: self.parentView, constraint: scrollView)
+        myPinCardView.initial(parent: self.parentView, constraint: scrollView, array: viewModel.getMyPinCardcategory(), cardList: viewModel.myPinCardList)
     }
 }
