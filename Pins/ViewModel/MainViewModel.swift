@@ -75,7 +75,7 @@ class MainViewModel {
                 card = MyPinCardModel(simbol: UIImageView(image: #imageLiteral(resourceName: "simbolPin")), tag: "아파트/이웃", thumbnail: UIImageView(image: #imageLiteral(resourceName: "park")), title: "광교 프루지오 아파트 공동체 - 아파트 생활, 이웃사촌 친목", member: "맴버 157명", rule: "자유 참가", category: 1)
             }
             else if i == 2{
-                card = MyPinCardModel(simbol: UIImageView(image: #imageLiteral(resourceName: "simbolPin")), tag: "분실/실종", thumbnail: UIImageView(image: #imageLiteral(resourceName: "park")), title: "주인 잃은 강아지를 보호하고 있어요! 연락주세요.", commentText: comment, likeText: like, category: 2)
+                card = MyPinCardModel(simbol: UIImageView(image: #imageLiteral(resourceName: "simbolPin")), tag: "분실/실종", thumbnail: nil, title: "주인 잃은 강아지를 보호하고 있어요! 연락주세요.", commentText: comment, likeText: like, category: 2)
             }
             myPinCardList.append(card!)
         }
