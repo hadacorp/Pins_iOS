@@ -13,6 +13,7 @@
 		B70CFC2826BFD82500B7DA74 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B70CFC2626BFD82500B7DA74 /* Main.storyboard */; };
 		B70CFC2A26BFD82600B7DA74 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B70CFC2926BFD82600B7DA74 /* Assets.xcassets */; };
 		B70CFC2D26BFD82600B7DA74 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B70CFC2B26BFD82600B7DA74 /* LaunchScreen.storyboard */; };
+		B70CFC3526BFDC0C00B7DA74 /* PinMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70CFC3426BFDC0C00B7DA74 /* PinMaker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		B70CFC2926BFD82600B7DA74 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B70CFC2C26BFD82600B7DA74 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B70CFC2E26BFD82600B7DA74 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B70CFC3426BFDC0C00B7DA74 /* PinMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinMaker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				B70CFC2026BFD82500B7DA74 /* AppDelegate.swift */,
 				B70CFC2226BFD82500B7DA74 /* SceneDelegate.swift */,
 				B70CFC2426BFD82500B7DA74 /* ViewController.swift */,
+				B70CFC3426BFDC0C00B7DA74 /* PinMaker.swift */,
 				B70CFC2626BFD82500B7DA74 /* Main.storyboard */,
 				B70CFC2926BFD82600B7DA74 /* Assets.xcassets */,
 				B70CFC2B26BFD82600B7DA74 /* LaunchScreen.storyboard */,
@@ -137,6 +140,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B70CFC3526BFDC0C00B7DA74 /* PinMaker.swift in Sources */,
 				B70CFC2526BFD82500B7DA74 /* ViewController.swift in Sources */,
 				B70CFC2126BFD82500B7DA74 /* AppDelegate.swift in Sources */,
 				B70CFC2326BFD82500B7DA74 /* SceneDelegate.swift in Sources */,
