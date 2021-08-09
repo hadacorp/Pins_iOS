@@ -37,19 +37,39 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         } else {
             print("위치 서비스 Off 상태")
         }
+        // 맵에 보여줄 카테고리 설정
         mainMap.pointOfInterestFilter = .some(MKPointOfInterestFilter(including: [MKPointOfInterestCategory.cafe, MKPointOfInterestCategory.restaurant]))
+        
+        // user 위치 보기
+        mainMap.showsUserLocation = true
+    }
+    
+    
+    // 위도와 경도, 스팬(영역 폭)을 입력받아 지도에 표시
+    func goLocation(latitudeValue: CLLocationDegrees,
+                    longtudeValue: CLLocationDegrees,
+                    delta span: Double) -> CLLocationCoordinate2D {
+        let pLocation = CLLocationCoordinate2DMake(latitudeValue, longtudeValue)
+        let spanValue = MKCoordinateSpan(latitudeDelta: span, longitudeDelta: span)
+        let pRegion = MKCoordinateRegion(center: pLocation, span: spanValue)
+        mainMap.setRegion(pRegion, animated: true)
+        return pLocation
     }
 }
 
 extension ViewController{
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.first {
+            // 현재 위치 핀 하나 만들기
             mark = PinMaker(title: "우리집",
                             subtitle: "집이 최고야",
                             coordinate: CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude))
         }
         if mainMap.annotations.count == 0{
+            // 현재 위치 핀으로 찍기
             mainMap.addAnnotation(mark)
+            // 현재 위치를 중심으로 맵을 이동하기
+            mainMap.centerCoordinate = goLocation(latitudeValue: mainMap.userLocation.coordinate.latitude, longtudeValue: mainMap.userLocation.coordinate.longitude, delta: 0.01)
         }
     }
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
