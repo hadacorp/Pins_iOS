@@ -9,21 +9,26 @@
 import UIKit
 import MapKit
 
-class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
+class ViewController: UIViewController, MKMapViewDelegate {
     // MARK:- IBOutlet variable
     // Main MapView
     @IBOutlet weak var mainMap: MKMapView!
     // MARK:- Private variable
     // 위치를 받아오기 위한 locationManager
     private var locationManager = CLLocationManager()
-    private var mark = PinMaker(title: nil, subtitle: nil, coordinate: CLLocationCoordinate2D(latitude: 37, longitude: 126))
+    // 맵에 찍을 핀 객체
+    private var pinAnnotation: CustomPintAnnotation!
     // MARK:- Private function
     override func viewDidLoad() {
         super.viewDidLoad()
         // 라이트 모드로 고정
         self.overrideUserInterfaceStyle = .light
-        view.insetsLayoutMarginsFromSafeArea = false
-        
+        // 시작시 지도 설정 세팅
+        firstMapInit()
+        // UI 세팅
+        settingUI()
+    }
+    private func firstMapInit(){
         mainMap.delegate = self
         // 위치매니저 델리게이트 설정
         locationManager.delegate = self
@@ -43,10 +48,14 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         mainMap.pointOfInterestFilter = .some(MKPointOfInterestFilter(including: [MKPointOfInterestCategory.cafe, MKPointOfInterestCategory.restaurant]))
         // user 위치 보기
         mainMap.showsUserLocation = true
-        // UI 세팅
-        settingUI()
+        // 현재 위치 저장
+        var currentLocation: CLLocation!
+        currentLocation = locationManager.location
+        // 현재 위치로 이동
+        goLocation(latitudeValue: currentLocation.coordinate.latitude, longtudeValue: currentLocation.coordinate.longitude, delta: 250)
     }
     
+    // UI 생성 및 세팅
     private func settingUI(){
         let addButton = SmallRoundedBtn(frame: CGSize(width: 45, height: 45), radius: 15, color: #colorLiteral(red: 0.06274510175, green: 0, blue: 0.1921568662, alpha: 1), background: self.view)
         addButton.button.addTarget(self, action: #selector(createPinAtCenter), for: .touchUpInside)
@@ -73,31 +82,44 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     // MARK:- Objc function
     @objc
     func createPinAtCenter() {
-        let mark = PinMaker(title: "우리집",
-                            subtitle: "집이 최고야",
-                            coordinate: CLLocationCoordinate2D(latitude: mainMap.centerCoordinate.latitude, longitude: mainMap.centerCoordinate.longitude))
-        mainMap.addAnnotation(mark)
+        pinAnnotation = CustomPintAnnotation()
+        pinAnnotation.pinCustomImageName = "simbolPin"
+        pinAnnotation.coordinate = CLLocationCoordinate2D(latitude: mainMap.centerCoordinate.latitude, longitude: mainMap.centerCoordinate.longitude)
+        pinAnnotation.title = "우리집"
+        pinAnnotation.subtitle = "집이 최고야"
+        mainMap.addAnnotation(pinAnnotation)
     }
 }
 
 // MARK:- Extension locationManager
-extension ViewController{
+extension ViewController: CLLocationManagerDelegate{
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if let location = locations.first {
-            // 현재 위치 핀 하나 만들기
-            mark = PinMaker(title: "우리집",
-                            subtitle: "집이 최고야",
-                            coordinate: CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude))
-        }
-        if mainMap.annotations.count == 0{
-            // 현재 위치 핀으로 찍기
-            mainMap.addAnnotation(mark)
-            // 현재 위치를 중심으로 맵을 이동하기
-            goLocation(latitudeValue: mark.coordinate.latitude, longtudeValue: mark.coordinate.longitude, delta: 250)
-        }
+        //
     }
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print(error)
+    }
+    
+    // 이름에 맞는 이미지로 핀 이미지를 변경해주기
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        guard !(annotation is MKUserLocation) else{
+            return nil
+        }
+        var annotationView = mainMap.dequeueReusableAnnotationView(withIdentifier: "custom")
+       
+        if annotationView == nil {
+            // Create the view
+            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "custom")
+            annotationView?.canShowCallout = true
+        }
+        else{
+            annotationView?.annotation = annotation
+        }
+        
+        let customPointAnnotation = annotation as! CustomPintAnnotation
+        annotationView?.image = UIImage(named: customPointAnnotation.pinCustomImageName)
+        
+        return annotationView
     }
 }
 
