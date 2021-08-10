@@ -16,9 +16,6 @@ class SmallRoundedBtn {
         
         button.snp.makeConstraints { (bt) in
             // 따로 빼서 적용시켜주기
-            bt.top.equalTo(background).offset(150)
-            bt.trailing.equalTo(background).offset(-20)
-            
             bt.width.equalTo(frame.width)
             bt.height.equalTo(frame.height)
         }
