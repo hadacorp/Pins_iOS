@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 
-class ViewController: UIViewController, MKMapViewDelegate {
+class ViewController: UIViewController {
     // MARK:- IBOutlet variable
     // Main MapView
     @IBOutlet weak var mainMap: MKMapView!
@@ -18,6 +18,10 @@ class ViewController: UIViewController, MKMapViewDelegate {
     private var locationManager = CLLocationManager()
     // 맵에 찍을 핀 객체
     private var pinAnnotation: CustomPintAnnotation!
+    
+    // 삭제할 테스트용 변수들
+    private var array: [CustomPintAnnotation] = []
+    private var count = 0
     // MARK:- Private function
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,12 +57,30 @@ class ViewController: UIViewController, MKMapViewDelegate {
         currentLocation = locationManager.location
         // 현재 위치로 이동
         goLocation(latitudeValue: currentLocation.coordinate.latitude, longtudeValue: currentLocation.coordinate.longitude, delta: 250)
+        
+        pinAnnotation = CustomPintAnnotation()
+        pinAnnotation.pinCustomImageName = "simbolPin"
+        pinAnnotation.coordinate = CLLocationCoordinate2D(latitude: mainMap.centerCoordinate.latitude - 0.1, longitude: mainMap.centerCoordinate.longitude - 0.1)
+        pinAnnotation.title = "우리집"
+        pinAnnotation.subtitle = "집이 최고야"
+        mainMap.addAnnotation(pinAnnotation)
     }
     
     // UI 생성 및 세팅
     private func settingUI(){
         let addButton = SmallRoundedBtn(frame: CGSize(width: 45, height: 45), radius: 15, color: #colorLiteral(red: 0.06274510175, green: 0, blue: 0.1921568662, alpha: 1), background: self.view)
         addButton.button.addTarget(self, action: #selector(createPinAtCenter), for: .touchUpInside)
+        addButton.button.snp.makeConstraints { bt in
+            bt.top.equalTo(150)
+            bt.trailing.equalTo(-20)
+        }
+        
+        let moveButton = SmallRoundedBtn(frame: CGSize(width: 45, height: 45), radius: 15, color: #colorLiteral(red: 0.3098039329, green: 0.01568627544, blue: 0.1294117719, alpha: 1), background: self.view)
+        moveButton.button.addTarget(self, action: #selector(moveNextPin), for: .touchUpInside)
+        moveButton.button.snp.makeConstraints { bt in
+            bt.top.equalTo(70)
+            bt.trailing.equalTo(-20)
+        }
     }
     // 위도와 경도, 스팬(영역 폭)을 입력받아 지도에 표시
     private func goLocation(latitudeValue: CLLocationDegrees,
@@ -80,6 +102,7 @@ class ViewController: UIViewController, MKMapViewDelegate {
     }
     
     // MARK:- Objc function
+    // 중앙에 핀 생성
     @objc
     func createPinAtCenter() {
         pinAnnotation = CustomPintAnnotation()
@@ -88,10 +111,21 @@ class ViewController: UIViewController, MKMapViewDelegate {
         pinAnnotation.title = "우리집"
         pinAnnotation.subtitle = "집이 최고야"
         mainMap.addAnnotation(pinAnnotation)
+        array.append(pinAnnotation)
+    }
+    // 다음 핀으로 이동
+    @objc
+    func moveNextPin(){
+        if array.count > 0 {
+            self.mainMap.selectAnnotation(array[count % array.count], animated: true)
+            count += 1
+            print("log: \(self.mainMap.annotations)")
+            print("log: \(count)")
+        }
     }
 }
 
-// MARK:- Extension locationManager
+// MARK:- Extension CLLocationManagerDelegate
 extension ViewController: CLLocationManagerDelegate{
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         //
@@ -99,7 +133,9 @@ extension ViewController: CLLocationManagerDelegate{
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print(error)
     }
-    
+}
+// MARK:- Extension MKMapViewDelegate
+extension ViewController: MKMapViewDelegate{
     // 이름에 맞는 이미지로 핀 이미지를 변경해주기
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         guard !(annotation is MKUserLocation) else{
