@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,6 +15,7 @@
 		B70CFC2D26BFD82600B7DA74 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B70CFC2B26BFD82600B7DA74 /* LaunchScreen.storyboard */; };
 		B70CFC3526BFDC0C00B7DA74 /* PinMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70CFC3426BFDC0C00B7DA74 /* PinMaker.swift */; };
 		B724315B26C18A950091152E /* SmallRoundedBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = B724315A26C18A950091152E /* SmallRoundedBtn.swift */; };
+		B7FBC47826C28730001838D1 /* CustomPintAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7FBC47726C28730001838D1 /* CustomPintAnnotation.swift */; };
 		B8E738B7264CCC8FEA75F8F2 /* Pods_pins_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E67A3F412E955A8878B6967A /* Pods_pins_ios.framework */; };
 /* End PBXBuildFile section */
 
@@ -30,6 +31,7 @@
 		B70CFC2E26BFD82600B7DA74 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B70CFC3426BFDC0C00B7DA74 /* PinMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinMaker.swift; sourceTree = "<group>"; };
 		B724315A26C18A950091152E /* SmallRoundedBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallRoundedBtn.swift; sourceTree = "<group>"; };
+		B7FBC47726C28730001838D1 /* CustomPintAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPintAnnotation.swift; sourceTree = "<group>"; };
 		B8817DC6ED24C308687E6104 /* Pods-pins_ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pins_ios.debug.xcconfig"; path = "Target Support Files/Pods-pins_ios/Pods-pins_ios.debug.xcconfig"; sourceTree = "<group>"; };
 		E67A3F412E955A8878B6967A /* Pods_pins_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pins_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -60,7 +62,6 @@
 				B8817DC6ED24C308687E6104 /* Pods-pins_ios.debug.xcconfig */,
 				2D0B3C31DB79E4926C9C74A0 /* Pods-pins_ios.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -94,6 +95,7 @@
 				B70CFC2B26BFD82600B7DA74 /* LaunchScreen.storyboard */,
 				B70CFC2E26BFD82600B7DA74 /* Info.plist */,
 				B724315A26C18A950091152E /* SmallRoundedBtn.swift */,
+				B7FBC47726C28730001838D1 /* CustomPintAnnotation.swift */,
 			);
 			path = pins_ios;
 			sourceTree = "<group>";
@@ -214,6 +216,7 @@
 			files = (
 				B70CFC3526BFDC0C00B7DA74 /* PinMaker.swift in Sources */,
 				B724315B26C18A950091152E /* SmallRoundedBtn.swift in Sources */,
+				B7FBC47826C28730001838D1 /* CustomPintAnnotation.swift in Sources */,
 				B70CFC2526BFD82500B7DA74 /* ViewController.swift in Sources */,
 				B70CFC2126BFD82500B7DA74 /* AppDelegate.swift in Sources */,
 				B70CFC2326BFD82500B7DA74 /* SceneDelegate.swift in Sources */,
