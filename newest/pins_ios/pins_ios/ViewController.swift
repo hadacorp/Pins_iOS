@@ -102,7 +102,7 @@ class ViewController: UIViewController {
         pinAnnotation.subtitle = "집이 최고야"
         mainMap.addAnnotation(pinAnnotation)
         array.append(pinAnnotation)
-        print(viewModel.getCardView())
+        dump(viewModel.getCardView())
     }
     // 다음 핀으로 이동
     @objc
