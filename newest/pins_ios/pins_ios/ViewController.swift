@@ -14,7 +14,7 @@ class ViewController: UIViewController {
     // Main MapView
     @IBOutlet weak var mainMap: MKMapView!
     // MARK:- Private variable
-    private var viewModel = MainViewModel()
+    private var viewModel = MainViewModel(parent: nil)
     // 위치를 받아오기 위한 locationManager
     private var locationManager = CLLocationManager()
     // 맵에 찍을 핀 객체
@@ -27,7 +27,6 @@ class ViewController: UIViewController {
     // MARK:- Private function
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         viewModel = MainViewModel(parent: self.view)
         // 라이트 모드로 고정
         self.overrideUserInterfaceStyle = .light
