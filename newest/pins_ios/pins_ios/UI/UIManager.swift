@@ -26,32 +26,15 @@ class UIManager {
             initsearchButton(parent: parent)
             initAddButton(parent: parent)
             initMoveButton(parent: parent)
-            initCommunityButton(parent: parent)
             initMenuButton(parent: parent)
             initChatButton(parent: parent)
+            initCommunityButton(parent: parent)
         }
     }
     
     // MARK:- Private function
     // UI 생성 및 세팅
-    // 최하단 버튼 3종
-    private func initCommunityButton(parent: UIView){
-        parent.addSubview(communityButton.button)
-        communityButton.button.snp.makeConstraints { bt in
-            bt.bottom.equalTo(-38)
-            bt.leading.equalTo(57)
-            bt.width.equalTo(50)
-            bt.height.equalTo(50)
-        }
-        
-        communityButton.button.layer.shadowOpacity = 0.16
-        communityButton.button.layer.shadowColor = #colorLiteral(red: 0.0431372549, green: 0.1725490196, blue: 0.3019607843, alpha: 1)
-        communityButton.button.layer.shadowOffset = CGSize(width: 0, height: 4)
-        communityButton.button.layer.shadowRadius = 8
-
-        communityButton.button.layer.masksToBounds = false
-    }
-    
+    // MARK:- 최하단 버튼 3종
     private func initMenuButton(parent: UIView){
         parent.addSubview(menuButton.button)
         menuButton.button.snp.makeConstraints { bt in
@@ -61,7 +44,7 @@ class UIManager {
             bt.height.equalTo(50)
         }
         menuButton.button.layer.shadowOpacity = 0.16
-        menuButton.button.layer.shadowColor = #colorLiteral(red: 0.0431372549, green: 0.1725490196, blue: 0.3019607843, alpha: 1)
+        menuButton.button.layer.shadowColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         menuButton.button.layer.shadowOffset = CGSize(width: 0, height: 4)
         menuButton.button.layer.shadowRadius = 8
 
@@ -72,18 +55,35 @@ class UIManager {
         parent.addSubview(chatButton.button)
         chatButton.button.snp.makeConstraints { bt in
             bt.bottom.equalTo(-38)
-            bt.trailing.equalTo(-57)
+            bt.leading.equalTo(16)
             bt.width.equalTo(50)
             bt.height.equalTo(50)
         }
         chatButton.button.layer.shadowOpacity = 0.16
-        chatButton.button.layer.shadowColor = #colorLiteral(red: 0.0431372549, green: 0.1725490196, blue: 0.3019607843, alpha: 1)
+        chatButton.button.layer.shadowColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         chatButton.button.layer.shadowOffset = CGSize(width: 0, height: 4)
         chatButton.button.layer.shadowRadius = 8
 
         chatButton.button.layer.masksToBounds = false
     }
-    // 핀 추가 버튼
+    
+    private func initCommunityButton(parent: UIView){
+        parent.addSubview(communityButton.button)
+        communityButton.button.snp.makeConstraints { bt in
+            bt.bottom.equalTo(-38)
+            bt.trailing.equalTo(-16)
+            bt.width.equalTo(50)
+            bt.height.equalTo(50)
+        }
+        
+        communityButton.button.layer.shadowOpacity = 0.16
+        communityButton.button.layer.shadowColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        communityButton.button.layer.shadowOffset = CGSize(width: 0, height: 4)
+        communityButton.button.layer.shadowRadius = 8
+
+        communityButton.button.layer.masksToBounds = false
+    }
+    // MARK:- 핀 추가 버튼
     private func initAddButton(parent: UIView){
         parent.addSubview(addButton.button)
         addButton.button.snp.makeConstraints { bt in
@@ -93,14 +93,16 @@ class UIManager {
             bt.height.equalTo(40)
         }
         addButton.button.layer.shadowOpacity = 0.16
-        addButton.button.layer.shadowColor = #colorLiteral(red: 0.01960784314, green: 0.1058823529, blue: 0.2274509804, alpha: 1)
+        addButton.button.layer.shadowColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         addButton.button.layer.shadowOffset = CGSize(width: 0, height: 4)
         addButton.button.layer.shadowRadius = 8
 
         addButton.button.layer.masksToBounds = false
         mainUI.append(addButton)
+        
+        addButton.button.layer.opacity = 0.9
     }
-    // 중상부 버튼
+    // MARK:- 중상부 버튼
     private func initsearchButton(parent: UIView){
         parent.addSubview(searchButton.button)
         searchButton.button.snp.makeConstraints { bt in
@@ -110,11 +112,13 @@ class UIManager {
             bt.height.equalTo(40)
         }
         searchButton.button.layer.shadowOpacity = 0.16
-        searchButton.button.layer.shadowColor = #colorLiteral(red: 0.01960784314, green: 0.1058823529, blue: 0.2274509804, alpha: 1)
+        searchButton.button.layer.shadowColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         searchButton.button.layer.shadowOffset = CGSize(width: 0, height: 4)
         searchButton.button.layer.shadowRadius = 8
 
         searchButton.button.layer.masksToBounds = false
+        
+        searchButton.button.layer.opacity = 0.9
     }
     
     private func initMoveButton(parent: UIView){
@@ -126,11 +130,13 @@ class UIManager {
             bt.height.equalTo(40)
         }
         moveButton.button.layer.shadowOpacity = 0.16
-        moveButton.button.layer.shadowColor = #colorLiteral(red: 0.01960784314, green: 0.1058823529, blue: 0.2274509804, alpha: 1)
+        moveButton.button.layer.shadowColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         moveButton.button.layer.shadowOffset = CGSize(width: 0, height: 4)
         moveButton.button.layer.shadowRadius = 8
 
         moveButton.button.layer.masksToBounds = false
         mainUI.append(moveButton)
+        
+        moveButton.button.layer.opacity = 0.9
     }
 }

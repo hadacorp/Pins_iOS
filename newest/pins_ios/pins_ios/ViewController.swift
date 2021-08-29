@@ -111,8 +111,7 @@ class ViewController: UIViewController {
 //        }
 //    }
     @objc func filterAnimate(){
-        print(viewModel.getAddButton().bounds.width)
-        if viewModel.getAddButton().frame.width == 232 {
+        if viewModel.getMoveButton().frame.width == 232 {
             UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseOut) {
                 self.viewModel.getMoveButton().snp.updateConstraints { btn in
                     btn.width.equalTo(40)
@@ -123,7 +122,7 @@ class ViewController: UIViewController {
                 self.viewModel.getMoveButton().superview?.layoutIfNeeded()
             }
         }
-        else if viewModel.getAddButton().frame.width == 40{
+        else if viewModel.getMoveButton().frame.width == 40{
             UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseOut) {
                 self.viewModel.getMoveButton().snp.updateConstraints { btn in
                     btn.width.equalTo(232)
