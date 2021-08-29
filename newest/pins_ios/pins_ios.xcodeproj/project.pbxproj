@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B704D48026DBCE6800DB20D2 /* AnimationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B704D47F26DBCE6800DB20D2 /* AnimationManager.swift */; };
 		B70CFC2126BFD82500B7DA74 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70CFC2026BFD82500B7DA74 /* AppDelegate.swift */; };
 		B70CFC2326BFD82500B7DA74 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70CFC2226BFD82500B7DA74 /* SceneDelegate.swift */; };
 		B70CFC2526BFD82500B7DA74 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70CFC2426BFD82500B7DA74 /* ViewController.swift */; };
@@ -25,6 +26,7 @@
 
 /* Begin PBXFileReference section */
 		2D0B3C31DB79E4926C9C74A0 /* Pods-pins_ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pins_ios.release.xcconfig"; path = "Target Support Files/Pods-pins_ios/Pods-pins_ios.release.xcconfig"; sourceTree = "<group>"; };
+		B704D47F26DBCE6800DB20D2 /* AnimationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationManager.swift; sourceTree = "<group>"; };
 		B70CFC1D26BFD82500B7DA74 /* pins_ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pins_ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B70CFC2026BFD82500B7DA74 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B70CFC2226BFD82500B7DA74 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -73,6 +75,14 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		B704D47E26DBCE2600DB20D2 /* Animation */ = {
+			isa = PBXGroup;
+			children = (
+				B704D47F26DBCE6800DB20D2 /* AnimationManager.swift */,
+			);
+			path = Animation;
+			sourceTree = "<group>";
+		};
 		B70CFC1426BFD82500B7DA74 = {
 			isa = PBXGroup;
 			children = (
@@ -94,6 +104,7 @@
 		B70CFC1F26BFD82500B7DA74 /* pins_ios */ = {
 			isa = PBXGroup;
 			children = (
+				B704D47E26DBCE2600DB20D2 /* Animation */,
 				B760E85726DA614B001B8DAA /* UI */,
 				B7C5DAAB26C809B80011EE41 /* viewModel */,
 				B7C5DAA626C805230011EE41 /* model */,
@@ -259,6 +270,7 @@
 				B70CFC2126BFD82500B7DA74 /* AppDelegate.swift in Sources */,
 				B7C5DAAA26C805D50011EE41 /* ThumbnailImg.swift in Sources */,
 				B70CFC2326BFD82500B7DA74 /* SceneDelegate.swift in Sources */,
+				B704D48026DBCE6800DB20D2 /* AnimationManager.swift in Sources */,
 				B7C5DAAD26C80A550011EE41 /* MainViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
