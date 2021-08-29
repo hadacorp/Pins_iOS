@@ -43,12 +43,6 @@ class UIManager {
             bt.width.equalTo(50)
             bt.height.equalTo(50)
         }
-        menuButton.button.layer.shadowOpacity = 0.16
-        menuButton.button.layer.shadowColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-        menuButton.button.layer.shadowOffset = CGSize(width: 0, height: 4)
-        menuButton.button.layer.shadowRadius = 8
-
-        menuButton.button.layer.masksToBounds = false
     }
     
     private func initChatButton(parent: UIView){
@@ -59,12 +53,6 @@ class UIManager {
             bt.width.equalTo(50)
             bt.height.equalTo(50)
         }
-        chatButton.button.layer.shadowOpacity = 0.16
-        chatButton.button.layer.shadowColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-        chatButton.button.layer.shadowOffset = CGSize(width: 0, height: 4)
-        chatButton.button.layer.shadowRadius = 8
-
-        chatButton.button.layer.masksToBounds = false
     }
     
     private func initCommunityButton(parent: UIView){
@@ -75,13 +63,6 @@ class UIManager {
             bt.width.equalTo(50)
             bt.height.equalTo(50)
         }
-        
-        communityButton.button.layer.shadowOpacity = 0.16
-        communityButton.button.layer.shadowColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-        communityButton.button.layer.shadowOffset = CGSize(width: 0, height: 4)
-        communityButton.button.layer.shadowRadius = 8
-
-        communityButton.button.layer.masksToBounds = false
     }
     // MARK:- 핀 추가 버튼
     private func initAddButton(parent: UIView){
@@ -92,15 +73,6 @@ class UIManager {
             bt.width.equalTo(40)
             bt.height.equalTo(40)
         }
-        addButton.button.layer.shadowOpacity = 0.16
-        addButton.button.layer.shadowColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-        addButton.button.layer.shadowOffset = CGSize(width: 0, height: 4)
-        addButton.button.layer.shadowRadius = 8
-
-        addButton.button.layer.masksToBounds = false
-        mainUI.append(addButton)
-        
-        addButton.button.layer.opacity = 0.9
     }
     // MARK:- 중상부 버튼
     private func initsearchButton(parent: UIView){
@@ -111,14 +83,6 @@ class UIManager {
             bt.width.equalTo(40)
             bt.height.equalTo(40)
         }
-        searchButton.button.layer.shadowOpacity = 0.16
-        searchButton.button.layer.shadowColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-        searchButton.button.layer.shadowOffset = CGSize(width: 0, height: 4)
-        searchButton.button.layer.shadowRadius = 8
-
-        searchButton.button.layer.masksToBounds = false
-        
-        searchButton.button.layer.opacity = 0.9
     }
     
     private func initMoveButton(parent: UIView){
@@ -129,14 +93,5 @@ class UIManager {
             bt.width.equalTo(40)
             bt.height.equalTo(40)
         }
-        moveButton.button.layer.shadowOpacity = 0.16
-        moveButton.button.layer.shadowColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-        moveButton.button.layer.shadowOffset = CGSize(width: 0, height: 4)
-        moveButton.button.layer.shadowRadius = 8
-
-        moveButton.button.layer.masksToBounds = false
-        mainUI.append(moveButton)
-        
-        moveButton.button.layer.opacity = 0.9
     }
 }
