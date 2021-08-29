@@ -85,7 +85,7 @@ class ViewController: UIViewController {
     
     // 버튼 이벤트 설정
     private func setButtonEvent(){
-        viewModel.getMoveButton().addTarget(self, action: #selector(moveNextPin), for: .touchUpInside)
+        viewModel.getMoveButton().addTarget(self, action: #selector(filterAnimate), for: .touchUpInside)
         viewModel.getAddButton().addTarget(self, action: #selector(createPinAtCenter), for: .touchUpInside)
     }
     
@@ -103,12 +103,36 @@ class ViewController: UIViewController {
         array.append(pinAnnotation)
         dump(viewModel.getCardView())
     }
-    // 다음 핀으로 이동
-    @objc
-    func moveNextPin(){
-        if array.count > 0 {
-            self.mainMap.selectAnnotation(array[count % array.count], animated: true)
-            count += 1
+//    // 다음 핀으로 이동
+//    func moveNextPin(){
+//        if array.count > 0 {
+//            self.mainMap.selectAnnotation(array[count % array.count], animated: true)
+//            count += 1
+//        }
+//    }
+    @objc func filterAnimate(){
+        print(viewModel.getAddButton().bounds.width)
+        if viewModel.getAddButton().frame.width == 232 {
+            UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseOut) {
+                self.viewModel.getMoveButton().snp.updateConstraints { btn in
+                    btn.width.equalTo(40)
+                    btn.height.equalTo(40)
+                    btn.top.equalTo(60)
+                    btn.trailing.equalTo(-16)
+                }
+                self.viewModel.getMoveButton().superview?.layoutIfNeeded()
+            }
+        }
+        else if viewModel.getAddButton().frame.width == 40{
+            UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseOut) {
+                self.viewModel.getMoveButton().snp.updateConstraints { btn in
+                    btn.width.equalTo(232)
+                    btn.height.equalTo(40)
+                    btn.top.equalTo(60)
+                    btn.trailing.equalTo(-16)
+                }
+                self.viewModel.getMoveButton().superview?.layoutIfNeeded()
+            }
         }
     }
 }
