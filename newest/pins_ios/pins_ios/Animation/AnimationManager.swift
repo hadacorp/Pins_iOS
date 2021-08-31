@@ -58,4 +58,27 @@ extension ViewController{
             }
         }
     }
+    @objc func onClickSearchBtn(){
+        guard let svc = self.storyboard?.instantiateViewController(withIdentifier: "SearchVC") else {
+            return
+        }
+        let transition = CATransition()
+        transition.duration = 0.25
+        transition.type = CATransitionType.push
+        transition.subtype = CATransitionSubtype.fromRight
+                self.view.window!.layer.add(transition, forKey: kCATransition)
+        svc.modalPresentationStyle = .fullScreen
+        present(svc, animated: false)
+//        //storyboard를 통해 두번쨰 화면의 storyboard ID를 참조하여 뷰 컨트롤러를 가져옵니다.
+//        guard let svc = self.storyboard?.instantiateViewController(withIdentifier: "SearchVC") else {
+//            return
+//        }
+//
+//        //화면 전환 애니메이션을 설정합니다. coverVertical 외에도 다양한 옵션이 있습니다.
+//        svc.modalTransitionStyle = .partialCurl
+//        svc.modalPresentationStyle = .fullScreen
+//
+//        //인자값으로 다음 뷰 컨트롤러를 넣고 present 메소드를 호출합니다.
+//        self.present(svc, animated: true)
+    }
 }

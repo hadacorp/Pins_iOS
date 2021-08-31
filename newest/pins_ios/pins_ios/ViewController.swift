@@ -27,17 +27,19 @@ class ViewController: UIViewController {
     // MARK:- Private function
     override func viewDidLoad() {
         super.viewDidLoad()
+        // 처음 권환 체크
+        setPermission()
+        
         viewModel = MainViewModel(parent: self.view)
         // 라이트 모드로 고정
         self.overrideUserInterfaceStyle = .light
         // 시작시 지도 설정 세팅
         firstMapInit()
-        
         // 버튼 이벤트 세팅
         setButtonEvent()
     }
-    private func firstMapInit(){
-        mainMap.delegate = self
+    
+    private func setPermission(){
         // 위치매니저 델리게이트 설정
         locationManager.delegate = self
         // 거리 정확도 설정
@@ -52,6 +54,10 @@ class ViewController: UIViewController {
         } else {
             print("위치 서비스 Off 상태")
         }
+    }
+    private func firstMapInit(){
+        mainMap.delegate = self
+        
         // 맵에 보여줄 카테고리 설정
         mainMap.pointOfInterestFilter = .some(MKPointOfInterestFilter(including: [MKPointOfInterestCategory.cafe, MKPointOfInterestCategory.restaurant]))
         // user 위치 보기
@@ -87,6 +93,7 @@ class ViewController: UIViewController {
     private func setButtonEvent(){
         viewModel.getMoveButton().addTarget(self, action: #selector(filterAnimate), for: .touchUpInside)
         viewModel.getAddButton().addTarget(self, action: #selector(createPinAtCenter), for: .touchUpInside)
+        viewModel.getSearchButton().addTarget(self, action: #selector(onClickSearchBtn), for: .touchUpInside)
     }
 }
 
