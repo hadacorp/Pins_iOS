@@ -26,9 +26,9 @@ class UIManager {
             initsearchButton(parent: parent)
             initAddButton(parent: parent)
             initMoveButton(parent: parent)
-            initMenuButton(parent: parent)
-            initChatButton(parent: parent)
             initCommunityButton(parent: parent)
+            initChatButton(parent: parent)
+            initMenuButton(parent: parent)
         }
     }
     
@@ -39,7 +39,7 @@ class UIManager {
         parent.addSubview(menuButton.button)
         menuButton.button.snp.makeConstraints { bt in
             bt.bottom.equalTo(-38)
-            bt.centerX.equalTo(parent)
+            bt.leading.equalTo(16)
             bt.width.equalTo(50)
             bt.height.equalTo(50)
         }
@@ -49,7 +49,7 @@ class UIManager {
         parent.addSubview(chatButton.button)
         chatButton.button.snp.makeConstraints { bt in
             bt.bottom.equalTo(-38)
-            bt.leading.equalTo(16)
+            bt.centerX.equalTo(parent)
             bt.width.equalTo(50)
             bt.height.equalTo(50)
         }

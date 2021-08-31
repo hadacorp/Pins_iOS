@@ -13,6 +13,10 @@ class MainViewModel: UIManager {
         return mainUI
     }
     
+    public func getSearchButton() -> UIButton{
+        return searchButton.button
+    }
+    
     public func getAddButton() -> UIButton{
         return addButton.button
     }
