@@ -13,16 +13,16 @@ class ViewController: UIViewController {
     // MARK:- IBOutlet variable
     // Main MapView
     @IBOutlet weak var mainMap: MKMapView!
-    // MARK:- Private variable
-    private var viewModel = MainViewModel(parent: nil)
+    // MARK:- Public variable
+    public var viewModel = MainViewModel(parent: nil)
     // 위치를 받아오기 위한 locationManager
-    private var locationManager = CLLocationManager()
+    public var locationManager = CLLocationManager()
     // 맵에 찍을 핀 객체
-    private var pinAnnotation: CustomPintAnnotation!
+    public var pinAnnotation: CustomPintAnnotation!
     
     // 삭제할 테스트용 변수들
-    private var array: [CustomPintAnnotation] = []
-    private var count = 0
+    public var array: [CustomPintAnnotation] = []
+    public var count = 0
     
     // MARK:- Private function
     override func viewDidLoad() {
@@ -87,52 +87,6 @@ class ViewController: UIViewController {
     private func setButtonEvent(){
         viewModel.getMoveButton().addTarget(self, action: #selector(filterAnimate), for: .touchUpInside)
         viewModel.getAddButton().addTarget(self, action: #selector(createPinAtCenter), for: .touchUpInside)
-    }
-    
-    // MARK:- Objc function
-    // 중앙에 핀 생성
-    @objc
-    func createPinAtCenter() {
-        viewModel.AddCardView(radius: 20, color: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0), parent: self.view)
-        pinAnnotation = CustomPintAnnotation()
-        pinAnnotation.pinCustomImageName = "iconLike"
-        pinAnnotation.coordinate = CLLocationCoordinate2D(latitude: mainMap.centerCoordinate.latitude, longitude: mainMap.centerCoordinate.longitude)
-        pinAnnotation.title = "우리집"
-        pinAnnotation.subtitle = "집이 최고야"
-        mainMap.addAnnotation(pinAnnotation)
-        array.append(pinAnnotation)
-        dump(viewModel.getCardView())
-    }
-//    // 다음 핀으로 이동
-//    func moveNextPin(){
-//        if array.count > 0 {
-//            self.mainMap.selectAnnotation(array[count % array.count], animated: true)
-//            count += 1
-//        }
-//    }
-    @objc func filterAnimate(){
-        if viewModel.getMoveButton().frame.width == 232 {
-            UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseOut) {
-                self.viewModel.getMoveButton().snp.updateConstraints { btn in
-                    btn.width.equalTo(40)
-                    btn.height.equalTo(40)
-                    btn.top.equalTo(60)
-                    btn.trailing.equalTo(-16)
-                }
-                self.viewModel.getMoveButton().superview?.layoutIfNeeded()
-            }
-        }
-        else if viewModel.getMoveButton().frame.width == 40{
-            UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseOut) {
-                self.viewModel.getMoveButton().snp.updateConstraints { btn in
-                    btn.width.equalTo(232)
-                    btn.height.equalTo(40)
-                    btn.top.equalTo(60)
-                    btn.trailing.equalTo(-16)
-                }
-                self.viewModel.getMoveButton().superview?.layoutIfNeeded()
-            }
-        }
     }
 }
 
