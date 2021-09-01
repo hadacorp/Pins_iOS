@@ -66,7 +66,9 @@ class ViewController: UIViewController {
         var currentLocation: CLLocation!
         currentLocation = locationManager.location
         // 현재 위치로 이동
-        goLocation(latitudeValue: currentLocation.coordinate.latitude, longtudeValue: currentLocation.coordinate.longitude, delta: 250)
+        if let currentLocation = currentLocation {
+            goLocation(latitudeValue: currentLocation.coordinate.latitude, longtudeValue: currentLocation.coordinate.longitude, delta: 250)
+        }
     }
     
     
@@ -99,6 +101,28 @@ class ViewController: UIViewController {
 
 // MARK:- Extension CLLocationManagerDelegate
 extension ViewController: CLLocationManagerDelegate{
+    
+    func getLocationUsagePermission() {
+        //location4
+        self.locationManager.requestWhenInUseAuthorization()
+
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        switch status {
+        case .authorizedAlways, .authorizedWhenInUse:
+            print("GPS 권한 설정됨")
+            firstMapInit()
+        case .restricted, .notDetermined:
+            print("GPS 권한 설정되지 않음")
+            getLocationUsagePermission()
+        case .denied:
+            print("GPS 권한 요청 거부됨")
+            getLocationUsagePermission()
+        default:
+            print("GPS: Default")
+        }
+    }
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         //
     }
