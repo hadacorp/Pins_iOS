@@ -43,4 +43,28 @@ class MainViewModel: MainVCUI {
     public func getSearchBackground() -> UIView {
         return searchBackground
     }
+    
+    public func setSearchBackgroundDown() {
+        getSearchButton().layer.borderWidth = 1
+        getSearchButton().layer.borderColor = #colorLiteral(red: 0.3764705882, green: 0.3764705882, blue: 0.3764705882, alpha: 1)
+        
+        getSearchButton().layer.opacity = 1
+        getSearchButton().layer.shadowOpacity = 0
+        getSearchButton().layer.shadowOffset = CGSize(width: 0, height: 0)
+        getSearchButton().layer.shadowRadius = 0
+
+        getSearchButton().layer.masksToBounds = false
+    }
+    
+    public func setSearchBackgroundUp(){
+        getSearchButton().layer.borderWidth = 0
+        getSearchButton().layer.shadowOpacity = 0.16
+        getSearchButton().layer.shadowColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        getSearchButton().layer.shadowOffset = CGSize(width: 0, height: 4)
+        getSearchButton().layer.shadowRadius = 8
+
+        getSearchButton().layer.masksToBounds = false
+        
+        getSearchButton().layer.opacity = 0.9
+    }
 }

@@ -61,8 +61,8 @@ extension ViewController{
     @objc func onClickSearchBtn(){
         print(viewModel.getSearchButton().frame.width)
         if viewModel.getSearchButton().frame.width == 40{
-            viewModel.getSearchButton().layer.borderWidth = 1
-            viewModel.getSearchButton().layer.borderColor = #colorLiteral(red: 0.3764705882, green: 0.3764705882, blue: 0.3764705882, alpha: 1)
+            
+            viewModel.setSearchBackgroundDown()
             // 뒷배경 뷰 생성 후 내려오게 하기
             
             UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseOut) {
@@ -87,10 +87,10 @@ extension ViewController{
         }
         
         else{
-            viewModel.getSearchButton().layer.borderWidth = 0
-
-            self.viewModel.getSearchButton().imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-            UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseOut) {
+            viewModel.setSearchBackgroundUp()
+            
+           
+            UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseOut) { self.viewModel.getSearchButton().imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
                 // 돋보기 버튼 애니메이션
                 self.viewModel.getSearchButton().snp.updateConstraints { btn in
                     btn.leading.equalTo(16)
