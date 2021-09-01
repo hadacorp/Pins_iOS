@@ -1,13 +1,13 @@
 //
-//  UIManager.swift
+//  mainVCUI.swift
 //  pins_ios
 //
-//  Created by judongseok on 2021/08/28.
+//  Created by judongseok on 2021/09/01.
 //
 
 import UIKit
 
-class UIManager {
+class MainVCUI {
     // MARK:- Private variable
     public var mainUI: [Any] = []
     // 최하단 버튼 3종
@@ -19,6 +19,9 @@ class UIManager {
     public var searchButton = SmallRoundedBtn(radius: 16, color: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), image: #imageLiteral(resourceName: "icon"))
     // 핀 추가 버튼
     public var addButton = SmallRoundedBtn(radius: 16, color: #colorLiteral(red: 0.02745098039, green: 0.1294117647, blue: 0.337254902, alpha: 1), image: #imageLiteral(resourceName: "iconPlus"))
+    // SearchView Background
+    public var searchBackground = UIView(frame: UIScreen.main.bounds)
+    
     public var cardView: [BigRoundedbutton] = []
     // MARK:- Init UIView
     init(parent: UIView?) {
@@ -29,11 +32,23 @@ class UIManager {
             initCommunityButton(parent: parent)
             initChatButton(parent: parent)
             initMenuButton(parent: parent)
+            initSearchBackground(parent: parent)
         }
     }
     
     // MARK:- Private function
     // UI 생성 및 세팅
+    // MARK:- Search Background
+    private func initSearchBackground(parent: UIView){
+        parent.addSubview(searchBackground)
+        searchBackground.snp.makeConstraints { bg in
+            bg.width.equalTo(UIScreen.main.bounds.width)
+            bg.height.equalTo(UIScreen.main.bounds.height)
+            bg.top.equalTo(-UIScreen.main.bounds.height)
+        }
+        searchBackground.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+    }
+    
     // MARK:- 최하단 버튼 3종
     private func initMenuButton(parent: UIView){
         parent.addSubview(menuButton.button)

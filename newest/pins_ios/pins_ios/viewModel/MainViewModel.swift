@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MainViewModel: UIManager {
+class MainViewModel: MainVCUI {
     // MARK:- Public function
     public func getMainUI() -> [Any]{
         return mainUI
@@ -38,5 +38,9 @@ class MainViewModel: UIManager {
     
     public func getCardView() -> [BigRoundedbutton]{
         return cardView
+    }
+    
+    public func getSearchBackground() -> UIView {
+        return searchBackground
     }
 }
