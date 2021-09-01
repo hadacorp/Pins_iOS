@@ -59,26 +59,33 @@ extension ViewController{
         }
     }
     @objc func onClickSearchBtn(){
-        guard let svc = self.storyboard?.instantiateViewController(withIdentifier: "SearchVC") else {
-            return
+        if viewModel.getSearchButton().frame.width == 40{
+            viewModel.getSearchButton().setImage(#imageLiteral(resourceName: "iconBack"), for: .normal)
+            viewModel.getSearchButton().layer.borderWidth = 1
+            viewModel.getSearchButton().layer.borderColor = #colorLiteral(red: 0.3764705882, green: 0.3764705882, blue: 0.3764705882, alpha: 1)
+            // 뒷배경 뷰 생성 후 내려오게 하기
+            
+            UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseOut) {
+                self.viewModel.getSearchButton().imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: UIScreen.main.bounds.width - 72)
+                self.viewModel.getSearchButton().snp.updateConstraints { btn in
+                    btn.leading.equalTo(16)
+                    btn.top.equalTo(60)
+                    btn.height.equalTo(40)
+                    btn.width.equalTo(UIScreen.main.bounds.width - 32)
+                }
+                self.viewModel.getSearchButton().superview?.layoutIfNeeded()
+                
+                
+                self.viewModel.getSearchBackground().snp.updateConstraints { bg in
+                    bg.top.equalTo(0)
+                }
+                self.viewModel.getSearchBackground().superview?.layoutIfNeeded()
+            }
+            self.viewModel.getSearchButton().layer.zPosition = 1
         }
-        let transition = CATransition()
-        transition.duration = 0.25
-        transition.type = CATransitionType.push
-        transition.subtype = CATransitionSubtype.fromRight
-                self.view.window!.layer.add(transition, forKey: kCATransition)
-        svc.modalPresentationStyle = .fullScreen
-        present(svc, animated: false)
-//        //storyboard를 통해 두번쨰 화면의 storyboard ID를 참조하여 뷰 컨트롤러를 가져옵니다.
-//        guard let svc = self.storyboard?.instantiateViewController(withIdentifier: "SearchVC") else {
-//            return
-//        }
-//
-//        //화면 전환 애니메이션을 설정합니다. coverVertical 외에도 다양한 옵션이 있습니다.
-//        svc.modalTransitionStyle = .partialCurl
-//        svc.modalPresentationStyle = .fullScreen
-//
-//        //인자값으로 다음 뷰 컨트롤러를 넣고 present 메소드를 호출합니다.
-//        self.present(svc, animated: true)
+        
+        else{
+            
+        }
     }
 }
