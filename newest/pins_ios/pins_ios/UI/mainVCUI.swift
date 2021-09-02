@@ -19,6 +19,8 @@ class MainVCUI {
     public var searchButton = SmallRoundedBtn(radius: 16, color: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), image: #imageLiteral(resourceName: "icon"))
     // 핀 추가 버튼
     public var addButton = SmallRoundedBtn(radius: 16, color: #colorLiteral(red: 0.02745098039, green: 0.1294117647, blue: 0.337254902, alpha: 1), image: #imageLiteral(resourceName: "iconPlus"))
+    // 내 위치로 이동 버튼
+    public var myLocationButton = SmallRoundedBtn(radius: 16, color: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0), image: #imageLiteral(resourceName: "iconLocation"))
     // SearchView Background
     public var searchBackground = UIView(frame: UIScreen.main.bounds)
     
@@ -33,6 +35,7 @@ class MainVCUI {
             initChatButton(parent: parent)
             initMenuButton(parent: parent)
             initSearchBackground(parent: parent)
+            initMyLocationButton(parent: parent)
         }
     }
     
@@ -77,6 +80,16 @@ class MainVCUI {
             bt.trailing.equalTo(-16)
             bt.width.equalTo(50)
             bt.height.equalTo(50)
+        }
+    }
+    
+    private func initMyLocationButton(parent: UIView){
+        parent.addSubview(myLocationButton.button)
+        myLocationButton.button.snp.makeConstraints { bt in
+            bt.width.equalTo(40)
+            bt.height.equalTo(40)
+            bt.trailing.equalTo(-16)
+            bt.bottom.equalTo(-108)
         }
     }
     // MARK:- 핀 추가 버튼

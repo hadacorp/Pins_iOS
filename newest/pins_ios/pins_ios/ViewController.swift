@@ -24,6 +24,9 @@ class ViewController: UIViewController {
     public var array: [CustomPintAnnotation] = []
     public var count = 0
     
+    
+    // 현재 위치 저장
+    public var currentLocation: CLLocation!
     // MARK:- Private function
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,8 +65,6 @@ class ViewController: UIViewController {
         mainMap.pointOfInterestFilter = .some(MKPointOfInterestFilter(including: [MKPointOfInterestCategory.cafe, MKPointOfInterestCategory.restaurant]))
         // user 위치 보기
         mainMap.showsUserLocation = true
-        // 현재 위치 저장
-        var currentLocation: CLLocation!
         currentLocation = locationManager.location
         // 현재 위치로 이동
         if let currentLocation = currentLocation {
@@ -72,30 +73,14 @@ class ViewController: UIViewController {
     }
     
     
-    // 위도와 경도, 스팬(영역 폭)을 입력받아 지도에 표시
-    private func goLocation(latitudeValue: CLLocationDegrees,
-                    longtudeValue: CLLocationDegrees,
-                    delta span: Double) {
-        let pLocation = CLLocationCoordinate2DMake(latitudeValue, longtudeValue)
-        let viewRegion = MKCoordinateRegion(center: pLocation, latitudinalMeters: span, longitudinalMeters: span)
-        
-        mainMap.region = viewRegion
-        
-        let mapCamera = MKMapCamera()
-        mapCamera.centerCoordinate = pLocation
-        mapCamera.pitch = 45
-        mapCamera.altitude = 500 // example altitude
-        mapCamera.heading = 0
-        
-        // set the camera property
-        mainMap.camera = mapCamera
-    }
+    
     
     // 버튼 이벤트 설정
     private func setButtonEvent(){
         viewModel.getMoveButton().addTarget(self, action: #selector(filterAnimate), for: .touchUpInside)
         viewModel.getAddButton().addTarget(self, action: #selector(createPinAtCenter), for: .touchUpInside)
         viewModel.getSearchButton().addTarget(self, action: #selector(onClickSearchBtn), for: .touchUpInside)
+        viewModel.getMyLocationButton().addTarget(self, action: #selector(myLocation), for: .touchUpInside)
     }
 }
 

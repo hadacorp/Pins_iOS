@@ -44,6 +44,10 @@ class MainViewModel: MainVCUI {
         return searchBackground
     }
     
+    public func getMyLocationButton() -> UIButton {
+        return myLocationButton.button
+    }
+    
     public func setSearchBackgroundDown() {
         getSearchButton().layer.borderWidth = 1
         getSearchButton().layer.borderColor = #colorLiteral(red: 0.3764705882, green: 0.3764705882, blue: 0.3764705882, alpha: 1)

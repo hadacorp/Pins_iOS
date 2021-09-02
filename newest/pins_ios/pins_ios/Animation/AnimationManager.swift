@@ -30,31 +30,56 @@ extension ViewController{
 //            count += 1
 //        }
 //    }
+    // 위도와 경도, 스팬(영역 폭)을 입력받아 지도에 표시
+    @objc func goLocation(latitudeValue: CLLocationDegrees,
+                    longtudeValue: CLLocationDegrees,
+                    delta span: Double) {
+        let pLocation = CLLocationCoordinate2DMake(latitudeValue, longtudeValue)
+        let viewRegion = MKCoordinateRegion(center: pLocation, latitudinalMeters: span, longitudinalMeters: span)
+        
+        mainMap.region = viewRegion
+        
+        let mapCamera = MKMapCamera()
+        mapCamera.centerCoordinate = pLocation
+        mapCamera.pitch = 45
+        mapCamera.altitude = 500 // example altitude
+        mapCamera.heading = 0
+        
+        // set the camera property
+        mainMap.camera = mapCamera
+    }
+    
+    @objc func myLocation() {
+        UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseOut) { [self] in
+            goLocation(latitudeValue: currentLocation.coordinate.latitude, longtudeValue: currentLocation.coordinate.longitude, delta: 250)
+        }
+    }
+    
     @objc func filterAnimate(){
         if viewModel.getMoveButton().frame.width == 232 {
             viewModel.getMoveButton().setImage(#imageLiteral(resourceName: "iconEye"), for: .normal)
-            UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseOut) {
-                self.viewModel.getMoveButton().imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-                self.viewModel.getMoveButton().snp.updateConstraints { btn in
+            UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseOut) { [self] in
+                viewModel.getMoveButton().imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+                viewModel.getMoveButton().snp.updateConstraints { btn in
                     btn.width.equalTo(40)
                     btn.height.equalTo(40)
                     btn.top.equalTo(60)
                     btn.trailing.equalTo(-16)
                 }
-                self.viewModel.getMoveButton().superview?.layoutIfNeeded()
+                viewModel.getMoveButton().superview?.layoutIfNeeded()
             }
         }
         else if viewModel.getMoveButton().frame.width == 40{
             viewModel.getMoveButton().setImage(#imageLiteral(resourceName: "iconList"), for: .normal)
-            UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseOut) {
-                self.viewModel.getMoveButton().imageEdgeInsets = UIEdgeInsets(top: 0, left: 202, bottom: 0, right: 10)
-                self.viewModel.getMoveButton().snp.updateConstraints { btn in
+            UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseOut) { [self] in
+                viewModel.getMoveButton().imageEdgeInsets = UIEdgeInsets(top: 0, left: 202, bottom: 0, right: 10)
+                viewModel.getMoveButton().snp.updateConstraints { btn in
                     btn.width.equalTo(232)
                     btn.height.equalTo(40)
                     btn.top.equalTo(60)
                     btn.trailing.equalTo(-16)
                 }
-                self.viewModel.getMoveButton().superview?.layoutIfNeeded()
+                viewModel.getMoveButton().superview?.layoutIfNeeded()
             }
         }
     }
@@ -65,21 +90,21 @@ extension ViewController{
             viewModel.setSearchBackgroundDown()
             // 뒷배경 뷰 생성 후 내려오게 하기
             
-            UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseOut) {
-                self.viewModel.getSearchButton().imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: UIScreen.main.bounds.width - 72)
-                self.viewModel.getSearchButton().snp.updateConstraints { btn in
+            UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseOut) { [self] in
+                viewModel.getSearchButton().imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: UIScreen.main.bounds.width - 72)
+                viewModel.getSearchButton().snp.updateConstraints { btn in
                     btn.leading.equalTo(16)
                     btn.top.equalTo(60)
                     btn.height.equalTo(40)
                     btn.width.equalTo(UIScreen.main.bounds.width - 32)
                 }
-                self.viewModel.getSearchButton().superview?.layoutIfNeeded()
+                viewModel.getSearchButton().superview?.layoutIfNeeded()
                 
                 
-                self.viewModel.getSearchBackground().snp.updateConstraints { bg in
+                viewModel.getSearchBackground().snp.updateConstraints { bg in
                     bg.top.equalTo(0)
                 }
-                self.viewModel.getSearchBackground().superview?.layoutIfNeeded()
+                viewModel.getSearchBackground().superview?.layoutIfNeeded()
             }
             // 맨 앞으로 가져오기
             self.view.bringSubviewToFront(self.viewModel.getSearchButton())
@@ -90,21 +115,21 @@ extension ViewController{
             viewModel.setSearchBackgroundUp()
             
            
-            UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseOut) { self.viewModel.getSearchButton().imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+            UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseOut) { [self] in viewModel.getSearchButton().imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
                 // 돋보기 버튼 애니메이션
-                self.viewModel.getSearchButton().snp.updateConstraints { btn in
+                viewModel.getSearchButton().snp.updateConstraints { btn in
                     btn.leading.equalTo(16)
                     btn.top.equalTo(60)
                     btn.height.equalTo(40)
                     btn.width.equalTo(40)
                 }
-                self.viewModel.getSearchButton().superview?.layoutIfNeeded()
+                viewModel.getSearchButton().superview?.layoutIfNeeded()
                 
                 // 뒷배경 애니메이션
-                self.viewModel.getSearchBackground().snp.updateConstraints { bg in
+                viewModel.getSearchBackground().snp.updateConstraints { bg in
                     bg.top.equalTo(-UIScreen.main.bounds.height)
                 }
-                self.viewModel.getSearchBackground().superview?.layoutIfNeeded()
+                viewModel.getSearchBackground().superview?.layoutIfNeeded()
             }
             viewModel.getSearchButton().setImage(#imageLiteral(resourceName: "icon"), for: .normal)
         }
