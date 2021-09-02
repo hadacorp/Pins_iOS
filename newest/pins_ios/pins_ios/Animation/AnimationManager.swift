@@ -21,7 +21,6 @@ extension ViewController{
         pinAnnotation.subtitle = "집이 최고야"
         mainMap.addAnnotation(pinAnnotation)
         array.append(pinAnnotation)
-        dump(viewModel.getCardView())
     }
 //    // 다음 핀으로 이동
 //    func moveNextPin(){
@@ -83,8 +82,22 @@ extension ViewController{
             }
         }
     }
+    @objc func changeView(){
+        guard let svc = self.storyboard?.instantiateViewController(withIdentifier: "SearchVC") else {
+            return
+        }
+            
+        let transition = CATransition()
+        transition.duration = 0.2
+        transition.type = CATransitionType.push
+        transition.subtype = CATransitionSubtype.fromRight
+        transition.timingFunction = CAMediaTimingFunction(name:CAMediaTimingFunctionName.easeInEaseOut)
+        view.window!.layer.add(transition, forKey: kCATransition)
+        svc.modalPresentationStyle = .fullScreen
+        present(svc, animated: false, completion: nil)
+    }
+    
     @objc func onClickSearchBtn(){
-        print(viewModel.getSearchButton().frame.width)
         if viewModel.getSearchButton().frame.width == 40{
             
             viewModel.setSearchBackgroundDown()

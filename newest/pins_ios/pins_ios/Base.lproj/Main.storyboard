@@ -20,7 +20,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </mapView>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="nFA-r8-Cti"/>
+                        <viewLayoutGuide key="safeArea" id="ght-tN-tyT"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Jhd-je-gly" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="DS1-9u-7dJ"/>
@@ -37,23 +37,66 @@
             </objects>
             <point key="canvasLocation" x="131.8840579710145" y="114.50892857142857"/>
         </scene>
-        <!--View Controller-->
+        <!--Search View Controller-->
         <scene sceneID="bXq-l4-TVB">
             <objects>
-                <viewController storyboardIdentifier="SearchVC" id="CzO-7p-Yd9" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SearchVC" id="CzO-7p-Yd9" customClass="SearchViewController" customModule="pins_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4te-Ta-yUL">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1Ft-rk-HRJ">
+                                <rect key="frame" x="16" y="60" width="382" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="mXR-21-qha"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qjZ-vC-qlY">
+                                <rect key="frame" x="16" y="60" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="QrA-Vl-0sV"/>
+                                    <constraint firstAttribute="width" constant="40" id="X3i-Fb-utR"/>
+                                </constraints>
+                                <state key="normal" image="iconBack"/>
+                                <connections>
+                                    <action selector="backButton:" destination="CzO-7p-Yd9" eventType="touchUpInside" id="uIM-Qg-Bsx"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gps-9z-RPw">
+                                <rect key="frame" x="358" y="60" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="5sC-zW-mHD"/>
+                                    <constraint firstAttribute="height" constant="40" id="V2U-8x-ETd"/>
+                                </constraints>
+                                <state key="normal" image="iconCancel"/>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="7D1-Ou-AuT"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="7D1-Ou-AuT" firstAttribute="trailing" secondItem="gps-9z-RPw" secondAttribute="trailing" constant="16" id="104-BF-LeP"/>
+                            <constraint firstItem="qjZ-vC-qlY" firstAttribute="top" secondItem="7D1-Ou-AuT" secondAttribute="top" constant="16" id="8JG-EU-2o9"/>
+                            <constraint firstItem="1Ft-rk-HRJ" firstAttribute="leading" secondItem="7D1-Ou-AuT" secondAttribute="leading" constant="16" id="Edx-XF-wHl"/>
+                            <constraint firstItem="qjZ-vC-qlY" firstAttribute="leading" secondItem="7D1-Ou-AuT" secondAttribute="leading" constant="16" id="GlM-vO-09q"/>
+                            <constraint firstItem="1Ft-rk-HRJ" firstAttribute="top" secondItem="7D1-Ou-AuT" secondAttribute="top" constant="16" id="ddw-pl-PaB"/>
+                            <constraint firstItem="gps-9z-RPw" firstAttribute="top" secondItem="7D1-Ou-AuT" secondAttribute="top" constant="16" id="dmf-eT-MvJ"/>
+                            <constraint firstItem="7D1-Ou-AuT" firstAttribute="trailing" secondItem="1Ft-rk-HRJ" secondAttribute="trailing" constant="16" id="ib1-Dm-fWE"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="textField" destination="1Ft-rk-HRJ" id="Rid-l3-Q4T"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bpK-qT-Og5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="916" y="110"/>
+            <point key="canvasLocation" x="915.94202898550736" y="109.82142857142857"/>
         </scene>
     </scenes>
     <resources>
+        <image name="iconBack" width="40" height="40"/>
+        <image name="iconCancel" width="40" height="40"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

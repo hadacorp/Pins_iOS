@@ -8,7 +8,7 @@
 import UIKit
 
 class MainVCUI {
-    // MARK:- Private variable
+    // MARK:- Public variable
     public var mainUI: [Any] = []
     // 최하단 버튼 3종
     public var chatButton = SmallRoundedBtn(radius: 16, color: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0), image: #imageLiteral(resourceName: "iconChatting"))
@@ -21,21 +21,26 @@ class MainVCUI {
     public var addButton = SmallRoundedBtn(radius: 16, color: #colorLiteral(red: 0.02745098039, green: 0.1294117647, blue: 0.337254902, alpha: 1), image: #imageLiteral(resourceName: "iconPlus"))
     // 내 위치로 이동 버튼
     public var myLocationButton = SmallRoundedBtn(radius: 16, color: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0), image: #imageLiteral(resourceName: "iconLocation"))
+    // 검색 뒤로가기 버튼
+    
     // SearchView Background
     public var searchBackground = UIView(frame: UIScreen.main.bounds)
     
     public var cardView: [BigRoundedbutton] = []
     // MARK:- Init UIView
-    init(parent: UIView?) {
+    init(parent: UIView?, layout: UILayoutGuide?) {
         if let parent = parent{
-            initsearchButton(parent: parent)
-            initAddButton(parent: parent)
-            initMoveButton(parent: parent)
-            initCommunityButton(parent: parent)
-            initChatButton(parent: parent)
-            initMenuButton(parent: parent)
-            initSearchBackground(parent: parent)
-            initMyLocationButton(parent: parent)
+                if let layout = layout {
+                initsearchButton(parent: parent, layout: layout)
+                initAddButton(parent: parent, layout: layout)
+                initMoveButton(parent: parent, layout: layout)
+                
+                initCommunityButton(parent: parent)
+                initChatButton(parent: parent)
+                initMenuButton(parent: parent)
+                initSearchBackground(parent: parent)
+                initMyLocationButton(parent: parent)
+            }
         }
     }
     
@@ -93,30 +98,30 @@ class MainVCUI {
         }
     }
     // MARK:- 핀 추가 버튼
-    private func initAddButton(parent: UIView){
+    private func initAddButton(parent: UIView, layout: UILayoutGuide){
         parent.addSubview(addButton.button)
         addButton.button.snp.makeConstraints { bt in
-            bt.top.equalTo(120)
+            bt.top.equalTo(layout).offset(76)
             bt.trailing.equalTo(-16)
             bt.width.equalTo(40)
             bt.height.equalTo(40)
         }
     }
     // MARK:- 중상부 버튼
-    private func initsearchButton(parent: UIView){
+    private func initsearchButton(parent: UIView, layout: UILayoutGuide){
         parent.addSubview(searchButton.button)
         searchButton.button.snp.makeConstraints { bt in
-            bt.top.equalTo(60)
+            bt.top.equalTo(layout).offset(16)
             bt.leading.equalTo(16)
             bt.width.equalTo(40)
             bt.height.equalTo(40)
         }
     }
     
-    private func initMoveButton(parent: UIView){
+    private func initMoveButton(parent: UIView, layout: UILayoutGuide){
         parent.addSubview(moveButton.button)
         moveButton.button.snp.makeConstraints { bt in
-            bt.top.equalTo(60)
+            bt.top.equalTo(layout).offset(16)
             bt.trailing.equalTo(-16)
             bt.width.equalTo(40)
             bt.height.equalTo(40)
