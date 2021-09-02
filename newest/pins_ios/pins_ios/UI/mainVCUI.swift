@@ -21,7 +21,9 @@ class MainVCUI {
     public var addButton = SmallRoundedBtn(radius: 16, color: #colorLiteral(red: 0.02745098039, green: 0.1294117647, blue: 0.337254902, alpha: 1), image: #imageLiteral(resourceName: "iconPlus"))
     // 내 위치로 이동 버튼
     public var myLocationButton = SmallRoundedBtn(radius: 16, color: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0), image: #imageLiteral(resourceName: "iconLocation"))
-    // 검색 뒤로가기 버튼
+    // 그라데이션 위, 아래
+    public var gradationUp = UIImageView(image: #imageLiteral(resourceName: "gradationUp"))
+    public var gradationDown = UIImageView(image: #imageLiteral(resourceName: "gradationDown"))
     
     // SearchView Background
     public var searchBackground = UIView(frame: UIScreen.main.bounds)
@@ -30,7 +32,10 @@ class MainVCUI {
     // MARK:- Init UIView
     init(parent: UIView?, layout: UILayoutGuide?) {
         if let parent = parent{
-                if let layout = layout {
+            if let layout = layout {                
+                initGradationUp(parent: parent)
+                initGradationDown(parent: parent)
+                
                 initsearchButton(parent: parent, layout: layout)
                 initAddButton(parent: parent, layout: layout)
                 initMoveButton(parent: parent, layout: layout)
@@ -125,6 +130,25 @@ class MainVCUI {
             bt.trailing.equalTo(-16)
             bt.width.equalTo(40)
             bt.height.equalTo(40)
+        }
+    }
+    // MARK:- 그라데이션
+    private func initGradationUp(parent: UIView){
+        parent.addSubview(gradationUp)
+        gradationUp.snp.makeConstraints { gra in
+            gra.top.equalTo(0)
+            gra.leading.equalTo(0)
+            gra.width.equalTo(UIScreen.main.bounds.width)
+            gra.height.equalTo(60)
+        }
+    }
+    private func initGradationDown(parent: UIView){
+        parent.addSubview(gradationDown)
+        gradationDown.snp.makeConstraints { gra in
+            gra.bottom.equalTo(0)
+            gra.leading.equalTo(0)
+            gra.width.equalTo(UIScreen.main.bounds.width)
+            gra.height.equalTo(60)
         }
     }
 }
