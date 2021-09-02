@@ -87,14 +87,15 @@ extension ViewController{
             return
         }
             
-        let transition = CATransition()
-        transition.duration = 0.2
-        transition.type = CATransitionType.push
-        transition.subtype = CATransitionSubtype.fromRight
-        transition.timingFunction = CAMediaTimingFunction(name:CAMediaTimingFunctionName.easeInEaseOut)
-        view.window!.layer.add(transition, forKey: kCATransition)
+//        let transition = CATransition()
+//        transition.duration = 0.2
+//        transition.type = CATransitionType.push
+//        transition.subtype = CATransitionSubtype.fromRight
+//        transition.timingFunction = CAMediaTimingFunction(name:CAMediaTimingFunctionName.easeIn)
+//        view.window!.layer.add(transition, forKey: kCATransition)
+        svc.modalTransitionStyle = .crossDissolve
         svc.modalPresentationStyle = .fullScreen
-        present(svc, animated: false, completion: nil)
+        present(svc, animated: true, completion: nil)
     }
     
     @objc func onClickSearchBtn(){
@@ -102,12 +103,11 @@ extension ViewController{
             
             viewModel.setSearchBackgroundDown()
             // 뒷배경 뷰 생성 후 내려오게 하기
-            
             UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseOut) { [self] in
                 viewModel.getSearchButton().imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: UIScreen.main.bounds.width - 72)
                 viewModel.getSearchButton().snp.updateConstraints { btn in
                     btn.leading.equalTo(16)
-                    btn.top.equalTo(60)
+                    btn.top.equalTo(self.view.safeAreaLayoutGuide).offset(16)
                     btn.height.equalTo(40)
                     btn.width.equalTo(UIScreen.main.bounds.width - 32)
                 }
@@ -132,7 +132,7 @@ extension ViewController{
                 // 돋보기 버튼 애니메이션
                 viewModel.getSearchButton().snp.updateConstraints { btn in
                     btn.leading.equalTo(16)
-                    btn.top.equalTo(60)
+                    btn.top.equalTo(self.view.safeAreaLayoutGuide).offset(16)
                     btn.height.equalTo(40)
                     btn.width.equalTo(40)
                 }
