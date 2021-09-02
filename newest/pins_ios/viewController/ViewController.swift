@@ -14,7 +14,7 @@ class ViewController: UIViewController {
     // Main MapView
     @IBOutlet weak var mainMap: MKMapView!
     // MARK:- Public variable
-    public var viewModel = MainViewModel(parent: nil)
+    public var viewModel = MainViewModel(parent: nil, layout: nil)
     // 위치를 받아오기 위한 locationManager
     public var locationManager = CLLocationManager()
     // 맵에 찍을 핀 객체
@@ -33,7 +33,7 @@ class ViewController: UIViewController {
         // 처음 권환 체크
         setPermission()
         
-        viewModel = MainViewModel(parent: self.view)
+        viewModel = MainViewModel(parent: self.view, layout: self.view.safeAreaLayoutGuide)
         // 라이트 모드로 고정
         self.overrideUserInterfaceStyle = .light
         // 시작시 지도 설정 세팅
@@ -72,14 +72,11 @@ class ViewController: UIViewController {
         }
     }
     
-    
-    
-    
     // 버튼 이벤트 설정
     private func setButtonEvent(){
         viewModel.getMoveButton().addTarget(self, action: #selector(filterAnimate), for: .touchUpInside)
         viewModel.getAddButton().addTarget(self, action: #selector(createPinAtCenter), for: .touchUpInside)
-        viewModel.getSearchButton().addTarget(self, action: #selector(onClickSearchBtn), for: .touchUpInside)
+        viewModel.getSearchButton().addTarget(self, action: #selector(changeView), for: .touchUpInside)
         viewModel.getMyLocationButton().addTarget(self, action: #selector(myLocation), for: .touchUpInside)
     }
 }
