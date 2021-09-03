@@ -24,9 +24,10 @@ class ViewController: UIViewController {
     public var array: [CustomPintAnnotation] = []
     public var count = 0
     
-    
     // 현재 위치 저장
     public var currentLocation: CLLocation!
+    // API
+    public var getKeywordPinAPI = GetKeywordPinAPI()
     // MARK:- Private function
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +41,12 @@ class ViewController: UIViewController {
         firstMapInit()
         // 버튼 이벤트 세팅
         setButtonEvent()
+        
+        // test
+        getKeywordPinAPI.requestGet(url: "") { [self] success, data in
+            viewModel.homeResponseList = data as! [HomeResponse]
+            print(viewModel.homeResponseList[0].latitude!)
+        }
     }
     
     private func setPermission(){

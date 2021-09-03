@@ -8,7 +8,18 @@
 import UIKit
 
 class MainViewModel: MainVCUI {
+    // MARK:- Public Variable
+    public var _homeResponseList: [HomeResponse] = []
+    public var homeResponseList: [HomeResponse] {
+        get{
+            return _homeResponseList
+        }
+        set(newList){
+            _homeResponseList = newList
+        }
+    }
     // MARK:- Public function
+    
     public func getMainUI() -> [Any]{
         return mainUI
     }

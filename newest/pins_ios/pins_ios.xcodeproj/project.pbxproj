@@ -14,6 +14,10 @@
 		B70908FC26E1D4B70075BF50 /* NotoSansKR-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = B70908F626E1D4B70075BF50 /* NotoSansKR-Bold.otf */; };
 		B70908FD26E1D4B70075BF50 /* NotoSansKR-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = B70908F726E1D4B70075BF50 /* NotoSansKR-Medium.otf */; };
 		B70908FE26E1D4B70075BF50 /* NotoSansKR-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = B70908F826E1D4B70075BF50 /* NotoSansKR-Regular.otf */; };
+		B709090026E1FD990075BF50 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70908FF26E1FD990075BF50 /* SearchViewModel.swift */; };
+		B709090326E2006E0075BF50 /* SearchViewEventManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B709090226E2006E0075BF50 /* SearchViewEventManager.swift */; };
+		B709090626E263620075BF50 /* GetKeywordPinAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B709090526E263620075BF50 /* GetKeywordPinAPI.swift */; };
+		B709090926E273840075BF50 /* HomeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B709090826E273840075BF50 /* HomeResponse.swift */; };
 		B70CFC2126BFD82500B7DA74 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70CFC2026BFD82500B7DA74 /* AppDelegate.swift */; };
 		B70CFC2326BFD82500B7DA74 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70CFC2226BFD82500B7DA74 /* SceneDelegate.swift */; };
 		B70CFC2526BFD82500B7DA74 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70CFC2426BFD82500B7DA74 /* ViewController.swift */; };
@@ -41,6 +45,10 @@
 		B70908F626E1D4B70075BF50 /* NotoSansKR-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "NotoSansKR-Bold.otf"; path = "../../../../../../pins_source/Noto_Sans_KR/NotoSansKR-Bold.otf"; sourceTree = "<group>"; };
 		B70908F726E1D4B70075BF50 /* NotoSansKR-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "NotoSansKR-Medium.otf"; path = "../../../../../../pins_source/Noto_Sans_KR/NotoSansKR-Medium.otf"; sourceTree = "<group>"; };
 		B70908F826E1D4B70075BF50 /* NotoSansKR-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "NotoSansKR-Regular.otf"; path = "../../../../../../pins_source/Noto_Sans_KR/NotoSansKR-Regular.otf"; sourceTree = "<group>"; };
+		B70908FF26E1FD990075BF50 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		B709090226E2006E0075BF50 /* SearchViewEventManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewEventManager.swift; sourceTree = "<group>"; };
+		B709090526E263620075BF50 /* GetKeywordPinAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetKeywordPinAPI.swift; sourceTree = "<group>"; };
+		B709090826E273840075BF50 /* HomeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeResponse.swift; sourceTree = "<group>"; };
 		B70CFC1D26BFD82500B7DA74 /* pins_ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pins_ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B70CFC2026BFD82500B7DA74 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B70CFC2226BFD82500B7DA74 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -99,9 +107,34 @@
 			path = Animation;
 			sourceTree = "<group>";
 		};
+		B709090126E200590075BF50 /* Event */ = {
+			isa = PBXGroup;
+			children = (
+				B709090226E2006E0075BF50 /* SearchViewEventManager.swift */,
+			);
+			path = Event;
+			sourceTree = "<group>";
+		};
+		B709090426E262DA0075BF50 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				B709090526E263620075BF50 /* GetKeywordPinAPI.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		B709090726E2735D0075BF50 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				B709090826E273840075BF50 /* HomeResponse.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
 		B70CFC1426BFD82500B7DA74 = {
 			isa = PBXGroup;
 			children = (
+				B709090726E2735D0075BF50 /* Entities */,
 				B79ACD3326E13008008990C3 /* Fonts */,
 				B7D0EBA426E12551009FB747 /* viewController */,
 				B70CFC1F26BFD82500B7DA74 /* pins_ios */,
@@ -122,6 +155,8 @@
 		B70CFC1F26BFD82500B7DA74 /* pins_ios */ = {
 			isa = PBXGroup;
 			children = (
+				B709090426E262DA0075BF50 /* API */,
+				B709090126E200590075BF50 /* Event */,
 				B704D47E26DBCE2600DB20D2 /* Animation */,
 				B760E85726DA614B001B8DAA /* UI */,
 				B7C5DAAB26C809B80011EE41 /* viewModel */,
@@ -174,6 +209,7 @@
 			isa = PBXGroup;
 			children = (
 				B7C5DAAC26C80A550011EE41 /* MainViewModel.swift */,
+				B70908FF26E1FD990075BF50 /* SearchViewModel.swift */,
 			);
 			path = viewModel;
 			sourceTree = "<group>";
@@ -307,6 +343,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B709090926E273840075BF50 /* HomeResponse.swift in Sources */,
 				B70CFC3526BFDC0C00B7DA74 /* PinMaker.swift in Sources */,
 				B724315B26C18A950091152E /* SmallRoundedBtn.swift in Sources */,
 				B7C5DAA826C805640011EE41 /* BigRoundedbutton.swift in Sources */,
@@ -314,10 +351,13 @@
 				B70CFC2526BFD82500B7DA74 /* ViewController.swift in Sources */,
 				B74CDCA526DF9AA200043ADE /* MainVCUI.swift in Sources */,
 				B74CDCA726DF9AB100043ADE /* SearchVCUI.swift in Sources */,
+				B709090626E263620075BF50 /* GetKeywordPinAPI.swift in Sources */,
 				B70CFC2126BFD82500B7DA74 /* AppDelegate.swift in Sources */,
+				B709090026E1FD990075BF50 /* SearchViewModel.swift in Sources */,
 				B7D0EBA626E12581009FB747 /* SearchViewController.swift in Sources */,
 				B7C5DAAA26C805D50011EE41 /* ThumbnailImg.swift in Sources */,
 				B70CFC2326BFD82500B7DA74 /* SceneDelegate.swift in Sources */,
+				B709090326E2006E0075BF50 /* SearchViewEventManager.swift in Sources */,
 				B704D48026DBCE6800DB20D2 /* AnimationManager.swift in Sources */,
 				B7C5DAAD26C80A550011EE41 /* MainViewModel.swift in Sources */,
 			);
