@@ -33,7 +33,7 @@ class MainVCUI {
     init(parent: UIView?, layout: UILayoutGuide?) {
         if let parent = parent{
             if let layout = layout {                
-                initGradationUp(parent: parent)
+//                initGradationUp(parent: parent)
                 initGradationDown(parent: parent)
                 
                 initsearchButton(parent: parent, layout: layout)
@@ -148,7 +148,8 @@ class MainVCUI {
             gra.bottom.equalTo(0)
             gra.leading.equalTo(0)
             gra.width.equalTo(UIScreen.main.bounds.width)
-            gra.height.equalTo(60)
+            gra.height.equalTo(50)
         }
+        gradationDown.layer.opacity = 0.6
     }
 }

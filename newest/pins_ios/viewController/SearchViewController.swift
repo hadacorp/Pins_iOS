@@ -10,11 +10,11 @@ import UIKit
 class SearchViewController: UIViewController {
     @IBOutlet weak var textField: UITextField!
     @IBAction func backButton(_ sender: Any) {
-//        let transition = CATransition()
-//        transition.duration = 0.25
-//        transition.type = CATransitionType.push
-//        transition.subtype = CATransitionSubtype.fromLeft
-//        self.view.window!.layer.add(transition, forKey: kCATransition)
+        //        let transition = CATransition()
+        //        transition.duration = 0.25
+        //        transition.type = CATransitionType.push
+        //        transition.subtype = CATransitionSubtype.fromLeft
+        //        self.view.window!.layer.add(transition, forKey: kCATransition)
         
         dismiss(animated: true)
     }
@@ -23,6 +23,7 @@ class SearchViewController: UIViewController {
         self.overrideUserInterfaceStyle = .light
         textField.becomeFirstResponder()
         setUI()
+        swipeRecognizer()
     }
     
     
@@ -37,5 +38,23 @@ class SearchViewController: UIViewController {
         let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 40, height: textField.frame.height))
         textField.leftView = paddingView
         textField.leftViewMode = .always
+    }
+    
+    func swipeRecognizer() {
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture(_:)))
+        swipeRight.direction = UISwipeGestureRecognizer.Direction.right
+        self.view.addGestureRecognizer(swipeRight)
+        
+    }
+    
+    @objc func respondToSwipeGesture(_ gesture: UIGestureRecognizer){
+        if let swipeGesture = gesture as? UISwipeGestureRecognizer {
+            switch swipeGesture.direction{
+            case UISwipeGestureRecognizer.Direction.right:
+                // 스와이프 시, 원하는 기능 구현.
+                self.dismiss(animated: true, completion: nil)
+            default: break
+            }
+        }
     }
 }

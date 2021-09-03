@@ -49,6 +49,8 @@ extension ViewController{
     }
     
     @objc func myLocation() {
+//        mainMap.showsUserLocation = true
+//        mainMap.setUserTrackingMode(.follow, animated: true)
         UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseOut) { [self] in
             goLocation(latitudeValue: currentLocation.coordinate.latitude, longtudeValue: currentLocation.coordinate.longitude, delta: 250)
         }
