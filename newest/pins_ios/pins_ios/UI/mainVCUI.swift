@@ -66,7 +66,7 @@ class MainVCUI {
     private func initMenuButton(parent: UIView){
         parent.addSubview(menuButton.button)
         menuButton.button.snp.makeConstraints { bt in
-            bt.bottom.equalTo(-38)
+            bt.bottom.equalTo(-48)
             bt.leading.equalTo(16)
             bt.width.equalTo(50)
             bt.height.equalTo(50)
@@ -76,7 +76,7 @@ class MainVCUI {
     private func initChatButton(parent: UIView){
         parent.addSubview(chatButton.button)
         chatButton.button.snp.makeConstraints { bt in
-            bt.bottom.equalTo(-38)
+            bt.bottom.equalTo(-48)
             bt.centerX.equalTo(parent)
             bt.width.equalTo(50)
             bt.height.equalTo(50)
@@ -86,7 +86,7 @@ class MainVCUI {
     private func initCommunityButton(parent: UIView){
         parent.addSubview(communityButton.button)
         communityButton.button.snp.makeConstraints { bt in
-            bt.bottom.equalTo(-38)
+            bt.bottom.equalTo(-48)
             bt.trailing.equalTo(-16)
             bt.width.equalTo(50)
             bt.height.equalTo(50)
@@ -99,7 +99,7 @@ class MainVCUI {
             bt.width.equalTo(40)
             bt.height.equalTo(40)
             bt.trailing.equalTo(-16)
-            bt.bottom.equalTo(-108)
+            bt.bottom.equalTo(-118)
         }
     }
     // MARK:- 핀 추가 버튼
@@ -150,6 +150,6 @@ class MainVCUI {
             gra.width.equalTo(UIScreen.main.bounds.width)
             gra.height.equalTo(50)
         }
-        gradationDown.layer.opacity = 0.6
+        gradationDown.layer.opacity = 0.75
     }
 }

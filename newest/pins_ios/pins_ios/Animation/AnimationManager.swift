@@ -53,13 +53,13 @@ extension ViewController{
             let viewRegion = MKCoordinateRegion(center: userLocation, latitudinalMeters: 200, longitudinalMeters: 200)
             mainMap.setRegion(viewRegion, animated: true)
             
-            UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseOut) { [self] in
+            UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseOut) { [self] in
                 let mapCamera = MKMapCamera()
                 mapCamera.centerCoordinate = userLocation
                 mapCamera.pitch = 45
                 mapCamera.altitude = 500 // example altitude
                 mapCamera.heading = 0
-                
+                print(mapCamera.centerCoordinate)
                 // set the camera property
                 mainMap.camera = mapCamera
             }

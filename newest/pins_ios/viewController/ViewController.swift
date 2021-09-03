@@ -70,6 +70,8 @@ class ViewController: UIViewController {
         if let currentLocation = currentLocation {
             goLocation(latitudeValue: currentLocation.coordinate.latitude, longtudeValue: currentLocation.coordinate.longitude, delta: 250)
         }
+        
+        mainMap.layoutMargins = UIEdgeInsets(top: 0, left: 0, bottom: 10, right: 0)
     }
     
     // 버튼 이벤트 설정
