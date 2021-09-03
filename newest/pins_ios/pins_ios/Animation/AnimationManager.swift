@@ -22,17 +22,17 @@ extension ViewController{
         mainMap.addAnnotation(pinAnnotation)
         array.append(pinAnnotation)
     }
-//    // 다음 핀으로 이동
-//    func moveNextPin(){
-//        if array.count > 0 {
-//            self.mainMap.selectAnnotation(array[count % array.count], animated: true)
-//            count += 1
-//        }
-//    }
+    //    // 다음 핀으로 이동
+    //    func moveNextPin(){
+    //        if array.count > 0 {
+    //            self.mainMap.selectAnnotation(array[count % array.count], animated: true)
+    //            count += 1
+    //        }
+    //    }
     // 위도와 경도, 스팬(영역 폭)을 입력받아 지도에 표시
     @objc func goLocation(latitudeValue: CLLocationDegrees,
-                    longtudeValue: CLLocationDegrees,
-                    delta span: Double) {
+                          longtudeValue: CLLocationDegrees,
+                          delta span: Double) {
         let pLocation = CLLocationCoordinate2DMake(latitudeValue, longtudeValue)
         let viewRegion = MKCoordinateRegion(center: pLocation, latitudinalMeters: span, longitudinalMeters: span)
         
@@ -49,10 +49,20 @@ extension ViewController{
     }
     
     @objc func myLocation() {
-//        mainMap.showsUserLocation = true
-//        mainMap.setUserTrackingMode(.follow, animated: true)
-        UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseOut) { [self] in
-            goLocation(latitudeValue: currentLocation.coordinate.latitude, longtudeValue: currentLocation.coordinate.longitude, delta: 250)
+        if let userLocation = locationManager.location?.coordinate {
+            let viewRegion = MKCoordinateRegion(center: userLocation, latitudinalMeters: 200, longitudinalMeters: 200)
+            mainMap.setRegion(viewRegion, animated: true)
+            
+            UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseOut) { [self] in
+                let mapCamera = MKMapCamera()
+                mapCamera.centerCoordinate = userLocation
+                mapCamera.pitch = 45
+                mapCamera.altitude = 500 // example altitude
+                mapCamera.heading = 0
+                
+                // set the camera property
+                mainMap.camera = mapCamera
+            }
         }
     }
     
@@ -88,13 +98,6 @@ extension ViewController{
         guard let svc = self.storyboard?.instantiateViewController(withIdentifier: "SearchVC") else {
             return
         }
-            
-//        let transition = CATransition()
-//        transition.duration = 0.2
-//        transition.type = CATransitionType.push
-//        transition.subtype = CATransitionSubtype.fromRight
-//        transition.timingFunction = CAMediaTimingFunction(name:CAMediaTimingFunctionName.easeIn)
-//        view.window!.layer.add(transition, forKey: kCATransition)
         svc.modalTransitionStyle = .crossDissolve
         svc.modalPresentationStyle = .fullScreen
         present(svc, animated: true, completion: nil)
@@ -129,7 +132,7 @@ extension ViewController{
         else{
             viewModel.setSearchBackgroundUp()
             
-           
+            
             UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseOut) { [self] in viewModel.getSearchButton().imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
                 // 돋보기 버튼 애니메이션
                 viewModel.getSearchButton().snp.updateConstraints { btn in
