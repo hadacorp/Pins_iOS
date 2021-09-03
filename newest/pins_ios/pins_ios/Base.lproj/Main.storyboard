@@ -64,24 +64,14 @@
                                     <action selector="backButton:" destination="CzO-7p-Yd9" eventType="touchUpInside" id="uIM-Qg-Bsx"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gps-9z-RPw">
-                                <rect key="frame" x="358" y="60" width="40" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="40" id="5sC-zW-mHD"/>
-                                    <constraint firstAttribute="height" constant="40" id="V2U-8x-ETd"/>
-                                </constraints>
-                                <state key="normal" image="iconCancel"/>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="7D1-Ou-AuT"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="7D1-Ou-AuT" firstAttribute="trailing" secondItem="gps-9z-RPw" secondAttribute="trailing" constant="16" id="104-BF-LeP"/>
                             <constraint firstItem="qjZ-vC-qlY" firstAttribute="top" secondItem="7D1-Ou-AuT" secondAttribute="top" constant="16" id="8JG-EU-2o9"/>
                             <constraint firstItem="1Ft-rk-HRJ" firstAttribute="leading" secondItem="7D1-Ou-AuT" secondAttribute="leading" constant="16" id="Edx-XF-wHl"/>
                             <constraint firstItem="qjZ-vC-qlY" firstAttribute="leading" secondItem="7D1-Ou-AuT" secondAttribute="leading" constant="16" id="GlM-vO-09q"/>
                             <constraint firstItem="1Ft-rk-HRJ" firstAttribute="top" secondItem="7D1-Ou-AuT" secondAttribute="top" constant="16" id="ddw-pl-PaB"/>
-                            <constraint firstItem="gps-9z-RPw" firstAttribute="top" secondItem="7D1-Ou-AuT" secondAttribute="top" constant="16" id="dmf-eT-MvJ"/>
                             <constraint firstItem="7D1-Ou-AuT" firstAttribute="trailing" secondItem="1Ft-rk-HRJ" secondAttribute="trailing" constant="16" id="ib1-Dm-fWE"/>
                         </constraints>
                     </view>
@@ -96,7 +86,6 @@
     </scenes>
     <resources>
         <image name="iconBack" width="40" height="40"/>
-        <image name="iconCancel" width="40" height="40"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
