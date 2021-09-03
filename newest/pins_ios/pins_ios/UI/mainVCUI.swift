@@ -148,7 +148,7 @@ class MainVCUI {
             gra.bottom.equalTo(0)
             gra.leading.equalTo(0)
             gra.width.equalTo(UIScreen.main.bounds.width)
-            gra.height.equalTo(50)
+            gra.height.equalTo(60)
         }
         gradationDown.layer.opacity = 0.75
     }
