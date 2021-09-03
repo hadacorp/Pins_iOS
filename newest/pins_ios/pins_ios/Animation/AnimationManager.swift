@@ -62,7 +62,7 @@ extension ViewController{
                 viewModel.getMoveButton().snp.updateConstraints { btn in
                     btn.width.equalTo(40)
                     btn.height.equalTo(40)
-                    btn.top.equalTo(60)
+                    btn.top.equalTo(self.view.safeAreaLayoutGuide).offset(16)
                     btn.trailing.equalTo(-16)
                 }
                 viewModel.getMoveButton().superview?.layoutIfNeeded()
@@ -75,7 +75,7 @@ extension ViewController{
                 viewModel.getMoveButton().snp.updateConstraints { btn in
                     btn.width.equalTo(232)
                     btn.height.equalTo(40)
-                    btn.top.equalTo(60)
+                    btn.top.equalTo(self.view.safeAreaLayoutGuide).offset(16)
                     btn.trailing.equalTo(-16)
                 }
                 viewModel.getMoveButton().superview?.layoutIfNeeded()
