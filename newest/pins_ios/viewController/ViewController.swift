@@ -45,7 +45,6 @@ class ViewController: UIViewController {
         // test
         getKeywordPinAPI.requestGet(url: "") { [self] success, data in
             viewModel.homeResponseList = data as! [HomeResponse]
-            print(viewModel.homeResponseList[0].latitude!)
         }
     }
     
