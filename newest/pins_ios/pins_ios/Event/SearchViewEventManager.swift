@@ -9,7 +9,13 @@ import UIKit
 
 extension SearchViewController{
     @objc func cancelButton(){
-        textField.text = ""
+        searchBar.text = ""
+        searchResults.removeAll()
+        tableView.reloadData()
+        
+        // 키워드 텍스트 변경
+        keyWordText.layer.opacity = 0
+        tagImage.layer.opacity = 0
     }
     
     @objc func respondToSwipeGesture(_ gesture: UIGestureRecognizer){
