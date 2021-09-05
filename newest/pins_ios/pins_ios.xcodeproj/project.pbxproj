@@ -30,6 +30,8 @@
 		B74CDCA526DF9AA200043ADE /* MainVCUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74CDCA426DF9AA200043ADE /* MainVCUI.swift */; };
 		B74CDCA726DF9AB100043ADE /* SearchVCUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74CDCA626DF9AB100043ADE /* SearchVCUI.swift */; };
 		B74F96A826E4A80E0064B900 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74F96A726E4A80E0064B900 /* SearchViewController.swift */; };
+		B74F96AB26E4AB0B0064B900 /* CLLocationCoordinate2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74F96AA26E4AB0B0064B900 /* CLLocationCoordinate2D.swift */; };
+		B74F96AD26E4AB3E0064B900 /* UISearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74F96AC26E4AB3E0064B900 /* UISearchBar.swift */; };
 		B7C5DAA826C805640011EE41 /* BigRoundedbutton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C5DAA726C805640011EE41 /* BigRoundedbutton.swift */; };
 		B7C5DAAA26C805D50011EE41 /* ThumbnailImg.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C5DAA926C805D50011EE41 /* ThumbnailImg.swift */; };
 		B7C5DAAD26C80A550011EE41 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C5DAAC26C80A550011EE41 /* MainViewModel.swift */; };
@@ -64,6 +66,8 @@
 		B74CDCA426DF9AA200043ADE /* MainVCUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVCUI.swift; sourceTree = "<group>"; };
 		B74CDCA626DF9AB100043ADE /* SearchVCUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVCUI.swift; sourceTree = "<group>"; };
 		B74F96A726E4A80E0064B900 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		B74F96AA26E4AB0B0064B900 /* CLLocationCoordinate2D.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLLocationCoordinate2D.swift; sourceTree = "<group>"; };
+		B74F96AC26E4AB3E0064B900 /* UISearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UISearchBar.swift; sourceTree = "<group>"; };
 		B7C5DAA726C805640011EE41 /* BigRoundedbutton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigRoundedbutton.swift; sourceTree = "<group>"; };
 		B7C5DAA926C805D50011EE41 /* ThumbnailImg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbnailImg.swift; sourceTree = "<group>"; };
 		B7C5DAAC26C80A550011EE41 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
@@ -137,9 +141,7 @@
 		B70CFC1426BFD82500B7DA74 = {
 			isa = PBXGroup;
 			children = (
-				B709090726E2735D0075BF50 /* Entities */,
 				B79ACD3326E13008008990C3 /* Fonts */,
-				B7D0EBA426E12551009FB747 /* viewController */,
 				B70CFC1F26BFD82500B7DA74 /* pins_ios */,
 				B70CFC1E26BFD82500B7DA74 /* Products */,
 				3E0CC35EE1B3C3D77A54A449 /* Pods */,
@@ -158,6 +160,9 @@
 		B70CFC1F26BFD82500B7DA74 /* pins_ios */ = {
 			isa = PBXGroup;
 			children = (
+				B74F96A926E4AAD70064B900 /* Extension */,
+				B709090726E2735D0075BF50 /* Entities */,
+				B7D0EBA426E12551009FB747 /* viewController */,
 				B709090426E262DA0075BF50 /* API */,
 				B709090126E200590075BF50 /* Event */,
 				B704D47E26DBCE2600DB20D2 /* Animation */,
@@ -174,6 +179,15 @@
 				B7FBC47726C28730001838D1 /* CustomPintAnnotation.swift */,
 			);
 			path = pins_ios;
+			sourceTree = "<group>";
+		};
+		B74F96A926E4AAD70064B900 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				B74F96AA26E4AB0B0064B900 /* CLLocationCoordinate2D.swift */,
+				B74F96AC26E4AB3E0064B900 /* UISearchBar.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		B760E85726DA614B001B8DAA /* UI */ = {
@@ -354,6 +368,8 @@
 				B7FBC47826C28730001838D1 /* CustomPintAnnotation.swift in Sources */,
 				B704F03C26E36C5900DA9E06 /* Cell.swift in Sources */,
 				B70CFC2526BFD82500B7DA74 /* ViewController.swift in Sources */,
+				B74F96AB26E4AB0B0064B900 /* CLLocationCoordinate2D.swift in Sources */,
+				B74F96AD26E4AB3E0064B900 /* UISearchBar.swift in Sources */,
 				B74CDCA526DF9AA200043ADE /* MainVCUI.swift in Sources */,
 				B74CDCA726DF9AB100043ADE /* SearchVCUI.swift in Sources */,
 				B709090626E263620075BF50 /* GetKeywordPinAPI.swift in Sources */,
