@@ -123,13 +123,15 @@
                                     <action selector="backButton:" destination="CzO-7p-Yd9" eventType="touchUpInside" id="u8v-rF-wWA"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ijm-gv-J4f">
+                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ijm-gv-J4f">
                                 <rect key="frame" x="44" y="120" width="30" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="VY5-nv-0GO"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="NotoSansKR-Bold" family="Noto Sans KR" pointSize="14"/>
-                                <state key="normal" title="text"/>
+                                <state key="normal" title="text">
+                                    <color key="titleColor" red="0.11372549019607843" green="0.66666666666666663" blue="0.95294117647058818" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconFeatherTag" translatesAutoresizingMaskIntoConstraints="NO" id="2YD-H2-t9M">
                                 <rect key="frame" x="16" y="122" width="20" height="20"/>

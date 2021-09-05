@@ -96,6 +96,7 @@ extension SearchViewController: UISearchBarDelegate {
             cells.removeAll()
             coordinates.removeAll()
             tableView.reloadData()
+            print("안깜빡")
         }
         else{
             cells.removeAll()
@@ -105,6 +106,7 @@ extension SearchViewController: UISearchBarDelegate {
             searchCompleter.queryFragment = searchText
             // 입력된 값이 있으면 키워드 텍스트 변경
             keyWordText.layer.opacity = 1
+//            keyWordText.titleLabel!.text = "'\(searchText)'를 키워드로 검색"
             keyWordText.setTitle("'\(searchText)'를 키워드로 검색", for: .normal)
             tagImage.layer.opacity = 1
             
@@ -178,23 +180,3 @@ extension SearchViewController: UITableViewDelegate {
     }
 }
 
-extension UISearchBar {
-    func changeSearchBarColor(color: UIColor, size: CGSize) {
-        UIGraphicsBeginImageContext(self.frame.size)
-        color.setFill()
-        UIBezierPath(rect: self.frame).fill()
-        let bgImage = UIGraphicsGetImageFromCurrentImageContext()!
-        UIGraphicsEndImageContext()
-        self.setSearchFieldBackgroundImage(bgImage, for: .normal)
-    }
-}
-extension CLLocationCoordinate2D {
-    /// Returns distance from coordianate in meters.
-    /// - Parameter from: coordinate which will be used as end point.
-    /// - Returns: Returns distance in meters.
-    func distance(from: CLLocationCoordinate2D) -> CLLocationDistance {
-        let from = CLLocation(latitude: from.latitude, longitude: from.longitude)
-        let to = CLLocation(latitude: self.latitude, longitude: self.longitude)
-        return from.distance(from: to)
-    }
-}
