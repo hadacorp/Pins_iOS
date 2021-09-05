@@ -95,9 +95,10 @@ extension ViewController{
         }
     }
     @objc func changeView(){
-        guard let svc = self.storyboard?.instantiateViewController(withIdentifier: "SearchVC") else {
+        guard let svc = self.storyboard?.instantiateViewController(withIdentifier: "SearchVC") as? SearchViewController else {
             return
         }
+        svc.myPosition = currentLocation
         svc.modalTransitionStyle = .crossDissolve
         svc.modalPresentationStyle = .fullScreen
         present(svc, animated: true, completion: nil)
