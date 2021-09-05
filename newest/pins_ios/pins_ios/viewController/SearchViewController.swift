@@ -96,7 +96,6 @@ extension SearchViewController: UISearchBarDelegate {
             cells.removeAll()
             coordinates.removeAll()
             tableView.reloadData()
-            print("안깜빡")
         }
         else{
             cells.removeAll()

@@ -10,43 +10,7 @@ import MapKit
 
 extension ViewController{
     // MARK:- Objc function
-    // 중앙에 핀 생성
-    @objc
-    func createPinAtCenter() {
-        viewModel.AddCardView(radius: 20, color: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0), parent: self.view)
-        pinAnnotation = CustomPintAnnotation()
-        pinAnnotation.pinCustomImageName = "iconLike"
-        pinAnnotation.coordinate = CLLocationCoordinate2D(latitude: mainMap.centerCoordinate.latitude, longitude: mainMap.centerCoordinate.longitude)
-        pinAnnotation.title = "우리집"
-        pinAnnotation.subtitle = "집이 최고야"
-        mainMap.addAnnotation(pinAnnotation)
-        array.append(pinAnnotation)
-    }
-    //    // 다음 핀으로 이동
-    //    func moveNextPin(){
-    //        if array.count > 0 {
-    //            self.mainMap.selectAnnotation(array[count % array.count], animated: true)
-    //            count += 1
-    //        }
-    //    }
-    // 위도와 경도, 스팬(영역 폭)을 입력받아 지도에 표시
-    @objc func goLocation(latitudeValue: CLLocationDegrees,
-                          longtudeValue: CLLocationDegrees,
-                          delta span: Double) {
-        let pLocation = CLLocationCoordinate2DMake(latitudeValue, longtudeValue)
-        let viewRegion = MKCoordinateRegion(center: pLocation, latitudinalMeters: span, longitudinalMeters: span)
-        
-        mainMap.region = viewRegion
-        
-        let mapCamera = MKMapCamera()
-        mapCamera.centerCoordinate = pLocation
-        mapCamera.pitch = 45
-        mapCamera.altitude = 500 // example altitude
-        mapCamera.heading = 0
-        
-        // set the camera property
-        mainMap.camera = mapCamera
-    }
+  
     
     @objc func myLocation() {
         if let userLocation = locationManager.location?.coordinate {
@@ -69,6 +33,11 @@ extension ViewController{
     @objc func filterAnimate(){
         if viewModel.getMoveButton().frame.width == 232 {
             viewModel.getMoveButton().setImage(#imageLiteral(resourceName: "iconEye"), for: .normal)
+            
+            viewModel.getFilterMeetButton().layer.opacity = 0
+            viewModel.getFilterStoryButton().layer.opacity = 0
+            viewModel.getFilterCommunityButton().layer.opacity = 0
+            
             UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseOut) { [self] in
                 viewModel.getMoveButton().imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
                 viewModel.getMoveButton().snp.updateConstraints { btn in
@@ -91,18 +60,15 @@ extension ViewController{
                     btn.trailing.equalTo(-16)
                 }
                 viewModel.getMoveButton().superview?.layoutIfNeeded()
+                
+            } completion: { [self] (finished: Bool) in
+                viewModel.getFilterMeetButton().layer.opacity = 1
+                viewModel.getFilterStoryButton().layer.opacity = 1
+                viewModel.getFilterCommunityButton().layer.opacity = 1
             }
         }
     }
-    @objc func changeView(){
-        guard let svc = self.storyboard?.instantiateViewController(withIdentifier: "SearchVC") as? SearchViewController else {
-            return
-        }
-        svc.myPosition = currentLocation
-        svc.modalTransitionStyle = .crossDissolve
-        svc.modalPresentationStyle = .fullScreen
-        present(svc, animated: true, completion: nil)
-    }
+    
     
     @objc func onClickSearchBtn(){
         if viewModel.getSearchButton().frame.width == 40{

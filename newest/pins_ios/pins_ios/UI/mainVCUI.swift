@@ -25,6 +25,11 @@ class MainVCUI {
     public var gradationUp = UIImageView(image: #imageLiteral(resourceName: "gradationUp"))
     public var gradationDown = UIImageView(image: #imageLiteral(resourceName: "gradationDown"))
     
+    // 필터 버튼
+    public var filterMeet = UIButton()
+    public var filterCommunity = UIButton()
+    public var filterStory = UIButton()
+    
     // SearchView Background
     public var searchBackground = UIView(frame: UIScreen.main.bounds)
     
@@ -45,6 +50,10 @@ class MainVCUI {
                 initMenuButton(parent: parent)
                 initSearchBackground(parent: parent)
                 initMyLocationButton(parent: parent)
+                
+                initFilterMeet(parent: parent, layout: layout)
+                initFilterCommunity(parent: parent, layout: layout)
+                initFilterStory(parent: parent, layout: layout)
             }
         }
     }
@@ -62,6 +71,46 @@ class MainVCUI {
         searchBackground.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
     }
     
+    // MARK:- 필터 버튼 3종
+    private func initFilterMeet(parent: UIView, layout: UILayoutGuide){
+        parent.addSubview(filterMeet)
+        filterMeet.snp.makeConstraints { btn in
+            btn.top.equalTo(layout).offset(16)
+            btn.trailing.equalTo(-184)
+            btn.width.equalTo(52)
+            btn.height.equalTo(40)
+        }
+        filterMeet.setTitle("만남", for: .normal)
+        filterMeet.setTitleColor(#colorLiteral(red: 0.9215686275, green: 0.9215686275, blue: 0.9215686275, alpha: 1), for: .normal)
+        filterMeet.titleLabel?.font = UIFont(name: "NotoSansKR-Medium", size: 14)
+        filterMeet.layer.opacity = 0
+    }
+    private func initFilterCommunity(parent: UIView, layout: UILayoutGuide){
+        parent.addSubview(filterCommunity)
+        filterCommunity.snp.makeConstraints { btn in
+            btn.top.equalTo(layout).offset(16)
+            btn.trailing.equalTo(-124)
+            btn.width.equalTo(52)
+            btn.height.equalTo(40)
+        }
+        filterCommunity.setTitle("커뮤니티", for: .normal)
+        filterCommunity.setTitleColor(#colorLiteral(red: 0.9215686275, green: 0.9215686275, blue: 0.9215686275, alpha: 1), for: .normal)
+        filterCommunity.titleLabel?.font = UIFont(name: "NotoSansKR-Medium", size: 14)
+        filterCommunity.layer.opacity = 0
+    }
+    private func initFilterStory(parent: UIView, layout: UILayoutGuide){
+        parent.addSubview(filterStory)
+        filterStory.snp.makeConstraints { btn in
+            btn.top.equalTo(layout).offset(16)
+            btn.trailing.equalTo(-64)
+            btn.width.equalTo(52)
+            btn.height.equalTo(40)
+        }
+        filterStory.setTitle("이야기", for: .normal)
+        filterStory.setTitleColor(#colorLiteral(red: 0.9215686275, green: 0.9215686275, blue: 0.9215686275, alpha: 1), for: .normal)
+        filterStory.titleLabel?.font = UIFont(name: "NotoSansKR-Medium", size: 14)
+        filterStory.layer.opacity = 0
+    }
     // MARK:- 최하단 버튼 3종
     private func initMenuButton(parent: UIView){
         parent.addSubview(menuButton.button)

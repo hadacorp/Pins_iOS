@@ -90,14 +90,6 @@ class ViewController: UIViewController {
         
         mainMap.layoutMargins = UIEdgeInsets(top: 0, left: 10, bottom: 10, right: 10)
     }
-    
-    // 버튼 이벤트 설정
-    private func setButtonEvent(){
-        viewModel.getMoveButton().addTarget(self, action: #selector(filterAnimate), for: .touchUpInside)
-        viewModel.getAddButton().addTarget(self, action: #selector(createPinAtCenter), for: .touchUpInside)
-        viewModel.getSearchButton().addTarget(self, action: #selector(changeView), for: .touchUpInside)
-        viewModel.getMyLocationButton().addTarget(self, action: #selector(myLocation), for: .touchUpInside)
-    }
 }
 
 // MARK:- Extension CLLocationManagerDelegate
