@@ -28,6 +28,9 @@ class ViewController: UIViewController {
     public var currentLocation: CLLocation!
     // API
     public var getKeywordPinAPI = GetKeywordPinAPI()
+    // 이동할 좌표
+    public var paramLatitude: CLLocationDegrees?
+    public var paramLongitude: CLLocationDegrees?
     // MARK:- Private function
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,6 +48,14 @@ class ViewController: UIViewController {
         // test
         getKeywordPinAPI.requestGet(url: "") { [self] success, data in
             viewModel.homeResponseList = data as! [HomeResponse]
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if let latitude = paramLatitude {
+            if let longitude = paramLongitude {
+                goLocation(latitudeValue: latitude, longtudeValue: longitude, delta: 1000)
+            }
         }
     }
     
@@ -95,7 +106,7 @@ extension ViewController: CLLocationManagerDelegate{
     func getLocationUsagePermission() {
         //location4
         self.locationManager.requestWhenInUseAuthorization()
-
+        
     }
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
@@ -128,7 +139,7 @@ extension ViewController: MKMapViewDelegate{
             return nil
         }
         var annotationView = mainMap.dequeueReusableAnnotationView(withIdentifier: "custom")
-       
+        
         if annotationView == nil {
             // Create the view
             annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "custom")
@@ -144,4 +155,3 @@ extension ViewController: MKMapViewDelegate{
         return annotationView
     }
 }
-
