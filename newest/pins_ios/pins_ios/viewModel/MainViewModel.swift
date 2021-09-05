@@ -59,6 +59,17 @@ class MainViewModel: MainVCUI {
         return myLocationButton.button
     }
     
+    // 필터 3종 get
+    public func getFilterMeetButton() -> UIButton{
+        return filterMeet
+    }
+    public func getFilterCommunityButton() -> UIButton{
+        return filterCommunity
+    }
+    public func getFilterStoryButton() -> UIButton{
+        return filterStory
+    }
+    
     public func setSearchBackgroundDown() {
         getSearchButton().layer.borderWidth = 1
         getSearchButton().layer.borderColor = #colorLiteral(red: 0.3764705882, green: 0.3764705882, blue: 0.3764705882, alpha: 1)
