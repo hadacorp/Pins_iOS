@@ -106,7 +106,7 @@ extension SearchViewController: UISearchBarDelegate {
             searchCompleter.queryFragment = searchText
             // 입력된 값이 있으면 키워드 텍스트 변경
             keyWordText.layer.opacity = 1
-//            keyWordText.titleLabel!.text = "'\(searchText)'를 키워드로 검색"
+            //            keyWordText.titleLabel!.text = "'\(searchText)'를 키워드로 검색"
             keyWordText.setTitle("'\(searchText)'를 키워드로 검색", for: .normal)
             tagImage.layer.opacity = 1
             
@@ -177,6 +177,20 @@ extension SearchViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true) // 선택 표시 해제
         // dismiss 하고 해당 위치로 이동
+        let latitude = self.coordinates[indexPath.row].latitude
+        let longitude = self.coordinates[indexPath.row].longitude
+        
+        let preVC = self.presentingViewController
+    
+        guard let vc = preVC as? ViewController else {
+            return
+        }
+
+        // 값을 전달한다.
+        vc.paramLatitude = latitude
+        vc.paramLongitude = longitude
+        // 이전 화면으로 복귀한다.
+        self.presentingViewController?.dismiss(animated: true)
     }
 }
 
