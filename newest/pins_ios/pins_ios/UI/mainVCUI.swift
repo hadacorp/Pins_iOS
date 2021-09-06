@@ -24,6 +24,7 @@ class MainVCUI {
     // 그라데이션 위, 아래
     public var gradationUp = UIImageView(image: #imageLiteral(resourceName: "gradationUp"))
     public var gradationDown = UIImageView(image: #imageLiteral(resourceName: "gradationDown"))
+    public var gra = UIView()
     
     // 필터 버튼
     public var filterMeet = UIButton()
@@ -39,7 +40,7 @@ class MainVCUI {
         if let parent = parent{
             if let layout = layout {                
 //                initGradationUp(parent: parent)
-                initGradationDown(parent: parent)
+//                initGradationDown(parent: parent)
                 
                 initsearchButton(parent: parent, layout: layout)
                 initAddButton(parent: parent, layout: layout)
@@ -75,10 +76,10 @@ class MainVCUI {
     private func initFilterMeet(parent: UIView, layout: UILayoutGuide){
         parent.addSubview(filterMeet)
         filterMeet.snp.makeConstraints { btn in
-            btn.top.equalTo(layout).offset(16)
+            btn.top.equalTo(layout).offset(15)
             btn.trailing.equalTo(-184)
             btn.width.equalTo(52)
-            btn.height.equalTo(40)
+            btn.height.equalTo(41)
         }
         filterMeet.setTitle("만남", for: .normal)
         filterMeet.setTitleColor(#colorLiteral(red: 0.9215686275, green: 0.9215686275, blue: 0.9215686275, alpha: 1), for: .normal)
@@ -88,10 +89,10 @@ class MainVCUI {
     private func initFilterCommunity(parent: UIView, layout: UILayoutGuide){
         parent.addSubview(filterCommunity)
         filterCommunity.snp.makeConstraints { btn in
-            btn.top.equalTo(layout).offset(16)
+            btn.top.equalTo(layout).offset(15)
             btn.trailing.equalTo(-124)
             btn.width.equalTo(52)
-            btn.height.equalTo(40)
+            btn.height.equalTo(41)
         }
         filterCommunity.setTitle("커뮤니티", for: .normal)
         filterCommunity.setTitleColor(#colorLiteral(red: 0.9215686275, green: 0.9215686275, blue: 0.9215686275, alpha: 1), for: .normal)
@@ -101,10 +102,10 @@ class MainVCUI {
     private func initFilterStory(parent: UIView, layout: UILayoutGuide){
         parent.addSubview(filterStory)
         filterStory.snp.makeConstraints { btn in
-            btn.top.equalTo(layout).offset(16)
+            btn.top.equalTo(layout).offset(15)
             btn.trailing.equalTo(-64)
             btn.width.equalTo(52)
-            btn.height.equalTo(40)
+            btn.height.equalTo(41)
         }
         filterStory.setTitle("이야기", for: .normal)
         filterStory.setTitleColor(#colorLiteral(red: 0.9215686275, green: 0.9215686275, blue: 0.9215686275, alpha: 1), for: .normal)
