@@ -46,13 +46,23 @@ class ViewController: UIViewController {
         firstMapInit()
         // 버튼 이벤트 세팅
         setButtonEvent()
-        
+        // 그라데이션
+        setGradation()
         // test
         getKeywordPinAPI.requestGet(url: "") { [self] success, data in
             viewModel.homeResponseList = data as! [HomeResponse]
         }
-        
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if let latitude = paramLatitude {
+            if let longitude = paramLongitude {
+                goLocation(latitudeValue: latitude, longtudeValue: longitude, delta: 1000)
+            }
+        }
+    }
+    
+    private func setGradation(){
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = CGRect(x: 0, y: view.frame.maxY - 60, width: view.frame.width, height: 60)
         
@@ -66,15 +76,6 @@ class ViewController: UIViewController {
         gradientLayer.endPoint = CGPoint(x: 0.5, y: 1.0)
         
         view.layer.addSublayer(gradientLayer)
-
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        if let latitude = paramLatitude {
-            if let longitude = paramLongitude {
-                goLocation(latitudeValue: latitude, longtudeValue: longitude, delta: 1000)
-            }
-        }
     }
     
     private func setPermission(){

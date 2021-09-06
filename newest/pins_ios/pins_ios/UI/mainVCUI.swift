@@ -17,6 +17,7 @@ class MainVCUI {
     // 중상부 버튼
     public var moveButton = SmallRoundedBtn(radius: 16, color: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), image: #imageLiteral(resourceName: "iconEye"))
     public var searchButton = SmallRoundedBtn(radius: 16, color: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), image: #imageLiteral(resourceName: "icon"))
+    public var starButton = SmallRoundedBtn(radius: 16, color: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0), image: #imageLiteral(resourceName: "iconFeatherStar"))
     // 핀 추가 버튼
     public var addButton = SmallRoundedBtn(radius: 16, color: #colorLiteral(red: 0.02745098039, green: 0.1294117647, blue: 0.337254902, alpha: 1), image: #imageLiteral(resourceName: "iconPlus"))
     // 내 위치로 이동 버튼
@@ -45,6 +46,7 @@ class MainVCUI {
                 initsearchButton(parent: parent, layout: layout)
                 initAddButton(parent: parent, layout: layout)
                 initMoveButton(parent: parent, layout: layout)
+                initStarButton(parent: parent, layout: layout)
                 
                 initCommunityButton(parent: parent)
                 initChatButton(parent: parent)
@@ -180,6 +182,15 @@ class MainVCUI {
             bt.trailing.equalTo(-16)
             bt.width.equalTo(40)
             bt.height.equalTo(40)
+        }
+    }
+    
+    private func initStarButton(parent: UIView, layout: UILayoutGuide){
+        parent.addSubview(starButton.button)
+        starButton.button.snp.makeConstraints { bt in
+            bt.top.equalTo(layout).offset(136)
+            bt.trailing.equalTo(-16)
+            bt.width.height.equalTo(40)
         }
     }
     // MARK:- 그라데이션
