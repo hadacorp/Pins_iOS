@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import SnapKit
 
 class ViewController: UIViewController {
     // MARK:- IBOutlet variable
@@ -31,6 +32,7 @@ class ViewController: UIViewController {
     // 이동할 좌표
     public var paramLatitude: CLLocationDegrees?
     public var paramLongitude: CLLocationDegrees?
+    
     // MARK:- Private function
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,6 +51,22 @@ class ViewController: UIViewController {
         getKeywordPinAPI.requestGet(url: "") { [self] success, data in
             viewModel.homeResponseList = data as! [HomeResponse]
         }
+        
+        
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = CGRect(x: 0, y: view.frame.maxY - 60, width: view.frame.width, height: 60)
+        
+        let colors: [CGColor] = [
+            #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0),
+            #colorLiteral(red: 0.9725490196, green: 0.9607843137, blue: 0.9294117647, alpha: 1)
+        ]
+        gradientLayer.colors = colors
+        
+        gradientLayer.startPoint = CGPoint(x: 0.5, y: 0.0)
+        gradientLayer.endPoint = CGPoint(x: 0.5, y: 1.0)
+        
+        view.layer.addSublayer(gradientLayer)
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -145,5 +163,16 @@ extension ViewController: MKMapViewDelegate{
         annotationView?.image = UIImage(named: customPointAnnotation.pinCustomImageName)
         
         return annotationView
+    }
+}
+extension UIView{
+    func setGradient(color1:UIColor,color2:UIColor){
+        let gradient: CAGradientLayer = CAGradientLayer()
+        gradient.colors = [color1.cgColor,color2.cgColor]
+        gradient.locations = [0.0 , 1.0]
+        gradient.startPoint = CGPoint(x: 1.0, y: 1.0)
+        gradient.endPoint = CGPoint(x: 0.0, y: 0.0)
+        gradient.frame = bounds
+        layer.addSublayer(gradient)
     }
 }
