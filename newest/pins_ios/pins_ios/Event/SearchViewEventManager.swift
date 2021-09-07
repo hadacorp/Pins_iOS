@@ -11,10 +11,6 @@ extension SearchViewController{
     @objc func cancelButton(){
         searchBar.text = ""
         
-        // 키워드 텍스트 변경
-        keyWordText.layer.opacity = 0
-        tagImage.layer.opacity = 0
-        
         cells.removeAll()
         coordinates.removeAll()
         tableView.reloadData()

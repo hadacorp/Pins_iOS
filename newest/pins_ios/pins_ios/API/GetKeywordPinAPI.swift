@@ -8,8 +8,6 @@
 import UIKit
 
 class GetKeywordPinAPI {
-    
-    
     func requestGet(url: String, completionHandler: @escaping (Bool, Any) -> Void) {
         let url = "http://bangi98.cafe24.com:8081/home/pin?latitude=37.282083&longitude=127.043850&meetDate=0-1-2-3&meetTime=1-23&meetGender=Male&meetAge=20-30&communityPinCategory=all&meetingPinCategory=산책/반려동물&storyPinCategory=all"
         let encoded = url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)

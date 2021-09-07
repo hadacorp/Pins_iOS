@@ -8,7 +8,17 @@
 import UIKit
 
 class SearchViewModel: SearchVCUI {
+    // MARK:- Private Variable
+    private var keyword = ""
+    
     public func getCancel() -> UIButton {
         return cancelButton
+    }
+    
+    public func getKeyword() -> String {
+        return keyword
+    }
+    public func setKeyword(keyword: String) {
+        self.keyword = keyword
     }
 }

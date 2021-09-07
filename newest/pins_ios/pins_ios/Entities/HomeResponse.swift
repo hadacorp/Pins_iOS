@@ -7,7 +7,7 @@
 
 import UIKit
 
-struct HomeResponse: Codable {
+struct HomeResponse: Decodable {
     let distance: Double?
     let pinType: String?
     let category: String?

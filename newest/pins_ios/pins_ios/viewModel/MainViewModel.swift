@@ -20,6 +20,7 @@ class MainViewModel: MainVCUI {
     }
     // MARK:- Public function
     
+    
     public func getMainUI() -> [Any]{
         return mainUI
     }
