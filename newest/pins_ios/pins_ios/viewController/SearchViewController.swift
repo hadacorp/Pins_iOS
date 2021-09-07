@@ -67,8 +67,6 @@ class SearchViewController: UIViewController {
             }
             UISearchBar.appearance().setImage(UIImage(), for: .search, state: .normal)
             UISearchBar.appearance().setImage(UIImage(), for: .clear, state: .normal)
-            
-            
         }
         searchBar.layer.borderColor = #colorLiteral(red: 0.3764705882, green: 0.3764705882, blue: 0.3764705882, alpha: 1)
         searchBar.layer.borderWidth = 1
@@ -117,17 +115,6 @@ extension SearchViewController: UISearchBarDelegate {
         self.dismiss(animated: true, completion: nil)
     }
 }
-
-//extension SearchViewController: MKLocalSearchCompleterDelegate {
-//    // 자동완성 완료시 결과를 받는 method
-//    func completerDidUpdateResults(_ completer: MKLocalSearchCompleter) {
-//        searchResults = completer.results
-//        tableView.reloadData()
-//    }
-//    func completer(_ completer: MKLocalSearchCompleter, didFailWithError error: Error) {
-//        print(error)
-//    }
-//}
 
 extension SearchViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
