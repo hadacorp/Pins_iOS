@@ -10,7 +10,7 @@ import UIKit
 import MapKit
 import SnapKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController{
     // MARK:- IBOutlet variable
     // Main MapView
     @IBOutlet weak var mainMap: MKMapView!
@@ -51,10 +51,6 @@ class ViewController: UIViewController {
         setButtonEvent()
         // 그라데이션
         setGradation()
-        // test
-        getKeywordPinAPI.requestGet(url: "") { [self] success, data in
-            viewModel.homeResponseList = data as! [HomeResponse]
-        }
     }
     
     override func viewWillAppear(_ animated: Bool) {

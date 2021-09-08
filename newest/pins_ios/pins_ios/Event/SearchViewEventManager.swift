@@ -10,9 +10,7 @@ import UIKit
 extension SearchViewController{
     @objc func cancelButton(){
         searchBar.text = ""
-        
-        cells.removeAll()
-        coordinates.removeAll()
+        viewModel.resetPlaces()
         tableView.reloadData()
     }
     
