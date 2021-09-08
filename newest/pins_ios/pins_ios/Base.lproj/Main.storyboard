@@ -19,7 +19,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="pins_ios" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainVC" id="BYZ-38-t0r" customClass="ViewController" customModule="pins_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -40,6 +40,7 @@
                     <navigationItem key="navigationItem" id="OwS-wj-npg"/>
                     <connections>
                         <outlet property="mainMap" destination="Jhd-je-gly" id="yTz-9D-KTY"/>
+                        <segue destination="CzO-7p-Yd9" kind="push" identifier="presentSearchVC" id="ksv-aC-LTd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -169,6 +170,7 @@
                             <constraint firstItem="sgu-hb-1AE" firstAttribute="leading" secondItem="7D1-Ou-AuT" secondAttribute="leading" constant="16" id="p5Q-mi-q00"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="SM1-dq-8Yd"/>
                     <connections>
                         <outlet property="keyWordText" destination="ijm-gv-J4f" id="O9U-Wt-hFJ"/>
                         <outlet property="searchBar" destination="OcM-NZ-1Y5" id="NM4-aH-DZd"/>
@@ -178,7 +180,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bpK-qT-Og5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="915.94202898550736" y="109.82142857142857"/>
+            <point key="canvasLocation" x="1014" y="95"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="FuF-rf-o2a">

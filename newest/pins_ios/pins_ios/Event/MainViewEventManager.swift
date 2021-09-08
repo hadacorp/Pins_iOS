@@ -36,14 +36,6 @@ extension ViewController{
     }
     
     @objc func changeView(){
-        
-//        guard let svc = self.storyboard?.instantiateViewController(withIdentifier: "SearchVC") as? SearchViewController else {
-//            return
-//        }
-//        svc.modalTransitionStyle = .crossDissolve
-//        svc.modalPresentationStyle = .fullScreen
-//        present(svc, animated: true, completion: nil)
-        
         let VC1 = self.storyboard!.instantiateViewController(withIdentifier: "SearchVC") as! SearchViewController
         
         VC1.myPosition = currentLocation
@@ -82,15 +74,6 @@ extension ViewController{
         array.append(pinAnnotation)
         print(pinAnnotation.coordinate)
     }
-    
-    //    // 다음 핀으로 이동
-    //    func moveNextPin(){
-    //        if array.count > 0 {
-    //            self.mainMap.selectAnnotation(array[count % array.count], animated: true)
-    //            count += 1
-    //        }
-    //    }
-    
     
     // 버튼 이벤트 설정
     public func setButtonEvent(){

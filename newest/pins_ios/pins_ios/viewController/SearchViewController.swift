@@ -8,6 +8,10 @@
 import UIKit
 import MapKit
 
+protocol SendDataDelegate {
+    func sendData(latitude: Double, longitude: Double)
+}
+
 class SearchViewController: UIViewController {
     // MARK:- IB Something
     @IBOutlet weak var tableView: UITableView!
@@ -19,14 +23,17 @@ class SearchViewController: UIViewController {
     }
     // MARK:- Public
     public var viewModel = SearchViewModel(parent: nil, layout: nil)
-    
-    public var cells: [String] = []
-    public var coordinates: [CLLocationCoordinate2D] = []
     public var myPosition: CLLocation!
+    public var searchTimer: Timer?
+    public var searchText = ""
+    
+    public var latitude: Double = 0
+    public var longitude: Double = 0
     // MARK:- 지역 검색 변수들
     private let searchTableCellIdentifier = "Cell"
     private var searchCompleter = MKLocalSearchCompleter()
     private var searchRegion: MKCoordinateRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 37.5342523, longitude: 126.6603896), span: MKCoordinateSpan(latitudeDelta: 1, longitudeDelta: 1))
+    var delegate: SendDataDelegate?
     
     // MARK:- Function
     override func viewDidLoad() {
@@ -41,9 +48,6 @@ class SearchViewController: UIViewController {
         setButtonEvent()
         // UI 세팅
         setUI()
-        // 뒤로가기 제스쳐
-        swipeRecognizer()
-        
         self.searchBar.showsCancelButton = false
         self.searchBar.becomeFirstResponder()
         //        self.searchCompleter.delegate = self
@@ -53,6 +57,12 @@ class SearchViewController: UIViewController {
         self.tableView.delegate = self
         
         self.tableView.rowHeight = 40
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let viewController = segue.destination as! ViewController
+        viewController.paramLatitude = latitude
+        viewController.paramLongitude = longitude
     }
     
     private func setUI(){
@@ -73,13 +83,6 @@ class SearchViewController: UIViewController {
         searchBar.layer.cornerRadius = 16
     }
     
-    // 뒤로가기 제스쳐
-    private func swipeRecognizer() {
-        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture(_:)))
-        swipeRight.direction = UISwipeGestureRecognizer.Direction.right
-        self.view.addGestureRecognizer(swipeRight)
-    }
-    
     private func setButtonEvent(){
         viewModel.getCancel().addTarget(self, action: #selector(self.cancelButton), for: .touchUpInside)
     }
@@ -87,27 +90,20 @@ class SearchViewController: UIViewController {
 
 extension SearchViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        if searchText == "" {
+        if searchText.count < 2 {
             // 키워드 텍스트 변경
             keyWordText.layer.opacity = 0
             tagImage.layer.opacity = 0
-            cells.removeAll()
-            coordinates.removeAll()
+            viewModel.resetPlaces()
             tableView.reloadData()
         }
         else{
-            cells.removeAll()
-            coordinates.removeAll()
-            tableView.reloadData()
-            // 사용자가 search bar 에 입력한 text를 자동완성 대상에 넣는다
-            searchCompleter.queryFragment = searchText
             // 입력된 값이 있으면 키워드 텍스트 변경
             keyWordText.layer.opacity = 1
-            //            keyWordText.titleLabel!.text = "'\(searchText)'를 키워드로 검색"
             keyWordText.setTitle("'\(searchText)'를 키워드로 검색", for: .normal)
             tagImage.layer.opacity = 1
-            
-            search(string: searchText)
+            self.searchText = searchText
+            updateSearchResults(text: searchText)
         }
     }
     
@@ -122,61 +118,34 @@ extension SearchViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return cells.count
+//        return cells.count
+        return viewModel.getCountPlaces()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as? Cell else{ return UITableViewCell()}
-        cell.titleLabel.text = cells[indexPath.row]
-        let distance = coordinates[indexPath.row].distance(from: CLLocationCoordinate2D(latitude: myPosition.coordinate.latitude, longitude: myPosition.coordinate.longitude)) / 1000
-        cell.distance.text = String(format: "%.01fkm", distance)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as! Cell
+        if let place = viewModel.getPlacesIndex(index: indexPath.row) {
+            cell.titleLabel.text = place.placeName
+            let distance = CLLocationCoordinate2D(latitude: place.latitude!, longitude: place.longitude!).distance(from: CLLocationCoordinate2D(latitude: myPosition.coordinate.latitude, longitude: myPosition.coordinate.longitude)) / 1000
+            cell.distance.text = String(format: "%.01fkm", distance)
+        }
         return cell
     }
 }
 
 extension SearchViewController: UITableViewDelegate {
-    private func search(string: String) {
-        let searchRequest = MKLocalSearch.Request()
-        searchRequest.naturalLanguageQuery = string
-        
-        // Set the region to an associated map view's region.
-        searchRequest.region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: myPosition.coordinate.latitude, longitude: myPosition.coordinate.longitude), latitudinalMeters: 100, longitudinalMeters: 100)
-        searchRequest.resultTypes = .pointOfInterest
-        
-        let search = MKLocalSearch(request: searchRequest)
-        search.start { (response, error) in
-            guard let response = response else {
-                // Handle the error.
-                return
-            }
-            for item in response.mapItems {
-                if let name = item.name, let location = item.placemark.location {
-                    self.cells.append(name)
-                    self.coordinates.insert(CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude), at: self.cells.count - 1)
-                    self.tableView.reloadData()
-                }
-            }
-        }
-    }
-    
     // 선택된 위치의 정보 가져오기
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true) // 선택 표시 해제
         // dismiss 하고 해당 위치로 이동
-        let latitude = self.coordinates[indexPath.row].latitude
-        let longitude = self.coordinates[indexPath.row].longitude
+        latitude = (viewModel.getPlacesIndex(index: indexPath.row)?.latitude)!
+        longitude = (viewModel.getPlacesIndex(index: indexPath.row)?.longitude)!
         
-        let preVC = self.presentingViewController
-    
-        guard let vc = preVC as? ViewController else {
-            return
-        }
-
-        // 값을 전달한다.
-        vc.paramLatitude = latitude
-        vc.paramLongitude = longitude
-        // 이전 화면으로 복귀한다.
-        self.presentingViewController?.dismiss(animated: true)
+        delegate?.sendData(latitude: latitude, longitude: longitude)
+        let preVC = self.navigationController?.viewControllers[0] as! ViewController
+        preVC.paramLongitude = longitude
+        preVC.paramLatitude = latitude
+        self.navigationController?.popViewController(animated: true)
     }
 }
 
