@@ -15,7 +15,7 @@ class SearchViewController: UIViewController {
     @IBOutlet weak var keyWordText: UIButton!
     @IBOutlet weak var tagImage: UIImageView!
     @IBAction func backButton(_ sender: Any) {
-        dismiss(animated: true)
+        self.navigationController?.popViewController(animated: true)
     }
     // MARK:- Public
     public var viewModel = SearchViewModel(parent: nil, layout: nil)

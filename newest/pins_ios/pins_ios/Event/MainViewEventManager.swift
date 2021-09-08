@@ -36,13 +36,18 @@ extension ViewController{
     }
     
     @objc func changeView(){
-        guard let svc = self.storyboard?.instantiateViewController(withIdentifier: "SearchVC") as? SearchViewController else {
-            return
-        }
-        svc.myPosition = currentLocation
-        svc.modalTransitionStyle = .crossDissolve
-        svc.modalPresentationStyle = .fullScreen
-        present(svc, animated: true, completion: nil)
+        
+//        guard let svc = self.storyboard?.instantiateViewController(withIdentifier: "SearchVC") as? SearchViewController else {
+//            return
+//        }
+//        svc.modalTransitionStyle = .crossDissolve
+//        svc.modalPresentationStyle = .fullScreen
+//        present(svc, animated: true, completion: nil)
+        
+        let VC1 = self.storyboard!.instantiateViewController(withIdentifier: "SearchVC") as! SearchViewController
+        
+        VC1.myPosition = currentLocation
+        self.navigationController!.pushViewController(VC1, animated: true)
     }
     
     // 위도와 경도, 스팬(영역 폭)을 입력받아 지도에 표시
