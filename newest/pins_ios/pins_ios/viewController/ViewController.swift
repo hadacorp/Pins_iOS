@@ -36,12 +36,15 @@ class ViewController: UIViewController {
     // MARK:- Private function
     override func viewDidLoad() {
         super.viewDidLoad()
-        // 처음 권환 체크
-        setPermission()
-        
-        viewModel = MainViewModel(parent: self.view, layout: self.view.safeAreaLayoutGuide)
         // 라이트 모드로 고정
         self.overrideUserInterfaceStyle = .light
+        // navigation 뒤로가기 스와이프 예외처리
+        navigationController?.interactivePopGestureRecognizer?.delegate = nil
+        
+        // 처음 권환 체크
+        setPermission()
+        // viewModel 생성
+        viewModel = MainViewModel(parent: self.view, layout: self.view.safeAreaLayoutGuide)
         // 시작시 지도 설정 세팅
         firstMapInit()
         // 버튼 이벤트 세팅
