@@ -17,7 +17,6 @@ class GetPlaceKeyword {
 
         request.httpMethod = "GET"
         
-        print(url)
         URLSession.shared.dataTask(with: request) { data, response, error in
             guard error == nil else {
                 print("Error: error calling GET")
