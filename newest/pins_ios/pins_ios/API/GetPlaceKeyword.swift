@@ -30,6 +30,7 @@ class GetPlaceKeyword {
             }
             guard let response = response as? HTTPURLResponse, (200 ..< 300) ~= response.statusCode else {
                 print("Error: HTTP request failed")
+                completionHandler(true, [])
                 return
             }
             guard let output = try? JSONDecoder().decode([Place].self, from: data) else {

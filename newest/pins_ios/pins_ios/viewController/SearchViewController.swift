@@ -31,11 +31,16 @@ class SearchViewController: UIViewController {
     private var searchRegion: MKCoordinateRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 37.5342523, longitude: 126.6603896), span: MKCoordinateSpan(latitudeDelta: 1, longitudeDelta: 1))
     
     // MARK:- Function
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        searchBar.becomeFirstResponder()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // 라이트 모드로 고정
         self.overrideUserInterfaceStyle = .light
-        searchBar.becomeFirstResponder()
         
         viewModel = SearchViewModel(parent: self.view, layout: self.view.safeAreaLayoutGuide)
         
@@ -44,8 +49,6 @@ class SearchViewController: UIViewController {
         // UI 세팅
         setUI()
         self.searchBar.showsCancelButton = false
-//        self.searchBar.becomeFirstResponder()
-        //        self.searchCompleter.delegate = self
         self.searchCompleter.resultTypes = .pointOfInterest
         self.searchBar.delegate = self
         self.tableView.dataSource = self
@@ -79,23 +82,8 @@ class SearchViewController: UIViewController {
 
 extension SearchViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        if searchText.count < 2 {
-            // 키워드 텍스트 변경
-            keyWordText.layer.opacity = 0
-            tagImage.layer.opacity = 0
-            print("reset")
-            viewModel.resetPlaces()
-            tableView.reloadData()
-        }
-        else{
-            // 입력된 값이 있으면 키워드 텍스트 변경
-            keyWordText.layer.opacity = 1
-            keyWordText.setTitle("'\(searchText)'를 키워드로 검색", for: .normal)
-            tagImage.layer.opacity = 1
-            self.searchText = searchText
-            print("api호출")
-            updateSearchResults(text: searchText)
-        }
+        self.searchText = searchText
+        updateSearchResults(text: searchText)
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
