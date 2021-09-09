@@ -10,6 +10,7 @@ import UIKit
 class MainVCUI {
     // MARK:- Public variable
     public var mainUI: [Any] = []
+    
     // 최하단 버튼 3종
     public var chatButton = SmallRoundedBtn(radius: 16, color: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0), image: #imageLiteral(resourceName: "iconChatting"))
     public var menuButton = SmallRoundedBtn(radius: 16, color: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0), image: #imageLiteral(resourceName: "iconCommunity"))
