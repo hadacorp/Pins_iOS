@@ -28,13 +28,15 @@ class ViewController: UIViewController{
     // 이동할 좌표
     public var paramLatitude: CLLocationDegrees?
     public var paramLongitude: CLLocationDegrees?
+    // 하단 컬렉션 뷰
+    public var collectionView: UICollectionView!
+    var currentIndex: CGFloat = 0.0
     
     // MARK:- Private function
     override func viewDidLoad() {
         super.viewDidLoad()
         // navigation 뒤로가기 스와이프 예외처리
         navigationController?.interactivePopGestureRecognizer?.delegate = nil
-        
         // 처음 권환 체크
         setPermission()
         // viewModel 생성
@@ -45,6 +47,8 @@ class ViewController: UIViewController{
         setButtonEvent()
         // 그라데이션
         setGradation()
+        // collection 세팅
+        setCollectionView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -60,6 +64,29 @@ class ViewController: UIViewController{
                     }
                 }
             }
+        }
+    }
+    
+    private func setCollectionView(){
+        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
+        layout.itemSize = CGSize(width: UIScreen.main.bounds.width - 32, height: 110)
+        layout.scrollDirection = .horizontal
+        
+        collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        collectionView.register(CarouselCell.self, forCellWithReuseIdentifier: "CarouselCell")
+        collectionView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0)
+        collectionView.decelerationRate = UIScrollView.DecelerationRate.fast
+        collectionView.showsHorizontalScrollIndicator = false
+        self.view.addSubview(collectionView)
+        collectionView.snp.makeConstraints { view in
+            view.width.equalTo(UIScreen.main.bounds.width)
+            view.height.equalTo(110)
+            view.bottom.equalTo(self.view.safeAreaInsets).offset(-118)
+            view.leading.equalTo(0)
+            view.trailing.equalTo(0)
         }
     }
     
@@ -183,14 +210,50 @@ extension ViewController: MKMapViewDelegate{
         return annotationView
     }
 }
-extension UIView{
-    func setGradient(color1:UIColor,color2:UIColor){
-        let gradient: CAGradientLayer = CAGradientLayer()
-        gradient.colors = [color1.cgColor,color2.cgColor]
-        gradient.locations = [0.0 , 1.0]
-        gradient.startPoint = CGPoint(x: 1.0, y: 1.0)
-        gradient.endPoint = CGPoint(x: 0.0, y: 0.0)
-        gradient.frame = bounds
-        layer.addSublayer(gradient)
+
+extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 5
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if let myCell = collectionView.dequeueReusableCell(withReuseIdentifier: "CarouselCell", for: indexPath) as? CarouselCell {
+            myCell.setupCell(color: #colorLiteral(red: 0.09232137352, green: 0.7268741727, blue: 0.9635671973, alpha: 1))
+            return myCell
+        }
+        fatalError("Unable to dequeue subclassed cell")
+    }
+    
+    
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        let layout = self.collectionView.collectionViewLayout as! UICollectionViewFlowLayout
+        let cellWidthIncludingSpacing = layout.itemSize.width + layout.minimumLineSpacing
+        
+        var offset = targetContentOffset.pointee
+        let index = (offset.x + scrollView.contentInset.left) / cellWidthIncludingSpacing
+        var roundedIndex = round(index)
+        
+        if scrollView.contentOffset.x > targetContentOffset.pointee.x {
+            roundedIndex = floor(index)
+        }
+        else if scrollView.contentOffset.x < targetContentOffset.pointee.x {
+            roundedIndex = ceil(index)
+        }
+        else {
+            roundedIndex = round(index)
+        }
+        
+        if currentIndex > roundedIndex {
+            currentIndex -= 1
+            roundedIndex = currentIndex
+        }
+        else if currentIndex < roundedIndex {
+            currentIndex += 1
+            roundedIndex = currentIndex
+        }
+        
+        offset = CGPoint(x: roundedIndex * cellWidthIncludingSpacing - scrollView.contentInset.left, y: -scrollView.contentInset.top)
+        
+        targetContentOffset.pointee = offset
     }
 }
