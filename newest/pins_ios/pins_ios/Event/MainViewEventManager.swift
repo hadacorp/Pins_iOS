@@ -64,15 +64,13 @@ extension ViewController{
     // 중앙에 핀 생성
     @objc
     func createPinAtCenter() {
-        viewModel.AddCardView(radius: 20, color: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0), parent: self.view)
+//        viewModel.AddCardView(radius: 20, color: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0), parent: self.view)
         pinAnnotation = CustomPintAnnotation()
         pinAnnotation.pinCustomImageName = "iconLike"
         pinAnnotation.coordinate = CLLocationCoordinate2D(latitude: mainMap.centerCoordinate.latitude, longitude: mainMap.centerCoordinate.longitude)
         pinAnnotation.title = "우리집"
         pinAnnotation.subtitle = "집이 최고야"
         mainMap.addAnnotation(pinAnnotation)
-        array.append(pinAnnotation)
-        print(pinAnnotation.coordinate)
     }
     
     // 버튼 이벤트 설정

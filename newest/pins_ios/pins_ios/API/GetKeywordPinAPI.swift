@@ -8,8 +8,25 @@
 import UIKit
 
 class GetKeywordPinAPI {
-    func requestGet(url: String, completionHandler: @escaping (Bool, Any) -> Void) {
-        let url = "http://bangi98.cafe24.com:8081/home/pin?latitude=37.282083&longitude=127.043850&meetDate=0-1-2-3&meetTime=1-23&meetGender=Male&meetAge=20-30&communityPinCategory=all&meetingPinCategory=산책/반려동물&storyPinCategory=all"
+    func requestGet(latitude: Double, longitude: Double, completionHandler: @escaping (Bool, Any) -> Void) {
+        let latitude = latitude
+        let longitude = longitude
+        let range = 0.0015652980246
+        let meetingPinCategory = "all"
+        let meetDate = "all"
+        let meetTime = "all"
+        let meetGender = "all"
+        let meetAge = "all"
+        let communityPinCategory = "all"
+        let storyPinCategory = "all"
+        
+        let url = "http://bangi98.cafe24.com:8081/home/pin?latitude=\(latitude)&longitude=\(longitude)&range=\(range)&meetingPinCategory=" + meetingPinCategory +
+            "&meetDate=" + meetDate +
+            "&meetTime=" + meetTime +
+            "&meetGender=" + meetGender +
+            "&meetAge=" + meetAge +
+            "&communityPinCategory=" + communityPinCategory +
+            "&storyPinCategory=" + storyPinCategory
         let encoded = url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
         let myURL = URL(string: encoded!)
         var request = URLRequest(url: myURL!)
@@ -31,7 +48,7 @@ class GetKeywordPinAPI {
                 print("Error: HTTP request failed")
                 return
             }
-            guard let output = try? JSONDecoder().decode([HomeResponse].self, from: data) else {
+            guard let output = try? JSONDecoder().decode([Pin].self, from: data) else {
                 print("Error: JSON Data Parsing failed")
                 return
             }

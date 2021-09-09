@@ -9,17 +9,16 @@ import UIKit
 
 class MainViewModel: MainVCUI {
     // MARK:- Public Variable
-    public var _homeResponseList: [HomeResponse] = []
-    public var homeResponseList: [HomeResponse] {
-        get{
-            return _homeResponseList
-        }
-        set(newList){
-            _homeResponseList = newList
-        }
-    }
-    // MARK:- Public function
+    public var checkablePins: [Pin]? 
     
+    // MARK:- Public function
+    public func getCheckablePins() -> [Pin]?{
+        return checkablePins
+    }
+    
+    public func setCheckablePins(checkablePins: [Pin]?) {
+        self.checkablePins = checkablePins
+    }
     
     public func getMainUI() -> [Any]{
         return mainUI

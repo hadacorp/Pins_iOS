@@ -21,10 +21,6 @@ class ViewController: UIViewController{
     // 맵에 찍을 핀 객체
     public var pinAnnotation: CustomPintAnnotation!
     
-    // 삭제할 테스트용 변수들
-    public var array: [CustomPintAnnotation] = []
-    public var count = 0
-    
     // 현재 위치 저장
     public var currentLocation: CLLocation!
     // API
@@ -54,7 +50,15 @@ class ViewController: UIViewController{
     override func viewWillAppear(_ animated: Bool) {
         if let latitude = paramLatitude {
             if let longitude = paramLongitude {
+                // 검색된 위치로 이동
                 goLocation(latitudeValue: latitude, longtudeValue: longitude, delta: 500)
+                // 주변 핀들 받아오기
+                GetKeywordPinAPI().requestGet(latitude: latitude, longitude: longitude) { (success, data) in
+                    if let data = data as? [Pin] {
+                        self.viewModel.setCheckablePins(checkablePins: data)
+                        self.initPins()
+                    }
+                }
             }
         }
     }
@@ -91,6 +95,7 @@ class ViewController: UIViewController{
             print("위치 서비스 Off 상태")
         }
     }
+    
     private func firstMapInit(){
         mainMap.delegate = self
         
@@ -106,7 +111,22 @@ class ViewController: UIViewController{
         
         mainMap.layoutMargins = UIEdgeInsets(top: 0, left: 10, bottom: 10, right: 10)
     }
+
+    // MARK:- Init Pins
+    private func initPins(){
+        if let pins = viewModel.getCheckablePins() {
+            for pin in pins{
+                pinAnnotation = CustomPintAnnotation()
+                pinAnnotation.pinCustomImageName = "iconLike"
+                pinAnnotation.coordinate = CLLocationCoordinate2D(latitude: CLLocationDegrees(pin.latitude!), longitude: CLLocationDegrees(pin.longitude!))
+                pinAnnotation.title = pin.category
+                pinAnnotation.subtitle = pin.title
+                mainMap.addAnnotation(pinAnnotation)
+            }
+        }
+    }
 }
+
 
 // MARK:- Extension CLLocationManagerDelegate
 extension ViewController: CLLocationManagerDelegate{
