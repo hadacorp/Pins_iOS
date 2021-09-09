@@ -10,8 +10,9 @@ import UIKit
 extension SearchViewController{
     @objc func cancelButton(){
         searchBar.text = ""
-        viewModel.resetPlaces()
-        tableView.reloadData()
+        self.searchText = ""
+        
+        updateSearchResults(text: searchText)
     }
     
     @objc func respondToSwipeGesture(_ gesture: UIGestureRecognizer){

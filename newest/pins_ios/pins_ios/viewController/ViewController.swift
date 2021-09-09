@@ -56,7 +56,7 @@ class ViewController: UIViewController{
     override func viewWillAppear(_ animated: Bool) {
         if let latitude = paramLatitude {
             if let longitude = paramLongitude {
-                goLocation(latitudeValue: latitude, longtudeValue: longitude, delta: 1000)
+                goLocation(latitudeValue: latitude, longtudeValue: longitude, delta: 500)
             }
         }
     }

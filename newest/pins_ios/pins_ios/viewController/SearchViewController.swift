@@ -8,10 +8,10 @@
 import UIKit
 import MapKit
 
-class SearchViewController: UIViewController {
+class SearchViewController: UIViewController, UITextFieldDelegate{
     // MARK:- IB Something
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var searchBar: UISearchBar!{didSet { searchBar.delegate = self }}
     @IBOutlet weak var keyWordText: UIButton!
     @IBOutlet weak var tagImage: UIImageView!
     @IBAction func backButton(_ sender: Any) {
@@ -31,17 +31,14 @@ class SearchViewController: UIViewController {
     private var searchRegion: MKCoordinateRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 37.5342523, longitude: 126.6603896), span: MKCoordinateSpan(latitudeDelta: 1, longitudeDelta: 1))
     
     // MARK:- Function
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        searchBar.becomeFirstResponder()
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+
         // 라이트 모드로 고정
         self.overrideUserInterfaceStyle = .light
-        
+        DispatchQueue.main.async {
+            self.searchBar.becomeFirstResponder()
+          }
         viewModel = SearchViewModel(parent: self.view, layout: self.view.safeAreaLayoutGuide)
         
         // 버튼 이벤트 세팅
@@ -56,7 +53,7 @@ class SearchViewController: UIViewController {
         
         self.tableView.rowHeight = 40
     }
-    
+
     private func setUI(){
         if let textField = searchBar.value(forKey: "searchField") as? UITextField {
             textField.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
@@ -124,5 +121,13 @@ extension SearchViewController: UITableViewDelegate {
         preVC.paramLatitude = latitude
         self.navigationController?.popViewController(animated: true)
     }
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        searchBar.resignFirstResponder()
+    }
 }
 
+// MARK: 키보드 숨기기(단, 모든 클릭 시 키보드 숨기기 함수가 호출됨)
+// 원하는 곳에 배치
+extension UIViewController {
+    
+}

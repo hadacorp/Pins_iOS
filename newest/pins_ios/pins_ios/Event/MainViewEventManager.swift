@@ -54,7 +54,7 @@ extension ViewController{
         let mapCamera = MKMapCamera()
         mapCamera.centerCoordinate = pLocation
         mapCamera.pitch = 45
-        mapCamera.altitude = 500 // example altitude
+        mapCamera.altitude = 1000 // example altitude
         mapCamera.heading = 0
         
         // set the camera property
