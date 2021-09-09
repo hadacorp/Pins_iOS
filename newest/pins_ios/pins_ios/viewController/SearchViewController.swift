@@ -8,10 +8,6 @@
 import UIKit
 import MapKit
 
-protocol SendDataDelegate {
-    func sendData(latitude: Double, longitude: Double)
-}
-
 class SearchViewController: UIViewController {
     // MARK:- IB Something
     @IBOutlet weak var tableView: UITableView!
@@ -33,7 +29,6 @@ class SearchViewController: UIViewController {
     private let searchTableCellIdentifier = "Cell"
     private var searchCompleter = MKLocalSearchCompleter()
     private var searchRegion: MKCoordinateRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 37.5342523, longitude: 126.6603896), span: MKCoordinateSpan(latitudeDelta: 1, longitudeDelta: 1))
-    var delegate: SendDataDelegate?
     
     // MARK:- Function
     override func viewDidLoad() {
@@ -49,7 +44,7 @@ class SearchViewController: UIViewController {
         // UI 세팅
         setUI()
         self.searchBar.showsCancelButton = false
-        self.searchBar.becomeFirstResponder()
+//        self.searchBar.becomeFirstResponder()
         //        self.searchCompleter.delegate = self
         self.searchCompleter.resultTypes = .pointOfInterest
         self.searchBar.delegate = self
@@ -57,12 +52,6 @@ class SearchViewController: UIViewController {
         self.tableView.delegate = self
         
         self.tableView.rowHeight = 40
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let viewController = segue.destination as! ViewController
-        viewController.paramLatitude = latitude
-        viewController.paramLongitude = longitude
     }
     
     private func setUI(){
@@ -94,6 +83,7 @@ extension SearchViewController: UISearchBarDelegate {
             // 키워드 텍스트 변경
             keyWordText.layer.opacity = 0
             tagImage.layer.opacity = 0
+            print("reset")
             viewModel.resetPlaces()
             tableView.reloadData()
         }
@@ -103,6 +93,7 @@ extension SearchViewController: UISearchBarDelegate {
             keyWordText.setTitle("'\(searchText)'를 키워드로 검색", for: .normal)
             tagImage.layer.opacity = 1
             self.searchText = searchText
+            print("api호출")
             updateSearchResults(text: searchText)
         }
     }
@@ -118,7 +109,6 @@ extension SearchViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return cells.count
         return viewModel.getCountPlaces()
     }
     
@@ -141,7 +131,6 @@ extension SearchViewController: UITableViewDelegate {
         latitude = (viewModel.getPlacesIndex(index: indexPath.row)?.latitude)!
         longitude = (viewModel.getPlacesIndex(index: indexPath.row)?.longitude)!
         
-        delegate?.sendData(latitude: latitude, longitude: longitude)
         let preVC = self.navigationController?.viewControllers[0] as! ViewController
         preVC.paramLongitude = longitude
         preVC.paramLatitude = latitude
