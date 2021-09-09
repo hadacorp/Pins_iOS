@@ -36,8 +36,6 @@ class ViewController: UIViewController{
     // MARK:- Private function
     override func viewDidLoad() {
         super.viewDidLoad()
-        // 라이트 모드로 고정
-        self.overrideUserInterfaceStyle = .light
         // navigation 뒤로가기 스와이프 예외처리
         navigationController?.interactivePopGestureRecognizer?.delegate = nil
         

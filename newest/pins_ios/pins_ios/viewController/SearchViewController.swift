@@ -33,12 +33,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate{
     // MARK:- Function
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // 라이트 모드로 고정
-        self.overrideUserInterfaceStyle = .light
-        DispatchQueue.main.async {
-            self.searchBar.becomeFirstResponder()
-          }
         viewModel = SearchViewModel(parent: self.view, layout: self.view.safeAreaLayoutGuide)
         
         // 버튼 이벤트 세팅
@@ -52,6 +47,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate{
         self.tableView.delegate = self
         
         self.tableView.rowHeight = 40
+        self.searchBar.becomeFirstResponder()
     }
 
     private func setUI(){
@@ -124,10 +120,4 @@ extension SearchViewController: UITableViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         searchBar.resignFirstResponder()
     }
-}
-
-// MARK: 키보드 숨기기(단, 모든 클릭 시 키보드 숨기기 함수가 호출됨)
-// 원하는 곳에 배치
-extension UIViewController {
-    
 }
