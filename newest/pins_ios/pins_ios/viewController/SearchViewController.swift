@@ -33,7 +33,6 @@ class SearchViewController: UIViewController, UITextFieldDelegate{
     // MARK:- Function
     override func viewDidLoad() {
         super.viewDidLoad()
-        // 라이트 모드로 고정
         viewModel = SearchViewModel(parent: self.view, layout: self.view.safeAreaLayoutGuide)
         
         // 버튼 이벤트 세팅
@@ -47,9 +46,14 @@ class SearchViewController: UIViewController, UITextFieldDelegate{
         self.tableView.delegate = self
         
         self.tableView.rowHeight = 40
-        self.searchBar.becomeFirstResponder()
     }
-
+    
+    override func viewDidAppear(_ animated: Bool) {
+        UIView.animate(withDuration: 0.15, delay: 0, options: .curveEaseOut) {
+            self.searchBar.becomeFirstResponder()
+        }
+    }
+    
     private func setUI(){
         if let textField = searchBar.value(forKey: "searchField") as? UITextField {
             textField.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)

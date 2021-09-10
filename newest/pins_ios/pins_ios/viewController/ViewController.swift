@@ -83,8 +83,8 @@ class ViewController: UIViewController{
         self.view.addSubview(collectionView)
         collectionView.snp.makeConstraints { view in
             view.width.equalTo(UIScreen.main.bounds.width)
-            view.height.equalTo(110)
-            view.bottom.equalTo(self.view.safeAreaInsets).offset(-118)
+            view.height.equalTo(140)
+            view.bottom.equalTo(self.view.safeAreaInsets).offset(-103)
             view.leading.equalTo(0)
             view.trailing.equalTo(0)
         }
@@ -157,11 +157,9 @@ class ViewController: UIViewController{
 
 // MARK:- Extension CLLocationManagerDelegate
 extension ViewController: CLLocationManagerDelegate{
-    
     func getLocationUsagePermission() {
         //location4
         self.locationManager.requestWhenInUseAuthorization()
-        
     }
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
@@ -218,7 +216,13 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let myCell = collectionView.dequeueReusableCell(withReuseIdentifier: "CarouselCell", for: indexPath) as? CarouselCell {
-            myCell.setupCell(color: #colorLiteral(red: 0.09232137352, green: 0.7268741727, blue: 0.9635671973, alpha: 1))
+            myCell.setupCell(color: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1))
+            let pin = PinCard()
+            pin.initTag(parent: myCell, type: .meet)
+            pin.initCategory(parent: myCell, string: "반려동물", type: .meet)
+            pin.initImage(parent: myCell, type: .meet, image: #imageLiteral(resourceName: "profileEX"))
+            pin.initContent(parent: myCell, type: .meet, string: "호수공원에서 강아지 산책시키실 분~저는 말티즈 키우고있어여 ㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎ")
+            pin.initBottom(parent: myCell, type: .meet, string: "7월 19일 (월) 오후 2시", like: nil, comment: nil)
             return myCell
         }
         fatalError("Unable to dequeue subclassed cell")
