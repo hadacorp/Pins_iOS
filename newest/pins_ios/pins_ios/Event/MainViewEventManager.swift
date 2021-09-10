@@ -39,7 +39,7 @@ extension ViewController{
         let VC1 = self.storyboard!.instantiateViewController(withIdentifier: "SearchVC") as! SearchViewController
         
         VC1.myPosition = currentLocation
-        self.navigationController!.pushViewController(VC1, animated: true)
+        self.navigationController!.pushViewController(VC1, animated: false)
     }
     
     // 위도와 경도, 스팬(영역 폭)을 입력받아 지도에 표시
@@ -54,7 +54,7 @@ extension ViewController{
         let mapCamera = MKMapCamera()
         mapCamera.centerCoordinate = pLocation
         mapCamera.pitch = 45
-        mapCamera.altitude = 1000 // example altitude
+        mapCamera.altitude = 1500 // example altitude
         mapCamera.heading = 0
         
         // set the camera property
@@ -64,7 +64,6 @@ extension ViewController{
     // 중앙에 핀 생성
     @objc
     func createPinAtCenter() {
-//        viewModel.AddCardView(radius: 20, color: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0), parent: self.view)
         pinAnnotation = CustomPintAnnotation()
         pinAnnotation.pinCustomImageName = "iconLike"
         pinAnnotation.coordinate = CLLocationCoordinate2D(latitude: mainMap.centerCoordinate.latitude, longitude: mainMap.centerCoordinate.longitude)
