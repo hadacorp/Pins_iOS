@@ -61,9 +61,9 @@ class ViewController: UIViewController{
                 GetKeywordPinAPI().requestGet(latitude: latitude, longitude: longitude) { (success, data) in
                     if let data = data as? [Pin] {
                         self.viewModel.setCheckablePins(checkablePins: data)
-                        self.initPins()
                         DispatchQueue.main.async {
                             self.collectionView.reloadData()
+                            self.initPins()
                         }
                     }
                 }
