@@ -8,25 +8,6 @@
 import UIKit
 
 class PinCard {
-    enum PinType{
-        case meet
-        case community
-        case storyWithImage
-        case storyWithoutImage
-        
-        func discription() -> String {
-            switch self {
-            case .meet:
-                return "만남"
-            case .community:
-                return "커뮤니티"
-            case .storyWithImage:
-                return "이야기"
-            case .storyWithoutImage:
-                return "이야기"
-            }
-        }
-    }
     
     func initBottom(parent: UIView, type: PinType, string: String?, like: Int?, comment: Int?) {
         switch type {
@@ -116,7 +97,7 @@ class PinCard {
         }
     }
     
-    func initImage(parent: UIView, type: PinType, image: UIImage?) {
+    func initImage(parent: UIView, type: PinType, urlString: String?) {
         let imageView = UIImageView()
         parent.addSubview(imageView)
         switch type {
@@ -127,9 +108,14 @@ class PinCard {
                 imgview.width.height.equalTo(110)
             }
             let maskView = UIImageView(image: UIImage(named: "cardMask"))
-            imageView.image = image
-            imageView.contentMode = .scaleAspectFill
-            imageView.mask = maskView
+            let url: URL?
+            if let str = urlString {
+                url = URL(string: str)
+                let data = try! Data(contentsOf: url!)
+                imageView.image = UIImage(data: data)
+                imageView.contentMode = .scaleAspectFill
+                imageView.mask = maskView
+            }
         case .meet:
             imageView.snp.makeConstraints { imgview in
                 imgview.width.height.equalTo(94)
@@ -137,7 +123,9 @@ class PinCard {
                 imgview.trailing.equalTo(-8)
             }
             let maskView = UIImageView(image: UIImage(named: "profileMask"))
-            imageView.image = image
+            let url = URL(string: urlString!)
+            let data = try! Data(contentsOf: url!)
+            imageView.image = UIImage(data: data)
             imageView.contentMode = .scaleAspectFill
             imageView.mask = maskView
         default:
@@ -153,9 +141,9 @@ class PinCard {
             btn.height.equalTo(17)
             btn.top.equalTo(11)
             btn.leading.equalTo(12)
-            btn.width.equalTo(tag.titleLabel!.text!.count * 11 + 25)
+            btn.width.equalTo(getTagWidth(type: type))
         }
-        tag.titleEdgeInsets = UIEdgeInsets(top: 0, left: 12, bottom: 1, right: 12)
+        tag.titleEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 1, right: 0)
         tag.layer.cornerRadius = 8.5
         tag.backgroundColor = #colorLiteral(red: 0.1137254902, green: 0.6666666667, blue: 0.9529411765, alpha: 1)
         tag.titleLabel?.font = UIFont(name: "NotoSansKR-Regular", size: 12)
@@ -168,23 +156,32 @@ class PinCard {
         tag.snp.makeConstraints { btn in
             btn.height.equalTo(17)
             btn.top.equalTo(11)
-            btn.leading.equalTo(type.discription().count * 24 + 16)
-            btn.width.equalTo(tag.titleLabel!.text!.count * 11 + 25)
+            btn.leading.equalTo(getTagWidth(type: type) + 12 + 4)
+            btn.width.equalTo(100)
         }
-        tag.titleEdgeInsets = UIEdgeInsets(top: 0, left: 12, bottom: 1, right: 12)
+        tag.titleEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 1, right: 0)
         tag.layer.cornerRadius = 8.5
         tag.backgroundColor = #colorLiteral(red: 0.1137254902, green: 0.6666666667, blue: 0.9529411765, alpha: 1)
         tag.titleLabel?.font = UIFont(name: "NotoSansKR-Regular", size: 12)
         tag.titleLabel?.numberOfLines = 0
-        tag.sizeToFit()
     }
     
-    func maskImage(image:UIImage, mask:(UIImage))-> UIImage {
-        let imageReference = image.cgImage
-        let maskReference = mask.cgImage
-        let imageMask = CGImage(maskWidth: maskReference!.width, height: maskReference!.height, bitsPerComponent: maskReference!.bitsPerComponent, bitsPerPixel: maskReference!.bitsPerPixel, bytesPerRow: maskReference!.bytesPerRow, provider: maskReference!.dataProvider!, decode: nil, shouldInterpolate: true)
-        let maskedReference = imageReference!.masking(imageMask!)
-        let maskedImage = UIImage(cgImage:maskedReference!)
-        return maskedImage
+    func getTagWidth(type: PinType) -> Int{
+        switch type {
+        case .community:
+            return 68
+        case .meet:
+            return 46
+        case .storyWithImage, .storyWithoutImage:
+            return 57
+        }
+    }
+    
+    func initial(parent: UIView, type: PinType, category: String, content: String, urlString: String?, bottom: String?, like: Int?, comment: Int?){
+        initTag(parent: parent, type: type)
+        initCategory(parent: parent, string: category, type: type)
+        initContent(parent: parent, type: type, string: content)
+        initImage(parent: parent, type: type, urlString: urlString)
+        initBottom(parent: parent, type: type, string: bottom, like: like, comment: comment)
     }
 }

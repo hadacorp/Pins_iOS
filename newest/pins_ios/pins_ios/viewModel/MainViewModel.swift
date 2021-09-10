@@ -9,9 +9,20 @@ import UIKit
 
 class MainViewModel: MainVCUI {
     // MARK:- Public Variable
-    public var checkablePins: [Pin]? 
+    public var checkablePins: [Pin]?
     
     // MARK:- Public function
+    public func getPinCardsCount() -> Int{
+        if let checkablePins = checkablePins {
+            return checkablePins.count
+        }
+        return 0
+    }
+    
+    public func resetPins() {
+        checkablePins?.removeAll()
+    }
+    
     public func getCheckablePins() -> [Pin]?{
         return checkablePins
     }
@@ -34,21 +45,6 @@ class MainViewModel: MainVCUI {
     
     public func getMoveButton() -> UIButton{
         return moveButton.button
-    }
-    
-    public func AddCardView(radius: CGFloat, color: UIColor, parent: UIView){
-        let temp = BigRoundedbutton(radius: radius, color: color)
-        cardView.append(temp)
-        
-        parent.addSubview(temp.button)
-    }
-    
-    public func getCardViewCount() -> Int{
-        return cardView.count
-    }
-    
-    public func getCardView() -> [BigRoundedbutton]{
-        return cardView
     }
     
     public func getSearchBackground() -> UIView {

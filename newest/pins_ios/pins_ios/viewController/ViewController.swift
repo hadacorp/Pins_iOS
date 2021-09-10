@@ -30,7 +30,8 @@ class ViewController: UIViewController{
     public var paramLongitude: CLLocationDegrees?
     // 하단 컬렉션 뷰
     public var collectionView: UICollectionView!
-    var currentIndex: CGFloat = 0.0
+    public var currentIndex: CGFloat = 0.0
+    
     
     // MARK:- Private function
     override func viewDidLoad() {
@@ -61,6 +62,9 @@ class ViewController: UIViewController{
                     if let data = data as? [Pin] {
                         self.viewModel.setCheckablePins(checkablePins: data)
                         self.initPins()
+                        DispatchQueue.main.async {
+                            self.collectionView.reloadData()
+                        }
                     }
                 }
             }
@@ -211,18 +215,24 @@ extension ViewController: MKMapViewDelegate{
 
 extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return viewModel.getPinCardsCount()
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let myCell = collectionView.dequeueReusableCell(withReuseIdentifier: "CarouselCell", for: indexPath) as? CarouselCell {
+            for v in myCell.subviews{
+               v.removeFromSuperview()
+            }
             myCell.setupCell(color: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1))
-            let pin = PinCard()
-            pin.initTag(parent: myCell, type: .meet)
-            pin.initCategory(parent: myCell, string: "반려동물", type: .meet)
-            pin.initImage(parent: myCell, type: .meet, image: #imageLiteral(resourceName: "profileEX"))
-            pin.initContent(parent: myCell, type: .meet, string: "호수공원에서 강아지 산책시키실 분~저는 말티즈 키우고있어여 ㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎ")
-            pin.initBottom(parent: myCell, type: .meet, string: "7월 19일 (월) 오후 2시", like: nil, comment: nil)
+            if let pins = viewModel.getCheckablePins(){
+                let pin = PinCard()
+                let pinsData = pins[indexPath.row]
+                pin.initTag(parent: myCell, type: PinType.init(rawValue: pinsData.pinType!)!)
+                pin.initCategory(parent: myCell, string: pinsData.category!, type: PinType.init(rawValue: pinsData.pinType!)!)
+                pin.initImage(parent: myCell, type: PinType.init(rawValue: pinsData.pinType!)!, urlString: pinsData.image)
+                pin.initContent(parent: myCell, type: PinType.init(rawValue: pinsData.pinType!)!, string: pinsData.title!)
+                pin.initBottom(parent: myCell, type: PinType.init(rawValue: pinsData.pinType!)!, string: pinsData.date, like: nil, comment: nil)
+            }
             return myCell
         }
         fatalError("Unable to dequeue subclassed cell")

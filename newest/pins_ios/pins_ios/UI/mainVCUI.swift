@@ -36,7 +36,6 @@ class MainVCUI {
     // SearchView Background
     public var searchBackground = UIView(frame: UIScreen.main.bounds)
     
-    public var cardView: [BigRoundedbutton] = []
     // MARK:- Init UIView
     init(parent: UIView?, layout: UILayoutGuide?) {
         if let parent = parent{
@@ -50,7 +49,7 @@ class MainVCUI {
                 initStarButton(parent: parent, layout: layout)
                 
                 initCommunityButton(parent: parent)
-                initChatButton(parent: parent)
+//                initChatButton(parent: parent)
                 initMenuButton(parent: parent)
                 initSearchBackground(parent: parent)
                 initMyLocationButton(parent: parent)
