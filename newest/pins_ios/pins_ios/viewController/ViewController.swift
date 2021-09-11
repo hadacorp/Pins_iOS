@@ -231,7 +231,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
                 pin.initCategory(parent: myCell, string: pinsData.category!, type: PinType.init(rawValue: pinsData.pinType!)!)
                 pin.initImage(parent: myCell, type: PinType.init(rawValue: pinsData.pinType!)!, urlString: pinsData.image)
                 pin.initContent(parent: myCell, type: PinType.init(rawValue: pinsData.pinType!)!, string: pinsData.title!)
-                pin.initBottom(parent: myCell, type: PinType.init(rawValue: pinsData.pinType!)!, string: pinsData.date, like: nil, comment: nil)
+                pin.initBottom(parent: myCell, type: PinType.init(rawValue: pinsData.pinType!)!, string: pinsData.date, like: pinsData.like, comment: pinsData.comment)
             }
             return myCell
         }

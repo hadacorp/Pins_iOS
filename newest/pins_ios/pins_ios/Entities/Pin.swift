@@ -17,4 +17,6 @@ class Pin: Decodable {
     var date: String?
     var title: String?
     var image: String?
+    var like: Int?
+    var comment: Int?
 }
