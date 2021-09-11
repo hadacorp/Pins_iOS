@@ -150,7 +150,8 @@ class ViewController: UIViewController{
         if let pins = viewModel.getCheckablePins() {
             for pin in pins{
                 pinAnnotation = CustomPintAnnotation()
-                pinAnnotation.pinCustomImageName = "iconLike"
+                pinAnnotation.pinType = pin.pinType
+                pinAnnotation.pinCategory = pin.category
                 pinAnnotation.coordinate = CLLocationCoordinate2D(latitude: CLLocationDegrees(pin.latitude!), longitude: CLLocationDegrees(pin.longitude!))
                 pinAnnotation.title = pin.category
                 pinAnnotation.subtitle = pin.title
@@ -207,20 +208,19 @@ extension ViewController: MKMapViewDelegate{
         else{
             annotationView?.annotation = annotation
         }
-        
-        let customPointAnnotation = annotation as! CustomPintAnnotation
-        let pinBackground = UIImageView.init(image: #imageLiteral(resourceName: "pinBackground"))
-        pinBackground.snp.makeConstraints { bg in
-            bg.width.equalTo(34)
-            bg.height.equalTo(46)
-        }
-        let pinImage = UIImageView.init(image: #imageLiteral(resourceName: "pinTalk"))
-        pinImage.snp.makeConstraints { bg in
-            bg.width.equalTo(34)
-            bg.height.equalTo(46)
-        }
-        annotationView?.addSubview(pinBackground)
-        annotationView?.addSubview(pinImage)
+        viewModel.makePins(parent: annotationView!, type: pinAnnotation.pinType, category: pinAnnotation.pinCategory)
+//        let pinBackground = UIImageView.init(image: #imageLiteral(resourceName: "pinBackground"))
+//        pinBackground.snp.makeConstraints { bg in
+//            bg.width.equalTo(34)
+//            bg.height.equalTo(46)
+//        }
+//        let pinImage = UIImageView.init(image: #imageLiteral(resourceName: "pinTalk"))
+//        pinImage.snp.makeConstraints { bg in
+//            bg.width.equalTo(34)
+//            bg.height.equalTo(46)
+//        }
+//        annotationView?.addSubview(pinBackground)
+//        annotationView?.addSubview(pinImage)
         
         return annotationView
     }

@@ -65,7 +65,6 @@ extension ViewController{
     @objc
     func createPinAtCenter() {
         pinAnnotation = CustomPintAnnotation()
-        pinAnnotation.pinCustomImageName = "iconLike"
         pinAnnotation.coordinate = CLLocationCoordinate2D(latitude: mainMap.centerCoordinate.latitude, longitude: mainMap.centerCoordinate.longitude)
         pinAnnotation.title = "우리집"
         pinAnnotation.subtitle = "집이 최고야"
