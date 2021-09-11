@@ -209,7 +209,18 @@ extension ViewController: MKMapViewDelegate{
         }
         
         let customPointAnnotation = annotation as! CustomPintAnnotation
-        annotationView?.image = UIImage(named: customPointAnnotation.pinCustomImageName)
+        let pinBackground = UIImageView.init(image: #imageLiteral(resourceName: "pinBackground"))
+        pinBackground.snp.makeConstraints { bg in
+            bg.width.equalTo(34)
+            bg.height.equalTo(46)
+        }
+        let pinImage = UIImageView.init(image: #imageLiteral(resourceName: "pinTalk"))
+        pinImage.snp.makeConstraints { bg in
+            bg.width.equalTo(34)
+            bg.height.equalTo(46)
+        }
+        annotationView?.addSubview(pinBackground)
+        annotationView?.addSubview(pinImage)
         
         return annotationView
     }
