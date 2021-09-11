@@ -43,7 +43,7 @@ class PinCard {
             }
             
             if let comment = comment {
-                let image = UIImageView.init(image: #imageLiteral(resourceName: "iconLike"))
+                let image = UIImageView.init(image: #imageLiteral(resourceName: "iconComment"))
                 let count = UILabel()
                 count.text = "\(comment)"
                 count.font = UIFont(name: "NotoSansKR-Regular", size: 13)
@@ -157,7 +157,7 @@ class PinCard {
             btn.height.equalTo(17)
             btn.top.equalTo(11)
             btn.leading.equalTo(getTagWidth(type: type) + 12 + 4)
-            btn.width.equalTo(100)
+            btn.width.equalTo(getStringWidth(string: string))
         }
         tag.titleEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 1, right: 0)
         tag.layer.cornerRadius = 8.5
@@ -175,6 +175,21 @@ class PinCard {
         case .storyWithImage, .storyWithoutImage:
             return 57
         }
+    }
+    
+    func getStringWidth(string: String) -> Int{
+        var width = 0
+        width = string.count * 11
+        if string.contains("#") {
+            width += 5
+            width -= 11
+        }
+        if string.contains("/") {
+            width += 5
+            width -= 11
+        }
+        width += 24
+        return width
     }
     
     func initial(parent: UIView, type: PinType, category: String, content: String, urlString: String?, bottom: String?, like: Int?, comment: Int?){
