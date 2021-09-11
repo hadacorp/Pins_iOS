@@ -64,6 +64,8 @@ class ViewController: UIViewController{
                         DispatchQueue.main.async {
                             self.collectionView.reloadData()
                             self.initPins()
+                            self.collectionView.contentOffset = CGPoint(x: 0, y: 0)
+                            self.currentIndex = 0
                         }
                     }
                 }
