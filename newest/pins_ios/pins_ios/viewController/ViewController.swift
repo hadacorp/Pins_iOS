@@ -53,14 +53,7 @@ class ViewController: UIViewController{
         // collection 세팅
         setCollectionView()
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(true)
-        if viewModel.getPinCardsCount() > 0 {
-            self.upCardView()
-        }
-    }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         if let latitude = paramLatitude {
             if let longitude = paramLongitude {
@@ -81,6 +74,17 @@ class ViewController: UIViewController{
                 }
             }
         }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        if viewModel.getPinCardsCount() > 0 {
+            self.upCardView()
+        }
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        downCardView()
     }
     
     private func setCollectionView(){
@@ -154,7 +158,7 @@ class ViewController: UIViewController{
         
         mainMap.layoutMargins = UIEdgeInsets(top: 0, left: 10, bottom: 10, right: 10)
     }
-
+    
     // MARK:- Init Pins
     private func initPins(){
         if let pins = viewModel.getCheckablePins() {
@@ -239,7 +243,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let myCell = collectionView.dequeueReusableCell(withReuseIdentifier: "CarouselCell", for: indexPath) as? CarouselCell {
             for v in myCell.subviews{
-               v.removeFromSuperview()
+                v.removeFromSuperview()
             }
             myCell.setupCell(color: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1))
             if let pins = viewModel.getCheckablePins(){
