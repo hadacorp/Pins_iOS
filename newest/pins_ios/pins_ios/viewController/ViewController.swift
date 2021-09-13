@@ -19,7 +19,7 @@ class ViewController: UIViewController{
     // 위치를 받아오기 위한 locationManager
     public var locationManager = CLLocationManager()
     // 맵에 찍을 핀 객체
-    public var pinAnnotation: CustomPintAnnotation!
+    public var pinAnnotation: [CustomPintAnnotation] = []
     
     // 현재 위치 저장
     public var currentLocation: CLLocation!
@@ -31,6 +31,8 @@ class ViewController: UIViewController{
     // 하단 컬렉션 뷰
     public var collectionView: UICollectionView!
     public var currentIndex: CGFloat = 0.0
+    // 핀 관련 변수
+    public var tempArr: [Int] = []
     
     
     // MARK:- Private function
@@ -62,6 +64,7 @@ class ViewController: UIViewController{
                     if let data = data as? [Pin] {
                         self.viewModel.setCheckablePins(checkablePins: data)
                         DispatchQueue.main.async {
+                            self.mainMap.removeAnnotations(self.mainMap.annotations)
                             self.collectionView.reloadData()
                             self.initPins()
                             self.collectionView.contentOffset = CGPoint(x: 0, y: 0)
@@ -148,14 +151,14 @@ class ViewController: UIViewController{
     // MARK:- Init Pins
     private func initPins(){
         if let pins = viewModel.getCheckablePins() {
-            for pin in pins{
-                pinAnnotation = CustomPintAnnotation()
-                pinAnnotation.pinType = pin.pinType
-                pinAnnotation.pinCategory = pin.category
-                pinAnnotation.coordinate = CLLocationCoordinate2D(latitude: CLLocationDegrees(pin.latitude!), longitude: CLLocationDegrees(pin.longitude!))
-                pinAnnotation.title = pin.category
-                pinAnnotation.subtitle = pin.title
-                mainMap.addAnnotation(pinAnnotation)
+            for pin in 0 ..< pins.count{
+                pinAnnotation.append(CustomPintAnnotation())
+                pinAnnotation[pin].pinType = pins[pin].pinType
+                pinAnnotation[pin].pinCategory = pins[pin].category
+                pinAnnotation[pin].coordinate = CLLocationCoordinate2D(latitude: CLLocationDegrees(pins[pin].latitude!), longitude: CLLocationDegrees(pins[pin].longitude!))
+                pinAnnotation[pin].title = pins[pin].category
+                pinAnnotation[pin].subtitle = "\(pin)"
+                mainMap.addAnnotation(pinAnnotation[pin])
             }
         }
     }
@@ -208,20 +211,15 @@ extension ViewController: MKMapViewDelegate{
         else{
             annotationView?.annotation = annotation
         }
-        viewModel.makePins(parent: annotationView!, type: pinAnnotation.pinType, category: pinAnnotation.pinCategory)
-//        let pinBackground = UIImageView.init(image: #imageLiteral(resourceName: "pinBackground"))
-//        pinBackground.snp.makeConstraints { bg in
-//            bg.width.equalTo(34)
-//            bg.height.equalTo(46)
-//        }
-//        let pinImage = UIImageView.init(image: #imageLiteral(resourceName: "pinTalk"))
-//        pinImage.snp.makeConstraints { bg in
-//            bg.width.equalTo(34)
-//            bg.height.equalTo(46)
-//        }
-//        annotationView?.addSubview(pinBackground)
-//        annotationView?.addSubview(pinImage)
-        
+        if (annotationView?.subviews.count)! < 1 {
+            viewModel.makePins(parent: annotationView!, type: pinAnnotation[Int(annotation.subtitle!!)!].pinType, category: pinAnnotation[Int(annotation.subtitle!!)!].pinCategory)
+        }
+        else{
+            for view in annotationView!.subviews {
+                view.removeFromSuperview()
+            }
+            viewModel.makePins(parent: annotationView!, type: pinAnnotation[Int(annotation.subtitle!!)!].pinType, category: pinAnnotation[Int(annotation.subtitle!!)!].pinCategory)
+        }
         return annotationView
     }
 }
@@ -243,7 +241,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
                 pin.initTag(parent: myCell, type: PinType.init(rawValue: pinsData.pinType!)!)
                 pin.initCategory(parent: myCell, string: pinsData.category!, type: PinType.init(rawValue: pinsData.pinType!)!)
                 pin.initImage(parent: myCell, type: PinType.init(rawValue: pinsData.pinType!)!, urlString: pinsData.image)
-                pin.initContent(parent: myCell, type: PinType.init(rawValue: pinsData.pinType!)!, string: pinsData.title!)
+                pin.initContent(parent: myCell, type: PinType.init(rawValue: pinsData.pinType!)!, string: pinsData.title)
                 pin.initBottom(parent: myCell, type: PinType.init(rawValue: pinsData.pinType!)!, string: pinsData.date, like: pinsData.like, comment: pinsData.comment)
             }
             return myCell
