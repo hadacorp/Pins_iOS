@@ -8,7 +8,6 @@
 import UIKit
 
 class PinCard {
-    
     func initBottom(parent: UIView, type: PinType, string: String?, like: Int?, comment: Int?) {
         switch type {
         case .meet, .community:
