@@ -11,7 +11,7 @@ import MapKit
 extension ViewController{
     // MARK:- Objc function
     func upCardView() {
-        UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseOut) {
+        UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseOut) {
             self.collectionView.snp.updateConstraints { view in
                 view.bottom.equalTo(self.view.safeAreaInsets).offset(-103)
             }
@@ -24,7 +24,7 @@ extension ViewController{
     }
     
     func downCardView() {
-        UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseOut) {
+        UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseOut) {
             self.collectionView.snp.updateConstraints { view in
                 view.bottom.equalTo(self.view.safeAreaInsets).offset(150)
             }

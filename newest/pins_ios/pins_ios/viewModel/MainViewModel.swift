@@ -124,20 +124,22 @@ class MainViewModel: MainVCUI {
         }
         if let background = background {
             let pinBackground = UIImageView.init(image: background)
-            pinBackground.snp.makeConstraints { bg in
-                bg.width.equalTo(34)
-                bg.height.equalTo(46)
-            }
             parent.addSubview(pinBackground)
+            pinBackground.snp.makeConstraints { bg in
+                bg.width.equalTo(37)
+                bg.height.equalTo(49)
+                bg.center.equalTo(parent)
+            }
         }
         
         if let image = image {
             let pinImage = UIImageView.init(image: image)
+            parent.addSubview(pinImage)
             pinImage.snp.makeConstraints { bg in
                 bg.width.equalTo(34)
                 bg.height.equalTo(46)
+                bg.center.equalTo(parent)
             }
-            parent.addSubview(pinImage)
         }
     }
 }
