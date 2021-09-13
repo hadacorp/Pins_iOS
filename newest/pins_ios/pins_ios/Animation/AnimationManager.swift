@@ -10,7 +10,23 @@ import MapKit
 
 extension ViewController{
     // MARK:- Objc function
-  
+    func upCardView() {
+        UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseOut) {
+            print("시작")
+            self.collectionView.snp.updateConstraints { view in
+                view.bottom.equalTo(self.view.safeAreaInsets).offset(-103)
+            }
+            self.collectionView.superview?.layoutIfNeeded()
+            self.viewModel.getMyLocationButton().snp.updateConstraints { btn in
+                btn.bottom.equalTo(-248)
+            }
+            self.viewModel.getMyLocationButton().superview?.layoutIfNeeded()
+            
+        } completion: { success in
+            print("끝남")
+        }
+        
+    }
     
     @objc func myLocation() {
         if let userLocation = locationManager.location?.coordinate {

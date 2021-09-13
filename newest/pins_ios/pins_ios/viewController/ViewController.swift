@@ -54,6 +54,13 @@ class ViewController: UIViewController{
         setCollectionView()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        if viewModel.getPinCardsCount() > 0 {
+            self.upCardView()
+        }
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         if let latitude = paramLatitude {
             if let longitude = paramLongitude {
@@ -93,7 +100,7 @@ class ViewController: UIViewController{
         collectionView.snp.makeConstraints { view in
             view.width.equalTo(UIScreen.main.bounds.width)
             view.height.equalTo(140)
-            view.bottom.equalTo(self.view.safeAreaInsets).offset(-103)
+            view.bottom.equalTo(self.view.safeAreaInsets).offset(150)
             view.leading.equalTo(0)
             view.trailing.equalTo(0)
         }
