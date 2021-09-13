@@ -93,6 +93,40 @@ class MainViewModel: MainVCUI {
     public func makePins(parent: UIView, type: String, category: String){
         var background: UIImage?
         var image: UIImage?
+        
+        let shadow = UIImageView()
+        if type == PinType.meet.rawValue{
+            parent.addSubview(shadow)
+            shadow.snp.makeConstraints { sd in
+                sd.bottom.equalTo(27)
+                sd.width.equalTo(20)
+                sd.height.equalTo(8)
+                sd.centerX.equalTo(parent)
+            }
+            shadow.image = UIImage(named: "shadowMeeting")
+        }
+        
+        if type == PinType.community.rawValue{
+            parent.addSubview(shadow)
+            shadow.snp.makeConstraints { sd in
+                sd.bottom.equalTo(16)
+                sd.width.equalTo(26)
+                sd.height.equalTo(10)
+                sd.centerX.equalTo(parent)
+            }
+            shadow.image = UIImage(named: "shadowCommunity")
+        }
+        if type == PinType.storyWithImage.rawValue || type == PinType.storyWithoutImage.rawValue{
+            parent.addSubview(shadow)
+            shadow.snp.makeConstraints { sd in
+                sd.bottom.equalTo(15.5)
+                sd.width.equalTo(20)
+                sd.height.equalTo(8)
+                sd.centerX.equalTo(parent)
+            }
+            shadow.image = UIImage(named: "shadowStory")
+        }
+        
         if type == PinType.meet.rawValue{
             background = #imageLiteral(resourceName: "pinBackground")
             switch category{

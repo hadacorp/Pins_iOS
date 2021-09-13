@@ -151,20 +151,9 @@ class ViewController: UIViewController{
         mainMap.delegate = self
         
         // 맵에 보여줄 카테고리 설정
-        mainMap.pointOfInterestFilter = .some(MKPointOfInterestFilter(including:
-                                                                        [.cafe,
-                                                                         .restaurant,
-                                                                         .airport,
-                                                                         .beach,
-                                                                         .hospital,
-                                                                         .movieTheater,
-                                                                         .nationalPark,
-                                                                         .park,
-                                                                         .publicTransport,
-                                                                         .school,
-                                                                         .university,
-                                                                         .theater,
-                                                                         .foodMarket]))
+        mainMap.pointOfInterestFilter = .some(MKPointOfInterestFilter(including:[.cafe, .restaurant, .airport, .beach, .hospital, .movieTheater, .nationalPark,
+                                                                                 .park, .publicTransport, .school, .university, .theater, .foodMarket]))
+                                                                        
         // user 위치 보기
         mainMap.showsUserLocation = true
         currentLocation = locationManager.location
