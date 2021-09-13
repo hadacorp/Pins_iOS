@@ -62,19 +62,19 @@ extension ViewController{
     }
     
     // 중앙에 핀 생성
-    @objc
-    func createPinAtCenter() {
-        pinAnnotation = CustomPintAnnotation()
-        pinAnnotation.coordinate = CLLocationCoordinate2D(latitude: mainMap.centerCoordinate.latitude, longitude: mainMap.centerCoordinate.longitude)
-        pinAnnotation.title = "우리집"
-        pinAnnotation.subtitle = "집이 최고야"
-        mainMap.addAnnotation(pinAnnotation)
-    }
+//    @objc
+//    func createPinAtCenter() {
+//        pinAnnotation = CustomPintAnnotation()
+//        pinAnnotation.coordinate = CLLocationCoordinate2D(latitude: mainMap.centerCoordinate.latitude, longitude: mainMap.centerCoordinate.longitude)
+//        pinAnnotation.title = "우리집"
+//        pinAnnotation.subtitle = "집이 최고야"
+//        mainMap.addAnnotation(pinAnnotation)
+//    }
     
     // 버튼 이벤트 설정
     public func setButtonEvent(){
         viewModel.getMoveButton().addTarget(self, action: #selector(filterAnimate), for: .touchUpInside)
-        viewModel.getAddButton().addTarget(self, action: #selector(createPinAtCenter), for: .touchUpInside)
+//        viewModel.getAddButton().addTarget(self, action: #selector(createPinAtCenter), for: .touchUpInside)
         viewModel.getSearchButton().addTarget(self, action: #selector(changeView), for: .touchUpInside)
         viewModel.getMyLocationButton().addTarget(self, action: #selector(myLocation), for: .touchUpInside)
         viewModel.getFilterCommunityButton().addTarget(self, action: #selector(clickFilterCommunity), for: .touchUpInside)

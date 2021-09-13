@@ -20,7 +20,10 @@ class SearchViewModel: SearchVCUI {
     }
     public func getPlacesIndex(index: Int) -> Place?{
         if let places = places{
-            return places[index]
+            if places.count > index {
+                return places[index]
+            }
+            return nil
         }
         return nil
     }

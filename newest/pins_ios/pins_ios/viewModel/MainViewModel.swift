@@ -100,6 +100,24 @@ class MainViewModel: MainVCUI {
                 image = #imageLiteral(resourceName: "pinTalk")
             case "산책/반려동물":
                 image = #imageLiteral(resourceName: "pinWalk")
+            case "맛집탐방":
+                image = #imageLiteral(resourceName: "pinFood")
+            case "영화/문화생활":
+                image = #imageLiteral(resourceName: "pinMovie")
+            case "게임/오락":
+                image = #imageLiteral(resourceName: "pinGame")
+            case "스포츠/운동":
+                image = #imageLiteral(resourceName: "pinExercise")
+            case "등산/캠핑":
+                image = #imageLiteral(resourceName: "pinHiking")
+            case "스터디/독서":
+                image = #imageLiteral(resourceName: "pinStudy")
+            case "여행/드라이브":
+                image = #imageLiteral(resourceName: "pinTrip")
+            case "거래/나눔":
+                image = #imageLiteral(resourceName: "pinTrade")
+            case "기타":
+                image = #imageLiteral(resourceName: "pinOthers")
             default:
                 image = #imageLiteral(resourceName: "iconMyMenu")
             }

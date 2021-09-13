@@ -72,7 +72,7 @@ class PinCard {
         }
     }
     
-    func initContent(parent: UIView, type: PinType, string: String) {
+    func initContent(parent: UIView, type: PinType, string: String?) {
         let content = UILabel()
         parent.addSubview(content)
         switch type {
@@ -82,7 +82,12 @@ class PinCard {
                 label.leading.equalTo(12)
                 label.trailing.equalTo(-110)
             }
-            content.text = string
+            if let string = string {
+                content.text = string
+            }
+            else {
+                content.text = "임시 타이틀"
+            }
             content.numberOfLines = 2
             content.font = UIFont(name: "NotoSansKR-Regular", size: 15)
         case .storyWithoutImage:
@@ -91,7 +96,12 @@ class PinCard {
                 label.leading.equalTo(12)
                 label.trailing.equalTo(-12)
             }
-            content.text = string
+            if let string = string {
+                content.text = string
+            }
+            else {
+                content.text = "임시 타이틀"
+            }
             content.numberOfLines = 2
             content.font = UIFont(name: "NotoSansKR-Regular", size: 15)
         }
@@ -123,11 +133,14 @@ class PinCard {
                 imgview.trailing.equalTo(-8)
             }
             let maskView = UIImageView(image: UIImage(named: "profileMask"))
-            let url = URL(string: urlString!)
-            let data = try! Data(contentsOf: url!)
-            imageView.image = UIImage(data: data)
-            imageView.contentMode = .scaleAspectFill
-            imageView.mask = maskView
+            let url: URL?
+            if let str = urlString {
+                url = URL(string: str)
+                let data = try! Data(contentsOf: url!)
+                imageView.image = UIImage(data: data)
+                imageView.contentMode = .scaleAspectFill
+                imageView.mask = maskView
+            }
         default:
             print("default Error")
         }
