@@ -25,14 +25,16 @@ class ViewController: UIViewController{
     public var currentLocation: CLLocation!
     // API
     public var getKeywordPinAPI = GetKeywordPinAPI()
-    // 이동할 좌표
-    public var paramLatitude: CLLocationDegrees?
-    public var paramLongitude: CLLocationDegrees?
     // 하단 컬렉션 뷰
     public var collectionView: UICollectionView!
     public var currentIndex: CGFloat = 0.0
-    // 핀 관련 변수
-    public var tempArr: [Int] = []
+    
+    // Param Values 이동할 좌표
+    public var paramLatitude: CLLocationDegrees?
+    public var paramLongitude: CLLocationDegrees?
+    public var paramSearchText: String?
+    // 0: 키워드, 1: 위치
+    public var paramType: Int = 0
     
     
     // MARK:- Private function
@@ -57,18 +59,41 @@ class ViewController: UIViewController{
     override func viewWillAppear(_ animated: Bool) {
         if let latitude = paramLatitude {
             if let longitude = paramLongitude {
-                // 검색된 위치로 이동
-                goLocation(latitudeValue: latitude, longtudeValue: longitude, delta: 500)
-                // 주변 핀들 받아오기
-                GetKeywordPinAPI().requestGet(latitude: latitude, longitude: longitude) { (success, data) in
-                    if let data = data as? [Pin] {
-                        self.viewModel.setCheckablePins(checkablePins: data)
-                        DispatchQueue.main.async {
-                            self.mainMap.removeAnnotations(self.mainMap.annotations)
-                            self.collectionView.reloadData()
-                            self.initPins()
-                            self.collectionView.contentOffset = CGPoint(x: 0, y: 0)
-                            self.currentIndex = 0
+                if paramType == 1{
+                    // 검색된 위치로 이동
+                    goLocation(latitudeValue: latitude, longtudeValue: longitude, delta: 500)
+                    // 주변 핀들 받아오기
+                    GetKeywordPinAPI().requestGet(latitude: latitude, longitude: longitude) { (success, data) in
+                        if let data = data as? [Pin] {
+                            self.viewModel.setCheckablePins(checkablePins: data)
+                            DispatchQueue.main.async {
+                                self.mainMap.removeAnnotations(self.mainMap.annotations)
+                                self.collectionView.reloadData()
+                                self.initPins()
+                                self.collectionView.contentOffset = CGPoint(x: 0, y: 0)
+                                self.currentIndex = 0
+                            }
+                        }
+                    }
+                }
+                else if paramType == 0 {
+                    GetSearchKeywordPinApi().requestGet(keyword: paramSearchText!, latitude: latitude, longitude: longitude) { (success, data) in
+                        if let data = data as? [Pin] {
+                            DispatchQueue.main.async {
+                                self.mainMap.removeAnnotations(self.mainMap.annotations)
+                                self.currentIndex = 0
+                                self.goLocation(latitudeValue: data[0].latitude!, longtudeValue: data[0].longitude!, delta: 500)
+                            }
+                            GetKeywordCard().requestGet(keyword: self.paramSearchText!, pinID: data[0].pinDBId!) { (success, data) in
+                                if let data = data as? [Pin]{
+                                    self.viewModel.setCheckablePins(checkablePins: data)
+                                    DispatchQueue.main.async {
+                                        self.initPins()
+                                        self.collectionView.reloadData()
+                                        self.collectionView.contentOffset = CGPoint(x: 0, y: 0)
+                                    }
+                                }
+                            }
                         }
                     }
                 }

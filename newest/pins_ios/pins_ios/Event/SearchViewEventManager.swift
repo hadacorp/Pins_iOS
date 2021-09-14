@@ -25,4 +25,16 @@ extension SearchViewController{
             }
         }
     }
+    
+    func getSearchKeywordPins(){
+        latitude = (myPosition.coordinate.latitude)
+        longitude = (myPosition.coordinate.longitude)
+        
+        let preVC = self.navigationController?.viewControllers[0] as! ViewController
+        preVC.paramLongitude = longitude
+        preVC.paramLatitude = latitude
+        preVC.paramSearchText = searchText
+        preVC.paramType = 0
+        self.navigationController?.popViewController(animated: true)
+    }
 }

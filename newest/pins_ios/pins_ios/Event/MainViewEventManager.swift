@@ -61,16 +61,6 @@ extension ViewController{
         mainMap.camera = mapCamera
     }
     
-    // 중앙에 핀 생성
-//    @objc
-//    func createPinAtCenter() {
-//        pinAnnotation = CustomPintAnnotation()
-//        pinAnnotation.coordinate = CLLocationCoordinate2D(latitude: mainMap.centerCoordinate.latitude, longitude: mainMap.centerCoordinate.longitude)
-//        pinAnnotation.title = "우리집"
-//        pinAnnotation.subtitle = "집이 최고야"
-//        mainMap.addAnnotation(pinAnnotation)
-//    }
-    
     // 버튼 이벤트 설정
     public func setButtonEvent(){
         viewModel.getMoveButton().addTarget(self, action: #selector(filterAnimate), for: .touchUpInside)
