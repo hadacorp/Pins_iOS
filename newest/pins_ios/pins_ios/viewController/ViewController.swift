@@ -172,6 +172,7 @@ class ViewController: UIViewController{
                 pinAnnotation.append(CustomPintAnnotation())
                 pinAnnotation[pin].pinType = pins[pin].pinType
                 pinAnnotation[pin].pinCategory = pins[pin].category
+                pinAnnotation[pin].pinTitle = pins[pin].title ?? ""
                 pinAnnotation[pin].coordinate = CLLocationCoordinate2D(latitude: CLLocationDegrees(pins[pin].latitude!), longitude: CLLocationDegrees(pins[pin].longitude!))
                 pinAnnotation[pin].title = pins[pin].category
                 pinAnnotation[pin].subtitle = "\(pin)"
@@ -229,13 +230,13 @@ extension ViewController: MKMapViewDelegate{
             annotationView?.annotation = annotation
         }
         if (annotationView?.subviews.count)! < 1 {
-            viewModel.makePins(parent: annotationView!, type: pinAnnotation[Int(annotation.subtitle!!)!].pinType, category: pinAnnotation[Int(annotation.subtitle!!)!].pinCategory)
+            viewModel.makePins(parent: annotationView!, type: pinAnnotation[Int(annotation.subtitle!!)!].pinType, category: pinAnnotation[Int(annotation.subtitle!!)!].pinCategory, title: pinAnnotation[Int(annotation.subtitle!!)!].pinTitle)
         }
         else{
             for view in annotationView!.subviews {
                 view.removeFromSuperview()
             }
-            viewModel.makePins(parent: annotationView!, type: pinAnnotation[Int(annotation.subtitle!!)!].pinType, category: pinAnnotation[Int(annotation.subtitle!!)!].pinCategory)
+            viewModel.makePins(parent: annotationView!, type: pinAnnotation[Int(annotation.subtitle!!)!].pinType, category: pinAnnotation[Int(annotation.subtitle!!)!].pinCategory, title: pinAnnotation[Int(annotation.subtitle!!)!].pinTitle)
         }
         return annotationView
     }
