@@ -14,6 +14,13 @@ class SearchViewController: UIViewController, UITextFieldDelegate{
     @IBOutlet weak var searchBar: UISearchBar!{didSet { searchBar.delegate = self }}
     @IBOutlet weak var keyWordText: UIButton!
     @IBOutlet weak var tagImage: UIImageView!
+    
+    
+    // MARK:- Button Event
+    @IBAction func getKeywordPins(_ sender: Any) {
+        self.getSearchKeywordPins()
+    }
+    
     @IBAction func backButton(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
@@ -26,9 +33,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate{
     public var latitude: Double = 0
     public var longitude: Double = 0
     // MARK:- 지역 검색 변수들
-    private let searchTableCellIdentifier = "Cell"
     private var searchCompleter = MKLocalSearchCompleter()
-    private var searchRegion: MKCoordinateRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 37.5342523, longitude: 126.6603896), span: MKCoordinateSpan(latitudeDelta: 1, longitudeDelta: 1))
     
     // MARK:- Function
     override func viewDidLoad() {

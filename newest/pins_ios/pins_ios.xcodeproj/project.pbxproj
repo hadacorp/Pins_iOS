@@ -29,6 +29,9 @@
 		B74F96A826E4A80E0064B900 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74F96A726E4A80E0064B900 /* SearchViewController.swift */; };
 		B74F96AB26E4AB0B0064B900 /* CLLocationCoordinate2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74F96AA26E4AB0B0064B900 /* CLLocationCoordinate2D.swift */; };
 		B74F96AD26E4AB3E0064B900 /* UISearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74F96AC26E4AB3E0064B900 /* UISearchBar.swift */; };
+		B77EC71526F0E59A0002C0D6 /* GetSearchKeywordPinAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77EC71426F0E59A0002C0D6 /* GetSearchKeywordPinAPI.swift */; };
+		B77EC71726F0EF540002C0D6 /* GetPlaceCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77EC71626F0EF540002C0D6 /* GetPlaceCard.swift */; };
+		B77EC71926F0EF5E0002C0D6 /* GetKeywordCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77EC71826F0EF5E0002C0D6 /* GetKeywordCard.swift */; };
 		B787EA0126E4FEC30044D786 /* MainViewEventManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B787EA0026E4FEC30044D786 /* MainViewEventManager.swift */; };
 		B78A59A526E611A800BBA759 /* NotoSansKR-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = B78A599F26E611A800BBA759 /* NotoSansKR-Bold.otf */; };
 		B78A59A626E611A800BBA759 /* NotoSansKR-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = B78A59A026E611A800BBA759 /* NotoSansKR-Medium.otf */; };
@@ -75,6 +78,9 @@
 		B74F96A726E4A80E0064B900 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		B74F96AA26E4AB0B0064B900 /* CLLocationCoordinate2D.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLLocationCoordinate2D.swift; sourceTree = "<group>"; };
 		B74F96AC26E4AB3E0064B900 /* UISearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UISearchBar.swift; sourceTree = "<group>"; };
+		B77EC71426F0E59A0002C0D6 /* GetSearchKeywordPinAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetSearchKeywordPinAPI.swift; sourceTree = "<group>"; };
+		B77EC71626F0EF540002C0D6 /* GetPlaceCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPlaceCard.swift; sourceTree = "<group>"; };
+		B77EC71826F0EF5E0002C0D6 /* GetKeywordCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetKeywordCard.swift; sourceTree = "<group>"; };
 		B787EA0026E4FEC30044D786 /* MainViewEventManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewEventManager.swift; sourceTree = "<group>"; };
 		B78A599F26E611A800BBA759 /* NotoSansKR-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Bold.otf"; sourceTree = "<group>"; };
 		B78A59A026E611A800BBA759 /* NotoSansKR-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Medium.otf"; sourceTree = "<group>"; };
@@ -147,6 +153,9 @@
 			children = (
 				B709090526E263620075BF50 /* GetKeywordPinAPI.swift */,
 				B741BA4526E8F5E800BB04E7 /* GetPlaceKeyword.swift */,
+				B77EC71426F0E59A0002C0D6 /* GetSearchKeywordPinAPI.swift */,
+				B77EC71626F0EF540002C0D6 /* GetPlaceCard.swift */,
+				B77EC71826F0EF5E0002C0D6 /* GetKeywordCard.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -280,8 +289,8 @@
 		B7D0EBA426E12551009FB747 /* viewController */ = {
 			isa = PBXGroup;
 			children = (
-				B74F96A726E4A80E0064B900 /* SearchViewController.swift */,
 				B70CFC2426BFD82500B7DA74 /* ViewController.swift */,
+				B74F96A726E4A80E0064B900 /* SearchViewController.swift */,
 			);
 			path = viewController;
 			sourceTree = "<group>";
@@ -412,12 +421,14 @@
 				B724315B26C18A950091152E /* SmallRoundedBtn.swift in Sources */,
 				B7C5DAA826C805640011EE41 /* BigRoundedbutton.swift in Sources */,
 				B7A0D84926EA571200AD5B46 /* Pin.swift in Sources */,
+				B77EC71926F0EF5E0002C0D6 /* GetKeywordCard.swift in Sources */,
 				B787EA0126E4FEC30044D786 /* MainViewEventManager.swift in Sources */,
 				B74F96A826E4A80E0064B900 /* SearchViewController.swift in Sources */,
 				B7FBC47826C28730001838D1 /* CustomPintAnnotation.swift in Sources */,
 				B704F03C26E36C5900DA9E06 /* Cell.swift in Sources */,
 				B70CFC2526BFD82500B7DA74 /* ViewController.swift in Sources */,
 				B7A0D84B26EA6ECF00AD5B46 /* Gradient.swift in Sources */,
+				B77EC71726F0EF540002C0D6 /* GetPlaceCard.swift in Sources */,
 				B7A0D84D26EA6FF700AD5B46 /* CarouselCell.swift in Sources */,
 				B74F96AB26E4AB0B0064B900 /* CLLocationCoordinate2D.swift in Sources */,
 				B74F96AD26E4AB3E0064B900 /* UISearchBar.swift in Sources */,
@@ -432,6 +443,7 @@
 				B709090026E1FD990075BF50 /* SearchViewModel.swift in Sources */,
 				B7C5DAAA26C805D50011EE41 /* ThumbnailImg.swift in Sources */,
 				B70CFC2326BFD82500B7DA74 /* SceneDelegate.swift in Sources */,
+				B77EC71526F0E59A0002C0D6 /* GetSearchKeywordPinAPI.swift in Sources */,
 				B709090326E2006E0075BF50 /* SearchViewEventManager.swift in Sources */,
 				B7F4417526EBB62100546257 /* PinType.swift in Sources */,
 				B704D48026DBCE6800DB20D2 /* AnimationManager.swift in Sources */,
