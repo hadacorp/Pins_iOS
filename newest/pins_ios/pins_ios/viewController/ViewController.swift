@@ -78,22 +78,27 @@ class ViewController: UIViewController{
                 }
                 else if paramType == 0 {
                     GetSearchKeywordPinApi().requestGet(keyword: paramSearchText!, latitude: latitude, longitude: longitude) { (success, data) in
-                        if let data = data as? [Pin] {
-                            DispatchQueue.main.async {
-                                self.mainMap.removeAnnotations(self.mainMap.annotations)
-                                self.currentIndex = 0
-                                self.goLocation(latitudeValue: data[0].latitude!, longtudeValue: data[0].longitude!, delta: 500)
-                            }
-                            GetKeywordCard().requestGet(keyword: self.paramSearchText!, pinID: data[0].pinDBId!) { (success, data) in
-                                if let data = data as? [Pin]{
-                                    self.viewModel.setCheckablePins(checkablePins: data)
-                                    DispatchQueue.main.async {
-                                        self.initPins()
-                                        self.collectionView.reloadData()
-                                        self.collectionView.contentOffset = CGPoint(x: 0, y: 0)
+                        if success{
+                            if let data = data as? [Pin] {
+                                DispatchQueue.main.async {
+                                    self.mainMap.removeAnnotations(self.mainMap.annotations)
+                                    self.currentIndex = 0
+                                    self.goLocation(latitudeValue: data[0].latitude!, longtudeValue: data[0].longitude!, delta: 500)
+                                }
+                                GetKeywordCard().requestGet(keyword: self.paramSearchText!, pinID: data[0].pinDBId!) { [self] (success, data) in
+                                    if let data = data as? [Pin]{
+                                        self.viewModel.setCheckablePins(checkablePins: data)
+                                        DispatchQueue.main.async {
+                                            self.initPins()
+                                            self.collectionView.reloadData()
+                                            self.collectionView.contentOffset = CGPoint(x: 0, y: 0)
+                                        }
                                     }
                                 }
                             }
+                        }
+                        else{
+                            print("없어요 야발")
                         }
                     }
                 }
@@ -105,6 +110,10 @@ class ViewController: UIViewController{
         super.viewDidAppear(true)
         if viewModel.getPinCardsCount() > 0 {
             self.upCardView()
+            
+            if let paramSearchText = paramSearchText {
+                searchedKeyword(keyword: paramSearchText)
+            }
         }
     }
     

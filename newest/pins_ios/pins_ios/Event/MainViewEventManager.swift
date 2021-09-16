@@ -39,6 +39,8 @@ extension ViewController{
         let VC1 = self.storyboard!.instantiateViewController(withIdentifier: "SearchVC") as! SearchViewController
         
         VC1.myPosition = currentLocation
+        VC1.latitude = mainMap.centerCoordinate.latitude
+        VC1.longitude = mainMap.centerCoordinate.longitude
         self.navigationController!.pushViewController(VC1, animated: false)
     }
     
