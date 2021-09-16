@@ -146,8 +146,8 @@ class MainViewModel: MainVCUI {
             let pinImage = UIImageView.init(image: image)
             parent.addSubview(pinImage)
             pinImage.snp.makeConstraints { bg in
-                bg.width.equalTo(37)
-                bg.height.equalTo(49)
+                bg.width.equalTo(34)
+                bg.height.equalTo(46)
                 bg.center.equalTo(parent)
             }
         }

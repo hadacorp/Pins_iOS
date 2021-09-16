@@ -10,7 +10,30 @@ import MapKit
 
 extension ViewController{
     // MARK:- Objc function
-    func searchedKeyword(keyword: String){
+    func searchedKeywordNarrow(){
+        for i in viewModel.getSearchButton().subviews {
+            if i.tag != 1{
+                i.removeFromSuperview()
+            }
+        }
+        UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseOut) { [self] in
+            viewModel.getSearchButton().imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+            viewModel.getSearchButton().snp.updateConstraints { btn in
+                btn.width.equalTo(40)
+                btn.top.equalTo(self.view.safeAreaLayoutGuide).offset(16)
+                btn.leading.equalTo(16)
+            }
+            viewModel.getSearchButton().setImage(#imageLiteral(resourceName: "icon"), for: .normal)
+            viewModel.getSearchButton().backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+            viewModel.getSearchButton().superview?.layoutIfNeeded()
+        }
+    }
+    func searchedKeywordWide(keyword: String){
+        for i in viewModel.getSearchButton().subviews {
+            if i.tag != 1{
+                i.removeFromSuperview()
+            }
+        }
         let keywordLabel = UILabel()
         let cancelButton = UIButton()
         keywordLabel.text = "'" + keyword + "'" + "로 검색됨"
@@ -46,6 +69,10 @@ extension ViewController{
                 btn.width.height.equalTo(40)
             }
         }
+        
+        cancelButton.addAction(UIAction(handler: { _ in
+            self.searchedKeywordNarrow()
+        }), for: .touchUpInside)
     }
     func upCardView() {
         UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseOut) {
