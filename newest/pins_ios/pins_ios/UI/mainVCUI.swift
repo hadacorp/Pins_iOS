@@ -166,6 +166,7 @@ class MainVCUI {
     }
     // MARK:- 중상부 버튼
     private func initsearchButton(parent: UIView, layout: UILayoutGuide){
+        searchButton.button.imageView?.tag = 1
         parent.addSubview(searchButton.button)
         searchButton.button.snp.makeConstraints { bt in
             bt.top.equalTo(layout).offset(16)

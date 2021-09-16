@@ -125,6 +125,7 @@ extension SearchViewController: UITableViewDelegate {
         let preVC = self.navigationController?.viewControllers[0] as! ViewController
         preVC.paramLongitude = longitude
         preVC.paramLatitude = latitude
+        preVC.paramSearchText = nil
         preVC.paramType = 1
         self.navigationController?.popViewController(animated: true)
     }

@@ -116,8 +116,8 @@ class PinCard {
                 imgview.top.equalTo(0)
                 imgview.width.height.equalTo(110)
             }
+            
             let maskView = UIImageView(image: UIImage(named: "cardMask"))
-//            let url: URL?
             URLSession.shared.dataTask(with: URL(string: urlString!)!) { (data, response, err) in
                 DispatchQueue.main.async {
                     if let data = data {
@@ -127,10 +127,6 @@ class PinCard {
                     }
                 }
             }.resume()
-//            if let str = urlString {
-//                url = URL(string: str)
-//                let data = try! Data(contentsOf: url!)
-//            }
         case .meet:
             imageView.snp.makeConstraints { imgview in
                 imgview.width.height.equalTo(94)
