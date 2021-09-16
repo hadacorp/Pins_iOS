@@ -16,7 +16,7 @@ class MainViewModel: MainVCUI {
         if let checkablePins = checkablePins {
             return checkablePins.count
         }
-        return 0
+        return -1
     }
     
     public func resetPins() {
