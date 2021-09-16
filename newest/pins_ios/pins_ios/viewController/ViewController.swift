@@ -35,7 +35,8 @@ class ViewController: UIViewController{
     public var paramSearchText: String?
     // 0: 키워드, 1: 위치
     public var paramType: Int = 0
-    
+    // toast
+    public var toastLabel: UILabel?
     
     // MARK:- Private function
     override func viewDidLoad() {
@@ -77,7 +78,7 @@ class ViewController: UIViewController{
                     }
                 }
                 else if paramType == 0 {
-                    GetSearchKeywordPinApi().requestGet(keyword: paramSearchText!, latitude: latitude, longitude: longitude) { (success, data) in
+                    GetSearchKeywordPinApi().requestGet(keyword: paramSearchText!, latitude: latitude, longitude: longitude) { [self] (success, data) in
                         if success{
                             if let data = data as? [Pin] {
                                 DispatchQueue.main.async {
@@ -98,7 +99,7 @@ class ViewController: UIViewController{
                             }
                         }
                         else{
-                            print("없어요 야발")
+                            self.viewModel.setCheckablePins(checkablePins: [])
                         }
                     }
                 }
@@ -119,6 +120,11 @@ class ViewController: UIViewController{
                 searchedKeywordNarrow()
             }
         }
+        else if viewModel.getPinCardsCount() == 0 {
+            showToast(message: "없어요 야발.", font: UIFont(name: "NotoSansKR-Regular", size: 14)!, parent: self.view)
+        }
+        
+        print(viewModel.getPinCardsCount())
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -203,6 +209,24 @@ class ViewController: UIViewController{
         mainMap.layoutMargins = UIEdgeInsets(top: 0, left: 10, bottom: 10, right: 10)
     }
     
+    public func showToast(message : String, font: UIFont = UIFont.systemFont(ofSize: 14.0), parent: UIView){
+        let toastLabel = UILabel(frame: CGRect(x: self.view.frame.size.width/2 - 75, y: self.view.frame.size.height-100, width: 130, height: 30))
+        toastLabel.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+        toastLabel.textColor = UIColor.white
+        toastLabel.font = font
+        toastLabel.textAlignment = .center
+        toastLabel.text = message
+        toastLabel.alpha = 1.0
+        toastLabel.layer.cornerRadius = 15;
+        toastLabel.clipsToBounds = true
+        parent.addSubview(toastLabel)
+        UIView.animate(withDuration: 3.0, delay: 1.0, options: .curveEaseOut, animations: {
+            toastLabel.alpha = 0.0
+        }, completion: {
+            (isCompleted) in toastLabel.removeFromSuperview()
+        })
+    }
+    
     // MARK:- Init Pins
     private func initPins(){
         if let pins = viewModel.getCheckablePins() {
@@ -277,6 +301,11 @@ extension ViewController: MKMapViewDelegate{
             viewModel.makePins(parent: annotationView!, type: pinAnnotation[Int(annotation.subtitle!!)!].pinType, category: pinAnnotation[Int(annotation.subtitle!!)!].pinCategory, title: pinAnnotation[Int(annotation.subtitle!!)!].pinTitle)
         }
         return annotationView
+    }
+    
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        // 카드뷰 띄워주기
+        print(view.annotation?.subtitle)
     }
 }
 

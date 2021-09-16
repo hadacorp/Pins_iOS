@@ -27,8 +27,8 @@
 		B74CDCA526DF9AA200043ADE /* MainVCUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74CDCA426DF9AA200043ADE /* MainVCUI.swift */; };
 		B74CDCA726DF9AB100043ADE /* SearchVCUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74CDCA626DF9AB100043ADE /* SearchVCUI.swift */; };
 		B74F96A826E4A80E0064B900 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74F96A726E4A80E0064B900 /* SearchViewController.swift */; };
-		B74F96AB26E4AB0B0064B900 /* CLLocationCoordinate2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74F96AA26E4AB0B0064B900 /* CLLocationCoordinate2D.swift */; };
-		B74F96AD26E4AB3E0064B900 /* UISearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74F96AC26E4AB3E0064B900 /* UISearchBar.swift */; };
+		B74F96AB26E4AB0B0064B900 /* Extension+CLLocationCoordinate2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74F96AA26E4AB0B0064B900 /* Extension+CLLocationCoordinate2D.swift */; };
+		B74F96AD26E4AB3E0064B900 /* Extension+UISearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74F96AC26E4AB3E0064B900 /* Extension+UISearchBar.swift */; };
 		B77EC71526F0E59A0002C0D6 /* GetSearchKeywordPinAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77EC71426F0E59A0002C0D6 /* GetSearchKeywordPinAPI.swift */; };
 		B77EC71726F0EF540002C0D6 /* GetPlaceCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77EC71626F0EF540002C0D6 /* GetPlaceCard.swift */; };
 		B77EC71926F0EF5E0002C0D6 /* GetKeywordCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77EC71826F0EF5E0002C0D6 /* GetKeywordCard.swift */; };
@@ -76,8 +76,8 @@
 		B74CDCA426DF9AA200043ADE /* MainVCUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVCUI.swift; sourceTree = "<group>"; };
 		B74CDCA626DF9AB100043ADE /* SearchVCUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVCUI.swift; sourceTree = "<group>"; };
 		B74F96A726E4A80E0064B900 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
-		B74F96AA26E4AB0B0064B900 /* CLLocationCoordinate2D.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLLocationCoordinate2D.swift; sourceTree = "<group>"; };
-		B74F96AC26E4AB3E0064B900 /* UISearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UISearchBar.swift; sourceTree = "<group>"; };
+		B74F96AA26E4AB0B0064B900 /* Extension+CLLocationCoordinate2D.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+CLLocationCoordinate2D.swift"; sourceTree = "<group>"; };
+		B74F96AC26E4AB3E0064B900 /* Extension+UISearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UISearchBar.swift"; sourceTree = "<group>"; };
 		B77EC71426F0E59A0002C0D6 /* GetSearchKeywordPinAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetSearchKeywordPinAPI.swift; sourceTree = "<group>"; };
 		B77EC71626F0EF540002C0D6 /* GetPlaceCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPlaceCard.swift; sourceTree = "<group>"; };
 		B77EC71826F0EF5E0002C0D6 /* GetKeywordCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetKeywordCard.swift; sourceTree = "<group>"; };
@@ -238,8 +238,8 @@
 		B74F96A926E4AAD70064B900 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				B74F96AA26E4AB0B0064B900 /* CLLocationCoordinate2D.swift */,
-				B74F96AC26E4AB3E0064B900 /* UISearchBar.swift */,
+				B74F96AA26E4AB0B0064B900 /* Extension+CLLocationCoordinate2D.swift */,
+				B74F96AC26E4AB3E0064B900 /* Extension+UISearchBar.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -430,8 +430,8 @@
 				B7A0D84B26EA6ECF00AD5B46 /* Gradient.swift in Sources */,
 				B77EC71726F0EF540002C0D6 /* GetPlaceCard.swift in Sources */,
 				B7A0D84D26EA6FF700AD5B46 /* CarouselCell.swift in Sources */,
-				B74F96AB26E4AB0B0064B900 /* CLLocationCoordinate2D.swift in Sources */,
-				B74F96AD26E4AB3E0064B900 /* UISearchBar.swift in Sources */,
+				B74F96AB26E4AB0B0064B900 /* Extension+CLLocationCoordinate2D.swift in Sources */,
+				B74F96AD26E4AB3E0064B900 /* Extension+UISearchBar.swift in Sources */,
 				B74CDCA526DF9AA200043ADE /* MainVCUI.swift in Sources */,
 				B74CDCA726DF9AB100043ADE /* SearchVCUI.swift in Sources */,
 				B709090626E263620075BF50 /* GetKeywordPinAPI.swift in Sources */,

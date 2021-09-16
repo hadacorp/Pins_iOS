@@ -72,6 +72,7 @@ extension ViewController{
         
         cancelButton.addAction(UIAction(handler: { _ in
             self.searchedKeywordNarrow()
+            self.downCardView()
         }), for: .touchUpInside)
     }
     func upCardView() {
