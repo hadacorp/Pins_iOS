@@ -30,6 +30,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate{
     public var searchTimer: Timer?
     public var searchText = ""
     
+    // 화면 중심을 받기
     public var latitude: Double = 0
     public var longitude: Double = 0
     // MARK:- 지역 검색 변수들
@@ -124,8 +125,11 @@ extension SearchViewController: UITableViewDelegate {
         let preVC = self.navigationController?.viewControllers[0] as! ViewController
         preVC.paramLongitude = longitude
         preVC.paramLatitude = latitude
+        preVC.paramType = 1
         self.navigationController?.popViewController(animated: true)
     }
+    
+    // 검색 키보드 내리기
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         searchBar.resignFirstResponder()
     }

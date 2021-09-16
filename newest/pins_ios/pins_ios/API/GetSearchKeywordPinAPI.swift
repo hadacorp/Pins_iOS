@@ -30,7 +30,6 @@ class GetSearchKeywordPinApi {
         let encoded = url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
         let myURL = URL(string: encoded!)
         var request = URLRequest(url: myURL!)
-        print(url)
         request.addValue("eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIwMTAtNzc2MC02MzkzIiwicm9sZXMiOlsiUk9MRV9VU0VSIl0sImV4cCI6MTY2MTYxNDI4OH0.Ojb-VgKgoXJSB5Y9u9-165Y2VwLNuP1Pv-KbDeYt_Yg", forHTTPHeaderField: "X-AUTH-TOKEN")
 
         request.httpMethod = "GET"
@@ -53,8 +52,12 @@ class GetSearchKeywordPinApi {
                 print("Error: JSON Data Parsing failed")
                 return
             }
-            
-            completionHandler(true, output)
+            if output.isEmpty{
+                completionHandler(false, output)
+            }
+            else{
+                completionHandler(true, output)
+            }
         }.resume()
     }
 }

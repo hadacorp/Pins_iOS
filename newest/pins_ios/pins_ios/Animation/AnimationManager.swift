@@ -10,6 +10,43 @@ import MapKit
 
 extension ViewController{
     // MARK:- Objc function
+    func searchedKeyword(keyword: String){
+        let keywordLabel = UILabel()
+        let cancelButton = UIButton()
+        keywordLabel.text = "'" + keyword + "'" + "로 검색됨"
+        keywordLabel.font = UIFont(name: "NotoSansKR-Regular", size: 16)
+        keywordLabel.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        cancelButton.setImage(#imageLiteral(resourceName: "iconCancelWhite"), for: .normal)
+        
+        UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseOut) { [self] in
+            viewModel.getSearchButton().imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: keywordLabel.intrinsicContentSize.width + 40)
+            viewModel.getSearchButton().snp.updateConstraints { btn in
+                btn.width.equalTo(keywordLabel.intrinsicContentSize.width + 80)
+                btn.height.equalTo(40)
+                btn.top.equalTo(self.view.safeAreaLayoutGuide).offset(16)
+                btn.leading.equalTo(16)
+            }
+            viewModel.getSearchButton().setImage(#imageLiteral(resourceName: "iconMagnified"), for: .normal)
+            viewModel.getSearchButton().backgroundColor = #colorLiteral(red: 0.1137254902, green: 0.6666666667, blue: 0.9529411765, alpha: 1)
+            viewModel.getSearchButton().superview?.layoutIfNeeded()
+        } completion: { [self] (finished: Bool) in
+            // 애니메이션 후
+            viewModel.getSearchButton().addSubview(keywordLabel)
+            keywordLabel.snp.makeConstraints { label in
+                label.leading.equalTo(40)
+                label.trailing.equalTo(40)
+                label.top.equalTo(7)
+                label.bottom.equalTo(-9)
+            }
+            
+            viewModel.getSearchButton().addSubview(cancelButton)
+            cancelButton.snp.makeConstraints { btn in
+                btn.trailing.equalTo(0)
+                btn.top.equalTo(0)
+                btn.width.height.equalTo(40)
+            }
+        }
+    }
     func upCardView() {
         UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseOut) {
             self.collectionView.snp.updateConstraints { view in
@@ -55,6 +92,7 @@ extension ViewController{
     }
     
     @objc func filterAnimate(){
+        
         if viewModel.getMoveButton().frame.width == 232 {
             viewModel.getMoveButton().setImage(#imageLiteral(resourceName: "iconEye"), for: .normal)
             
