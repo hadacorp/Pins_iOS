@@ -116,17 +116,14 @@ class PinCard {
                 imgview.top.equalTo(0)
                 imgview.width.height.equalTo(110)
             }
-            
             let maskView = UIImageView(image: UIImage(named: "cardMask"))
-            URLSession.shared.dataTask(with: URL(string: urlString!)!) { (data, response, err) in
-                DispatchQueue.main.async {
-                    if let data = data {
-                        imageView.image = UIImage(data: data)
-                        imageView.contentMode = .scaleAspectFill
-                        imageView.mask = maskView
-                    }
+            URLSession.shared.dataTask(with: URL(string: urlString!)!){ (data, response, err) in
+                if let data = data {
+                    imageView.image = UIImage(data: data)
+                    imageView.contentMode = .scaleAspectFill
+                    imageView.mask = maskView
                 }
-            }.resume()
+            }
         case .meet:
             imageView.snp.makeConstraints { imgview in
                 imgview.width.height.equalTo(94)
