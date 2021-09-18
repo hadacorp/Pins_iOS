@@ -85,7 +85,7 @@ class ViewController: UIViewController{
                                     self.mainMap.removeAnnotations(self.mainMap.annotations)
                                     self.currentIndex = 0
                                 }
-                                GetKeywordCard().requestGet(keyword: self.paramSearchText!, pinID: data[0].pinDBId!) { [self] (success, data) in
+                                GetKeywordCard().requestGet(keyword: self.paramSearchText!, pinID: data[0].pinDBId!, pinType: data[0].pinType!) { [self] (success, data) in
                                     if let data = data as? [Pin]{
                                         self.viewModel.setCheckablePins(checkablePins: data)
                                         DispatchQueue.main.async {

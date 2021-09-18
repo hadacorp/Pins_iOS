@@ -8,7 +8,7 @@
 import UIKit
 
 class GetKeywordCard {
-    func requestGet(keyword: String, pinID: Int, completionHandler: @escaping (Bool, Any) -> Void) {
+    func requestGet(keyword: String, pinID: Int, pinType: String, completionHandler: @escaping (Bool, Any) -> Void) {
         let keyword = keyword
         let meetingPinCategory = "all"
         let meetDate = "all"
@@ -17,7 +17,6 @@ class GetKeywordCard {
         let meetAge = "all"
         let communityPinCategory = "all"
         let storyPinCategory = "all"
-        let pinType = "all"
         
         let url = "http://bangi98.cafe24.com:8081/home/search/cardview?keyword=\(keyword)&pinType=" + pinType +
             "&pinDBId=" + String(pinID) +
