@@ -52,6 +52,9 @@ class SearchViewController: UIViewController, UITextFieldDelegate{
         self.tableView.delegate = self
         
         self.tableView.rowHeight = 40
+        
+        saveData(1, term: "저장 가보자가보자~")
+        getAllDatas()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -76,6 +79,20 @@ class SearchViewController: UIViewController, UITextFieldDelegate{
         searchBar.layer.borderColor = #colorLiteral(red: 0.3764705882, green: 0.3764705882, blue: 0.3764705882, alpha: 1)
         searchBar.layer.borderWidth = 1
         searchBar.layer.cornerRadius = 16
+    }
+    
+    private func getAllDatas(){
+        let datas: [RecentResearchTerm] = CoreDataManager.shared.getUsers()
+        let terms: [String] = datas.map({$0.term!})
+        let id: [Int16] = datas.map({$0.index})
+        print("all terms = \(terms)")
+        print("all ids = \(id)")
+    }
+    
+    private func saveData(_ id: Int16, term: String){
+        CoreDataManager.shared.saveRecentSearch(term: term, index: id) { (success) in
+            print("saved = \(success)")
+        }
     }
     
     private func setButtonEvent(){
