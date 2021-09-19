@@ -53,7 +53,8 @@ class SearchViewController: UIViewController, UITextFieldDelegate{
         
         self.tableView.rowHeight = 40
         
-        saveData(1, term: "저장 가보자가보자~")
+//        saveData(1, term: "저장 가보자가보자~")
+        deleteData(0)
         getAllDatas()
     }
     
@@ -92,6 +93,12 @@ class SearchViewController: UIViewController, UITextFieldDelegate{
     private func saveData(_ id: Int16, term: String){
         CoreDataManager.shared.saveRecentSearch(term: term, index: id) { (success) in
             print("saved = \(success)")
+        }
+    }
+    
+    private func deleteData(_ id: Int16){
+        CoreDataManager.shared.deleteUser(id: id) { (success) in
+            print("deleted = \(success)")
         }
     }
     
