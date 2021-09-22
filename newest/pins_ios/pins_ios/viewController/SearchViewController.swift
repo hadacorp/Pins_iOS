@@ -54,8 +54,8 @@ class SearchViewController: UIViewController, UITextFieldDelegate{
         self.tableView.rowHeight = 40
         
 //        saveData(1, term: "저장 가보자가보자~")
-        deleteData(0)
-        getAllDatas()
+//        deleteData(0)
+//        getAllDatas()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -82,25 +82,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate{
         searchBar.layer.cornerRadius = 16
     }
     
-    private func getAllDatas(){
-        let datas: [RecentResearchTerm] = CoreDataManager.shared.getUsers()
-        let terms: [String] = datas.map({$0.term!})
-        let id: [Int16] = datas.map({$0.index})
-        print("all terms = \(terms)")
-        print("all ids = \(id)")
-    }
     
-    private func saveData(_ id: Int16, term: String){
-        CoreDataManager.shared.saveRecentSearch(term: term, index: id) { (success) in
-            print("saved = \(success)")
-        }
-    }
-    
-    private func deleteData(_ id: Int16){
-        CoreDataManager.shared.deleteUser(id: id) { (success) in
-            print("deleted = \(success)")
-        }
-    }
     
     private func setButtonEvent(){
         viewModel.getCancel().addTarget(self, action: #selector(self.cancelButton), for: .touchUpInside)
@@ -124,7 +106,15 @@ extension SearchViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.getCountPlaces()
+        if viewModel.getCountPlaces() > 0 {
+            return viewModel.getCountPlaces()
+        }
+        else if viewModel.getAllDatas().count > 0  && searchText == ""{
+            return viewModel.getAllDatas().count
+        }
+        else{
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -133,6 +123,20 @@ extension SearchViewController: UITableViewDataSource {
             cell.titleLabel.text = place.placeName
             let distance = CLLocationCoordinate2D(latitude: place.latitude!, longitude: place.longitude!).distance(from: CLLocationCoordinate2D(latitude: myPosition.coordinate.latitude, longitude: myPosition.coordinate.longitude)) / 1000
             cell.distance.text = String(format: "%.01fkm", distance)
+            cell.titleLabel.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+            cell.iconImage.image = #imageLiteral(resourceName: "iconPIn")
+        }
+        else if searchText == ""{
+            let datas = viewModel.getAllDatas()
+            cell.titleLabel.text = datas[indexPath.row].term
+            cell.titleLabel.textColor = #colorLiteral(red: 0.6, green: 0.6, blue: 0.6, alpha: 1)
+            cell.distance.text = "ⓧ"
+            if datas[indexPath.row].type == 0 {
+                cell.iconImage.image = #imageLiteral(resourceName: "pinLight")
+            }
+            else{
+                cell.iconImage.image = #imageLiteral(resourceName: "iconFeatherTagLight")
+            }
         }
         return cell
     }
@@ -141,6 +145,10 @@ extension SearchViewController: UITableViewDataSource {
 extension SearchViewController: UITableViewDelegate {
     // 선택된 위치의 정보 가져오기
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        viewModel.saveData(Int16(viewModel.getAllDatas().count),
+                           term: "'\((viewModel.getPlacesIndex(index: indexPath.row)?.placeName)!)'",
+                           type: 0)
+        
         tableView.deselectRow(at: indexPath, animated: true) // 선택 표시 해제
         // dismiss 하고 해당 위치로 이동
         latitude = (viewModel.getPlacesIndex(index: indexPath.row)?.latitude)!

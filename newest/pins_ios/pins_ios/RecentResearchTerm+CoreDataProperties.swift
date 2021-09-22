@@ -18,4 +18,5 @@ extension RecentResearchTerm {
 
     @NSManaged public var index: Int16
     @NSManaged public var term: String?
+    @NSManaged public var type: Int16
 }
