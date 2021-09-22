@@ -47,4 +47,25 @@ class SearchViewModel: SearchVCUI {
     public func setKeyword(keyword: String) {
         self.keyword = keyword
     }
+    
+    public func getAllDatas() -> [RecentResearchTerm]{
+        let datas: [RecentResearchTerm] = CoreDataManager.shared.getUsers()
+        let terms: [String] = datas.map({$0.term!})
+        let id: [Int16] = datas.map({$0.index})
+        print("all terms = \(terms)")
+        print("all ids = \(id)")
+        return datas
+    }
+    
+    public func saveData(_ id: Int16, term: String, type: Int16){
+        CoreDataManager.shared.saveRecentSearch(term: term, index: id, type: type) { (success) in
+            print("saved = \(success)")
+        }
+    }
+    
+    public func deleteData(_ id: Int16){
+        CoreDataManager.shared.deleteUser(id: id) { (success) in
+            print("deleted = \(success)")
+        }
+    }
 }

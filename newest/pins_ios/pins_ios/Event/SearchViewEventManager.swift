@@ -27,6 +27,7 @@ extension SearchViewController{
     }
     
     func getSearchKeywordPins(){
+        viewModel.saveData(1, term: searchText, type: 1)
         let preVC = self.navigationController?.viewControllers[0] as! ViewController
         preVC.paramLongitude = longitude
         preVC.paramLatitude = latitude
