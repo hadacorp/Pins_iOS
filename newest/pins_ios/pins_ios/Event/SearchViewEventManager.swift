@@ -26,8 +26,35 @@ extension SearchViewController{
         }
     }
     
+    func removeDuplicate(indexPath: IndexPath?){
+        // 만약에 item term이랑 같은 테이블이 있다면 안넣음.
+        var check = false
+        if let indexPath = indexPath{
+            for item in viewModel.getAllDatas() {
+                if item.term == "\((viewModel.getPlacesIndex(index: indexPath.row)?.placeName)!)"{
+                    check = true
+                }
+            }
+            if !check {
+                viewModel.saveData(Int16(viewModel.getAllDatas().count),
+                                   term: "\((viewModel.getPlacesIndex(index: indexPath.row)?.placeName)!)",
+                                   type: 0)
+            }
+        }
+        else{
+            for item in viewModel.getAllDatas() {
+                if item.term == "'\(searchText)'"{
+                    check = true
+                }
+            }
+            if !check {
+                viewModel.saveData(Int16(viewModel.getAllDatas().count), term: "'\(searchText)'", type: 1)
+            }
+        }
+    }
+    
     func getSearchKeywordPins(){
-        viewModel.saveData(1, term: searchText, type: 1)
+        removeDuplicate(indexPath: nil)
         let preVC = self.navigationController?.viewControllers[0] as! ViewController
         preVC.paramLongitude = longitude
         preVC.paramLatitude = latitude

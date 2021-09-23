@@ -19,6 +19,9 @@ extension SearchViewController {
                 DispatchQueue.main.async {
                     //Update UI
                     if searchText.count > 1{
+                        self.tableView.snp.updateConstraints { view in
+                            view.top.equalTo(self.view).offset(120)
+                        }
                         // 입력된 값이 있으면 키워드 텍스트 변경
                         self.keyWordText.layer.opacity = 1
                         self.keyWordText.setTitle("'\(searchText)'를 키워드로 검색", for: .normal)
