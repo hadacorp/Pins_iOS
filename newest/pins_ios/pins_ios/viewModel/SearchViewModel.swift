@@ -48,17 +48,22 @@ class SearchViewModel: SearchVCUI {
         self.keyword = keyword
     }
     
+    public func getIndexData(index: Int) -> RecentResearchTerm{
+        let datas: [RecentResearchTerm] = CoreDataManager.shared.getUsers()
+        return datas[index]
+    }
+    
     public func getAllDatas() -> [RecentResearchTerm]{
         let datas: [RecentResearchTerm] = CoreDataManager.shared.getUsers()
         let terms: [String] = datas.map({$0.term!})
-        let id: [Int16] = datas.map({$0.index})
+        let latitude: [Double] = datas.map({$0.latitude})
         print("all terms = \(terms)")
-        print("all ids = \(id)")
+        print("all ids = \(latitude)")
         return datas
     }
     
-    public func saveData(_ id: Int16, term: String, type: Int16){
-        CoreDataManager.shared.saveRecentSearch(term: term, index: id, type: type) { (success) in
+    public func saveData(_ id: Int16, term: String, type: Int16, longitude: Double, latitude: Double){
+        CoreDataManager.shared.saveRecentSearch(term: term, index: id, type: type, longitude: longitude, latitude: latitude) { (success) in
             print("saved = \(success)")
         }
     }

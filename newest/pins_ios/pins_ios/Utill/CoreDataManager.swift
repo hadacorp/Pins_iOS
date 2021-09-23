@@ -21,7 +21,7 @@ class CoreDataManager {
     private lazy var context = appDelegate?.persistentContainer.viewContext
     
     // MARK: - 해당 정보를 저장한다
-    func saveRecentSearch(term: String, index: Int16, type: Int16, completion: @escaping (Bool) -> Void) {
+    func saveRecentSearch(term: String, index: Int16, type: Int16, longitude: Double, latitude: Double, completion: @escaping (Bool) -> Void) {
         guard let context = self.context,
               let entity = NSEntityDescription.entity(forEntityName: CoreDataName.recentResearch.rawValue, in: context)
         else { return }
@@ -31,6 +31,8 @@ class CoreDataManager {
         recentTerms.term = term
         recentTerms.index = index
         recentTerms.type = type
+        recentTerms.latitude = latitude
+        recentTerms.longitude = longitude
         
         do {
             try context.save()

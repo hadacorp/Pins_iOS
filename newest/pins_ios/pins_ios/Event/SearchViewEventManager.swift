@@ -26,7 +26,7 @@ extension SearchViewController{
         }
     }
     
-    func removeDuplicate(indexPath: IndexPath?){
+    func removeDuplicate(indexPath: IndexPath?, latitude: Double, longitude: Double){
         // 만약에 item term이랑 같은 테이블이 있다면 안넣음.
         var check = false
         if let indexPath = indexPath{
@@ -38,7 +38,9 @@ extension SearchViewController{
             if !check {
                 viewModel.saveData(Int16(viewModel.getAllDatas().count),
                                    term: "\((viewModel.getPlacesIndex(index: indexPath.row)?.placeName)!)",
-                                   type: 0)
+                                   type: 0,
+                                   longitude: longitude,
+                                   latitude: latitude)
             }
         }
         else{
@@ -48,13 +50,15 @@ extension SearchViewController{
                 }
             }
             if !check {
-                viewModel.saveData(Int16(viewModel.getAllDatas().count), term: "'\(searchText)'", type: 1)
+                viewModel.saveData(Int16(viewModel.getAllDatas().count), term: "'\(searchText)'", type: 1,
+                                   longitude: longitude,
+                                   latitude: latitude)
             }
         }
     }
     
     func getSearchKeywordPins(){
-        removeDuplicate(indexPath: nil)
+        removeDuplicate(indexPath: nil, latitude: latitude, longitude: longitude)
         let preVC = self.navigationController?.viewControllers[0] as! ViewController
         preVC.paramLongitude = longitude
         preVC.paramLatitude = latitude
