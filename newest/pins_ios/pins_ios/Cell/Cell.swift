@@ -11,4 +11,5 @@ class Cell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var iconImage: UIImageView!
     @IBOutlet weak var distance: UILabel!
+    var type: Int!
 }

@@ -53,9 +53,6 @@ class SearchViewController: UIViewController, UITextFieldDelegate{
         
         self.tableView.rowHeight = 40
         
-//        saveData(1, term: "저장 가보자가보자~")
-//        deleteData(0)
-//        getAllDatas()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -127,6 +124,7 @@ extension SearchViewController: UITableViewDataSource {
             cell.distance.text = String(format: "%.01fkm", distance)
             cell.titleLabel.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
             cell.iconImage.image = #imageLiteral(resourceName: "iconPIn")
+            cell.type = 0
         }
         else if searchText == ""{
             tableView.snp.updateConstraints { view in
@@ -139,9 +137,11 @@ extension SearchViewController: UITableViewDataSource {
             cell.distance.text = "ⓧ"
             if datas[indexPath.row].type == 0 {
                 cell.iconImage.image = #imageLiteral(resourceName: "pinLight")
+                cell.type = 1
             }
             else{
                 cell.iconImage.image = #imageLiteral(resourceName: "iconFeatherTagLight")
+                cell.type = 2
             }
         }
         return cell
@@ -152,19 +152,42 @@ extension SearchViewController: UITableViewDelegate {
     // 선택된 위치의 정보 가져오기
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // 만약에 item term이랑 같은 테이블이 있다면 안넣음.
-        removeDuplicate(indexPath: indexPath)
-        
-        tableView.deselectRow(at: indexPath, animated: true) // 선택 표시 해제
-        // dismiss 하고 해당 위치로 이동
-        latitude = (viewModel.getPlacesIndex(index: indexPath.row)?.latitude)!
-        longitude = (viewModel.getPlacesIndex(index: indexPath.row)?.longitude)!
-        
-        let preVC = self.navigationController?.viewControllers[0] as! ViewController
-        preVC.paramLongitude = longitude
-        preVC.paramLatitude = latitude
-        preVC.paramSearchText = nil
-        preVC.paramType = 1
-        self.navigationController?.popViewController(animated: true)
+        let seleted = tableView.cellForRow(at: indexPath) as! Cell
+        if seleted.type == 0{
+            tableView.deselectRow(at: indexPath, animated: true) // 선택 표시 해제
+            // dismiss 하고 해당 위치로 이동
+            latitude = (viewModel.getPlacesIndex(index: indexPath.row)?.latitude)!
+            longitude = (viewModel.getPlacesIndex(index: indexPath.row)?.longitude)!
+            
+            let preVC = self.navigationController?.viewControllers[0] as! ViewController
+            preVC.paramLongitude = longitude
+            preVC.paramLatitude = latitude
+            preVC.paramSearchText = nil
+            preVC.paramType = 1
+            self.navigationController?.popViewController(animated: true)
+            
+            removeDuplicate(indexPath: indexPath, latitude: latitude, longitude: longitude)
+        }
+        else{
+            tableView.deselectRow(at: indexPath, animated: true) // 선택 표시 해제
+            // dismiss 하고 해당 위치로 이동
+            latitude = viewModel.getIndexData(index: indexPath.row).latitude
+            longitude = viewModel.getIndexData(index: indexPath.row).longitude
+            searchText = viewModel.getIndexData(index: indexPath.row).term!
+            searchText.removeFirst()
+            searchText.removeLast()
+            if seleted.type == 1{
+                let preVC = self.navigationController?.viewControllers[0] as! ViewController
+                preVC.paramLongitude = longitude
+                preVC.paramLatitude = latitude
+                preVC.paramSearchText = nil
+                preVC.paramType = 1
+                self.navigationController?.popViewController(animated: true)
+            }
+            else{
+                getSearchKeywordPins()
+            }
+        }
     }
     
     // 검색 키보드 내리기
