@@ -55,16 +55,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" searchBarStyle="minimal" translatesAutoresizingMaskIntoConstraints="NO" id="OcM-NZ-1Y5">
-                                <rect key="frame" x="16" y="60" width="382" height="40"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="9Yc-Gp-nt8"/>
-                                </constraints>
-                                <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <offsetWrapper key="searchTextPositionAdjustment" horizontal="20" vertical="0.0"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fVH-JW-V7k">
                                 <rect key="frame" x="0.0" y="110" width="414" height="752"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -151,6 +141,16 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <searchBar contentMode="redraw" searchBarStyle="minimal" text="" translatesAutoresizingMaskIntoConstraints="NO" id="OcM-NZ-1Y5">
+                                <rect key="frame" x="16" y="60" width="382" height="40"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="9Yc-Gp-nt8"/>
+                                </constraints>
+                                <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <offsetWrapper key="searchTextPositionAdjustment" horizontal="20" vertical="0.0"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sgu-hb-1AE">
                                 <rect key="frame" x="16" y="60" width="40" height="40"/>
                                 <state key="normal" image="iconBack"/>
@@ -167,8 +167,8 @@
                             <constraint firstItem="fVH-JW-V7k" firstAttribute="leading" secondItem="7D1-Ou-AuT" secondAttribute="leading" id="MM7-Ml-zob"/>
                             <constraint firstItem="7D1-Ou-AuT" firstAttribute="bottom" secondItem="fVH-JW-V7k" secondAttribute="bottom" id="Z5q-DW-MHn"/>
                             <constraint firstItem="OcM-NZ-1Y5" firstAttribute="leading" secondItem="7D1-Ou-AuT" secondAttribute="leading" constant="16" id="clI-hu-6zK"/>
+                            <constraint firstItem="fVH-JW-V7k" firstAttribute="height" secondItem="7D1-Ou-AuT" secondAttribute="height" multiplier="0.919315" id="gUj-vP-Fab"/>
                             <constraint firstItem="sgu-hb-1AE" firstAttribute="top" secondItem="7D1-Ou-AuT" secondAttribute="top" constant="16" id="gfH-OY-UCB"/>
-                            <constraint firstItem="fVH-JW-V7k" firstAttribute="top" secondItem="OcM-NZ-1Y5" secondAttribute="bottom" constant="10" id="hJT-js-vql"/>
                             <constraint firstItem="OcM-NZ-1Y5" firstAttribute="top" secondItem="7D1-Ou-AuT" secondAttribute="top" constant="16" id="hjA-iw-27d"/>
                             <constraint firstItem="sgu-hb-1AE" firstAttribute="leading" secondItem="7D1-Ou-AuT" secondAttribute="leading" constant="16" id="p5Q-mi-q00"/>
                         </constraints>

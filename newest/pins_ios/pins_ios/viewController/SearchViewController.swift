@@ -118,8 +118,10 @@ extension SearchViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as! Cell
         if let place = viewModel.getPlacesIndex(index: indexPath.row) {
+            
             cell.titleLabel.text = place.placeName
             let distance = CLLocationCoordinate2D(latitude: place.latitude!, longitude: place.longitude!).distance(from: CLLocationCoordinate2D(latitude: myPosition.coordinate.latitude, longitude: myPosition.coordinate.longitude)) / 1000
             cell.distance.text = String(format: "%.01fkm", distance)
@@ -127,6 +129,10 @@ extension SearchViewController: UITableViewDataSource {
             cell.iconImage.image = #imageLiteral(resourceName: "iconPIn")
         }
         else if searchText == ""{
+            tableView.snp.updateConstraints { view in
+                view.top.equalTo(self.view).offset(80)
+            }
+            
             let datas = viewModel.getAllDatas()
             cell.titleLabel.text = datas[indexPath.row].term
             cell.titleLabel.textColor = #colorLiteral(red: 0.6, green: 0.6, blue: 0.6, alpha: 1)
@@ -145,9 +151,8 @@ extension SearchViewController: UITableViewDataSource {
 extension SearchViewController: UITableViewDelegate {
     // 선택된 위치의 정보 가져오기
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        viewModel.saveData(Int16(viewModel.getAllDatas().count),
-                           term: "'\((viewModel.getPlacesIndex(index: indexPath.row)?.placeName)!)'",
-                           type: 0)
+        // 만약에 item term이랑 같은 테이블이 있다면 안넣음.
+        removeDuplicate(indexPath: indexPath)
         
         tableView.deselectRow(at: indexPath, animated: true) // 선택 표시 해제
         // dismiss 하고 해당 위치로 이동
