@@ -33,9 +33,10 @@ class SearchViewController: UIViewController, UITextFieldDelegate{
     // 화면 중심을 받기
     public var latitude: Double = 0
     public var longitude: Double = 0
+    
+    // MARK:- Private
     // MARK:- 지역 검색 변수들
     private var searchCompleter = MKLocalSearchCompleter()
-    
     // MARK:- Function
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -98,6 +99,7 @@ extension SearchViewController: UISearchBarDelegate {
 }
 
 extension SearchViewController: UITableViewDataSource {
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -115,13 +117,15 @@ extension SearchViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as! Cell
         if let place = viewModel.getPlacesIndex(index: indexPath.row) {
             
             cell.titleLabel.text = place.placeName
             let distance = CLLocationCoordinate2D(latitude: place.latitude!, longitude: place.longitude!).distance(from: CLLocationCoordinate2D(latitude: myPosition.coordinate.latitude, longitude: myPosition.coordinate.longitude)) / 1000
-            cell.distance.text = String(format: "%.01fkm", distance)
+            cell.distance.setTitle( String(format: "%.01fkm", distance), for: .normal)
+            cell.distance.setTitleColor(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), for: .normal)
+            cell.distance.isEnabled = false
+            
             cell.titleLabel.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
             cell.iconImage.image = #imageLiteral(resourceName: "iconPIn")
             cell.type = 0
@@ -134,7 +138,12 @@ extension SearchViewController: UITableViewDataSource {
             let datas = viewModel.getAllDatas()
             cell.titleLabel.text = datas[indexPath.row].term
             cell.titleLabel.textColor = #colorLiteral(red: 0.6, green: 0.6, blue: 0.6, alpha: 1)
-            cell.distance.text = "ⓧ"
+            
+            cell.distance.setTitle("X", for: .normal)
+            cell.distance.setTitleColor(#colorLiteral(red: 0.6, green: 0.6, blue: 0.6, alpha: 1), for: .normal)
+            cell.distance.tag = indexPath.row
+            cell.distance.addTarget(self, action: #selector(deletedata), for: .touchUpInside)
+
             if datas[indexPath.row].type == 0 {
                 cell.iconImage.image = #imageLiteral(resourceName: "pinLight")
                 cell.type = 1
@@ -148,11 +157,15 @@ extension SearchViewController: UITableViewDataSource {
     }
 }
 
+
+
 extension SearchViewController: UITableViewDelegate {
     // 선택된 위치의 정보 가져오기
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
         // 만약에 item term이랑 같은 테이블이 있다면 안넣음.
         let seleted = tableView.cellForRow(at: indexPath) as! Cell
+        
         if seleted.type == 0{
             tableView.deselectRow(at: indexPath, animated: true) // 선택 표시 해제
             // dismiss 하고 해당 위치로 이동

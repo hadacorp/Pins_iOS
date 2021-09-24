@@ -106,35 +106,33 @@
                                                         <constraint firstAttribute="width" constant="20" id="c1Z-Nw-ZQK"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UEd-30-QWl">
-                                                    <rect key="frame" x="362" y="0.0" width="36" height="40"/>
-                                                    <fontDescription key="fontDescription" name="NotoSansKR-Regular" family="Noto Sans KR" pointSize="14"/>
-                                                    <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A5k-b8-VnS">
                                                     <rect key="frame" x="44" y="0.0" width="30" height="40"/>
                                                     <fontDescription key="fontDescription" name="NotoSansKR-Regular" family="Noto Sans KR" pointSize="14"/>
                                                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C43-PM-59X" userLabel="Distance">
+                                                    <rect key="frame" x="352" y="0.0" width="46" height="40"/>
+                                                    <state key="normal" title="Button"/>
+                                                </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="UEd-30-QWl" secondAttribute="bottom" id="2Xc-wL-idy"/>
+                                                <constraint firstItem="C43-PM-59X" firstAttribute="top" secondItem="P18-hX-sl3" secondAttribute="top" id="5Lk-eF-InV"/>
                                                 <constraint firstItem="A5k-b8-VnS" firstAttribute="top" secondItem="P18-hX-sl3" secondAttribute="top" id="ShO-jK-buy"/>
                                                 <constraint firstItem="Vut-pu-O1a" firstAttribute="leading" secondItem="P18-hX-sl3" secondAttribute="leading" constant="16" id="YWe-DR-6Ay"/>
                                                 <constraint firstAttribute="bottom" secondItem="Vut-pu-O1a" secondAttribute="bottom" id="cTY-vE-fQ7"/>
                                                 <constraint firstAttribute="bottom" secondItem="A5k-b8-VnS" secondAttribute="bottom" id="e94-t0-8eL"/>
+                                                <constraint firstAttribute="trailing" secondItem="C43-PM-59X" secondAttribute="trailing" constant="16" id="eOC-TS-gXM"/>
+                                                <constraint firstAttribute="bottom" secondItem="C43-PM-59X" secondAttribute="bottom" id="ine-ZX-BNq"/>
                                                 <constraint firstItem="Vut-pu-O1a" firstAttribute="top" secondItem="P18-hX-sl3" secondAttribute="top" id="kbk-6l-W89"/>
-                                                <constraint firstItem="UEd-30-QWl" firstAttribute="top" secondItem="P18-hX-sl3" secondAttribute="top" id="v7E-CG-h3t"/>
-                                                <constraint firstAttribute="trailing" secondItem="UEd-30-QWl" secondAttribute="trailing" constant="16" id="wby-9e-3LT"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <constraints>
                                             <constraint firstItem="A5k-b8-VnS" firstAttribute="leading" secondItem="qiV-Ve-GvE" secondAttribute="leading" constant="44" id="YCU-Uo-J4a"/>
                                         </constraints>
                                         <connections>
-                                            <outlet property="distance" destination="UEd-30-QWl" id="d14-j5-yvS"/>
+                                            <outlet property="distance" destination="C43-PM-59X" id="Tcr-mL-bs6"/>
                                             <outlet property="iconImage" destination="Vut-pu-O1a" id="XYf-Iz-C0H"/>
                                             <outlet property="titleLabel" destination="A5k-b8-VnS" id="VHx-my-hcc"/>
                                         </connections>
