@@ -13,6 +13,7 @@
 		B709090326E2006E0075BF50 /* SearchViewEventManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B709090226E2006E0075BF50 /* SearchViewEventManager.swift */; };
 		B709090626E263620075BF50 /* GetKeywordPinAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B709090526E263620075BF50 /* GetKeywordPinAPI.swift */; };
 		B709090926E273840075BF50 /* HomeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B709090826E273840075BF50 /* HomeResponse.swift */; };
+		B70ADB8926FF8902007997E2 /* GetCardByPinId.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70ADB8826FF8902007997E2 /* GetCardByPinId.swift */; };
 		B70CFC2126BFD82500B7DA74 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70CFC2026BFD82500B7DA74 /* AppDelegate.swift */; };
 		B70CFC2326BFD82500B7DA74 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70CFC2226BFD82500B7DA74 /* SceneDelegate.swift */; };
 		B70CFC2526BFD82500B7DA74 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70CFC2426BFD82500B7DA74 /* ViewController.swift */; };
@@ -64,6 +65,7 @@
 		B709090226E2006E0075BF50 /* SearchViewEventManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewEventManager.swift; sourceTree = "<group>"; };
 		B709090526E263620075BF50 /* GetKeywordPinAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetKeywordPinAPI.swift; sourceTree = "<group>"; };
 		B709090826E273840075BF50 /* HomeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeResponse.swift; sourceTree = "<group>"; };
+		B70ADB8826FF8902007997E2 /* GetCardByPinId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCardByPinId.swift; sourceTree = "<group>"; };
 		B70CFC1D26BFD82500B7DA74 /* pins_ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pins_ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B70CFC2026BFD82500B7DA74 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B70CFC2226BFD82500B7DA74 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 				B77EC71426F0E59A0002C0D6 /* GetSearchKeywordPinAPI.swift */,
 				B77EC71626F0EF540002C0D6 /* GetPlaceCard.swift */,
 				B77EC71826F0EF5E0002C0D6 /* GetKeywordCard.swift */,
+				B70ADB8826FF8902007997E2 /* GetCardByPinId.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -437,6 +440,7 @@
 				B787EA0126E4FEC30044D786 /* MainViewEventManager.swift in Sources */,
 				B74F96A826E4A80E0064B900 /* SearchViewController.swift in Sources */,
 				B7FBC47826C28730001838D1 /* CustomPintAnnotation.swift in Sources */,
+				B70ADB8926FF8902007997E2 /* GetCardByPinId.swift in Sources */,
 				B704F03C26E36C5900DA9E06 /* Cell.swift in Sources */,
 				B7B70B2C26F791B7006052A1 /* RecentResearchTerm+CoreDataClass.swift in Sources */,
 				B70CFC2526BFD82500B7DA74 /* ViewController.swift in Sources */,

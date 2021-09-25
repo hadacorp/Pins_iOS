@@ -68,7 +68,7 @@ class CoreDataManager {
         do {
             if let results: [RecentResearchTerm] = try context!.fetch(fetchRequest) as? [RecentResearchTerm] {
                 if results.count != 0 {
-                    context?.delete(results[0])
+                    context?.delete(results[Int(id)])
                 }
             }
         } catch let error as NSError {
