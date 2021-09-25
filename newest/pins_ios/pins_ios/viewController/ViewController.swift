@@ -286,7 +286,7 @@ extension ViewController: MKMapViewDelegate{
         if annotationView == nil {
             // Create the view
             annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "custom")
-            annotationView?.canShowCallout = true
+            annotationView?.canShowCallout = false
         }
         else{
             annotationView?.annotation = annotation
@@ -306,6 +306,7 @@ extension ViewController: MKMapViewDelegate{
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         // 카드뷰 띄워주기
         print(view.annotation?.subtitle)
+        upCardView()
     }
 }
 
