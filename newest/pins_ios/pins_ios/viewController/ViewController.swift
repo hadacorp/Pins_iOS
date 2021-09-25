@@ -60,6 +60,7 @@ class ViewController: UIViewController{
     override func viewWillAppear(_ animated: Bool) {
         if let latitude = paramLatitude {
             if let longitude = paramLongitude {
+                // 위치 검색
                 if paramType == 1{
                     // 주변 핀들 받아오기
                     GetKeywordPinAPI().requestGet(latitude: latitude, longitude: longitude) { (success, data) in
@@ -67,9 +68,7 @@ class ViewController: UIViewController{
                             self.viewModel.setCheckablePins(checkablePins: data)
                             DispatchQueue.main.async {
                                 self.mainMap.removeAnnotations(self.mainMap.annotations)
-                                self.collectionView.reloadData()
                                 self.initPins()
-                                self.collectionView.contentOffset = CGPoint(x: 0, y: 0)
                                 self.currentIndex = 0
                                 // 검색된 위치로 이동
                                 self.goLocation(latitudeValue: latitude, longtudeValue: longitude, delta: 500)
@@ -77,6 +76,7 @@ class ViewController: UIViewController{
                         }
                     }
                 }
+                // 키워드 검색
                 else if paramType == 0 {
                     GetSearchKeywordPinApi().requestGet(keyword: paramSearchText!, latitude: latitude, longitude: longitude) { [self] (success, data) in
                         if success{
@@ -109,7 +109,7 @@ class ViewController: UIViewController{
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-        if viewModel.getPinCardsCount() > 0 {
+        if viewModel.getPinCardsCount() > 0 && paramType == 0{
             self.upCardView()
             
             if let paramSearchText = paramSearchText {
@@ -123,8 +123,12 @@ class ViewController: UIViewController{
         else if viewModel.getPinCardsCount() == 0 {
             showToast(message: "없어요 야발.", font: UIFont(name: "NotoSansKR-Regular", size: 14)!, parent: self.view)
         }
-        
-        print(viewModel.getPinCardsCount())
+        // 위치 검색일때
+        else{
+            // 검색창 원래대로
+            searchedKeywordNarrow()
+            downCardView()
+        }
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -305,8 +309,21 @@ extension ViewController: MKMapViewDelegate{
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         // 카드뷰 띄워주기
-        print(view.annotation?.subtitle)
-        upCardView()
+        let index = Int((view.annotation?.subtitle!)!)!
+        let data = viewModel.getPinsIndex(index: index)
+        dump(data)
+        self.mainMap.removeAnnotations(self.mainMap.annotations)
+        GetCardByPinId().requestGet(pinID: data.pinDBId!, pinType: data.pinType!) { [self] (success, data) in
+            if let data = data as? [Pin]{
+                viewModel.setCheckablePins(checkablePins: data)
+                DispatchQueue.main.async {
+                    self.initPins()
+                    self.collectionView.reloadData()
+                    self.collectionView.contentOffset = CGPoint(x: 0, y: 0)
+                    upCardView()
+                }
+            }
+        }
     }
 }
 

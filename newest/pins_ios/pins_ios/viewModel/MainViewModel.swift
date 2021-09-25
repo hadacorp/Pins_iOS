@@ -23,6 +23,10 @@ class MainViewModel: MainVCUI {
         checkablePins?.removeAll()
     }
     
+    public func getPinsIndex(index: Int) -> Pin{
+        return checkablePins![index]
+    }
+    
     public func getCheckablePins() -> [Pin]?{
         return checkablePins
     }
