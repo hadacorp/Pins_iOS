@@ -68,7 +68,7 @@ class ViewController: UIViewController{
                             self.viewModel.setCheckablePins(checkablePins: data)
                             DispatchQueue.main.async {
                                 self.mainMap.removeAnnotations(self.mainMap.annotations)
-                                self.initPins()
+                                self.initPins(index: -1)
                                 self.currentIndex = 0
                                 // 검색된 위치로 이동
                                 self.goLocation(latitudeValue: latitude, longtudeValue: longitude, delta: 500)
@@ -89,7 +89,7 @@ class ViewController: UIViewController{
                                     if let data = data as? [Pin]{
                                         self.viewModel.setCheckablePins(checkablePins: data)
                                         DispatchQueue.main.async {
-                                            self.initPins()
+                                            self.initPins(index: 0)
                                             self.collectionView.reloadData()
                                             self.collectionView.contentOffset = CGPoint(x: 0, y: 0)
                                             self.goLocation(latitudeValue: data[0].latitude!, longtudeValue: data[0].longitude!, delta: 500)
@@ -232,7 +232,7 @@ class ViewController: UIViewController{
     }
     
     // MARK:- Init Pins
-    private func initPins(){
+    private func initPins(index: Int){
         if let pins = viewModel.getCheckablePins() {
             for pin in 0 ..< pins.count{
                 pinAnnotation.append(CustomPintAnnotation())
@@ -242,6 +242,12 @@ class ViewController: UIViewController{
                 pinAnnotation[pin].coordinate = CLLocationCoordinate2D(latitude: CLLocationDegrees(pins[pin].latitude!), longitude: CLLocationDegrees(pins[pin].longitude!))
                 pinAnnotation[pin].title = pins[pin].category
                 pinAnnotation[pin].subtitle = "\(pin)"
+                if pin == index {
+                    pinAnnotation[pin].focus = true
+                }
+                else{
+                    pinAnnotation[pin].focus = false
+                }
                 mainMap.addAnnotation(pinAnnotation[pin])
             }
         }
@@ -296,31 +302,47 @@ extension ViewController: MKMapViewDelegate{
             annotationView?.annotation = annotation
         }
         if (annotationView?.subviews.count)! < 1 {
-            viewModel.makePins(parent: annotationView!, type: pinAnnotation[Int(annotation.subtitle!!)!].pinType, category: pinAnnotation[Int(annotation.subtitle!!)!].pinCategory, title: pinAnnotation[Int(annotation.subtitle!!)!].pinTitle)
+            viewModel.makePins(parent: annotationView!, type: pinAnnotation[Int(annotation.subtitle!!)!].pinType, category: pinAnnotation[Int(annotation.subtitle!!)!].pinCategory, title: pinAnnotation[Int(annotation.subtitle!!)!].pinTitle, focus: pinAnnotation[Int(annotation.subtitle!!)!].focus)
         }
         else{
             for view in annotationView!.subviews {
                 view.removeFromSuperview()
             }
-            viewModel.makePins(parent: annotationView!, type: pinAnnotation[Int(annotation.subtitle!!)!].pinType, category: pinAnnotation[Int(annotation.subtitle!!)!].pinCategory, title: pinAnnotation[Int(annotation.subtitle!!)!].pinTitle)
+            viewModel.makePins(parent: annotationView!, type: pinAnnotation[Int(annotation.subtitle!!)!].pinType, category: pinAnnotation[Int(annotation.subtitle!!)!].pinCategory, title: pinAnnotation[Int(annotation.subtitle!!)!].pinTitle, focus: pinAnnotation[Int(annotation.subtitle!!)!].focus)
         }
         return annotationView
     }
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-        // 카드뷰 띄워주기
+        // 핀 클릭 시 카드뷰 띄워주기
         let index = Int((view.annotation?.subtitle!)!)!
         let data = viewModel.getPinsIndex(index: index)
-        dump(data)
         self.mainMap.removeAnnotations(self.mainMap.annotations)
         GetCardByPinId().requestGet(pinID: data.pinDBId!, pinType: data.pinType!) { [self] (success, data) in
             if let data = data as? [Pin]{
                 viewModel.setCheckablePins(checkablePins: data)
                 DispatchQueue.main.async {
-                    self.initPins()
-                    self.collectionView.reloadData()
-                    self.collectionView.contentOffset = CGPoint(x: 0, y: 0)
+                    initPins(index: 0)
+                    collectionView.reloadData()
+                    collectionView.contentOffset = CGPoint(x: 0, y: 0)
                     upCardView()
+                    
+//                    let selectedAnnotation = view.annotation
+//                    for annotation in mapView.annotations{
+//                        let viewI = mapView.view(for: annotation)
+//
+//                        if let viewI = viewI {
+//                            if !(viewI.annotation is MKUserLocation) {
+//                                if annotation.isEqual(selectedAnnotation) {
+//                                    ((viewI.subviews[1]) as! UIImageView).image = #imageLiteral(resourceName: "pinFocus")
+//                                    viewI.subviews[1].layoutIfNeeded()
+//                                } else{
+//                                    ((viewI.subviews[1]) as! UIImageView).image = #imageLiteral(resourceName: "pinBackground")
+//                                    viewI.subviews[1].layoutIfNeeded()
+//                                }
+//                            }
+//                        }
+//                    }
                 }
             }
         }
@@ -354,6 +376,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        
         let layout = self.collectionView.collectionViewLayout as! UICollectionViewFlowLayout
         let cellWidthIncludingSpacing = layout.itemSize.width + layout.minimumLineSpacing
         
@@ -361,6 +384,8 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
         let index = (offset.x + scrollView.contentInset.left) / cellWidthIncludingSpacing
         var roundedIndex = round(index)
         
+        print(currentIndex)
+        print(roundedIndex)
         if scrollView.contentOffset.x > targetContentOffset.pointee.x {
             roundedIndex = floor(index)
         }

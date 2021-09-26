@@ -12,4 +12,5 @@ class CustomPintAnnotation: MKPointAnnotation {
     var pinType: String!
     var pinCategory: String!
     var pinTitle: String!
+    var focus: Bool!
 }

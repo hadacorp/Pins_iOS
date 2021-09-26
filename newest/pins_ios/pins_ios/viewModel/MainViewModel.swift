@@ -94,22 +94,29 @@ class MainViewModel: MainVCUI {
         getSearchButton().layer.opacity = 0.9
     }
     
-    public func meetingPin(parent: UIView, type: String, category: String){
+    public func meetingPin(parent: UIView, type: String, category: String, focus: Bool){
         var background: UIImage?
         
         // 그림자 생성
         let shadow = UIImageView()
         parent.addSubview(shadow)
         shadow.snp.makeConstraints { sd in
-            sd.bottom.equalTo(27)
-            sd.width.equalTo(20)
-            sd.height.equalTo(8)
-            sd.centerX.equalTo(parent)
+            if focus{
+                sd.bottom.equalTo(27 * 1.2)
+                sd.width.equalTo(20 * 1.2)
+                sd.height.equalTo(8 * 1.2)
+                sd.centerX.equalTo(parent)
+            }
+            else{
+                sd.bottom.equalTo(27)
+                sd.width.equalTo(20)
+                sd.height.equalTo(8)
+                sd.centerX.equalTo(parent)
+            }
         }
         shadow.image = UIImage(named: "shadowMeeting")
         
         var image: UIImage?
-        background = #imageLiteral(resourceName: "pinBackground")
         switch category{
         case "대화/친목":
             image = #imageLiteral(resourceName: "pinTalk")
@@ -137,22 +144,42 @@ class MainViewModel: MainVCUI {
             image = #imageLiteral(resourceName: "iconMyMenu")
         }
         
+        if focus{
+            background = #imageLiteral(resourceName: "pinFocus")
+        }
+        else{
+            background = #imageLiteral(resourceName: "pinBackground")
+        }
         if let background = background {
             let pinBackground = UIImageView.init(image: background)
             parent.addSubview(pinBackground)
             pinBackground.snp.makeConstraints { bg in
-                bg.width.equalTo(37)
-                bg.height.equalTo(49)
-                bg.center.equalTo(parent)
+                if focus{
+                    bg.width.equalTo(37 * 1.2)
+                    bg.height.equalTo(49 * 1.2)
+                    bg.center.equalTo(parent)
+                }
+                else {
+                    bg.width.equalTo(37)
+                    bg.height.equalTo(49)
+                    bg.center.equalTo(parent)
+                }
             }
         }
         if let image = image {
             let pinImage = UIImageView.init(image: image)
             parent.addSubview(pinImage)
             pinImage.snp.makeConstraints { bg in
-                bg.width.equalTo(34)
-                bg.height.equalTo(46)
-                bg.center.equalTo(parent)
+                if focus{
+                    bg.width.equalTo(34 * 1.2)
+                    bg.height.equalTo(46 * 1.2)
+                    bg.center.equalTo(parent)
+                }
+                else{
+                    bg.width.equalTo(34)
+                    bg.height.equalTo(46)
+                    bg.center.equalTo(parent)
+                }
             }
         }
     }
@@ -230,9 +257,9 @@ class MainViewModel: MainVCUI {
         tag.textColor = #colorLiteral(red: 0.1137254902, green: 0.6666666667, blue: 0.9529411765, alpha: 1)
         tag.textAlignment = .center
     }
-    public func makePins(parent: UIView, type: String, category: String, title: String){
+    public func makePins(parent: UIView, type: String, category: String, title: String, focus: Bool){
         if PinType.init(rawValue: type) == .meet{
-            meetingPin(parent: parent, type: type, category: category)
+            meetingPin(parent: parent, type: type, category: category, focus: focus)
         }
         else if PinType.init(rawValue: type) == .community{
             communityPin(parent: parent, type: type, title: title)
