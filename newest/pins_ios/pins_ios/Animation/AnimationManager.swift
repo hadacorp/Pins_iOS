@@ -10,6 +10,8 @@ import MapKit
 
 extension ViewController{
     // MARK:- Objc function
+    // 카드뷰로 핀이 선택됐을 때
+    
     func searchedKeywordNarrow(){
         for i in viewModel.getSearchButton().subviews {
             if i.tag != 1{
