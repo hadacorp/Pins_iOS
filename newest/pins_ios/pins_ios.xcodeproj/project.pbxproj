@@ -22,6 +22,8 @@
 		B70CFC2D26BFD82600B7DA74 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B70CFC2B26BFD82600B7DA74 /* LaunchScreen.storyboard */; };
 		B70CFC3526BFDC0C00B7DA74 /* PinMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70CFC3426BFDC0C00B7DA74 /* PinMaker.swift */; };
 		B724315B26C18A950091152E /* SmallRoundedBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = B724315A26C18A950091152E /* SmallRoundedBtn.swift */; };
+		B73572A22700BB5300E1967E /* RecentResearchTerm+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73572A02700BB5300E1967E /* RecentResearchTerm+CoreDataClass.swift */; };
+		B73572A32700BB5300E1967E /* RecentResearchTerm+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73572A12700BB5300E1967E /* RecentResearchTerm+CoreDataProperties.swift */; };
 		B741BA4626E8F5E800BB04E7 /* GetPlaceKeyword.swift in Sources */ = {isa = PBXBuildFile; fileRef = B741BA4526E8F5E800BB04E7 /* GetPlaceKeyword.swift */; };
 		B741BA4826E8FCFD00BB04E7 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = B741BA4726E8FCFD00BB04E7 /* Place.swift */; };
 		B741BA4B26E9116B00BB04E7 /* Debouncer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B741BA4A26E9116B00BB04E7 /* Debouncer.swift */; };
@@ -46,8 +48,6 @@
 		B7A0D84D26EA6FF700AD5B46 /* CarouselCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A0D84C26EA6FF700AD5B46 /* CarouselCell.swift */; };
 		B7B70B2226F78F0D006052A1 /* RecentSearchModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B7B70B2026F78F0D006052A1 /* RecentSearchModel.xcdatamodeld */; };
 		B7B70B2826F78FBE006052A1 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B70B2726F78FBE006052A1 /* CoreDataManager.swift */; };
-		B7B70B2B26F791B7006052A1 /* RecentResearchTerm+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B70B2A26F791B7006052A1 /* RecentResearchTerm+CoreDataProperties.swift */; };
-		B7B70B2C26F791B7006052A1 /* RecentResearchTerm+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B70B2926F791B7006052A1 /* RecentResearchTerm+CoreDataClass.swift */; };
 		B7C5DAA826C805640011EE41 /* BigRoundedbutton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C5DAA726C805640011EE41 /* BigRoundedbutton.swift */; };
 		B7C5DAAA26C805D50011EE41 /* ThumbnailImg.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C5DAA926C805D50011EE41 /* ThumbnailImg.swift */; };
 		B7C5DAAD26C80A550011EE41 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C5DAAC26C80A550011EE41 /* MainViewModel.swift */; };
@@ -76,6 +76,8 @@
 		B70CFC2E26BFD82600B7DA74 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B70CFC3426BFDC0C00B7DA74 /* PinMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinMaker.swift; sourceTree = "<group>"; };
 		B724315A26C18A950091152E /* SmallRoundedBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallRoundedBtn.swift; sourceTree = "<group>"; };
+		B73572A02700BB5300E1967E /* RecentResearchTerm+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RecentResearchTerm+CoreDataClass.swift"; sourceTree = "<group>"; };
+		B73572A12700BB5300E1967E /* RecentResearchTerm+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RecentResearchTerm+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		B741BA4526E8F5E800BB04E7 /* GetPlaceKeyword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPlaceKeyword.swift; sourceTree = "<group>"; };
 		B741BA4726E8FCFD00BB04E7 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		B741BA4A26E9116B00BB04E7 /* Debouncer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Debouncer.swift; sourceTree = "<group>"; };
@@ -100,8 +102,6 @@
 		B7A0D84C26EA6FF700AD5B46 /* CarouselCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselCell.swift; sourceTree = "<group>"; };
 		B7B70B2126F78F0D006052A1 /* RecentSearchModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RecentSearchModel.xcdatamodel; sourceTree = "<group>"; };
 		B7B70B2726F78FBE006052A1 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
-		B7B70B2926F791B7006052A1 /* RecentResearchTerm+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "RecentResearchTerm+CoreDataClass.swift"; path = "/Users/judongseok/Desktop/Programming/SwiftProject/Pins/newest/pins_ios/pins_ios/RecentResearchTerm+CoreDataClass.swift"; sourceTree = "<absolute>"; };
-		B7B70B2A26F791B7006052A1 /* RecentResearchTerm+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "RecentResearchTerm+CoreDataProperties.swift"; path = "/Users/judongseok/Desktop/Programming/SwiftProject/Pins/newest/pins_ios/pins_ios/RecentResearchTerm+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
 		B7C5DAA726C805640011EE41 /* BigRoundedbutton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigRoundedbutton.swift; sourceTree = "<group>"; };
 		B7C5DAA926C805D50011EE41 /* ThumbnailImg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbnailImg.swift; sourceTree = "<group>"; };
 		B7C5DAAC26C80A550011EE41 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
@@ -203,8 +203,6 @@
 		B70CFC1F26BFD82500B7DA74 /* pins_ios */ = {
 			isa = PBXGroup;
 			children = (
-				B7B70B2926F791B7006052A1 /* RecentResearchTerm+CoreDataClass.swift */,
-				B7B70B2A26F791B7006052A1 /* RecentResearchTerm+CoreDataProperties.swift */,
 				B741BA4926E9112800BB04E7 /* Utill */,
 				B744091B26E7AFE800A90B91 /* Cell */,
 				B79ACD3326E13008008990C3 /* Fonts */,
@@ -231,6 +229,8 @@
 		B741BA4926E9112800BB04E7 /* Utill */ = {
 			isa = PBXGroup;
 			children = (
+				B73572A02700BB5300E1967E /* RecentResearchTerm+CoreDataClass.swift */,
+				B73572A12700BB5300E1967E /* RecentResearchTerm+CoreDataProperties.swift */,
 				B7F4417226EB92C200546257 /* UIImage.swift */,
 				B70CFC3426BFDC0C00B7DA74 /* PinMaker.swift */,
 				B7FBC47726C28730001838D1 /* CustomPintAnnotation.swift */,
@@ -442,7 +442,6 @@
 				B7FBC47826C28730001838D1 /* CustomPintAnnotation.swift in Sources */,
 				B70ADB8926FF8902007997E2 /* GetCardByPinId.swift in Sources */,
 				B704F03C26E36C5900DA9E06 /* Cell.swift in Sources */,
-				B7B70B2C26F791B7006052A1 /* RecentResearchTerm+CoreDataClass.swift in Sources */,
 				B70CFC2526BFD82500B7DA74 /* ViewController.swift in Sources */,
 				B7A0D84B26EA6ECF00AD5B46 /* Gradient.swift in Sources */,
 				B77EC71726F0EF540002C0D6 /* GetPlaceCard.swift in Sources */,
@@ -459,7 +458,6 @@
 				B79DE32526EB34A20098285B /* PinCard.swift in Sources */,
 				B709090026E1FD990075BF50 /* SearchViewModel.swift in Sources */,
 				B7B70B2226F78F0D006052A1 /* RecentSearchModel.xcdatamodeld in Sources */,
-				B7B70B2B26F791B7006052A1 /* RecentResearchTerm+CoreDataProperties.swift in Sources */,
 				B7C5DAAA26C805D50011EE41 /* ThumbnailImg.swift in Sources */,
 				B70CFC2326BFD82500B7DA74 /* SceneDelegate.swift in Sources */,
 				B77EC71526F0E59A0002C0D6 /* GetSearchKeywordPinAPI.swift in Sources */,
@@ -468,6 +466,8 @@
 				B704D48026DBCE6800DB20D2 /* AnimationManager.swift in Sources */,
 				B7B70B2826F78FBE006052A1 /* CoreDataManager.swift in Sources */,
 				B7C5DAAD26C80A550011EE41 /* MainViewModel.swift in Sources */,
+				B73572A22700BB5300E1967E /* RecentResearchTerm+CoreDataClass.swift in Sources */,
+				B73572A32700BB5300E1967E /* RecentResearchTerm+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
