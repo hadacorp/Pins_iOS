@@ -321,18 +321,10 @@ extension ViewController: MKMapViewDelegate{
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         // 핀 클릭 시 카드뷰 띄워주기
         let index = Int((view.annotation?.subtitle!)!)!
-        let data = pinAnnotation[index]
-        GetCardByPinId().requestGet(pinID: data.pinDBId!, pinType: data.pinType!) { [self] (success, data) in
-            DispatchQueue.main.async {
-                if let data = data as? [Pin]{
-                    viewModel.setCheckablePins(checkablePins: data)
-                    collectionView.reloadData()
-                    collectionView.contentOffset = CGPoint(x: 0, y: 0)
-                    currentIndex = 0
-                    upCardView()
-                }
-            }
-        }
+        upCardView()
+        collectionView.reloadData()
+        collectionView.setContentOffset(CGPoint(x: index * (Int(UIScreen.main.bounds.width) - 22), y: 0), animated: true)
+        currentIndex = CGFloat(index)
         viewModel.focusPin(pinAnnotation: pinAnnotation, annotationView: view, annotation: view.annotation!)
         
         focusedPin = view
@@ -374,7 +366,6 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
         let index = (offset.x + scrollView.contentInset.left) / cellWidthIncludingSpacing
         var roundedIndex = round(index)
         
-        
         if scrollView.contentOffset.x > targetContentOffset.pointee.x {
             roundedIndex = floor(index)
         }
@@ -394,8 +385,8 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
             roundedIndex = currentIndex
         }
         
+        mainMap.selectAnnotation(pinAnnotation[Int(currentIndex)], animated: true)
         offset = CGPoint(x: roundedIndex * cellWidthIncludingSpacing - scrollView.contentInset.left, y: -scrollView.contentInset.top)
-        
         targetContentOffset.pointee = offset
     }
 }
