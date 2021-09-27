@@ -4,7 +4,7 @@
 //
 //  Created by judongseok on 2021/08/14.
 //
-
+import MapKit
 import UIKit
 
 class MainViewModel: MainVCUI {
@@ -94,178 +94,52 @@ class MainViewModel: MainVCUI {
         getSearchButton().layer.opacity = 0.9
     }
     
-    public func meetingPin(parent: UIView, type: String, category: String, focus: Bool){
-        var background: UIImage?
-        
-        // 그림자 생성
-        let shadow = UIImageView()
-        parent.addSubview(shadow)
-        shadow.snp.makeConstraints { sd in
-            if focus{
-                sd.bottom.equalTo(27 * 1.2)
-                sd.width.equalTo(20 * 1.2)
-                sd.height.equalTo(8 * 1.2)
-                sd.centerX.equalTo(parent)
+    public func makePin(pinAnnotation: [CustomPintAnnotation], annotationView: MKAnnotationView, annotation: MKAnnotation){
+        let pinTemp = pinAnnotation[Int(annotation.subtitle!!)!]
+        if pinTemp.pinType == PinType.meet.rawValue {
+            switch pinTemp.pinCategory {
+            case "대화/친목":
+                annotationView.image = UIImage(named: "pin_base_talk")
+            case "산책/반려동물":
+                annotationView.image = UIImage(named: "pin_base_walk")
+            case "맛집탐방":
+                annotationView.image = UIImage(named: "pin_base_meal")
+            case "영화/문화생활":
+                annotationView.image = UIImage(named: "pin_base_movie")
+            case "게임/오락":
+                annotationView.image = UIImage(named: "pin_base_game")
+            case "스포츠/운동":
+                annotationView.image = UIImage(named: "pin_base_sport")
+            case "등산/캠핑":
+                annotationView.image = UIImage(named: "pin_base_hiking")
+            case "스터디/독서":
+                annotationView.image = UIImage(named: "pin_base_study")
+            case "여행/드라이브":
+                annotationView.image = UIImage(named: "pin_base_trip")
+            case "거래/나눔":
+                annotationView.image = UIImage(named: "pin_base_trade")
+            default:
+                annotationView.image = UIImage(named: "pin_base_others")
             }
-            else{
-                sd.bottom.equalTo(27)
-                sd.width.equalTo(20)
-                sd.height.equalTo(8)
-                sd.centerX.equalTo(parent)
-            }
-        }
-        shadow.image = UIImage(named: "shadowMeeting")
-        
-        var image: UIImage?
-        switch category{
-        case "대화/친목":
-            image = #imageLiteral(resourceName: "pinTalk")
-        case "산책/반려동물":
-            image = #imageLiteral(resourceName: "pinWalk")
-        case "맛집탐방":
-            image = #imageLiteral(resourceName: "pinFood")
-        case "영화/문화생활":
-            image = #imageLiteral(resourceName: "pinMovie")
-        case "게임/오락":
-            image = #imageLiteral(resourceName: "pinGame")
-        case "스포츠/운동":
-            image = #imageLiteral(resourceName: "pinExercise")
-        case "등산/캠핑":
-            image = #imageLiteral(resourceName: "pinHiking")
-        case "스터디/독서":
-            image = #imageLiteral(resourceName: "pinStudy")
-        case "여행/드라이브":
-            image = #imageLiteral(resourceName: "pinTrip")
-        case "거래/나눔":
-            image = #imageLiteral(resourceName: "pinTrade")
-        case "기타":
-            image = #imageLiteral(resourceName: "pinOthers")
-        default:
-            image = #imageLiteral(resourceName: "iconMyMenu")
-        }
-        
-        if focus{
-            background = #imageLiteral(resourceName: "pinFocus")
+            
+            annotationView.frame = CGRect(x: 0, y: 0, width: 36, height: 52)
         }
         else{
-            background = #imageLiteral(resourceName: "pinBackground")
-        }
-        if let background = background {
-            let pinBackground = UIImageView.init(image: background)
-            parent.addSubview(pinBackground)
-            pinBackground.snp.makeConstraints { bg in
-                if focus{
-                    bg.width.equalTo(37 * 1.2)
-                    bg.height.equalTo(49 * 1.2)
-                    bg.center.equalTo(parent)
-                }
-                else {
-                    bg.width.equalTo(37)
-                    bg.height.equalTo(49)
-                    bg.center.equalTo(parent)
-                }
+            annotationView.image = #imageLiteral(resourceName: "story")
+            annotationView.frame = CGRect(x: 0, y: 0, width: 62, height: 31)
+            
+            let label = UILabel()
+            annotationView.addSubview(label)
+            label.snp.makeConstraints { text in
+                text.width.equalTo(62)
+                text.height.equalTo(17)
+                text.top.equalTo(3)
+                text.centerX.equalTo(annotationView)
             }
-        }
-        if let image = image {
-            let pinImage = UIImageView.init(image: image)
-            parent.addSubview(pinImage)
-            pinImage.snp.makeConstraints { bg in
-                if focus{
-                    bg.width.equalTo(34 * 1.2)
-                    bg.height.equalTo(46 * 1.2)
-                    bg.center.equalTo(parent)
-                }
-                else{
-                    bg.width.equalTo(34)
-                    bg.height.equalTo(46)
-                    bg.center.equalTo(parent)
-                }
-            }
-        }
-    }
-    
-    public func communityPin(parent: UIView, type: String, title: String){
-        let shadow = UIImageView()
-        var background: UIImage?
-        // 그림자 생성
-        parent.addSubview(shadow)
-        shadow.snp.makeConstraints { sd in
-            sd.bottom.equalTo(16)
-            sd.width.equalTo(26)
-            sd.height.equalTo(10)
-            sd.centerX.equalTo(parent)
-        }
-        shadow.image = UIImage(named: "shadowCommunity")
-
-        // 배경 생성
-        background = #imageLiteral(resourceName: "community")
-        if let background = background {
-            let pinBackground = UIImageView.init(image: background)
-            parent.addSubview(pinBackground)
-            pinBackground.snp.makeConstraints { bg in
-                bg.width.equalTo(30)
-                bg.height.equalTo(26)
-                bg.center.equalTo(parent)
-            }
-        }
-        
-        // 타이틀 생성 30
-        let label = UIButton()
-        parent.addSubview(label)
-        label.setTitle(title, for: .normal)
-        label.titleLabel?.font = UIFont(name: "NotoSansKR-Regular", size: 12)
-        label.titleEdgeInsets = UIEdgeInsets(top: 0, left: 6, bottom: 2, right: 6)
-        label.setTitleColor(.white, for: .normal)
-        label.backgroundColor = #colorLiteral(red: 0.1215686275, green: 0.4588235294, blue: 0.6823529412, alpha: 1)
-        label.snp.makeConstraints { lb in
-            lb.height.equalTo(19)
-            lb.bottom.equalTo(30)
-        }
-    }
-    
-    public func storyPin(parent: UIView, type: String, category: String) {
-        let shadow = UIImageView()
-        parent.addSubview(shadow)
-        shadow.snp.makeConstraints { sd in
-            sd.bottom.equalTo(parent).offset(19)
-            sd.width.equalTo(20)
-            sd.height.equalTo(8)
-            sd.centerX.equalTo(parent)
-        }
-        shadow.image = UIImage(named: "shadowStory")
-        
-        let background = UIImageView()
-        parent.addSubview(background)
-        background.snp.makeConstraints { bg in
-            bg.width.equalTo(62)
-            bg.height.equalTo(31)
-            bg.center.equalTo(parent)
-        }
-        background.image = #imageLiteral(resourceName: "story")
-        
-        let tag = UILabel()
-        background.addSubview(tag)
-        tag.snp.makeConstraints { tag in
-            tag.width.equalTo(62)
-            tag.height.equalTo(17)
-            tag.bottom.equalTo(-11)
-            tag.top.equalTo(3)
-            tag.centerX.equalTo(background)
-        }
-        tag.text = category
-        tag.font = UIFont(name: "NotoSansKR-Regular", size: 12)
-        tag.textColor = #colorLiteral(red: 0.1137254902, green: 0.6666666667, blue: 0.9529411765, alpha: 1)
-        tag.textAlignment = .center
-    }
-    public func makePins(parent: UIView, type: String, category: String, title: String, focus: Bool){
-        if PinType.init(rawValue: type) == .meet{
-            meetingPin(parent: parent, type: type, category: category, focus: focus)
-        }
-        else if PinType.init(rawValue: type) == .community{
-            communityPin(parent: parent, type: type, title: title)
-        }
-        else{
-            storyPin(parent: parent, type: type, category: category)
+            label.text = pinTemp.pinCategory
+            label.textColor = #colorLiteral(red: 0.1137254902, green: 0.6666666667, blue: 0.9529411765, alpha: 1)
+            label.textAlignment = .center
+            label.font = UIFont(name: "NotoSansKR-Regular", size: 12)
         }
     }
 }
