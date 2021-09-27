@@ -10,6 +10,7 @@ import MapKit
 
 class CustomPintAnnotation: MKPointAnnotation {
     var pinType: String!
+    var pinDBId: Int!
     var pinCategory: String!
     var pinTitle: String!
     var focus: Bool!
