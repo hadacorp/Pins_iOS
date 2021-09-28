@@ -113,7 +113,7 @@ class ViewController: UIViewController{
         // 키워드 검색일때
         if viewModel.getPinCardsCount() > 0 && paramType == 0{
             self.upCardView()
-            self.mainMap.selectAnnotation(pinAnnotation[0], animated: true)
+            self.mainMap.selectAnnotation(pinAnnotation[0], animated: false)
             if let paramSearchText = paramSearchText {
                 searchedKeywordWide(keyword: paramSearchText)
             }
@@ -379,7 +379,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
             roundedIndex = currentIndex
         }
         
-        mainMap.selectAnnotation(pinAnnotation[Int(currentIndex)], animated: true)
+        mainMap.selectAnnotation(pinAnnotation[Int(currentIndex)], animated: false)
         offset = CGPoint(x: roundedIndex * cellWidthIncludingSpacing - scrollView.contentInset.left, y: -scrollView.contentInset.top)
         targetContentOffset.pointee = offset
     }

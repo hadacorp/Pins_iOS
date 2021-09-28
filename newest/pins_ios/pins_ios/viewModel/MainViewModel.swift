@@ -175,7 +175,7 @@ class MainViewModel: MainVCUI {
                 view.removeFromSuperview()
             }
             
-            let label = UILabel()
+            let label = UILabel(frame: CGRect(x: 0, y: 3, width: 62, height: 17))
             annotationView.addSubview(label)
             label.snp.makeConstraints { text in
                 text.width.equalTo(62)
@@ -220,13 +220,12 @@ class MainViewModel: MainVCUI {
         }
         else{
             annotationView.image = #imageLiteral(resourceName: "story")
-            
             // subview 삭제
             for view in annotationView.subviews {
                 view.removeFromSuperview()
             }
             
-            let label = UILabel()
+            let label = UILabel(frame: CGRect(x: 0, y: 3, width: 62, height: 17))
             annotationView.addSubview(label)
             label.snp.makeConstraints { text in
                 text.width.equalTo(62)
