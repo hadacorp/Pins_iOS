@@ -53,6 +53,10 @@ class SearchViewModel: SearchVCUI {
         return datas[index]
     }
     
+    public func getCoreDataCount() -> Int{
+        return CoreDataManager.shared.getUsers().count
+    }
+    
     public func getAllDatas() -> [RecentResearchTerm]{
         let datas: [RecentResearchTerm] = CoreDataManager.shared.getUsers()
         let terms: [String] = datas.map({$0.term!})

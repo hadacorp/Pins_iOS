@@ -20,12 +20,8 @@ class ViewController: UIViewController{
     public var locationManager = CLLocationManager()
     // 맵에 찍을 핀 객체
     public var pinAnnotation: [CustomPintAnnotation] = []
-    // 맵에 찍힌 핀 현물 배열
-    public var annotationViews: [MKAnnotationView] = []
     // 현재 위치 저장
     public var currentLocation: CLLocation!
-    // API
-    public var getKeywordPinAPI = GetKeywordPinAPI()
     // 하단 컬렉션 뷰
     public var collectionView: UICollectionView!
     public var currentIndex: CGFloat = 0.0
@@ -313,8 +309,6 @@ extension ViewController: MKMapViewDelegate{
             }
             viewModel.makePin(pinAnnotation: pinAnnotation, annotationView: annotationView!, annotation: annotation)
         }
-        
-        annotationViews.append(annotationView!)
         return annotationView
     }
     

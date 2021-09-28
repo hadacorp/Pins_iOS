@@ -69,7 +69,7 @@ extension SearchViewController{
     
     @objc func deletedata(_ sender: AnyObject?) {
         // 원하는 대로 코드 구성
-        viewModel.deleteData(Int16((sender?.tag!)!))
+        viewModel.deleteData(Int16(viewModel.getCoreDataCount() - 1) - Int16((sender?.tag!)!))
         tableView.reloadData()
     }
 }
