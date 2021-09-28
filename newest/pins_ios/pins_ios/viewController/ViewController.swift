@@ -39,6 +39,7 @@ class ViewController: UIViewController{
     // MARK:- Private variable
     private var focusedPin: MKAnnotationView?
     private var focusedPinIndex: Int = 0
+    private var startPos: CLLocationCoordinate2D?
     // MARK:- Private function
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,6 +74,7 @@ class ViewController: UIViewController{
                                 self.currentIndex = 0
                                 // 검색된 위치로 이동
                                 self.goLocation(latitudeValue: latitude, longtudeValue: longitude, delta: 500)
+                                self.startPos = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
                             }
                         }
                     }
@@ -94,6 +96,7 @@ class ViewController: UIViewController{
                                             self.collectionView.reloadData()
                                             self.collectionView.contentOffset = CGPoint(x: 0, y: 0)
                                             self.goLocation(latitudeValue: data[0].latitude!, longtudeValue: data[0].longitude!, delta: 500)
+                                            self.startPos = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
                                         }
                                     }
                                 }
@@ -213,6 +216,7 @@ class ViewController: UIViewController{
         }
         
         mainMap.layoutMargins = UIEdgeInsets(top: 0, left: 10, bottom: 10, right: 10)
+        startPos = CLLocationCoordinate2D(latitude: mainMap.centerCoordinate.latitude, longitude: mainMap.centerCoordinate.longitude)
     }
     
     public func showToast(message : String, font: UIFont = UIFont.systemFont(ofSize: 14.0), parent: UIView){
@@ -310,6 +314,24 @@ extension ViewController: MKMapViewDelegate{
             viewModel.makePin(pinAnnotation: pinAnnotation, annotationView: annotationView!, annotation: annotation)
         }
         return annotationView
+    }
+    
+    func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
+        if let startPos = startPos{
+            if mapView.centerCoordinate.distance(from: startPos) > 1500 {
+                GetKeywordPinAPI().requestGet(latitude: mapView.centerCoordinate.latitude, longitude: mapView.centerCoordinate.longitude) { (success, data) in
+                    if let data = data as? [Pin] {
+                        self.viewModel.setCheckablePins(checkablePins: data)
+                        DispatchQueue.main.async {
+                            self.mainMap.removeAnnotations(self.mainMap.annotations)
+                            self.initPins()
+                            self.currentIndex = 0
+                            self.startPos = CLLocationCoordinate2D(latitude: mapView.centerCoordinate.latitude, longitude: mapView.centerCoordinate.longitude)
+                        }
+                    }
+                }
+            }
+        }
     }
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
