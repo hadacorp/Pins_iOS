@@ -39,6 +39,10 @@ class MainViewModel: MainVCUI {
         return mainUI
     }
     
+    public func getRefreshButton() -> UIButton{
+        return refreshButton.button
+    }
+    
     public func getSearchButton() -> UIButton{
         return searchButton.button
     }
@@ -94,8 +98,8 @@ class MainViewModel: MainVCUI {
         getSearchButton().layer.opacity = 0.9
     }
     
-    public func makePin(pinAnnotation: [CustomPintAnnotation], annotationView: MKAnnotationView, annotation: MKAnnotation){
-        let pinTemp = pinAnnotation[Int(annotation.subtitle!!)!]
+    public func makePin(pinAnnotation: [Int : CustomPintAnnotation], annotationView: MKAnnotationView, annotation: MKAnnotation){
+        let pinTemp = pinAnnotation[Int(annotation.subtitle!!)!]!
         if pinTemp.pinType == PinType.meet.rawValue {
             annotationView.frame = CGRect(x: 0, y: 0, width: 36, height: 52)
             switch pinTemp.pinCategory {
@@ -142,8 +146,8 @@ class MainViewModel: MainVCUI {
         }
     }
     
-    public func focusPin(pinAnnotation: [CustomPintAnnotation], annotationView: MKAnnotationView, annotation: MKAnnotation){
-        let pinTemp = pinAnnotation[Int(annotation.subtitle!!)!]
+    public func focusPin(pinAnnotation: [Int : CustomPintAnnotation], annotationView: MKAnnotationView, annotation: MKAnnotation){
+        let pinTemp = pinAnnotation[Int(annotation.subtitle!!)!]!
         if pinTemp.pinType == PinType.meet.rawValue {
             annotationView.frame = CGRect(x: 0, y: 0, width: 36, height: 52)
             switch pinTemp.pinCategory {
@@ -194,8 +198,8 @@ class MainViewModel: MainVCUI {
         }
     }
     
-    public func unfocusPin(pinAnnotation: [CustomPintAnnotation], annotationView: MKAnnotationView, annotation: MKAnnotation){
-        let pinTemp = pinAnnotation[Int(annotation.subtitle!!)!]
+    public func unfocusPin(pinAnnotation: [Int : CustomPintAnnotation], annotationView: MKAnnotationView, annotation: MKAnnotation){
+        let pinTemp = pinAnnotation[Int(annotation.subtitle!!)!]!
         if pinTemp.pinType == PinType.meet.rawValue {
             annotationView.frame = CGRect(x: 0, y: 0, width: 36, height: 52)
             switch pinTemp.pinCategory {

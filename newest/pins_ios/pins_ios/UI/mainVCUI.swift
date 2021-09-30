@@ -23,6 +23,7 @@ class MainVCUI {
     public var addButton = SmallRoundedBtn(radius: 16, color: #colorLiteral(red: 0.02745098039, green: 0.1294117647, blue: 0.337254902, alpha: 1), image: #imageLiteral(resourceName: "iconPlus"))
     // 내 위치로 이동 버튼
     public var myLocationButton = SmallRoundedBtn(radius: 16, color: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0), image: #imageLiteral(resourceName: "iconLocation"))
+    public var refreshButton = SmallRoundedBtn(radius: 16, color: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0), image: #imageLiteral(resourceName: "iconRefresh"))
     // 그라데이션 위, 아래
     public var gradationUp = UIImageView(image: #imageLiteral(resourceName: "gradationUp"))
     public var gradationDown = UIImageView(image: #imageLiteral(resourceName: "gradationDown"))
@@ -53,6 +54,7 @@ class MainVCUI {
                 initMenuButton(parent: parent)
                 initSearchBackground(parent: parent)
                 initMyLocationButton(parent: parent)
+                initRefreshButton(parent: parent)
                 
                 initFilterMeet(parent: parent, layout: layout)
                 initFilterCommunity(parent: parent, layout: layout)
@@ -151,6 +153,15 @@ class MainVCUI {
             bt.width.equalTo(40)
             bt.height.equalTo(40)
             bt.trailing.equalTo(-16)
+            bt.bottom.equalTo(-118)
+        }
+    }
+    
+    private func initRefreshButton(parent: UIView){
+        parent.addSubview(refreshButton.button)
+        refreshButton.button.snp.makeConstraints { bt in
+            bt.width.height.equalTo(40)
+            bt.leading.equalTo(16)
             bt.bottom.equalTo(-118)
         }
     }

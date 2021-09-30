@@ -7,7 +7,7 @@
 
 import UIKit
 
-class Pin: Decodable {
+struct Pin: Hashable, Decodable {
     var distance: Double?
     var pinType: String?
     var category: String?
