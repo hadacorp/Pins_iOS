@@ -11,14 +11,6 @@ import MapKit
 extension ViewController{
     // MARK:- Objc function
     // 카드뷰로 핀이 선택됐을 때
-    func pinFocus(go: Int, cur: Int){
-        let goPin = viewModel.getPinsIndex(index: go)
-        let curPin = viewModel.getPinsIndex(index: cur)
-        
-        if go != cur{
-            
-        }
-    }
     
     func searchedKeywordNarrow(){
         for i in viewModel.getSearchButton().subviews {

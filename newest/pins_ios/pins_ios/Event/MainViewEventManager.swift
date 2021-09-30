@@ -63,6 +63,25 @@ extension ViewController{
         mainMap.camera = mapCamera
     }
     
+    @objc func refreshDatas(){
+        // 맵의 모든 핀을 삭제
+        mainMap.removeAnnotations(mainMap.annotations)
+        // 현재 화면 기준 좌표 저장
+        let curPos = mainMap.centerCoordinate
+        // Get API
+        GetKeywordPinAPI().requestGet(latitude: curPos.latitude, longitude: curPos.longitude) { [self] (success, data) in
+            if let data = data as? [Pin]{
+                viewModel.setCheckablePins(checkablePins: data)
+                
+                DispatchQueue.main.async {
+                    pinAnnotation.removeAll()
+                    initPins(pins: data)
+                    startPos = CLLocationCoordinate2D(latitude: curPos.latitude, longitude: curPos.longitude)
+                }
+            }
+        }
+    }
+    
     // 버튼 이벤트 설정
     public func setButtonEvent(){
         viewModel.getMoveButton().addTarget(self, action: #selector(filterAnimate), for: .touchUpInside)
@@ -71,5 +90,6 @@ extension ViewController{
         viewModel.getFilterCommunityButton().addTarget(self, action: #selector(clickFilterCommunity), for: .touchUpInside)
         viewModel.getFilterMeetButton().addTarget(self, action: #selector(clickFilterMeet), for: .touchUpInside)
         viewModel.getFilterStoryButton().addTarget(self, action: #selector(clickFilterStory), for: .touchUpInside)
+        viewModel.getRefreshButton().addTarget(self, action: #selector(refreshDatas), for: .touchUpInside)
     }
 }
