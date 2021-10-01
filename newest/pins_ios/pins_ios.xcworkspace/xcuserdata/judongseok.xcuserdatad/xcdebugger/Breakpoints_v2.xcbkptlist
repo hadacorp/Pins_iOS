@@ -286,9 +286,9 @@
             filePath = "pins_ios/viewController/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "396"
-            endingLineNumber = "396"
-            landmarkName = "collectionView(_:cellForItemAt:)"
+            startingLineNumber = "394"
+            endingLineNumber = "394"
+            landmarkName = "scrollViewWillEndDragging(_:withVelocity:targetContentOffset:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -318,9 +318,9 @@
             filePath = "pins_ios/viewController/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "397"
-            endingLineNumber = "397"
-            landmarkName = "collectionView(_:cellForItemAt:)"
+            startingLineNumber = "395"
+            endingLineNumber = "395"
+            landmarkName = "scrollViewWillEndDragging(_:withVelocity:targetContentOffset:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -830,9 +830,9 @@
             filePath = "pins_ios/viewController/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "367"
-            endingLineNumber = "367"
-            landmarkName = "mapView(_:didSelect:)"
+            startingLineNumber = "365"
+            endingLineNumber = "365"
+            landmarkName = "collectionView(_:cellForItemAt:)"
             landmarkType = "7">
             <Locations>
                <Location
@@ -878,9 +878,9 @@
             filePath = "pins_ios/viewController/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "366"
-            endingLineNumber = "366"
-            landmarkName = "mapView(_:didSelect:)"
+            startingLineNumber = "364"
+            endingLineNumber = "364"
+            landmarkName = "collectionView(_:cellForItemAt:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -894,9 +894,9 @@
             filePath = "pins_ios/viewController/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "343"
-            endingLineNumber = "343"
-            landmarkName = "mapView(_:viewFor:)"
+            startingLineNumber = "341"
+            endingLineNumber = "341"
+            landmarkName = "mapView(_:didSelect:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -910,9 +910,9 @@
             filePath = "pins_ios/viewController/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "324"
-            endingLineNumber = "324"
-            landmarkName = "mapView(_:viewFor:)"
+            startingLineNumber = "322"
+            endingLineNumber = "322"
+            landmarkName = "mapView(_:regionDidChangeAnimated:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1022,9 +1022,9 @@
             filePath = "pins_ios/viewController/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "388"
-            endingLineNumber = "388"
-            landmarkName = "collectionView(_:numberOfItemsInSection:)"
+            startingLineNumber = "386"
+            endingLineNumber = "386"
+            landmarkName = "scrollViewWillEndDragging(_:withVelocity:targetContentOffset:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1038,9 +1038,9 @@
             filePath = "pins_ios/viewController/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "369"
-            endingLineNumber = "369"
-            landmarkName = "mapView(_:didSelect:)"
+            startingLineNumber = "367"
+            endingLineNumber = "367"
+            landmarkName = "collectionView(_:cellForItemAt:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1118,9 +1118,9 @@
             filePath = "pins_ios/viewController/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "357"
-            endingLineNumber = "357"
-            landmarkName = "mapView(_:regionDidChangeAnimated:)"
+            startingLineNumber = "355"
+            endingLineNumber = "355"
+            landmarkName = "collectionView(_:numberOfItemsInSection:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1134,9 +1134,9 @@
             filePath = "pins_ios/viewController/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "382"
-            endingLineNumber = "382"
-            landmarkName = "mapView(_:didDeselect:)"
+            startingLineNumber = "380"
+            endingLineNumber = "380"
+            landmarkName = "scrollViewWillEndDragging(_:withVelocity:targetContentOffset:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1150,10 +1150,10 @@
             filePath = "pins_ios/viewController/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "356"
-            endingLineNumber = "356"
-            landmarkName = "mapView(_:regionDidChangeAnimated:)"
-            landmarkType = "7">
+            startingLineNumber = "354"
+            endingLineNumber = "354"
+            landmarkName = "ViewController"
+            landmarkType = "21">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1166,9 +1166,9 @@
             filePath = "pins_ios/viewController/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "349"
-            endingLineNumber = "349"
-            landmarkName = "mapView(_:regionDidChangeAnimated:)"
+            startingLineNumber = "347"
+            endingLineNumber = "347"
+            landmarkName = "mapView(_:didSelect:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1182,9 +1182,9 @@
             filePath = "pins_ios/viewController/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "358"
-            endingLineNumber = "358"
-            landmarkName = "mapView(_:regionDidChangeAnimated:)"
+            startingLineNumber = "356"
+            endingLineNumber = "356"
+            landmarkName = "collectionView(_:numberOfItemsInSection:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1198,10 +1198,10 @@
             filePath = "pins_ios/viewController/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "350"
-            endingLineNumber = "350"
-            landmarkName = "mapView(_:regionDidChangeAnimated:)"
-            landmarkType = "7">
+            startingLineNumber = "348"
+            endingLineNumber = "348"
+            landmarkName = "ViewController"
+            landmarkType = "21">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1214,10 +1214,10 @@
             filePath = "pins_ios/viewController/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "355"
-            endingLineNumber = "355"
-            landmarkName = "mapView(_:regionDidChangeAnimated:)"
-            landmarkType = "7">
+            startingLineNumber = "353"
+            endingLineNumber = "353"
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1278,9 +1278,9 @@
             filePath = "pins_ios/viewController/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "351"
-            endingLineNumber = "351"
-            landmarkName = "mapView(_:regionDidChangeAnimated:)"
+            startingLineNumber = "349"
+            endingLineNumber = "349"
+            landmarkName = "mapView(_:didDeselect:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
