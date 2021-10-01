@@ -25,6 +25,7 @@ class ViewController: UIViewController{
     // 하단 컬렉션 뷰
     public var collectionView: UICollectionView!
     public var currentIndex: CGFloat = 0.0
+    public var goIndex: Double = 0
     
     // Param Values 이동할 좌표
     public var paramLatitude: CLLocationDegrees?
@@ -38,8 +39,8 @@ class ViewController: UIViewController{
     // 맵 일정 거리 스크롤 시 fetch를 위한 시작 좌표 저장
     public var startPos: CLLocationCoordinate2D?
     // MARK:- Private variable
-    private var focusedPin: MKAnnotationView?
-    private var focusedPinIndex: Int = 0
+    // 포커스된 핀
+    private var focusPin: MKAnnotationView?
     
     // MARK:- Private function
     override func viewDidLoad() {
@@ -66,7 +67,7 @@ class ViewController: UIViewController{
                 // 위치 검색
                 if paramType == 1{
                     // 주변 핀들 받아오기
-                    GetKeywordPinAPI().requestGet(latitude: latitude, longitude: longitude) { (success, data) in
+                    GetLocation().requestGet(latitude: latitude, longitude: longitude) { (success, data) in
                         if let data = data as? [Pin] {
                             self.viewModel.setCheckablePins(checkablePins: data)
                             DispatchQueue.main.async {
@@ -82,29 +83,20 @@ class ViewController: UIViewController{
                 }
                 // 키워드 검색
                 else if paramType == 0 {
-                    GetSearchKeywordPinApi().requestGet(keyword: paramSearchText!, latitude: latitude, longitude: longitude) { [self] (success, data) in
-                        if success{
-                            if let data = data as? [Pin] {
-                                DispatchQueue.main.async {
-                                    self.mainMap.removeAnnotations(self.mainMap.annotations)
-                                    self.currentIndex = 0
-                                }
-                                GetKeywordCard().requestGet(keyword: self.paramSearchText!, pinID: data[0].pinDBId!, pinType: data[0].pinType!) { [self] (success, data) in
-                                    if let data = data as? [Pin]{
-                                        self.viewModel.setCheckablePins(checkablePins: data)
-                                        DispatchQueue.main.async {
-                                            self.initPins(pins: self.viewModel.getCheckablePins()!)
-                                            self.collectionView.reloadData()
-                                            self.collectionView.contentOffset = CGPoint(x: 0, y: 0)
-                                            self.goLocation(latitudeValue: data[0].latitude!, longtudeValue: data[0].longitude!, delta: 500)
-                                            self.startPos = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
-                                        }
-                                    }
-                                }
+                    GetKeyword().requestGet(keyword: paramSearchText!, latitude: latitude, longitude: longitude) { (success, data) in
+                        if let data = data as? [Pin] {
+                            self.viewModel.setCheckablePins(checkablePins: data)
+                            DispatchQueue.main.async { [self] in
+                                mainMap.removeAnnotations(self.mainMap.annotations)
+                                initPins(pins: self.viewModel.getCheckablePins()!)
+                                currentIndex = 0
+                                // 검색된 위치로 이동
+                                goLocation(latitudeValue: viewModel.getPinsIndex(index: 0).latitude!, longtudeValue: viewModel.getPinsIndex(index: 0).longitude!, delta: 500)
+                                startPos = CLLocationCoordinate2D(latitude: viewModel.getPinsIndex(index: 0).latitude!, longitude: viewModel.getPinsIndex(index: 0).longitude!)
+                                
+                                let pivot = CLLocation(latitude: viewModel.getPinsIndex(index: 0).latitude!, longitude: viewModel.getPinsIndex(index: 0).longitude!)
+                                viewModel.setCheckablePins(checkablePins: viewModel.mergeSort(viewModel.getCheckablePins()!, pivot: pivot))
                             }
-                        }
-                        else{
-                            self.viewModel.setCheckablePins(checkablePins: [])
                         }
                     }
                 }
@@ -117,7 +109,7 @@ class ViewController: UIViewController{
         // 키워드 검색일때
         if viewModel.getPinCardsCount() > 0 && paramType == 0{
             self.upCardView()
-            self.mainMap.selectAnnotation(pinAnnotation[0]!, animated: false)
+            mainMap.selectAnnotation(pinAnnotation[viewModel.getPinsIndex(index: Int(currentIndex)).pinDBId!]!, animated: false)
             if let paramSearchText = paramSearchText {
                 searchedKeywordWide(keyword: paramSearchText)
             }
@@ -126,6 +118,7 @@ class ViewController: UIViewController{
                 searchedKeywordNarrow()
             }
         }
+        // 키워드 검색인데 값이 없으면
         else if viewModel.getPinCardsCount() == 0 {
             showToast(message: "없어요 야발.", font: UIFont(name: "NotoSansKR-Regular", size: 14)!, parent: self.view)
         }
@@ -138,11 +131,13 @@ class ViewController: UIViewController{
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        downCardView()
+//        downCardView()
+//        mainMap.deselectAnnotation(focusPin?.annotation, animated: true)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        downCardView()
+//        downCardView()
+//        mainMap.deselectAnnotation(focusPin?.annotation, animated: true)
     }
     
     private func setCollectionView(){
@@ -313,15 +308,43 @@ extension ViewController: MKMapViewDelegate{
     
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
         if let startPos = startPos{
-            if mapView.centerCoordinate.distance(from: startPos) > 1500 {
-                GetKeywordPinAPI().requestGet(latitude: mapView.centerCoordinate.latitude, longitude: mapView.centerCoordinate.longitude) { [self] (success, data) in
+            if mapView.centerCoordinate.distance(from: startPos) > 1500 && paramSearchText == nil {
+                GetLocation().requestGet(latitude: mapView.centerCoordinate.latitude, longitude: mapView.centerCoordinate.longitude) { [self] (success, data) in
                     if let data = data as? [Pin] {
                         let tempsetA = Set(data.map{ $0 })
                         let tempsetB = Set(viewModel.getCheckablePins()!.map{ $0 })
                         // 새로 만들어야 하는 것
                         let resulta = tempsetA.subtracting(tempsetB)
-                        // 놔둬야 하는 것
-                        // let resultb = tempsetA.intersection(tempsetB)
+                        // 삭제 해야하는 것
+                        let resultc = tempsetB.subtracting(tempsetA)
+                        
+                        viewModel.setCheckablePins(checkablePins: tempsetA.map({ $0 }))
+                        DispatchQueue.main.async {
+                            // 삭제해야하는 핀 삭제
+                            for i in resultc{
+                                for j in mainMap.annotations{
+                                    if i.pinDBId?.description == j.subtitle{
+                                        mainMap.removeAnnotation(j)
+                                    }
+                                }
+                            }
+                            // 생성해야하는 핀 생성
+                            let pins = resulta.map{ $0 }
+                            initPins(pins: pins)
+                            
+                            currentIndex = 0
+                            self.startPos = CLLocationCoordinate2D(latitude: mapView.centerCoordinate.latitude, longitude: mapView.centerCoordinate.longitude)
+                        }
+                    }
+                }
+            }
+            else if mapView.centerCoordinate.distance(from: startPos) > 1500 && paramSearchText != nil{
+                GetKeyword().requestGet(keyword: paramSearchText!, latitude: mapView.centerCoordinate.latitude, longitude: mapView.centerCoordinate.longitude) { [self] (success, data) in
+                    if let data = data as? [Pin] {
+                        let tempsetA = Set(data.map{ $0 })
+                        let tempsetB = Set(viewModel.getCheckablePins()!.map{ $0 })
+                        // 새로 만들어야 하는 것
+                        let resulta = tempsetA.subtracting(tempsetB)
                         // 삭제 해야하는 것
                         let resultc = tempsetB.subtracting(tempsetA)
                         
@@ -350,12 +373,17 @@ extension ViewController: MKMapViewDelegate{
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         // 핀 클릭 시 카드뷰 띄워주기
-        let index = Int((view.annotation?.subtitle!)!)!
+        // 스크롤이 안됐는데 클릭이 됐으면
+        if currentIndex == goIndex{
+            let pivot = CLLocation(latitude: (view.annotation?.coordinate.latitude)!, longitude: (view.annotation?.coordinate.longitude)!)
+            viewModel.setCheckablePins(checkablePins: viewModel.mergeSort(viewModel.getCheckablePins()!, pivot: pivot))
+            currentIndex = 0
+            collectionView.contentOffset = CGPoint(x: 0, y: 0)
+            collectionView.reloadData()
+        }
         upCardView()
-        collectionView.reloadData()
-        collectionView.setContentOffset(CGPoint(x: index * (Int(UIScreen.main.bounds.width) - 22), y: 0), animated: true)
-        currentIndex = CGFloat(index)
         viewModel.focusPin(pinAnnotation: pinAnnotation, annotationView: view, annotation: view.annotation!)
+        focusPin = view
     }
     
     func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
@@ -373,7 +401,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
             for v in myCell.subviews{
                 v.removeFromSuperview()
             }
-            myCell.setupCell(color: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1))
+            myCell.setupCell(color: UIColor.white)
             if let pins = viewModel.getCheckablePins(){
                 let pin = PinCard()
                 let pinsData = pins[indexPath.row]
@@ -392,6 +420,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
         var offset = targetContentOffset.pointee
         let index = (offset.x + scrollView.contentInset.left) / cellWidthIncludingSpacing
         var roundedIndex = round(index)
+        goIndex = currentIndex
         
         if scrollView.contentOffset.x > targetContentOffset.pointee.x {
             roundedIndex = floor(index)
@@ -412,7 +441,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
             roundedIndex = currentIndex
         }
         
-        mainMap.selectAnnotation(pinAnnotation[Int(currentIndex)]!, animated: false)
+        mainMap.selectAnnotation(pinAnnotation[viewModel.getPinsIndex(index: Int(currentIndex)).pinDBId!]!, animated: false)
         offset = CGPoint(x: roundedIndex * cellWidthIncludingSpacing - scrollView.contentInset.left, y: -scrollView.contentInset.top)
         targetContentOffset.pointee = offset
     }

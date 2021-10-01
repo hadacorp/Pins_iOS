@@ -69,7 +69,7 @@ extension ViewController{
         // 현재 화면 기준 좌표 저장
         let curPos = mainMap.centerCoordinate
         // Get API
-        GetKeywordPinAPI().requestGet(latitude: curPos.latitude, longitude: curPos.longitude) { [self] (success, data) in
+        GetLocation().requestGet(latitude: curPos.latitude, longitude: curPos.longitude) { [self] (success, data) in
             if let data = data as? [Pin]{
                 viewModel.setCheckablePins(checkablePins: data)
                 
@@ -77,9 +77,14 @@ extension ViewController{
                     pinAnnotation.removeAll()
                     initPins(pins: data)
                     startPos = CLLocationCoordinate2D(latitude: curPos.latitude, longitude: curPos.longitude)
+                    if viewModel.getPinCardsCount() == 0 {
+                        showToast(message: "없어요 야발.", font: UIFont(name: "NotoSansKR-Regular", size: 14)!, parent: self.view)
+                    }
                 }
             }
         }
+        
+        downCardView()
     }
     
     // 버튼 이벤트 설정
