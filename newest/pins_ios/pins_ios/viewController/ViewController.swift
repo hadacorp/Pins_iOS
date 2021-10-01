@@ -250,42 +250,40 @@ class ViewController: UIViewController{
     
     // MARK: - Refresh Pin Datas
     public func fetchDatasToDistance(data: [Pin]){
-        let tempsetA = Set(data.map{ $0.pinDBId })
-        let tempsetB = Set(viewModel.getCheckablePins()!.map{ $0.pinDBId })
-        // 새로 만들어야 하는 것
-        let resulta = tempsetA.subtracting(tempsetB)
-        // 삭제 해야하는 것
-        let resultc = tempsetB.subtracting(tempsetA)
-        
-        print(resulta.count)
-        print(resultc.count)
-        
-        viewModel.setCheckablePins(checkablePins: data.map({ $0 }))
-        DispatchQueue.main.async { [self] in
-            // 삭제해야하는 핀 삭제
-            for i in resultc{
-                for j in mainMap.annotations{
-                    if i?.description == j.subtitle{
-                        mainMap.removeAnnotation(j)
-                    }
-                }
-            }
-            // 생성해야하는 핀 생성
-            var initArray: [Pin] = []
-            for i in resulta{
-                for j in data{
-                    if i == j.pinDBId{
-                        initArray.append(j)
-                    }
-                }
-            }
-            initPins(pins: initArray)
+        if let pins = viewModel.getCheckablePins(){
+            let tempsetA = Set(data.map{ $0.pinDBId })
+            let tempsetB = Set(pins.map{ $0.pinDBId })
+            // 새로 만들어야 하는 것
+            let resulta = tempsetA.subtracting(tempsetB)
+            // 삭제 해야하는 것
+            let resultc = tempsetB.subtracting(tempsetA)
             
-            currentIndex = 0
-            self.startPos = CLLocationCoordinate2D(latitude: mainMap.centerCoordinate.latitude, longitude: mainMap.centerCoordinate.longitude)
+            viewModel.setCheckablePins(checkablePins: data.map({ $0 }))
+            DispatchQueue.main.async { [self] in
+                // 삭제해야하는 핀 삭제
+                for i in resultc{
+                    for j in mainMap.annotations{
+                        if i?.description == j.subtitle{
+                            mainMap.removeAnnotation(j)
+                        }
+                    }
+                }
+                // 생성해야하는 핀 생성
+                var initArray: [Pin] = []
+                for i in resulta{
+                    for j in data{
+                        if i == j.pinDBId{
+                            initArray.append(j)
+                        }
+                    }
+                }
+                initPins(pins: initArray)
+                
+                currentIndex = 0
+                self.startPos = CLLocationCoordinate2D(latitude: mainMap.centerCoordinate.latitude, longitude: mainMap.centerCoordinate.longitude)
+            }
         }
     }
-    
 }
 
 
