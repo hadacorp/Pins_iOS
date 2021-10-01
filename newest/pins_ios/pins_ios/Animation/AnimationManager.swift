@@ -73,9 +73,10 @@ extension ViewController{
             }
         }
         
-        cancelButton.addAction(UIAction(handler: { _ in
+        cancelButton.addAction(UIAction(handler: { [self] _ in
             self.searchedKeywordNarrow()
             self.downCardView()
+            mainMap.deselectAnnotation(focusPin?.annotation, animated: true)
         }), for: .touchUpInside)
     }
     func upCardView() {

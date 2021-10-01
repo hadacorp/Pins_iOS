@@ -38,9 +38,9 @@ class ViewController: UIViewController{
     
     // 맵 일정 거리 스크롤 시 fetch를 위한 시작 좌표 저장
     public var startPos: CLLocationCoordinate2D?
-    // MARK: - Private variable
     // 포커스된 핀
-    private var focusPin: MKAnnotationView?
+    public var focusPin: MKAnnotationView?
+    // MARK: - Private variable
     
     // MARK: - Private function
     override func viewDidLoad() {
