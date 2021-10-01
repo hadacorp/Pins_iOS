@@ -85,18 +85,20 @@ class ViewController: UIViewController{
                 else if paramType == 0 {
                     GetKeyword().requestGet(keyword: paramSearchText!, latitude: latitude, longitude: longitude) { (success, data) in
                         if let data = data as? [Pin] {
-                            self.viewModel.setCheckablePins(checkablePins: data)
-                            DispatchQueue.main.async { [self] in
-                                mainMap.removeAnnotations(self.mainMap.annotations)
-                                initPins(pins: self.viewModel.getCheckablePins()!)
-                                currentIndex = 0
-                                // 검색된 위치로 이동
-                                startPos = CLLocationCoordinate2D(latitude: viewModel.getPinsIndex(index: 0).latitude!, longitude: viewModel.getPinsIndex(index: 0).longitude!)
-                                goLocation(latitudeValue: viewModel.getPinsIndex(index: 0).latitude!, longtudeValue: viewModel.getPinsIndex(index: 0).longitude!, delta: 500)
-                                
-                                let pivot = CLLocation(latitude: viewModel.getPinsIndex(index: 0).latitude!, longitude: viewModel.getPinsIndex(index: 0).longitude!)
-                                viewModel.setCheckablePins(checkablePins: viewModel.mergeSort(viewModel.getCheckablePins()!, pivot: pivot))
-                                mainMap.selectAnnotation(pinAnnotation[viewModel.getPinsIndex(index: Int(currentIndex)).pinDBId!]!, animated: false)
+                            if data.count > 0{
+                                self.viewModel.setCheckablePins(checkablePins: data)
+                                DispatchQueue.main.async { [self] in
+                                    mainMap.removeAnnotations(self.mainMap.annotations)
+                                    initPins(pins: self.viewModel.getCheckablePins()!)
+                                    currentIndex = 0
+                                    // 검색된 위치로 이동
+                                    startPos = CLLocationCoordinate2D(latitude: viewModel.getPinsIndex(index: 0).latitude!, longitude: viewModel.getPinsIndex(index: 0).longitude!)
+                                    goLocation(latitudeValue: viewModel.getPinsIndex(index: 0).latitude!, longtudeValue: viewModel.getPinsIndex(index: 0).longitude!, delta: 500)
+                                    
+                                    let pivot = CLLocation(latitude: viewModel.getPinsIndex(index: 0).latitude!, longitude: viewModel.getPinsIndex(index: 0).longitude!)
+                                    viewModel.setCheckablePins(checkablePins: viewModel.mergeSort(viewModel.getCheckablePins()!, pivot: pivot))
+                                    mainMap.selectAnnotation(pinAnnotation[viewModel.getPinsIndex(index: Int(currentIndex)).pinDBId!]!, animated: false)
+                                }
                             }
                         }
                     }
