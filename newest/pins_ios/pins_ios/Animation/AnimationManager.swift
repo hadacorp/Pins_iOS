@@ -9,7 +9,7 @@ import UIKit
 import MapKit
 
 extension ViewController{
-    // MARK:- Objc function
+    // MARK: - Objc function
     // 카드뷰로 핀이 선택됐을 때
     
     func searchedKeywordNarrow(){

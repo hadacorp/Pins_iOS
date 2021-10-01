@@ -8,7 +8,7 @@
 import UIKit
 
 class SearchViewModel: SearchVCUI {
-    // MARK:- Private Variable
+    // MARK: - Private Variable
     private var keyword = ""
     private var places: [Place]?
     
