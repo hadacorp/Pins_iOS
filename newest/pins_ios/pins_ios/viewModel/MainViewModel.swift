@@ -10,6 +10,7 @@ import UIKit
 class MainViewModel: MainVCUI {
     // MARK:- Public Variable
     public var checkablePins: [Pin]?
+    public var temp: [Pin] = []
     
     // MARK:- Public function
     public func getPinCardsCount() -> Int{
@@ -98,10 +99,49 @@ class MainViewModel: MainVCUI {
         getSearchButton().layer.opacity = 0.9
     }
     
+    
+    public func mergeSort(_ array: [Pin], pivot: CLLocation) -> [Pin] {
+        if array.count <= 1 { return array }
+        let center = array.count / 2
+        let left = Array(array[0..<center])
+        let right = Array(array[center..<array.count])
+        
+        func merge(_ left: [Pin],_ right: [Pin]) -> [Pin] {
+            var left = left
+            var right = right
+            var result: [Pin] = []
+            
+            while !left.isEmpty && !right.isEmpty {
+                let Rpos = CLLocation(latitude: right[0].latitude!, longitude: right[0].longitude!)
+                let Lpos = CLLocation(latitude: left[0].latitude!, longitude: left[0].longitude!)
+                
+                if pivot.distance(from: Lpos) < pivot.distance(from: Rpos){
+                    result.append(left.removeFirst())
+                }
+                else{
+                    result.append(right.removeFirst())
+                }
+            }
+            
+            // 왼쪽 배열의 요소가 남은 경우
+            if !left.isEmpty {
+                result.append(contentsOf: left)
+            }
+            
+            // 오른쪽 배열의 요소가 남은 경우
+            if !right.isEmpty {
+                result.append(contentsOf: right)
+            }
+            
+            return result
+        }
+        
+        return merge(mergeSort(left, pivot: pivot), mergeSort(right, pivot: pivot))
+    }
+    
     public func makePin(pinAnnotation: [Int : CustomPintAnnotation], annotationView: MKAnnotationView, annotation: MKAnnotation){
         let pinTemp = pinAnnotation[Int(annotation.subtitle!!)!]!
         if pinTemp.pinType == PinType.meet.rawValue {
-            annotationView.frame = CGRect(x: 0, y: 0, width: 36, height: 52)
             switch pinTemp.pinCategory {
             case "대화/친목":
                 annotationView.image = UIImage(named: "pinBaseTalk")
@@ -128,8 +168,7 @@ class MainViewModel: MainVCUI {
             }
         }
         else{
-            annotationView.frame = CGRect(x: 0, y: 0, width: 62, height: 31)
-            annotationView.image = #imageLiteral(resourceName: "story")
+            annotationView.image = #imageLiteral(resourceName: "pinStoryBase")
             
             let label = UILabel()
             annotationView.addSubview(label)
@@ -149,7 +188,6 @@ class MainViewModel: MainVCUI {
     public func focusPin(pinAnnotation: [Int : CustomPintAnnotation], annotationView: MKAnnotationView, annotation: MKAnnotation){
         let pinTemp = pinAnnotation[Int(annotation.subtitle!!)!]!
         if pinTemp.pinType == PinType.meet.rawValue {
-            annotationView.frame = CGRect(x: 0, y: 0, width: 36, height: 52)
             switch pinTemp.pinCategory {
             case "대화/친목":
                 annotationView.image = UIImage(named: "pinSelectedTalk")
@@ -176,8 +214,7 @@ class MainViewModel: MainVCUI {
             }
         }
         else{
-            annotationView.frame = CGRect(x: 0, y: 0, width: 62, height: 31)
-            annotationView.image = #imageLiteral(resourceName: "seletedStory")
+            annotationView.image = #imageLiteral(resourceName: "pinStorySelected")
             // subview 삭제
             for view in annotationView.subviews {
                 view.removeFromSuperview()
@@ -201,7 +238,6 @@ class MainViewModel: MainVCUI {
     public func unfocusPin(pinAnnotation: [Int : CustomPintAnnotation], annotationView: MKAnnotationView, annotation: MKAnnotation){
         let pinTemp = pinAnnotation[Int(annotation.subtitle!!)!]!
         if pinTemp.pinType == PinType.meet.rawValue {
-            annotationView.frame = CGRect(x: 0, y: 0, width: 36, height: 52)
             switch pinTemp.pinCategory {
             case "대화/친목":
                 annotationView.image = UIImage(named: "pinBaseTalk")
@@ -228,8 +264,7 @@ class MainViewModel: MainVCUI {
             }
         }
         else{
-            annotationView.frame = CGRect(x: 0, y: 0, width: 62, height: 31)
-            annotationView.image = #imageLiteral(resourceName: "story")
+            annotationView.image = #imageLiteral(resourceName: "pinStoryBase")
             // subview 삭제
             for view in annotationView.subviews {
                 view.removeFromSuperview()

@@ -29,6 +29,7 @@ extension ViewController{
             viewModel.getSearchButton().backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
             viewModel.getSearchButton().superview?.layoutIfNeeded()
         }
+        paramSearchText = ""
     }
     func searchedKeywordWide(keyword: String){
         for i in viewModel.getSearchButton().subviews {
@@ -86,6 +87,9 @@ extension ViewController{
             self.viewModel.getMyLocationButton().snp.updateConstraints { btn in
                 btn.bottom.equalTo(-248)
             }
+            self.viewModel.getRefreshButton().snp.updateConstraints { btn in
+                btn.bottom.equalTo(-248)
+            }
             self.viewModel.getMyLocationButton().superview?.layoutIfNeeded()
         }
     }
@@ -99,8 +103,14 @@ extension ViewController{
             self.viewModel.getMyLocationButton().snp.updateConstraints { btn in
                 btn.bottom.equalTo(-118)
             }
+            self.viewModel.getRefreshButton().snp.updateConstraints { btn in
+                btn.bottom.equalTo(-118)
+            }
             self.viewModel.getMyLocationButton().superview?.layoutIfNeeded()
         }
+        
+        currentIndex = 0
+        goIndex = 0
     }
     
     @objc func myLocation() {
@@ -118,6 +128,7 @@ extension ViewController{
                 // set the camera property
                 mainMap.camera = mapCamera
             }
+            downCardView()
         }
     }
     
