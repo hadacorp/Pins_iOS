@@ -212,6 +212,9 @@ class MainViewModel: MainVCUI {
             default:
                 annotationView.image = UIImage(named: "pinSelectedOthers")
             }
+            UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseOut) {
+                annotationView.transform = CGAffineTransform(scaleX: 1.2, y: 1.2).translatedBy(x: 0, y: -4.6)
+            }
         }
         else{
             annotationView.image = #imageLiteral(resourceName: "pinStorySelected")
@@ -232,6 +235,10 @@ class MainViewModel: MainVCUI {
             label.textColor = #colorLiteral(red: 0.7137254902, green: 0.2156862745, blue: 1, alpha: 1)
             label.textAlignment = .center
             label.font = UIFont(name: "NotoSansKR-Regular", size: 12)
+            
+            UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseOut) {
+                annotationView.transform = CGAffineTransform(scaleX: 1.2, y: 1.2).translatedBy(x: 0, y: -3.1)
+            }
         }
     }
     
@@ -282,6 +289,10 @@ class MainViewModel: MainVCUI {
             label.textColor = #colorLiteral(red: 0.1137254902, green: 0.6666666667, blue: 0.9529411765, alpha: 1)
             label.textAlignment = .center
             label.font = UIFont(name: "NotoSansKR-Regular", size: 12)
+        }
+        
+        UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseOut) {
+            annotationView.transform = CGAffineTransform(scaleX: 1, y: 1).translatedBy(x: 0, y: 0)
         }
     }
 }
