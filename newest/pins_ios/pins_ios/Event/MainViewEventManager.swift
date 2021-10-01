@@ -68,23 +68,43 @@ extension ViewController{
         mainMap.removeAnnotations(mainMap.annotations)
         // 현재 화면 기준 좌표 저장
         let curPos = mainMap.centerCoordinate
-        // Get API
-        GetLocation().requestGet(latitude: curPos.latitude, longitude: curPos.longitude) { [self] (success, data) in
-            if let data = data as? [Pin]{
-                viewModel.setCheckablePins(checkablePins: data)
-                
-                DispatchQueue.main.async {
-                    pinAnnotation.removeAll()
-                    initPins(pins: data)
-                    startPos = CLLocationCoordinate2D(latitude: curPos.latitude, longitude: curPos.longitude)
-                    if viewModel.getPinCardsCount() == 0 {
-                        showToast(message: "없어요 야발.", font: UIFont(name: "NotoSansKR-Regular", size: 14)!, parent: self.view)
+        print(paramSearchText)
+        if paramSearchText == ""{
+            // Get API
+            GetLocation().requestGet(latitude: curPos.latitude, longitude: curPos.longitude) { [self] (success, data) in
+                if let data = data as? [Pin]{
+                    viewModel.setCheckablePins(checkablePins: data)
+                    
+                    DispatchQueue.main.async {
+                        pinAnnotation.removeAll()
+                        initPins(pins: data)
+                        startPos = CLLocationCoordinate2D(latitude: curPos.latitude, longitude: curPos.longitude)
+                        if viewModel.getPinCardsCount() == 0 {
+                            showToast(message: "없어요 야발.", font: UIFont(name: "NotoSansKR-Regular", size: 14)!, parent: self.view)
+                        }
                     }
                 }
             }
+            downCardView()
         }
-        
-        downCardView()
+        else{
+            // Get API
+            GetKeyword().requestGet(keyword: paramSearchText!, latitude: curPos.latitude, longitude: curPos.longitude) { [self] (success, data) in
+                if let data = data as? [Pin]{
+                    viewModel.setCheckablePins(checkablePins: data)
+                    
+                    DispatchQueue.main.async {
+                        pinAnnotation.removeAll()
+                        initPins(pins: data)
+                        startPos = CLLocationCoordinate2D(latitude: curPos.latitude, longitude: curPos.longitude)
+                        if viewModel.getPinCardsCount() == 0 {
+                            showToast(message: "없어요 야발.", font: UIFont(name: "NotoSansKR-Regular", size: 14)!, parent: self.view)
+                        }
+                    }
+                }
+            }
+            downCardView()
+        }
     }
     
     // 버튼 이벤트 설정

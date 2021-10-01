@@ -11,10 +11,10 @@ import MapKit
 import SnapKit
 
 class ViewController: UIViewController{
-    // MARK:- IBOutlet variable
+    // MARK: -IBOutlet variable
     // Main MapView
     @IBOutlet weak var mainMap: MKMapView!
-    // MARK:- Public variable
+    // MARK: -Public variable
     public var viewModel = MainViewModel(parent: nil, layout: nil)
     // 위치를 받아오기 위한 locationManager
     public var locationManager = CLLocationManager()
@@ -30,7 +30,7 @@ class ViewController: UIViewController{
     // Param Values 이동할 좌표
     public var paramLatitude: CLLocationDegrees?
     public var paramLongitude: CLLocationDegrees?
-    public var paramSearchText: String?
+    public var paramSearchText: String? = nil
     // 0: 키워드, 1: 위치
     public var paramType: Int = 0
     // toast
@@ -38,11 +38,11 @@ class ViewController: UIViewController{
     
     // 맵 일정 거리 스크롤 시 fetch를 위한 시작 좌표 저장
     public var startPos: CLLocationCoordinate2D?
-    // MARK:- Private variable
+    // MARK: - Private variable
     // 포커스된 핀
     private var focusPin: MKAnnotationView?
     
-    // MARK:- Private function
+    // MARK: - Private function
     override func viewDidLoad() {
         super.viewDidLoad()
         // navigation 뒤로가기 스와이프 예외처리
@@ -70,13 +70,13 @@ class ViewController: UIViewController{
                     GetLocation().requestGet(latitude: latitude, longitude: longitude) { (success, data) in
                         if let data = data as? [Pin] {
                             self.viewModel.setCheckablePins(checkablePins: data)
-                            DispatchQueue.main.async {
-                                self.mainMap.removeAnnotations(self.mainMap.annotations)
-                                self.initPins(pins: self.viewModel.getCheckablePins()!)
-                                self.currentIndex = 0
+                            DispatchQueue.main.async { [self] in
+                                mainMap.removeAnnotations(mainMap.annotations)
+                                initPins(pins: self.viewModel.getCheckablePins()!)
+                                currentIndex = 0
                                 // 검색된 위치로 이동
-                                self.goLocation(latitudeValue: latitude, longtudeValue: longitude, delta: 500)
-                                self.startPos = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+                                startPos = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+                                goLocation(latitudeValue: latitude, longtudeValue: longitude, delta: 500)
                             }
                         }
                     }
@@ -91,11 +91,12 @@ class ViewController: UIViewController{
                                 initPins(pins: self.viewModel.getCheckablePins()!)
                                 currentIndex = 0
                                 // 검색된 위치로 이동
-                                goLocation(latitudeValue: viewModel.getPinsIndex(index: 0).latitude!, longtudeValue: viewModel.getPinsIndex(index: 0).longitude!, delta: 500)
                                 startPos = CLLocationCoordinate2D(latitude: viewModel.getPinsIndex(index: 0).latitude!, longitude: viewModel.getPinsIndex(index: 0).longitude!)
+                                goLocation(latitudeValue: viewModel.getPinsIndex(index: 0).latitude!, longtudeValue: viewModel.getPinsIndex(index: 0).longitude!, delta: 500)
                                 
                                 let pivot = CLLocation(latitude: viewModel.getPinsIndex(index: 0).latitude!, longitude: viewModel.getPinsIndex(index: 0).longitude!)
                                 viewModel.setCheckablePins(checkablePins: viewModel.mergeSort(viewModel.getCheckablePins()!, pivot: pivot))
+                                mainMap.selectAnnotation(pinAnnotation[viewModel.getPinsIndex(index: Int(currentIndex)).pinDBId!]!, animated: false)
                             }
                         }
                     }
@@ -109,7 +110,6 @@ class ViewController: UIViewController{
         // 키워드 검색일때
         if viewModel.getPinCardsCount() > 0 && paramType == 0{
             self.upCardView()
-            mainMap.selectAnnotation(pinAnnotation[viewModel.getPinsIndex(index: Int(currentIndex)).pinDBId!]!, animated: false)
             if let paramSearchText = paramSearchText {
                 searchedKeywordWide(keyword: paramSearchText)
             }
@@ -131,13 +131,13 @@ class ViewController: UIViewController{
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-//        downCardView()
-//        mainMap.deselectAnnotation(focusPin?.annotation, animated: true)
+        downCardView()
+        mainMap.deselectAnnotation(focusPin?.annotation, animated: true)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-//        downCardView()
-//        mainMap.deselectAnnotation(focusPin?.annotation, animated: true)
+        downCardView()
+        mainMap.deselectAnnotation(focusPin?.annotation, animated: true)
     }
     
     private func setCollectionView(){
@@ -233,7 +233,7 @@ class ViewController: UIViewController{
         })
     }
     
-    // MARK:- Init Pins
+    // MARK: - Init Pins
     public func initPins(pins: [Pin]){
         for pin in 0 ..< pins.count{
             pinAnnotation.updateValue(CustomPintAnnotation(), forKey: pins[pin].pinDBId!)
@@ -251,7 +251,7 @@ class ViewController: UIViewController{
 }
 
 
-// MARK:- Extension CLLocationManagerDelegate
+// MARK: - Extension CLLocationManagerDelegate
 extension ViewController: CLLocationManagerDelegate{
     func getLocationUsagePermission() {
         //location4
@@ -280,7 +280,7 @@ extension ViewController: CLLocationManagerDelegate{
         print(error)
     }
 }
-// MARK:- Extension MKMapViewDelegate
+// MARK: - Extension MKMapViewDelegate
 extension ViewController: MKMapViewDelegate{
     // 이름에 맞는 이미지로 핀 이미지를 변경해주기
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
@@ -308,7 +308,7 @@ extension ViewController: MKMapViewDelegate{
     
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
         if let startPos = startPos{
-            if mapView.centerCoordinate.distance(from: startPos) > 1500 && paramSearchText == nil {
+            if mapView.centerCoordinate.distance(from: startPos) > 1500 && paramSearchText == "" {
                 GetLocation().requestGet(latitude: mapView.centerCoordinate.latitude, longitude: mapView.centerCoordinate.longitude) { [self] (success, data) in
                     if let data = data as? [Pin] {
                         let tempsetA = Set(data.map{ $0 })
@@ -338,7 +338,7 @@ extension ViewController: MKMapViewDelegate{
                     }
                 }
             }
-            else if mapView.centerCoordinate.distance(from: startPos) > 1500 && paramSearchText != nil{
+            else if mapView.centerCoordinate.distance(from: startPos) > 1500 && paramSearchText != ""{
                 GetKeyword().requestGet(keyword: paramSearchText!, latitude: mapView.centerCoordinate.latitude, longitude: mapView.centerCoordinate.longitude) { [self] (success, data) in
                     if let data = data as? [Pin] {
                         let tempsetA = Set(data.map{ $0 })

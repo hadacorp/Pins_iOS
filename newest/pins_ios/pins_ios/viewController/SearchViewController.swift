@@ -9,14 +9,14 @@ import UIKit
 import MapKit
 
 class SearchViewController: UIViewController, UITextFieldDelegate{
-    // MARK:- IB Something
+    // MARK: - IB Something
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!{didSet { searchBar.delegate = self }}
     @IBOutlet weak var keyWordText: UIButton!
     @IBOutlet weak var tagImage: UIImageView!
     
     
-    // MARK:- Button Event
+    // MARK: - Button Event
     @IBAction func getKeywordPins(_ sender: Any) {
         self.getSearchKeywordPins()
     }
@@ -34,8 +34,8 @@ class SearchViewController: UIViewController, UITextFieldDelegate{
     public var latitude: Double = 0
     public var longitude: Double = 0
     
-    // MARK:- Private
-    // MARK:- 지역 검색 변수들
+    // MARK: - Private
+    // MARK: - 지역 검색 변수들
     private var searchCompleter = MKLocalSearchCompleter()
     // MARK:- Function
     override func viewDidLoad() {
@@ -175,7 +175,7 @@ extension SearchViewController: UITableViewDelegate {
             let preVC = self.navigationController?.viewControllers[0] as! ViewController
             preVC.paramLongitude = longitude
             preVC.paramLatitude = latitude
-            preVC.paramSearchText = nil
+            preVC.paramSearchText = ""
             preVC.paramType = 1
             self.navigationController?.popViewController(animated: true)
             
@@ -193,7 +193,7 @@ extension SearchViewController: UITableViewDelegate {
                 let preVC = self.navigationController?.viewControllers[0] as! ViewController
                 preVC.paramLongitude = longitude
                 preVC.paramLatitude = latitude
-                preVC.paramSearchText = nil
+                preVC.paramSearchText = ""
                 preVC.paramType = 1
                 self.navigationController?.popViewController(animated: true)
             }
