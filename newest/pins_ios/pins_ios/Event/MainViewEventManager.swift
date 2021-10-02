@@ -50,8 +50,7 @@ extension ViewController{
                           delta span: Double) {
         let pLocation = CLLocationCoordinate2DMake(latitudeValue, longtudeValue)
         let viewRegion = MKCoordinateRegion(center: pLocation, latitudinalMeters: span, longitudinalMeters: span)
-        
-        mainMap.region = viewRegion
+        mainMap.setRegion(viewRegion, animated: true)
         
         let mapCamera = MKMapCamera()
         mapCamera.centerCoordinate = pLocation

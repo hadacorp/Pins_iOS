@@ -139,8 +139,8 @@ class MainViewModel: MainVCUI {
         return merge(mergeSort(left, pivot: pivot), mergeSort(right, pivot: pivot))
     }
     
-    public func makePin(pinAnnotation: [Int : CustomPintAnnotation], annotationView: MKAnnotationView, annotation: MKAnnotation){
-        let pinTemp = pinAnnotation[Int(annotation.subtitle!!)!]!
+    public func makePin(pinAnnotation: [String : CustomPintAnnotation], annotationView: MKAnnotationView, annotation: MKAnnotation){
+        let pinTemp = pinAnnotation[annotation.subtitle!! + annotation.title!!]!
         if pinTemp.pinType == PinType.meet.rawValue {
             switch pinTemp.pinCategory {
             case "대화/친목":
@@ -185,8 +185,8 @@ class MainViewModel: MainVCUI {
         }
     }
     
-    public func focusPin(pinAnnotation: [Int : CustomPintAnnotation], annotationView: MKAnnotationView, annotation: MKAnnotation){
-        let pinTemp = pinAnnotation[Int(annotation.subtitle!!)!]!
+    public func focusPin(pinAnnotation: [String : CustomPintAnnotation], annotationView: MKAnnotationView, annotation: MKAnnotation){
+        let pinTemp = pinAnnotation[annotation.subtitle!! + annotation.title!!]!
         if pinTemp.pinType == PinType.meet.rawValue {
             switch pinTemp.pinCategory {
             case "대화/친목":
@@ -242,8 +242,8 @@ class MainViewModel: MainVCUI {
         }
     }
     
-    public func unfocusPin(pinAnnotation: [Int : CustomPintAnnotation], annotationView: MKAnnotationView, annotation: MKAnnotation){
-        let pinTemp = pinAnnotation[Int(annotation.subtitle!!)!]!
+    public func unfocusPin(pinAnnotation: [String : CustomPintAnnotation], annotationView: MKAnnotationView, annotation: MKAnnotation){
+        let pinTemp = pinAnnotation[annotation.subtitle!! + annotation.title!!]!
         if pinTemp.pinType == PinType.meet.rawValue {
             switch pinTemp.pinCategory {
             case "대화/친목":
