@@ -244,7 +244,7 @@ class ViewController: UIViewController{
             pinAnnotation[pins[pin].pinDBId!]!.pinCategory = pins[pin].category
             pinAnnotation[pins[pin].pinDBId!]!.pinTitle = pins[pin].title ?? ""
             pinAnnotation[pins[pin].pinDBId!]!.coordinate = CLLocationCoordinate2D(latitude: CLLocationDegrees(pins[pin].latitude!), longitude: CLLocationDegrees(pins[pin].longitude!))
-            pinAnnotation[pins[pin].pinDBId!]!.title = pins[pin].category
+            pinAnnotation[pins[pin].pinDBId!]!.title = pins[pin].pinType
             pinAnnotation[pins[pin].pinDBId!]!.subtitle = "\(pins[pin].pinDBId!)"
             mainMap.addAnnotation(pinAnnotation[pins[pin].pinDBId!]!)
         }
@@ -253,8 +253,8 @@ class ViewController: UIViewController{
     // MARK: - Refresh Pin Datas
     public func fetchDatasToDistance(data: [Pin]){
         if let pins = viewModel.getCheckablePins(){
-            let tempsetA = Set(data.map{ $0.pinDBId })
-            let tempsetB = Set(pins.map{ $0.pinDBId })
+            let tempsetA = Set(data.map{ "\(String(describing: $0.pinDBId!))\(String(describing: $0.pinType!))" })
+            let tempsetB = Set(pins.map{ "\(String(describing: $0.pinDBId!))\(String(describing: $0.pinType!))" })
             // 새로 만들어야 하는 것
             let resulta = tempsetA.subtracting(tempsetB)
             // 삭제 해야하는 것
@@ -265,8 +265,11 @@ class ViewController: UIViewController{
                 // 삭제해야하는 핀 삭제
                 for i in resultc{
                     for j in mainMap.annotations{
-                        if i?.description == j.subtitle{
-                            mainMap.removeAnnotation(j)
+                        if j.coordinate.latitude != mainMap.userLocation.coordinate.latitude || j.coordinate.longitude != mainMap.userLocation.coordinate.longitude {
+                            let sum = j.subtitle!! + j.title!!
+                            if i.description == sum{
+                                mainMap.removeAnnotation(j)
+                            }
                         }
                     }
                 }
@@ -274,7 +277,8 @@ class ViewController: UIViewController{
                 var initArray: [Pin] = []
                 for i in resulta{
                     for j in data{
-                        if i == j.pinDBId{
+                        let sum = String(j.pinDBId!) + j.pinType!
+                        if i.description == sum{
                             initArray.append(j)
                         }
                     }

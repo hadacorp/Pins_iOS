@@ -59,8 +59,6 @@ class SearchViewModel: SearchVCUI {
     
     public func getAllDatas() -> [RecentResearchTerm]{
         let datas: [RecentResearchTerm] = CoreDataManager.shared.getUsers()
-        let terms: [String] = datas.map({$0.term!})
-        let latitude: [Double] = datas.map({$0.latitude})
         return datas
     }
     
