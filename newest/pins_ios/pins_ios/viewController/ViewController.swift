@@ -19,7 +19,7 @@ class ViewController: UIViewController{
     // 위치를 받아오기 위한 locationManager
     public var locationManager = CLLocationManager()
     // 맵에 찍을 핀 객체
-    public var pinAnnotation: [Int : CustomPintAnnotation] = [:]
+    public var pinAnnotation: [String : CustomPintAnnotation] = [:]
     // 현재 위치 저장
     public var currentLocation: CLLocation!
     // 하단 컬렉션 뷰
@@ -97,7 +97,7 @@ class ViewController: UIViewController{
                                     
                                     let pivot = CLLocation(latitude: viewModel.getPinsIndex(index: 0).latitude!, longitude: viewModel.getPinsIndex(index: 0).longitude!)
                                     viewModel.setCheckablePins(checkablePins: viewModel.mergeSort(viewModel.getCheckablePins()!, pivot: pivot))
-                                    mainMap.selectAnnotation(pinAnnotation[viewModel.getPinsIndex(index: Int(currentIndex)).pinDBId!]!, animated: false)
+                                    mainMap.selectAnnotation(pinAnnotation[String(viewModel.getPinsIndex(index: Int(currentIndex)).pinDBId!) + viewModel.getPinsIndex(index: Int(currentIndex)).pinType!]!, animated: false)
                                 }
                             }
                         }
@@ -238,15 +238,15 @@ class ViewController: UIViewController{
     // MARK: - Init Pins
     public func initPins(pins: [Pin]){
         for pin in 0 ..< pins.count{
-            pinAnnotation.updateValue(CustomPintAnnotation(), forKey: pins[pin].pinDBId!)
-            pinAnnotation[pins[pin].pinDBId!]!.pinType = pins[pin].pinType
-            pinAnnotation[pins[pin].pinDBId!]!.pinDBId = pins[pin].pinDBId
-            pinAnnotation[pins[pin].pinDBId!]!.pinCategory = pins[pin].category
-            pinAnnotation[pins[pin].pinDBId!]!.pinTitle = pins[pin].title ?? ""
-            pinAnnotation[pins[pin].pinDBId!]!.coordinate = CLLocationCoordinate2D(latitude: CLLocationDegrees(pins[pin].latitude!), longitude: CLLocationDegrees(pins[pin].longitude!))
-            pinAnnotation[pins[pin].pinDBId!]!.title = pins[pin].pinType
-            pinAnnotation[pins[pin].pinDBId!]!.subtitle = "\(pins[pin].pinDBId!)"
-            mainMap.addAnnotation(pinAnnotation[pins[pin].pinDBId!]!)
+            pinAnnotation.updateValue(CustomPintAnnotation(), forKey: "\(pins[pin].pinDBId!)" + pins[pin].pinType!)
+            pinAnnotation["\(pins[pin].pinDBId!)" + pins[pin].pinType!]!.pinType = pins[pin].pinType
+            pinAnnotation["\(pins[pin].pinDBId!)" + pins[pin].pinType!]!.pinDBId = pins[pin].pinDBId
+            pinAnnotation["\(pins[pin].pinDBId!)" + pins[pin].pinType!]!.pinCategory = pins[pin].category
+            pinAnnotation["\(pins[pin].pinDBId!)" + pins[pin].pinType!]!.pinTitle = pins[pin].title ?? ""
+            pinAnnotation["\(pins[pin].pinDBId!)" + pins[pin].pinType!]!.coordinate = CLLocationCoordinate2D(latitude: CLLocationDegrees(pins[pin].latitude!), longitude: CLLocationDegrees(pins[pin].longitude!))
+            pinAnnotation["\(pins[pin].pinDBId!)" + pins[pin].pinType!]!.title = pins[pin].pinType
+            pinAnnotation["\(pins[pin].pinDBId!)" + pins[pin].pinType!]!.subtitle = "\(pins[pin].pinDBId!)"
+            mainMap.addAnnotation(pinAnnotation["\(pins[pin].pinDBId!)" + pins[pin].pinType!]!)
         }
     }
     
@@ -350,14 +350,15 @@ extension ViewController: MKMapViewDelegate{
     
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
         if let startPos = startPos{
-            if mapView.centerCoordinate.distance(from: startPos) > 1500 && paramSearchText == "" {
+            if mapView.centerCoordinate.distance(from: startPos) > 1500 && paramSearchText == "" && currentIndex == 0{
                 GetLocation().requestGet(latitude: mapView.centerCoordinate.latitude, longitude: mapView.centerCoordinate.longitude) { [self] (success, data) in
                     if let data = data as? [Pin] {
                         fetchDatasToDistance(data: data)
                     }
                 }
             }
-            else if mapView.centerCoordinate.distance(from: startPos) > 1500 && paramSearchText != ""{
+            else if mapView.centerCoordinate.distance(from: startPos) > 1500 && paramSearchText != "" && currentIndex == 0{
+                print(mapView.centerCoordinate)
                 GetKeyword().requestGet(keyword: paramSearchText!, latitude: mapView.centerCoordinate.latitude, longitude: mapView.centerCoordinate.longitude) { [self] (success, data) in
                     if let data = data as? [Pin] {
                         fetchDatasToDistance(data: data)
@@ -379,6 +380,8 @@ extension ViewController: MKMapViewDelegate{
         }
         upCardView()
         viewModel.focusPin(pinAnnotation: pinAnnotation, annotationView: view, annotation: view.annotation!)
+        let region = MKCoordinateRegion(center: view.annotation!.coordinate, span: mapView.region.span)
+        mapView.setRegion(region, animated: true)
         focusPin = view
     }
     
@@ -437,7 +440,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
             roundedIndex = currentIndex
         }
         
-        mainMap.selectAnnotation(pinAnnotation[viewModel.getPinsIndex(index: Int(currentIndex)).pinDBId!]!, animated: false)
+        mainMap.selectAnnotation(pinAnnotation[String(viewModel.getPinsIndex(index: Int(currentIndex)).pinDBId!) + viewModel.getPinsIndex(index: Int(currentIndex)).pinType!]!, animated: false)
         offset = CGPoint(x: roundedIndex * cellWidthIncludingSpacing - scrollView.contentInset.left, y: -scrollView.contentInset.top)
         targetContentOffset.pointee = offset
     }
