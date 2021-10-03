@@ -14,6 +14,7 @@ extension ViewController{
     
     func searchedKeywordNarrow(){
         for i in viewModel.getSearchButton().subviews {
+            // tag: 1 키워드 검색
             if i.tag != 1{
                 i.removeFromSuperview()
             }
@@ -33,6 +34,7 @@ extension ViewController{
     }
     func searchedKeywordWide(keyword: String){
         for i in viewModel.getSearchButton().subviews {
+            // tag: 1 키워드 검색
             if i.tag != 1{
                 i.removeFromSuperview()
             }
@@ -57,19 +59,19 @@ extension ViewController{
             viewModel.getSearchButton().superview?.layoutIfNeeded()
         } completion: { [self] (finished: Bool) in
             // 애니메이션 후
+            viewModel.getSearchButton().addSubview(cancelButton)
+            cancelButton.snp.makeConstraints { btn in
+                btn.trailing.equalTo(0)
+                btn.top.equalTo(0)
+                btn.width.height.equalTo(40)
+            }
+            
             viewModel.getSearchButton().addSubview(keywordLabel)
             keywordLabel.snp.makeConstraints { label in
                 label.leading.equalTo(40)
                 label.trailing.equalTo(40)
                 label.top.equalTo(7)
                 label.bottom.equalTo(-9)
-            }
-            
-            viewModel.getSearchButton().addSubview(cancelButton)
-            cancelButton.snp.makeConstraints { btn in
-                btn.trailing.equalTo(0)
-                btn.top.equalTo(0)
-                btn.width.height.equalTo(40)
             }
         }
         
@@ -134,13 +136,36 @@ extension ViewController{
     }
     
     @objc func filterAnimate(){
-        
+        // 접혀질 때
         if viewModel.getMoveButton().frame.width == 232 {
             viewModel.getMoveButton().setImage(#imageLiteral(resourceName: "iconEye"), for: .normal)
             
             viewModel.getFilterMeetButton().layer.opacity = 0
             viewModel.getFilterStoryButton().layer.opacity = 0
             viewModel.getFilterCommunityButton().layer.opacity = 0
+            
+            // 키워드 검색이 적용 되었다는 뜻.
+            if viewModel.getSearchButton().frame.width == 80{
+                let keywordLabel = UILabel(frame: CGRect(x: 40, y: 0, width: 0, height: 40))
+                keywordLabel.text = "'" + paramSearchText! + "'" + "로 검색됨"
+                keywordLabel.font = UIFont(name: "NotoSansKR-Regular", size: 16)
+                keywordLabel.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+                viewModel.getSearchButton().addSubview(keywordLabel)
+                
+                UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseOut) { [self] in
+                    viewModel.getSearchButton().imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: keywordLabel.intrinsicContentSize.width + 40)
+                    viewModel.getSearchButton().snp.updateConstraints { make in
+                        make.width.equalTo(keywordLabel.intrinsicContentSize.width + 80)
+                    }
+                    
+                    keywordLabel.snp.makeConstraints { label in
+                        label.leading.equalTo(40)
+                        label.trailing.equalTo(40)
+                        label.top.equalTo(7)
+                        label.bottom.equalTo(-9)
+                    }
+                }
+            }
             
             UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseOut) { [self] in
                 viewModel.getMoveButton().imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
@@ -153,7 +178,21 @@ extension ViewController{
                 viewModel.getMoveButton().superview?.layoutIfNeeded()
             }
         }
+        // 펼쳐질 때
         else if viewModel.getMoveButton().frame.width == 40{
+            // 키워드 검색이 적용 되었다는 뜻.
+            if viewModel.getSearchButton().frame.width > 40{
+                viewModel.getSearchButton().subviews[2].removeFromSuperview()
+                
+                UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseOut) { [self] in
+                    viewModel.getSearchButton().imageEdgeInsets = UIEdgeInsets(top: 0, left: -40, bottom: 0, right: 0)
+                    viewModel.getSearchButton().snp.updateConstraints { btn in
+                        btn.width.equalTo(80)
+                        btn.top.equalTo(self.view.safeAreaLayoutGuide).offset(16)
+                        btn.leading.equalTo(16)
+                    }
+                }
+            }
             viewModel.getMoveButton().setImage(#imageLiteral(resourceName: "iconList"), for: .normal)
             UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseOut) { [self] in
                 viewModel.getMoveButton().imageEdgeInsets = UIEdgeInsets(top: 0, left: 202, bottom: 0, right: 10)
