@@ -135,7 +135,7 @@ extension ViewController{
         }
     }
     
-    @objc func filterAnimate(){
+    func filterNarrow(){
         // 접혀질 때
         if viewModel.getMoveButton().frame.width == 232 {
             viewModel.getMoveButton().setImage(#imageLiteral(resourceName: "iconEye"), for: .normal)
@@ -177,6 +177,12 @@ extension ViewController{
                 }
                 viewModel.getMoveButton().superview?.layoutIfNeeded()
             }
+        }
+    }
+    
+    @objc func filterAnimate(){
+        if viewModel.getMoveButton().frame.width == 232 {
+            print("화면 전환")
         }
         // 펼쳐질 때
         else if viewModel.getMoveButton().frame.width == 40{
