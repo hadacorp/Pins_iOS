@@ -130,6 +130,10 @@ class ViewController: UIViewController{
             searchedKeywordNarrow()
             downCardView()
         }
+        // 화면 바뀌면 무조건 줄이기
+        if viewModel.getMoveButton().frame.width == 232 {
+            filterAnimate()
+        }
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
