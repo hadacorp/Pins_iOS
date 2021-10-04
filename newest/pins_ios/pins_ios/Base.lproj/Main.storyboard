@@ -199,16 +199,16 @@
             </objects>
             <point key="canvasLocation" x="-722" y="101"/>
         </scene>
-        <!--Filter Controller-->
+        <!--Meeting Filter Controller-->
         <scene sceneID="9Ud-VU-Vf7">
             <objects>
-                <viewController storyboardIdentifier="FilterVC" id="zof-v8-80R" customClass="FilterController" customModule="pins_ios" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MeetingFilterVC" id="zof-v8-80R" customClass="MeetingFilterController" customModule="pins_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="h1L-AQ-o0P">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L0S-Wp-vuZ">
-                                <rect key="frame" x="2" y="48" width="48" height="48"/>
+                                <rect key="frame" x="2" y="44" width="48" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="cTO-rM-Piu"/>
                                     <constraint firstAttribute="width" constant="48" id="fGI-Mn-YXM"/>
@@ -218,15 +218,6 @@
                                 <connections>
                                     <action selector="backFilterBtn:" destination="zof-v8-80R" eventType="touchUpInside" id="GSh-D0-K0C"/>
                                 </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="drz-PA-QKZ">
-                                <rect key="frame" x="364" y="40" width="48" height="48"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="48" id="NEg-II-FBD"/>
-                                    <constraint firstAttribute="width" constant="48" id="wAJ-XN-bCX"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="iconFilterReset" title=" "/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="상세 필터" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uyV-Ek-gdA">
                                 <rect key="frame" x="179.5" y="58" width="55.5" height="20.5"/>
@@ -287,20 +278,28 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(중복 선택 가능)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PFY-js-jmA">
-                                <rect key="frame" x="70" y="149" width="82" height="18"/>
+                                <rect key="frame" x="70" y="149" width="81.5" height="17.5"/>
                                 <fontDescription key="fontDescription" name="NotoSansKR-Regular" family="Noto Sans KR" pointSize="12"/>
                                 <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="drz-PA-QKZ">
+                                <rect key="frame" x="364" y="44" width="48" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="NEg-II-FBD"/>
+                                    <constraint firstAttribute="width" constant="48" id="wAJ-XN-bCX"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="iconFilterReset" title=" "/>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="zUH-Hv-09f"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="zUH-Hv-09f" firstAttribute="top" secondItem="drz-PA-QKZ" secondAttribute="top" constant="4" id="06c-IP-nwn"/>
                             <constraint firstItem="pUN-Lm-O0K" firstAttribute="width" secondItem="zUH-Hv-09f" secondAttribute="width" multiplier="0.333333" id="0fm-5d-kIQ"/>
+                            <constraint firstItem="drz-PA-QKZ" firstAttribute="top" secondItem="zUH-Hv-09f" secondAttribute="top" id="2yl-0Q-3zZ"/>
                             <constraint firstItem="L0S-Wp-vuZ" firstAttribute="leading" secondItem="zUH-Hv-09f" secondAttribute="leading" constant="2" id="3Sh-68-bmh"/>
                             <constraint firstItem="XXT-f0-Vel" firstAttribute="width" secondItem="zUH-Hv-09f" secondAttribute="width" multiplier="0.333333" id="7ZS-VA-bEt"/>
-                            <constraint firstItem="L0S-Wp-vuZ" firstAttribute="top" secondItem="zUH-Hv-09f" secondAttribute="top" constant="4" id="BXQ-3M-jpw"/>
                             <constraint firstItem="pUN-Lm-O0K" firstAttribute="leading" secondItem="zUH-Hv-09f" secondAttribute="leading" id="CgI-eo-VaO"/>
                             <constraint firstItem="PFY-js-jmA" firstAttribute="leading" secondItem="zUH-Hv-09f" secondAttribute="leading" constant="70" id="FBn-Ja-hLM"/>
                             <constraint firstItem="zrb-55-TGO" firstAttribute="width" secondItem="pUN-Lm-O0K" secondAttribute="width" constant="-32" id="Kth-Mr-HwV"/>
@@ -318,12 +317,144 @@
                             <constraint firstItem="uyV-Ek-gdA" firstAttribute="centerX" secondItem="zUH-Hv-09f" secondAttribute="centerX" id="xdQ-I8-inP"/>
                             <constraint firstItem="zUH-Hv-09f" firstAttribute="trailing" secondItem="7xX-rp-SFc" secondAttribute="trailing" id="yLc-rA-Bsv"/>
                             <constraint firstItem="PFY-js-jmA" firstAttribute="top" secondItem="zUH-Hv-09f" secondAttribute="top" constant="105" id="yhE-EV-f0D"/>
+                            <constraint firstItem="L0S-Wp-vuZ" firstAttribute="top" secondItem="zUH-Hv-09f" secondAttribute="top" id="yrI-ag-L48"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rmF-O5-4HN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="160.86956521739131" y="748.66071428571422"/>
+            <point key="canvasLocation" x="-552.17391304347825" y="783.48214285714278"/>
+        </scene>
+        <!--Community Filter Controller-->
+        <scene sceneID="rTb-IN-EC0">
+            <objects>
+                <viewController storyboardIdentifier="CommunityFilterVC" id="XdW-ss-Lpe" customClass="CommunityFilterController" customModule="pins_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="R8m-xg-1N8">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="상세 필터" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TLa-ki-v07">
+                                <rect key="frame" x="179.5" y="58" width="55.5" height="20.5"/>
+                                <fontDescription key="fontDescription" name="NotoSansKR-Regular" family="Noto Sans KR" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zgG-uV-uSv">
+                                <rect key="frame" x="2" y="44" width="48" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="48" id="GXk-HK-qmg"/>
+                                    <constraint firstAttribute="height" constant="48" id="QaU-hM-NBi"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="iconFilterBack" title=" "/>
+                                <connections>
+                                    <action selector="backFilterBtn:" destination="XdW-ss-Lpe" eventType="touchUpInside" id="BO2-tX-Dno"/>
+                                    <action selector="backFilterBtn:" destination="zof-v8-80R" eventType="touchUpInside" id="or8-Hc-faV"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kdp-jk-GPU">
+                                <rect key="frame" x="364" y="44" width="48" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="ebB-yE-uZ3"/>
+                                    <constraint firstAttribute="width" constant="48" id="oFs-G4-wG9"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="iconFilterReset" title=" "/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="카테고리" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FFt-KC-IQU">
+                                <rect key="frame" x="16" y="148" width="52" height="20.5"/>
+                                <fontDescription key="fontDescription" name="NotoSansKR-Medium" family="Noto Sans KR" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tdC-Be-gi4">
+                                <rect key="frame" x="276" y="92" width="138" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" identifier="1" id="Ak2-dz-JL9"/>
+                                </constraints>
+                                <color key="tintColor" red="0.8862745098" green="0.8862745098" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="이야기 핀">
+                                    <fontDescription key="titleFontDescription" name="NotoSansKR-Medium" family="Noto Sans KR" pointSize="14"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="storyFilterBtn:" destination="zof-v8-80R" eventType="touchUpInside" id="9ui-Rc-m65"/>
+                                    <action selector="storyFilterBtn:" destination="XdW-ss-Lpe" eventType="touchUpInside" id="q32-ZV-8qd"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sVY-e7-Jmk">
+                                <rect key="frame" x="0.0" y="92" width="138" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="uW3-hR-POe"/>
+                                </constraints>
+                                <color key="tintColor" red="0.88627450980392153" green="0.88627450980392153" blue="0.88627450980392153" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="만남 핀">
+                                    <fontDescription key="titleFontDescription" name="NotoSansKR-Medium" family="Noto Sans KR" pointSize="14"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="mettingFilterBtn:" destination="XdW-ss-Lpe" eventType="touchUpInside" id="HDS-2B-8IB"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="71t-DE-5Pd">
+                                <rect key="frame" x="154" y="131" width="106" height="1"/>
+                                <color key="backgroundColor" red="0.1137254902" green="0.66666666669999997" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="yDc-uE-xdt"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(중복 선택 가능)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MHB-jX-QvC">
+                                <rect key="frame" x="70" y="149" width="82" height="18"/>
+                                <fontDescription key="fontDescription" name="NotoSansKR-Regular" family="Noto Sans KR" pointSize="12"/>
+                                <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X9T-pw-Mbt">
+                                <rect key="frame" x="138" y="92" width="138" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="3hn-qG-nSs"/>
+                                </constraints>
+                                <color key="tintColor" red="0.11372549019607843" green="0.66666666666666663" blue="0.95294117647058818" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="커뮤니티 핀">
+                                    <fontDescription key="titleFontDescription" name="NotoSansKR-Medium" family="Noto Sans KR" pointSize="14"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="communityFilterBtn:" destination="zof-v8-80R" eventType="touchUpInside" id="oQB-hy-dRR"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Lvg-a0-Noa"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="X9T-pw-Mbt" firstAttribute="centerX" secondItem="Lvg-a0-Noa" secondAttribute="centerX" id="2kf-wA-6hH"/>
+                            <constraint firstItem="X9T-pw-Mbt" firstAttribute="top" secondItem="Lvg-a0-Noa" secondAttribute="top" constant="48" id="9G9-x8-RIA"/>
+                            <constraint firstItem="zgG-uV-uSv" firstAttribute="leading" secondItem="Lvg-a0-Noa" secondAttribute="leading" constant="2" id="ARY-oN-BsK"/>
+                            <constraint firstItem="Lvg-a0-Noa" firstAttribute="trailing" secondItem="tdC-Be-gi4" secondAttribute="trailing" id="Fua-Dy-4VZ"/>
+                            <constraint firstItem="MHB-jX-QvC" firstAttribute="top" secondItem="Lvg-a0-Noa" secondAttribute="top" constant="105" id="Ily-lG-889"/>
+                            <constraint firstItem="71t-DE-5Pd" firstAttribute="width" secondItem="X9T-pw-Mbt" secondAttribute="width" constant="-32" id="KgC-0k-9lx"/>
+                            <constraint firstItem="sVY-e7-Jmk" firstAttribute="leading" secondItem="Lvg-a0-Noa" secondAttribute="leading" id="Lch-bI-6N9"/>
+                            <constraint firstItem="sVY-e7-Jmk" firstAttribute="top" secondItem="Lvg-a0-Noa" secondAttribute="top" constant="48" id="Nft-nq-kqx"/>
+                            <constraint firstItem="71t-DE-5Pd" firstAttribute="top" secondItem="Lvg-a0-Noa" secondAttribute="top" constant="87" id="U4b-A6-k0v"/>
+                            <constraint firstItem="TLa-ki-v07" firstAttribute="centerX" secondItem="Lvg-a0-Noa" secondAttribute="centerX" id="UEe-kI-hnP"/>
+                            <constraint firstItem="71t-DE-5Pd" firstAttribute="centerX" secondItem="Lvg-a0-Noa" secondAttribute="centerX" id="X9S-rU-b0A"/>
+                            <constraint firstItem="zgG-uV-uSv" firstAttribute="top" secondItem="Lvg-a0-Noa" secondAttribute="top" id="Y0a-Q2-uM0"/>
+                            <constraint firstItem="X9T-pw-Mbt" firstAttribute="width" secondItem="Lvg-a0-Noa" secondAttribute="width" multiplier="0.333333" id="Ycv-eb-cbr"/>
+                            <constraint firstItem="sVY-e7-Jmk" firstAttribute="width" secondItem="Lvg-a0-Noa" secondAttribute="width" multiplier="0.333333" id="ZcA-Zk-seI"/>
+                            <constraint firstItem="FFt-KC-IQU" firstAttribute="top" secondItem="Lvg-a0-Noa" secondAttribute="top" constant="104" id="cDV-hw-I3v"/>
+                            <constraint firstItem="FFt-KC-IQU" firstAttribute="leading" secondItem="Lvg-a0-Noa" secondAttribute="leading" constant="16" id="dfW-uE-CQe"/>
+                            <constraint firstItem="TLa-ki-v07" firstAttribute="top" secondItem="Lvg-a0-Noa" secondAttribute="top" constant="14" id="nVA-og-ugG"/>
+                            <constraint firstItem="Lvg-a0-Noa" firstAttribute="trailing" secondItem="kdp-jk-GPU" secondAttribute="trailing" constant="2" id="us1-9r-p7w"/>
+                            <constraint firstItem="kdp-jk-GPU" firstAttribute="top" secondItem="Lvg-a0-Noa" secondAttribute="top" id="wPu-wY-Qdk"/>
+                            <constraint firstItem="tdC-Be-gi4" firstAttribute="width" secondItem="Lvg-a0-Noa" secondAttribute="width" multiplier="0.333333" id="wgd-pP-Oyo"/>
+                            <constraint firstItem="tdC-Be-gi4" firstAttribute="top" secondItem="Lvg-a0-Noa" secondAttribute="top" constant="48" id="y0D-1a-7F5"/>
+                            <constraint firstItem="MHB-jX-QvC" firstAttribute="leading" secondItem="Lvg-a0-Noa" secondAttribute="leading" constant="70" id="zJ6-Pn-Ha4"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aWV-ZK-tcF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1181" y="783"/>
         </scene>
     </scenes>
     <resources>

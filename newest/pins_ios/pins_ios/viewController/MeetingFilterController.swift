@@ -7,10 +7,12 @@
 
 import UIKit
 
-class FilterController: UIViewController {
+class MeetingFilterController: UIViewController {
     
     @IBAction func communityFilterBtn(_ sender: Any) {
-        print("커뮤니티 필터")
+        let VC1 = self.storyboard!.instantiateViewController(withIdentifier: "CommunityFilterVC") as! CommunityFilterController
+        
+        self.navigationController!.pushViewController(VC1, animated: false)
     }
     @IBAction func storyFilterBtn(_ sender: Any) {
         print("스토리 필터")
