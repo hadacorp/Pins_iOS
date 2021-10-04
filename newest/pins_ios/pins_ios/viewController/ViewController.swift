@@ -110,6 +110,8 @@ class ViewController: UIViewController{
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         // 키워드 검색일때
+        print(viewModel.getPinCardsCount())
+        print(paramType)
         if viewModel.getPinCardsCount() > 0 && paramType == 0{
             self.upCardView()
             if let paramSearchText = paramSearchText {
