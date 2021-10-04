@@ -232,7 +232,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pUN-Lm-O0K">
-                                <rect key="frame" x="0.0" y="102" width="124" height="40"/>
+                                <rect key="frame" x="0.0" y="92" width="138" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="f7F-ed-UB3"/>
                                 </constraints>
@@ -242,25 +242,63 @@
                                     <fontDescription key="titleFontDescription" name="NotoSansKR-Medium" family="Noto Sans KR" pointSize="14"/>
                                 </buttonConfiguration>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XXT-f0-Vel">
+                                <rect key="frame" x="138" y="92" width="138" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="AYM-N2-z3X"/>
+                                </constraints>
+                                <color key="tintColor" red="0.1137254902" green="0.66666666669999997" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="커뮤니티 핀">
+                                    <fontDescription key="titleFontDescription" name="NotoSansKR-Medium" family="Noto Sans KR" pointSize="14"/>
+                                </buttonConfiguration>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7xX-rp-SFc">
+                                <rect key="frame" x="276" y="92" width="138" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="7uQ-z3-l36"/>
+                                </constraints>
+                                <color key="tintColor" red="0.1137254902" green="0.66666666669999997" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="이야기 핀">
+                                    <fontDescription key="titleFontDescription" name="NotoSansKR-Medium" family="Noto Sans KR" pointSize="14"/>
+                                </buttonConfiguration>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zrb-55-TGO">
+                                <rect key="frame" x="16" y="131" width="106" height="1"/>
+                                <color key="backgroundColor" red="0.11372549019607843" green="0.66666666666666663" blue="0.95294117647058818" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="NDv-R1-NdL"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="zUH-Hv-09f"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="zUH-Hv-09f" firstAttribute="top" secondItem="drz-PA-QKZ" secondAttribute="top" constant="2" id="06c-IP-nwn"/>
-                            <constraint firstItem="pUN-Lm-O0K" firstAttribute="width" secondItem="zUH-Hv-09f" secondAttribute="width" multiplier="3/10" id="0fm-5d-kIQ"/>
+                            <constraint firstItem="pUN-Lm-O0K" firstAttribute="width" secondItem="zUH-Hv-09f" secondAttribute="width" multiplier="0.333333" id="0fm-5d-kIQ"/>
                             <constraint firstItem="L0S-Wp-vuZ" firstAttribute="leading" secondItem="zUH-Hv-09f" secondAttribute="leading" constant="2" id="3Sh-68-bmh"/>
+                            <constraint firstItem="XXT-f0-Vel" firstAttribute="width" secondItem="zUH-Hv-09f" secondAttribute="width" multiplier="0.333333" id="7ZS-VA-bEt"/>
                             <constraint firstItem="L0S-Wp-vuZ" firstAttribute="top" secondItem="zUH-Hv-09f" secondAttribute="top" constant="4" id="BXQ-3M-jpw"/>
                             <constraint firstItem="pUN-Lm-O0K" firstAttribute="leading" secondItem="zUH-Hv-09f" secondAttribute="leading" id="CgI-eo-VaO"/>
-                            <constraint firstItem="pUN-Lm-O0K" firstAttribute="top" secondItem="zUH-Hv-09f" secondAttribute="top" constant="58" id="Q71-2r-WXQ"/>
+                            <constraint firstItem="zrb-55-TGO" firstAttribute="width" secondItem="pUN-Lm-O0K" secondAttribute="width" constant="-32" id="Kth-Mr-HwV"/>
+                            <constraint firstItem="zrb-55-TGO" firstAttribute="leading" secondItem="zUH-Hv-09f" secondAttribute="leading" constant="16" id="Q27-uD-WOm"/>
+                            <constraint firstItem="pUN-Lm-O0K" firstAttribute="top" secondItem="zUH-Hv-09f" secondAttribute="top" constant="48" id="Q71-2r-WXQ"/>
+                            <constraint firstItem="7xX-rp-SFc" firstAttribute="top" secondItem="zUH-Hv-09f" secondAttribute="top" constant="48" id="Veq-1X-fRJ"/>
+                            <constraint firstItem="7xX-rp-SFc" firstAttribute="width" secondItem="zUH-Hv-09f" secondAttribute="width" multiplier="0.333333" id="fex-Pn-uOg"/>
                             <constraint firstItem="zUH-Hv-09f" firstAttribute="trailing" secondItem="drz-PA-QKZ" secondAttribute="trailing" constant="4" id="g7R-M1-QDk"/>
+                            <constraint firstItem="XXT-f0-Vel" firstAttribute="top" secondItem="zUH-Hv-09f" secondAttribute="top" constant="48" id="hXP-K1-ecT"/>
+                            <constraint firstItem="zrb-55-TGO" firstAttribute="top" secondItem="zUH-Hv-09f" secondAttribute="top" constant="87" id="klu-lg-0lD"/>
                             <constraint firstItem="uyV-Ek-gdA" firstAttribute="top" secondItem="zUH-Hv-09f" secondAttribute="top" constant="14" id="qgO-wW-hA1"/>
+                            <constraint firstItem="XXT-f0-Vel" firstAttribute="centerX" secondItem="zUH-Hv-09f" secondAttribute="centerX" id="vgd-AL-8Pf"/>
                             <constraint firstItem="uyV-Ek-gdA" firstAttribute="centerX" secondItem="zUH-Hv-09f" secondAttribute="centerX" id="xdQ-I8-inP"/>
+                            <constraint firstItem="zUH-Hv-09f" firstAttribute="trailing" secondItem="7xX-rp-SFc" secondAttribute="trailing" id="yLc-rA-Bsv"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rmF-O5-4HN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="161" y="749"/>
+            <point key="canvasLocation" x="160.86956521739131" y="748.66071428571422"/>
         </scene>
     </scenes>
     <resources>
