@@ -130,10 +130,7 @@ class ViewController: UIViewController{
             searchedKeywordNarrow()
             downCardView()
         }
-        // 화면 바뀌면 무조건 줄이기
-        if viewModel.getMoveButton().frame.width == 232 {
-            filterAnimate()
-        }
+        filterNarrow()
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -142,6 +139,7 @@ class ViewController: UIViewController{
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        filterNarrow()
         downCardView()
         mainMap.deselectAnnotation(focusPin?.annotation, animated: true)
     }
