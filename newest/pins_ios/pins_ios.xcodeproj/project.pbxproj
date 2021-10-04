@@ -51,7 +51,9 @@
 		B7C5DAA826C805640011EE41 /* BigRoundedbutton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C5DAA726C805640011EE41 /* BigRoundedbutton.swift */; };
 		B7C5DAAA26C805D50011EE41 /* ThumbnailImg.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C5DAA926C805D50011EE41 /* ThumbnailImg.swift */; };
 		B7C5DAAD26C80A550011EE41 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C5DAAC26C80A550011EE41 /* MainViewModel.swift */; };
-		B7DE776D270B668900F8F0EB /* FilterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7DE776C270B668900F8F0EB /* FilterController.swift */; };
+		B7DE776D270B668900F8F0EB /* MeetingFilterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7DE776C270B668900F8F0EB /* MeetingFilterController.swift */; };
+		B7DE776F270B75F700F8F0EB /* CommunityFilterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7DE776E270B75F700F8F0EB /* CommunityFilterController.swift */; };
+		B7DE7771270B760300F8F0EB /* StoryFilterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7DE7770270B760300F8F0EB /* StoryFilterController.swift */; };
 		B7F06731270740ED00CFCE13 /* GetKeyword.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F06730270740ED00CFCE13 /* GetKeyword.swift */; };
 		B7F06733270759D200CFCE13 /* GetLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F06732270759D200CFCE13 /* GetLocation.swift */; };
 		B7F4417326EB92C200546257 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F4417226EB92C200546257 /* UIImage.swift */; };
@@ -108,7 +110,9 @@
 		B7C5DAA726C805640011EE41 /* BigRoundedbutton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigRoundedbutton.swift; sourceTree = "<group>"; };
 		B7C5DAA926C805D50011EE41 /* ThumbnailImg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbnailImg.swift; sourceTree = "<group>"; };
 		B7C5DAAC26C80A550011EE41 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
-		B7DE776C270B668900F8F0EB /* FilterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterController.swift; sourceTree = "<group>"; };
+		B7DE776C270B668900F8F0EB /* MeetingFilterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingFilterController.swift; sourceTree = "<group>"; };
+		B7DE776E270B75F700F8F0EB /* CommunityFilterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityFilterController.swift; sourceTree = "<group>"; };
+		B7DE7770270B760300F8F0EB /* StoryFilterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryFilterController.swift; sourceTree = "<group>"; };
 		B7F06730270740ED00CFCE13 /* GetKeyword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetKeyword.swift; sourceTree = "<group>"; };
 		B7F06732270759D200CFCE13 /* GetLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetLocation.swift; sourceTree = "<group>"; };
 		B7F4417226EB92C200546257 /* UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
@@ -314,7 +318,9 @@
 			children = (
 				B70CFC2426BFD82500B7DA74 /* ViewController.swift */,
 				B74F96A726E4A80E0064B900 /* SearchViewController.swift */,
-				B7DE776C270B668900F8F0EB /* FilterController.swift */,
+				B7DE776C270B668900F8F0EB /* MeetingFilterController.swift */,
+				B7DE7770270B760300F8F0EB /* StoryFilterController.swift */,
+				B7DE776E270B75F700F8F0EB /* CommunityFilterController.swift */,
 			);
 			path = viewController;
 			sourceTree = "<group>";
@@ -454,6 +460,7 @@
 				B704F03C26E36C5900DA9E06 /* Cell.swift in Sources */,
 				B70CFC2526BFD82500B7DA74 /* ViewController.swift in Sources */,
 				B7A0D84B26EA6ECF00AD5B46 /* Gradient.swift in Sources */,
+				B7DE776F270B75F700F8F0EB /* CommunityFilterController.swift in Sources */,
 				B77EC71726F0EF540002C0D6 /* GetPlaceCard.swift in Sources */,
 				B7A0D84D26EA6FF700AD5B46 /* CarouselCell.swift in Sources */,
 				B74F96AB26E4AB0B0064B900 /* Extension+CLLocationCoordinate2D.swift in Sources */,
@@ -463,6 +470,7 @@
 				B709090626E263620075BF50 /* GetKeywordPinAPI.swift in Sources */,
 				B741BA4626E8F5E800BB04E7 /* GetPlaceKeyword.swift in Sources */,
 				B70CFC2126BFD82500B7DA74 /* AppDelegate.swift in Sources */,
+				B7DE7771270B760300F8F0EB /* StoryFilterController.swift in Sources */,
 				B7F4417326EB92C200546257 /* UIImage.swift in Sources */,
 				B741BA4B26E9116B00BB04E7 /* Debouncer.swift in Sources */,
 				B79DE32526EB34A20098285B /* PinCard.swift in Sources */,
@@ -475,7 +483,7 @@
 				B709090326E2006E0075BF50 /* SearchViewEventManager.swift in Sources */,
 				B7F4417526EBB62100546257 /* PinType.swift in Sources */,
 				B704D48026DBCE6800DB20D2 /* AnimationManager.swift in Sources */,
-				B7DE776D270B668900F8F0EB /* FilterController.swift in Sources */,
+				B7DE776D270B668900F8F0EB /* MeetingFilterController.swift in Sources */,
 				B7B70B2826F78FBE006052A1 /* CoreDataManager.swift in Sources */,
 				B7C5DAAD26C80A550011EE41 /* MainViewModel.swift in Sources */,
 				B73572A22700BB5300E1967E /* RecentResearchTerm+CoreDataClass.swift in Sources */,

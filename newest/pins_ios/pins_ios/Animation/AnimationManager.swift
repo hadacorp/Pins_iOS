@@ -182,8 +182,7 @@ extension ViewController{
     
     @objc func filterAnimate(){
         if viewModel.getMoveButton().frame.width == 232 {
-            print("화면 전환")
-            let VC1 = self.storyboard!.instantiateViewController(withIdentifier: "FilterVC") as! FilterController
+            let VC1 = self.storyboard!.instantiateViewController(withIdentifier: "MeetingFilterVC") as! MeetingFilterController
             
             self.navigationController!.pushViewController(VC1, animated: false)
         }
