@@ -323,7 +323,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rmF-O5-4HN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-552.17391304347825" y="783.48214285714278"/>
+            <point key="canvasLocation" x="-1217" y="775"/>
         </scene>
         <!--Community Filter Controller-->
         <scene sceneID="rTb-IN-EC0">
@@ -454,7 +454,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aWV-ZK-tcF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1181" y="783"/>
+            <point key="canvasLocation" x="-609" y="775"/>
         </scene>
     </scenes>
     <resources>

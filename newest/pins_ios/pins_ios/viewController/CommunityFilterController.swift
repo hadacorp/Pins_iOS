@@ -8,17 +8,19 @@
 import UIKit
 
 class CommunityFilterController: UIViewController {
-
+    
     @IBAction func mettingFilterBtn(_ sender: Any) {
         let VC1 = self.storyboard!.instantiateViewController(withIdentifier: "MeetingFilterVC") as! MeetingFilterController
         
         self.navigationController!.pushViewController(VC1, animated: false)
     }
     @IBAction func backFilterBtn(_ sender: Any) {
-        let VC1 = self.storyboard!.instantiateViewController(withIdentifier: "MainVC") as! ViewController
-        
-        self.navigationController!.pushViewController(VC1, animated: false)
-        
+        let controllers = self.navigationController?.viewControllers
+        for vc in controllers! {
+            if vc is ViewController {
+                _ = self.navigationController?.popToViewController(vc as! ViewController, animated: true)
+            }
+        }
     }
     @IBAction func storyFilterBtn(_ sender: Any) {
         
