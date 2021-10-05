@@ -29,14 +29,21 @@ class MeetingFilterViewModel {
         }
         else{
             click[0] = 0
+            // 해제
             if click[index] == 1{
                 // 클릭 돼 있는게 한개보다 많을 때만
                 if click.filter({ $0 == 1 }).count > 1{
                     click[index] = 0
                 }
             }
+            // 체크
             else{
-                click[index] = 1
+                if click.filter({ $0 == 1 }).count == 10{
+                    click = [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+                }
+                else{
+                    click[index] = 1
+                }
             }
         }
     }

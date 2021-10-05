@@ -8,6 +8,10 @@
 import UIKit
 
 class MeetingFilterController: UIViewController {
+    @IBOutlet weak var meetingBtn: UIButton!
+    @IBOutlet weak var communityBtn: UIButton!
+    @IBOutlet weak var storyBtn: UIButton!
+    
     @IBAction func communityFilterBtn(_ sender: Any) {
         let VC1 = self.storyboard!.instantiateViewController(withIdentifier: "CommunityFilterVC") as! CommunityFilterController
         
@@ -24,6 +28,7 @@ class MeetingFilterController: UIViewController {
             }
         }
     }
+    
     public var collectionView: UICollectionView!
     
     private var viewModel = MeetingFilterViewModel()
