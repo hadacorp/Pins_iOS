@@ -123,7 +123,7 @@ extension SearchViewController: UITableViewDataSource {
             cell.titleLabel.text = place.placeName
             let distance = CLLocationCoordinate2D(latitude: place.latitude!, longitude: place.longitude!).distance(from: CLLocationCoordinate2D(latitude: myPosition.coordinate.latitude, longitude: myPosition.coordinate.longitude)) / 1000
             cell.distance.setTitle( String(format: "%.01fkm", distance), for: .normal)
-            cell.distance.setTitleColor(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), for: .normal)
+            cell.distance.setTitleColor(#colorLiteral(red: 0.6, green: 0.6, blue: 0.6, alpha: 1), for: .normal)
             cell.distance.isEnabled = false
             
             cell.titleLabel.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
