@@ -6,7 +6,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
-        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -293,34 +292,6 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="iconFilterReset" title=" "/>
                             </button>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="jew-2e-JdH">
-                                <rect key="frame" x="8" y="184" width="398" height="208"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="208" id="XOH-8F-Qk0"/>
-                                </constraints>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="NK3-Zd-XZh">
-                                    <size key="itemSize" width="128" height="128"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="meetingFilterCell" id="4dw-Ob-0JW" customClass="MeetingFilterCell" customModule="pins_ios" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="baE-ty-6rh">
-                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </collectionViewCellContentView>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </collectionViewCell>
-                                </cells>
-                                <connections>
-                                    <outlet property="dataSource" destination="zof-v8-80R" id="HSY-AB-bhC"/>
-                                    <outlet property="delegate" destination="zof-v8-80R" id="gfT-5Y-6Z8"/>
-                                </connections>
-                            </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="zUH-Hv-09f"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -328,16 +299,13 @@
                             <constraint firstItem="pUN-Lm-O0K" firstAttribute="width" secondItem="zUH-Hv-09f" secondAttribute="width" multiplier="0.333333" id="0fm-5d-kIQ"/>
                             <constraint firstItem="drz-PA-QKZ" firstAttribute="top" secondItem="zUH-Hv-09f" secondAttribute="top" id="2yl-0Q-3zZ"/>
                             <constraint firstItem="L0S-Wp-vuZ" firstAttribute="leading" secondItem="zUH-Hv-09f" secondAttribute="leading" constant="2" id="3Sh-68-bmh"/>
-                            <constraint firstItem="jew-2e-JdH" firstAttribute="top" secondItem="zUH-Hv-09f" secondAttribute="top" constant="140" id="7Pn-7U-LZW"/>
                             <constraint firstItem="XXT-f0-Vel" firstAttribute="width" secondItem="zUH-Hv-09f" secondAttribute="width" multiplier="0.333333" id="7ZS-VA-bEt"/>
                             <constraint firstItem="pUN-Lm-O0K" firstAttribute="leading" secondItem="zUH-Hv-09f" secondAttribute="leading" id="CgI-eo-VaO"/>
                             <constraint firstItem="PFY-js-jmA" firstAttribute="leading" secondItem="zUH-Hv-09f" secondAttribute="leading" constant="70" id="FBn-Ja-hLM"/>
                             <constraint firstItem="zrb-55-TGO" firstAttribute="width" secondItem="pUN-Lm-O0K" secondAttribute="width" constant="-32" id="Kth-Mr-HwV"/>
                             <constraint firstItem="zrb-55-TGO" firstAttribute="leading" secondItem="zUH-Hv-09f" secondAttribute="leading" constant="16" id="Q27-uD-WOm"/>
                             <constraint firstItem="pUN-Lm-O0K" firstAttribute="top" secondItem="zUH-Hv-09f" secondAttribute="top" constant="48" id="Q71-2r-WXQ"/>
-                            <constraint firstItem="jew-2e-JdH" firstAttribute="leading" secondItem="zUH-Hv-09f" secondAttribute="leading" constant="8" id="S6w-Qo-gpr"/>
                             <constraint firstItem="7xX-rp-SFc" firstAttribute="top" secondItem="zUH-Hv-09f" secondAttribute="top" constant="48" id="Veq-1X-fRJ"/>
-                            <constraint firstItem="zUH-Hv-09f" firstAttribute="trailing" secondItem="jew-2e-JdH" secondAttribute="trailing" constant="8" id="bhj-qN-UDj"/>
                             <constraint firstItem="iLG-Dn-5kZ" firstAttribute="top" secondItem="zUH-Hv-09f" secondAttribute="top" constant="104" id="fEp-ks-jik"/>
                             <constraint firstItem="7xX-rp-SFc" firstAttribute="width" secondItem="zUH-Hv-09f" secondAttribute="width" multiplier="0.333333" id="fex-Pn-uOg"/>
                             <constraint firstItem="zUH-Hv-09f" firstAttribute="trailing" secondItem="drz-PA-QKZ" secondAttribute="trailing" constant="2" id="g7R-M1-QDk"/>
@@ -352,9 +320,6 @@
                             <constraint firstItem="L0S-Wp-vuZ" firstAttribute="top" secondItem="zUH-Hv-09f" secondAttribute="top" id="yrI-ag-L48"/>
                         </constraints>
                     </view>
-                    <connections>
-                        <outlet property="collectionView" destination="jew-2e-JdH" id="Qhb-Ig-M38"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rmF-O5-4HN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
