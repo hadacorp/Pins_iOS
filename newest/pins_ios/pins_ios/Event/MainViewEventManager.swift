@@ -105,6 +105,12 @@ extension ViewController{
         }
     }
     
+    @objc func changeAddPinView(){
+        let VC1 = self.storyboard!.instantiateViewController(withIdentifier: "PinMakeViewVC") as! PinMakeViewController
+        
+        self.navigationController!.pushViewController(VC1, animated: true)
+    }
+    
     // 버튼 이벤트 설정
     public func setButtonEvent(){
         viewModel.getAddCancelButton().addTarget(self, action: #selector(cancelCreatePin), for: .touchUpInside)
@@ -116,5 +122,6 @@ extension ViewController{
         viewModel.getFilterMeetButton().addTarget(self, action: #selector(clickFilterMeet), for: .touchUpInside)
         viewModel.getFilterStoryButton().addTarget(self, action: #selector(clickFilterStory), for: .touchUpInside)
         viewModel.getRefreshButton().addTarget(self, action: #selector(refreshDatas), for: .touchUpInside)
+        viewModel.getAddNextButton().addTarget(self, action: #selector(changeAddPinView), for: .touchUpInside)
     }
 }
