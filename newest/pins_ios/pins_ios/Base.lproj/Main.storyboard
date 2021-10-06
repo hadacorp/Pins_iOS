@@ -498,6 +498,129 @@
             </objects>
             <point key="canvasLocation" x="-574" y="774"/>
         </scene>
+        <!--Pin Make View Controller-->
+        <scene sceneID="Zna-nk-gr0">
+            <objects>
+                <viewController storyboardIdentifier="PinMakeViewVC" id="cN6-t9-zm3" customClass="PinMakeViewController" customModule="pins_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mEd-M0-9T8">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="top" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M1f-kj-9Y5">
+                                <rect key="frame" x="16" y="148" width="382" height="341"/>
+                                <color key="backgroundColor" red="0.11372549019607843" green="0.66666666666666663" blue="0.95294117647058818" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="만남 핀">
+                                            <attributes>
+                                                <font key="NSFont" size="18" name="NotoSansKR-Medium"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="right" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kd4-9i-0T9">
+                                <rect key="frame" x="215" y="505" width="183" height="341"/>
+                                <color key="backgroundColor" red="0.1137254902" green="0.66666666669999997" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="이야기 핀">
+                                            <attributes>
+                                                <font key="NSFont" size="18" name="NotoSansKR-Medium"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                    <directionalEdgeInsets key="contentInsets" top="16" leading="0.0" bottom="0.0" trailing="0.0"/>
+                                </buttonConfiguration>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="odB-l8-Uce">
+                                <rect key="frame" x="16" y="505" width="183" height="341"/>
+                                <color key="backgroundColor" red="0.12156862745098039" green="0.45882352941176469" blue="0.68235294117647061" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="커뮤니티 핀">
+                                            <attributes>
+                                                <font key="NSFont" size="18" name="NotoSansKR-Medium"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                    <directionalEdgeInsets key="contentInsets" top="16" leading="0.0" bottom="0.0" trailing="0.0"/>
+                                </buttonConfiguration>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Ma6-OP-KhF"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="M1f-kj-9Y5" firstAttribute="top" secondItem="Ma6-OP-KhF" secondAttribute="top" constant="104" id="0Ax-4u-s5F"/>
+                            <constraint firstItem="M1f-kj-9Y5" firstAttribute="leading" secondItem="Ma6-OP-KhF" secondAttribute="leading" constant="16" id="5wZ-GR-Dsp"/>
+                            <constraint firstItem="Ma6-OP-KhF" firstAttribute="trailing" secondItem="Kd4-9i-0T9" secondAttribute="trailing" constant="16" id="8lx-Xp-I1B"/>
+                            <constraint firstItem="Kd4-9i-0T9" firstAttribute="width" secondItem="Ma6-OP-KhF" secondAttribute="width" multiplier="0.5" constant="-24" id="FZc-7r-lid"/>
+                            <constraint firstItem="Kd4-9i-0T9" firstAttribute="height" secondItem="Ma6-OP-KhF" secondAttribute="height" multiplier="0.5" constant="-68" id="H7z-DF-qBM"/>
+                            <constraint firstItem="odB-l8-Uce" firstAttribute="width" secondItem="Kd4-9i-0T9" secondAttribute="width" id="Pcq-Py-Pzg"/>
+                            <constraint firstItem="Ma6-OP-KhF" firstAttribute="bottom" secondItem="Kd4-9i-0T9" secondAttribute="bottom" constant="16" id="R3m-Kh-XI7"/>
+                            <constraint firstItem="Ma6-OP-KhF" firstAttribute="trailing" secondItem="M1f-kj-9Y5" secondAttribute="trailing" constant="16" id="bbb-0K-6lM"/>
+                            <constraint firstItem="Ma6-OP-KhF" firstAttribute="bottom" secondItem="odB-l8-Uce" secondAttribute="bottom" constant="16" id="ipq-3I-9GZ"/>
+                            <constraint firstItem="odB-l8-Uce" firstAttribute="height" secondItem="Kd4-9i-0T9" secondAttribute="height" id="o3W-vh-7q4"/>
+                            <constraint firstItem="M1f-kj-9Y5" firstAttribute="height" secondItem="Ma6-OP-KhF" secondAttribute="height" multiplier="0.5" constant="-68" id="pxQ-Ih-fVy"/>
+                            <constraint firstItem="odB-l8-Uce" firstAttribute="leading" secondItem="Ma6-OP-KhF" secondAttribute="leading" constant="16" id="yDz-lU-qVJ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="communityBtn" destination="odB-l8-Uce" id="Vuh-Og-nuM"/>
+                        <outlet property="meetingBtn" destination="M1f-kj-9Y5" id="Gfx-1a-O7P"/>
+                        <outlet property="storyBtn" destination="Kd4-9i-0T9" id="3MC-cG-5ls"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iT0-rH-UaC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3306" y="-909"/>
+        </scene>
+        <!--Page View Controller-->
+        <scene sceneID="20A-Si-WUc">
+            <objects>
+                <pageViewController storyboardIdentifier="pageVC" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="mrf-Vh-idV" sceneMemberID="viewController">
+                    <connections>
+                        <segue destination="mmb-0e-8TA" kind="show" id="UPU-BS-dVz"/>
+                    </connections>
+                </pageViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8BX-c3-ghL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2541" y="-1578"/>
+        </scene>
+        <!--MakeMP View Controller-->
+        <scene sceneID="ilo-ri-qF3">
+            <objects>
+                <viewController storyboardIdentifier="MPfirstVC" id="mmb-0e-8TA" customClass="MakeMPViewController" customModule="pins_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="tIt-RS-L8V">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="상세 설정" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0BD-LL-Uo5">
+                                <rect key="frame" x="166" y="244" width="111" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Lq7-ZX-XcJ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="U5U-7e-gUb"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NTE-R8-xyB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1733" y="-1580"/>
+        </scene>
     </scenes>
     <resources>
         <image name="iconBack" width="40" height="40"/>
