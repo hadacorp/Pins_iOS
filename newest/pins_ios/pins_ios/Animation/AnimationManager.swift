@@ -219,4 +219,35 @@ extension ViewController{
             }
         }
     }
+    
+    @objc func createPinButton(){
+        UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseOut) { [self] in
+            viewModel.getAddButton().layer.opacity = 0
+            viewModel.getMoveButton().layer.opacity = 0
+            viewModel.getSearchButton().layer.opacity = 0
+            viewModel.getMyLocationButton().layer.opacity = 0
+            viewModel.getRefreshButton().layer.opacity = 0
+            viewModel.getAddButton().layer.opacity = 0
+            viewModel.getStarButton().layer.opacity = 0
+            
+            viewModel.getAddCancelButton().layer.opacity = 0.9
+            viewModel.getAddNextButton().layer.opacity = 1
+            viewModel.getAddPinLocation().layer.opacity = 0.9
+        }
+    }
+    @objc func cancelCreatePin(){
+        UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseOut) { [self] in
+            viewModel.getAddButton().layer.opacity = 0.9
+            viewModel.getMoveButton().layer.opacity = 0.9
+            viewModel.getSearchButton().layer.opacity = 0.9
+            viewModel.getMyLocationButton().layer.opacity = 0.9
+            viewModel.getRefreshButton().layer.opacity = 0.9
+            viewModel.getAddButton().layer.opacity = 0.9
+            viewModel.getStarButton().layer.opacity = 0.9
+            
+            viewModel.getAddCancelButton().layer.opacity = 0
+            viewModel.getAddNextButton().layer.opacity = 0
+            viewModel.getAddPinLocation().layer.opacity = 0
+        }
+    }
 }

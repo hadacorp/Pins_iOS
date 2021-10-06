@@ -8,7 +8,7 @@
 import UIKit
 
 class MainVCUI {
-    // MARK:- Public variable
+    // MARK: - Public variable
     public var mainUI: [Any] = []
     
     // 최하단 버튼 3종
@@ -34,10 +34,15 @@ class MainVCUI {
     public var filterCommunity = UIButton()
     public var filterStory = UIButton()
     
+    // About add pin ui
+    public var addCancelButton = SmallRoundedBtn(radius: 16, color: #colorLiteral(red: 1, green: 0.4002416134, blue: 0.2073652744, alpha: 1), image: UIImage(named: "iconCancelPincreate")!)
+    public var addPinLocation = UIImageView(image: UIImage(named: "iconPinLocation")!)
+    public var addNextButton = UIButton()
+    
     // SearchView Background
     public var searchBackground = UIView(frame: UIScreen.main.bounds)
     
-    // MARK:- Init UIView
+    // MARK: - Init UIView
     init(parent: UIView?, layout: UILayoutGuide?) {
         if let parent = parent{
             if let layout = layout {                
@@ -59,11 +64,67 @@ class MainVCUI {
                 initFilterMeet(parent: parent, layout: layout)
                 initFilterCommunity(parent: parent, layout: layout)
                 initFilterStory(parent: parent, layout: layout)
+                
+                initAddCancelButton(parent: parent, layout: layout)
+                initAddPinLocation(parent: parent, layout: layout)
+                initAddNextButton(parent: parent, layout: layout)
             }
         }
     }
     
-    // MARK:- Private function
+    // MARK: - Create Pin UI function
+    private func initAddCancelButton(parent: UIView, layout: UILayoutGuide){
+        addCancelButton.button.layer.opacity = 0
+        parent.addSubview(addCancelButton.button)
+        addCancelButton.button.snp.makeConstraints { bt in
+            bt.top.equalTo(layout).offset(16)
+            bt.trailing.equalTo(-16)
+            bt.width.equalTo(40)
+            bt.height.equalTo(40)
+        }
+    }
+    private func initAddPinLocation(parent: UIView, layout: UILayoutGuide){
+        parent.addSubview(addPinLocation)
+        addPinLocation.layer.opacity = 0
+        addPinLocation.snp.makeConstraints { bt in
+            bt.centerX.equalTo(parent)
+            bt.centerY.equalTo(parent).offset(-28)
+            bt.width.equalTo(57)
+            bt.height.equalTo(56)
+        }
+        let label = UILabel()
+        label.text = "핀 위치"
+        label.textColor = .white
+        label.font = UIFont(name: "NotoSansKR-Regular", size: 14)
+        addPinLocation.addSubview(label)
+        label.snp.makeConstraints { make in
+            make.centerX.equalTo(parent)
+            make.centerY.equalTo(parent).offset(-38)
+        }
+    }
+    private func initAddNextButton(parent: UIView, layout: UILayoutGuide){
+        parent.addSubview(addNextButton)
+        addNextButton.layer.opacity = 0
+        addNextButton.snp.makeConstraints { bt in
+            bt.leading.equalTo(16)
+            bt.trailing.equalTo(layout).offset(-16)
+            bt.bottom.equalTo(layout).offset(-14)
+            bt.height.equalTo(50)
+        }
+        addNextButton.setTitle("이 위치에 핀 만들기", for: .normal)
+        
+        addNextButton.setTitleColor(#colorLiteral(red: 0.02745098039, green: 0.1294117647, blue: 0.337254902, alpha: 1), for: .normal)
+        addNextButton.titleLabel?.font = UIFont(name: "NotoSansKR-Regular", size: 16)
+        addNextButton.backgroundColor = .white
+        addNextButton.layer.cornerRadius = 16
+        addNextButton.layer.shadowOpacity = 0.16
+        addNextButton.layer.shadowColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        addNextButton.layer.shadowOffset = CGSize(width: 0, height: 4)
+        addNextButton.layer.shadowRadius = 8
+
+        addNextButton.layer.masksToBounds = false
+    }
+    // MARK: - Private function
     // UI 생성 및 세팅
     // MARK:- Search Background
     private func initSearchBackground(parent: UIView){
@@ -116,7 +177,7 @@ class MainVCUI {
         filterStory.titleLabel?.font = UIFont(name: "NotoSansKR-Medium", size: 14)
         filterStory.layer.opacity = 0
     }
-    // MARK:- 최하단 버튼 3종
+    // MARK: - 최하단 버튼 3종
     private func initMenuButton(parent: UIView){
         parent.addSubview(menuButton.button)
         menuButton.button.snp.makeConstraints { bt in
@@ -165,7 +226,7 @@ class MainVCUI {
             bt.bottom.equalTo(-118)
         }
     }
-    // MARK:- 핀 추가 버튼
+    // MARK: - 핀 추가 버튼
     private func initAddButton(parent: UIView, layout: UILayoutGuide){
         parent.addSubview(addButton.button)
         addButton.button.snp.makeConstraints { bt in
@@ -175,7 +236,7 @@ class MainVCUI {
             bt.height.equalTo(40)
         }
     }
-    // MARK:- 중상부 버튼
+    // MARK: - 중상부 버튼
     private func initsearchButton(parent: UIView, layout: UILayoutGuide){
         searchButton.button.imageView?.tag = 1
         parent.addSubview(searchButton.button)
@@ -205,7 +266,7 @@ class MainVCUI {
             bt.width.height.equalTo(40)
         }
     }
-    // MARK:- 그라데이션
+    // MARK: - 그라데이션
     private func initGradationUp(parent: UIView){
         parent.addSubview(gradationUp)
         gradationUp.snp.makeConstraints { gra in

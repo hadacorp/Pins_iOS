@@ -105,14 +105,10 @@ extension ViewController{
         }
     }
     
-    @objc func changeAddPinView(){
-        let VC1 = self.storyboard!.instantiateViewController(withIdentifier: "PinMakeViewVC") as! PinMakeViewController
-        self.navigationController!.pushViewController(VC1, animated: false)
-    }
-    
     // 버튼 이벤트 설정
     public func setButtonEvent(){
-        viewModel.getAddButton().addTarget(self, action: #selector(changeAddPinView), for: .touchUpInside)
+        viewModel.getAddCancelButton().addTarget(self, action: #selector(cancelCreatePin), for: .touchUpInside)
+        viewModel.getAddButton().addTarget(self, action: #selector(createPinButton), for: .touchUpInside)
         viewModel.getMoveButton().addTarget(self, action: #selector(filterAnimate), for: .touchUpInside)
         viewModel.getSearchButton().addTarget(self, action: #selector(changeView), for: .touchUpInside)
         viewModel.getMyLocationButton().addTarget(self, action: #selector(myLocation), for: .touchUpInside)
