@@ -29,6 +29,9 @@
 		B741BA4B26E9116B00BB04E7 /* Debouncer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B741BA4A26E9116B00BB04E7 /* Debouncer.swift */; };
 		B74B3C03270C12C000C6284C /* MeetingFilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74B3C02270C12C000C6284C /* MeetingFilterCell.swift */; };
 		B74B3C05270CA21B00C6284C /* MeetingFilterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74B3C04270CA21B00C6284C /* MeetingFilterViewModel.swift */; };
+		B74B3C07270DF9BB00C6284C /* PinMakeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74B3C06270DF9BB00C6284C /* PinMakeViewController.swift */; };
+		B74B3C0A270E04C300C6284C /* MakeMPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74B3C09270E04C300C6284C /* MakeMPViewController.swift */; };
+		B74B3C0C270E056600C6284C /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74B3C0B270E056600C6284C /* PageViewController.swift */; };
 		B74CDCA526DF9AA200043ADE /* MainVCUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74CDCA426DF9AA200043ADE /* MainVCUI.swift */; };
 		B74CDCA726DF9AB100043ADE /* SearchVCUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74CDCA626DF9AB100043ADE /* SearchVCUI.swift */; };
 		B74F96A826E4A80E0064B900 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74F96A726E4A80E0064B900 /* SearchViewController.swift */; };
@@ -90,6 +93,9 @@
 		B741BA4A26E9116B00BB04E7 /* Debouncer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Debouncer.swift; sourceTree = "<group>"; };
 		B74B3C02270C12C000C6284C /* MeetingFilterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingFilterCell.swift; sourceTree = "<group>"; };
 		B74B3C04270CA21B00C6284C /* MeetingFilterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingFilterViewModel.swift; sourceTree = "<group>"; };
+		B74B3C06270DF9BB00C6284C /* PinMakeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinMakeViewController.swift; sourceTree = "<group>"; };
+		B74B3C09270E04C300C6284C /* MakeMPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeMPViewController.swift; sourceTree = "<group>"; };
+		B74B3C0B270E056600C6284C /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		B74CDCA426DF9AA200043ADE /* MainVCUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVCUI.swift; sourceTree = "<group>"; };
 		B74CDCA626DF9AB100043ADE /* SearchVCUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVCUI.swift; sourceTree = "<group>"; };
 		B74F96A726E4A80E0064B900 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -267,6 +273,15 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		B74B3C08270E049600C6284C /* PinMakeVC */ = {
+			isa = PBXGroup;
+			children = (
+				B74B3C06270DF9BB00C6284C /* PinMakeViewController.swift */,
+				B74B3C09270E04C300C6284C /* MakeMPViewController.swift */,
+			);
+			path = PinMakeVC;
+			sourceTree = "<group>";
+		};
 		B74F96A926E4AAD70064B900 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -322,11 +337,13 @@
 		B7D0EBA426E12551009FB747 /* viewController */ = {
 			isa = PBXGroup;
 			children = (
+				B74B3C08270E049600C6284C /* PinMakeVC */,
 				B70CFC2426BFD82500B7DA74 /* ViewController.swift */,
 				B74F96A726E4A80E0064B900 /* SearchViewController.swift */,
 				B7DE776C270B668900F8F0EB /* MeetingFilterController.swift */,
 				B7DE7770270B760300F8F0EB /* StoryFilterController.swift */,
 				B7DE776E270B75F700F8F0EB /* CommunityFilterController.swift */,
+				B74B3C0B270E056600C6284C /* PageViewController.swift */,
 			);
 			path = viewController;
 			sourceTree = "<group>";
@@ -459,12 +476,14 @@
 				B7A0D84926EA571200AD5B46 /* Pin.swift in Sources */,
 				B77EC71926F0EF5E0002C0D6 /* GetKeywordCard.swift in Sources */,
 				B787EA0126E4FEC30044D786 /* MainViewEventManager.swift in Sources */,
+				B74B3C07270DF9BB00C6284C /* PinMakeViewController.swift in Sources */,
 				B74F96A826E4A80E0064B900 /* SearchViewController.swift in Sources */,
 				B7F06731270740ED00CFCE13 /* GetKeyword.swift in Sources */,
 				B7FBC47826C28730001838D1 /* CustomPintAnnotation.swift in Sources */,
 				B70ADB8926FF8902007997E2 /* GetCardByPinId.swift in Sources */,
 				B704F03C26E36C5900DA9E06 /* Cell.swift in Sources */,
 				B70CFC2526BFD82500B7DA74 /* ViewController.swift in Sources */,
+				B74B3C0C270E056600C6284C /* PageViewController.swift in Sources */,
 				B7A0D84B26EA6ECF00AD5B46 /* Gradient.swift in Sources */,
 				B7DE776F270B75F700F8F0EB /* CommunityFilterController.swift in Sources */,
 				B77EC71726F0EF540002C0D6 /* GetPlaceCard.swift in Sources */,
@@ -484,6 +503,7 @@
 				B7B70B2226F78F0D006052A1 /* RecentSearchModel.xcdatamodeld in Sources */,
 				B7F06733270759D200CFCE13 /* GetLocation.swift in Sources */,
 				B7C5DAAA26C805D50011EE41 /* ThumbnailImg.swift in Sources */,
+				B74B3C0A270E04C300C6284C /* MakeMPViewController.swift in Sources */,
 				B70CFC2326BFD82500B7DA74 /* SceneDelegate.swift in Sources */,
 				B77EC71526F0E59A0002C0D6 /* GetSearchKeywordPinAPI.swift in Sources */,
 				B709090326E2006E0075BF50 /* SearchViewEventManager.swift in Sources */,
