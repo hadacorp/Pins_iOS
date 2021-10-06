@@ -56,12 +56,28 @@ class MainViewModel: MainVCUI {
         return moveButton.button
     }
     
+    public func getStarButton() -> UIButton{
+        return starButton.button
+    }
+    
     public func getSearchBackground() -> UIView {
         return searchBackground
     }
     
     public func getMyLocationButton() -> UIButton {
         return myLocationButton.button
+    }
+    
+    public func getAddCancelButton() -> UIButton{
+        return addCancelButton.button
+    }
+    
+    public func getAddNextButton() -> UIButton{
+        return addNextButton
+    }
+    
+    public func getAddPinLocation() -> UIImageView{
+        return addPinLocation
     }
     
     // 필터 3종 get
