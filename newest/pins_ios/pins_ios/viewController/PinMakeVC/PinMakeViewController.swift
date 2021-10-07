@@ -12,6 +12,10 @@ class PinMakeViewController: UIViewController {
     @IBOutlet weak var storyBtn: UIButton!
     @IBOutlet weak var communityBtn: UIButton!
     
+    @IBOutlet weak var backBtn: UIButton!
+    @IBAction func backBtn(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
     override func viewDidLoad() {
         setUI()
     }
