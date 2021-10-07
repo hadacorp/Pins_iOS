@@ -33,6 +33,7 @@ class MainVCUI {
     public var filterMeet = UIButton()
     public var filterCommunity = UIButton()
     public var filterStory = UIButton()
+    public var line = UIView()
     
     // About add pin ui
     public var addCancelButton = SmallRoundedBtn(radius: 16, color: #colorLiteral(red: 1, green: 0.4002416134, blue: 0.2073652744, alpha: 1), image: UIImage(named: "iconCancelPincreate")!)
@@ -64,6 +65,7 @@ class MainVCUI {
                 initFilterMeet(parent: parent, layout: layout)
                 initFilterCommunity(parent: parent, layout: layout)
                 initFilterStory(parent: parent, layout: layout)
+                initLine(parent: parent, layout: layout)
                 
                 initAddCancelButton(parent: parent, layout: layout)
                 initAddPinLocation(parent: parent, layout: layout)
@@ -137,7 +139,19 @@ class MainVCUI {
         searchBackground.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
     }
     
-    // MARK:- 필터 버튼 3종
+    // MARK: - 필터 버튼 3종
+    private func initLine(parent: UIView, layout: UILayoutGuide){
+        parent.addSubview(line)
+        line.snp.makeConstraints { make in
+            make.width.equalTo(1)
+            make.height.equalTo(32)
+            make.top.equalTo(layout).offset(20)
+            make.trailing.equalTo(-56)
+        }
+        line.backgroundColor = #colorLiteral(red: 0.9373082519, green: 0.9373301864, blue: 0.9373183846, alpha: 1)
+        line.layer.opacity = 0
+    }
+    
     private func initFilterMeet(parent: UIView, layout: UILayoutGuide){
         parent.addSubview(filterMeet)
         filterMeet.snp.makeConstraints { btn in

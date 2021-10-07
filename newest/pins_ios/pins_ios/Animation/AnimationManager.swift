@@ -143,6 +143,7 @@ extension ViewController{
             viewModel.getFilterMeetButton().layer.opacity = 0
             viewModel.getFilterStoryButton().layer.opacity = 0
             viewModel.getFilterCommunityButton().layer.opacity = 0
+            viewModel.getLineView().layer.opacity = 0
             
             // 키워드 검색이 적용 되었다는 뜻.
             if viewModel.getSearchButton().frame.width == 80{
@@ -182,9 +183,7 @@ extension ViewController{
     
     @objc func filterAnimate(){
         if viewModel.getMoveButton().frame.width == 232 {
-            let VC1 = self.storyboard!.instantiateViewController(withIdentifier: "MeetingFilterVC") as! MeetingFilterController
-            
-            self.navigationController!.pushViewController(VC1, animated: false)
+            filterNarrow()
         }
         // 펼쳐질 때
         else if viewModel.getMoveButton().frame.width == 40{
@@ -201,7 +200,7 @@ extension ViewController{
                     }
                 }
             }
-            viewModel.getMoveButton().setImage(#imageLiteral(resourceName: "iconList"), for: .normal)
+            viewModel.getMoveButton().setImage(#imageLiteral(resourceName: "iconCloseFilter"), for: .normal)
             UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseOut) { [self] in
                 viewModel.getMoveButton().imageEdgeInsets = UIEdgeInsets(top: 0, left: 202, bottom: 0, right: 10)
                 viewModel.getMoveButton().snp.updateConstraints { btn in
@@ -216,6 +215,7 @@ extension ViewController{
                 viewModel.getFilterMeetButton().layer.opacity = 1
                 viewModel.getFilterStoryButton().layer.opacity = 1
                 viewModel.getFilterCommunityButton().layer.opacity = 1
+                viewModel.getLineView().layer.opacity = 1
             }
         }
     }

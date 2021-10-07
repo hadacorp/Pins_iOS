@@ -90,6 +90,9 @@ class MainViewModel: MainVCUI {
     public func getFilterStoryButton() -> UIButton{
         return filterStory
     }
+    public func getLineView() -> UIView{
+        return line
+    }
     
     public func setSearchBackgroundDown() {
         getSearchButton().layer.borderWidth = 1
