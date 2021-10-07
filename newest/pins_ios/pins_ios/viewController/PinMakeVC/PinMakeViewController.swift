@@ -13,9 +13,16 @@ class PinMakeViewController: UIViewController {
     @IBOutlet weak var communityBtn: UIButton!
     
     @IBOutlet weak var backBtn: UIButton!
+    
     @IBAction func backBtn(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
+    
+    @IBAction func meetingBtn(_ sender: Any) {
+        let VC1 = self.storyboard!.instantiateViewController(withIdentifier: "MeetingDetailVC") as! MeetingDetailVC
+        self.navigationController!.pushViewController(VC1, animated: false)
+    }
+    
     override func viewDidLoad() {
         setUI()
     }
