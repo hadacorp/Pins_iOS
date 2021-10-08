@@ -10,8 +10,9 @@ import UIKit
 class MeetingDetailViewModel {
     private var filters: [String] = ["대화/친목", "산책/반려동물", "맛집탐방", "영화/문화생활", "게임/오락", "스포츠/운동", "등산/캠핑", "스터디/독서", "여행/드라이브", "거래/나눔", "기타"]
     private var clicked: Int = -1
+    private var clickedDate: Int = -1
     
-    private var weeks: [String] = ["일", "월", "화", "수", "목", "금", "토"]
+    private var weeks: [String] = ["토", "일", "월", "화", "수", "목", "금"]
     
     public func getFilters() -> [String]{
         return filters
@@ -24,6 +25,12 @@ class MeetingDetailViewModel {
     }
     public func setClicked(count: Int){
         clicked = count
+    }
+    public func getClickedDate() -> Int{
+        return clickedDate
+    }
+    public func setClickedDate(count: Int){
+        clickedDate = count
     }
     
     public func getDates() -> [String]{

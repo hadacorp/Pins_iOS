@@ -69,6 +69,7 @@ extension MeetingDetailVC{
         meetDateText()
         meetDateDescriptionText()
         dateCollectionView()
+        createLine(top: 385)
     }
     public func createLine(top: Int){
         let line = UIView()
@@ -174,8 +175,20 @@ extension MeetingDetailVC: UICollectionViewDelegate, UICollectionViewDataSource{
         // MARK: - second collectionView
         else if collectionView.tag == 1{
             if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MeetingDateCell", for: indexPath) as? MeetingDateCell{
-                cell.setupCell(color: #colorLiteral(red: 0.9607843137, green: 0.9607843137, blue: 0.9607843137, alpha: 1),
-                               text: viewModel.getDates()[indexPath.row])
+                for v in cell.subviews{
+                    v.removeFromSuperview()
+                }
+                
+                if viewModel.getClickedDate() == indexPath.row{
+                    cell.setupCell(textColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1),
+                                   backColor: #colorLiteral(red: 0.1137254902, green: 0.6666666667, blue: 0.9529411765, alpha: 1),
+                                   text: viewModel.getDates()[indexPath.row])
+                }
+                else{
+                    cell.setupCell(textColor: #colorLiteral(red: 0.4520480633, green: 0.4520593286, blue: 0.4520532489, alpha: 1),
+                                   backColor: #colorLiteral(red: 0.9607843137, green: 0.9607843137, blue: 0.9607843137, alpha: 1),
+                                   text: viewModel.getDates()[indexPath.row])
+                }
                 return cell
             }
         }
@@ -183,8 +196,14 @@ extension MeetingDetailVC: UICollectionViewDelegate, UICollectionViewDataSource{
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        viewModel.setClicked(count: indexPath.row)
-        collectionView.reloadData()
+        if collectionView.tag == 0{
+            viewModel.setClicked(count: indexPath.row)
+            collectionView.reloadData()
+        }
+        else if collectionView.tag == 1{
+            viewModel.setClickedDate(count: indexPath.row)
+            collectionView.reloadData()
+        }
     }
 }
 
