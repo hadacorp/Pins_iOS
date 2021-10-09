@@ -710,6 +710,10 @@
                             <constraint firstItem="GiD-kY-I2g" firstAttribute="top" secondItem="s3s-Ev-FHC" secondAttribute="top" constant="58" id="zwg-wY-Ty0"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="topTitleFirst" destination="GiD-kY-I2g" id="p7v-KY-Nvw"/>
+                        <outlet property="topTitleSecond" destination="KA5-Yl-vFT" id="1GX-ws-mvA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f6k-jW-lgP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
