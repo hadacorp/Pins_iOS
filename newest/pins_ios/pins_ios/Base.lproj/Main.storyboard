@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="i8q-E7-Kl4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="i8q-E7-Kl4">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <deployment version="4096" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -41,7 +41,7 @@
                     <navigationItem key="navigationItem" id="OwS-wj-npg"/>
                     <connections>
                         <outlet property="mainMap" destination="Jhd-je-gly" id="yTz-9D-KTY"/>
-                        <segue destination="CzO-7p-Yd9" kind="push" identifier="presentSearchVC" id="ksv-aC-LTd"/>
+                        <segue destination="CzO-7p-Yd9" kind="show" identifier="presentSearchVC" id="ksv-aC-LTd"/>
                         <segue destination="cN6-t9-zm3" kind="show" id="Lhp-zg-3hy"/>
                     </connections>
                 </viewController>
@@ -95,7 +95,7 @@
                                 </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="40" id="qiV-Ve-GvE" customClass="Cell" customModule="pins_ios" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="88.5" width="414" height="40"/>
+                                        <rect key="frame" x="0.0" y="68.5" width="414" height="40"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qiV-Ve-GvE" id="P18-hX-sl3">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="40"/>
@@ -215,7 +215,6 @@
                                     <constraint firstAttribute="width" constant="48" id="fGI-Mn-YXM"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="iconFilterBack" title=" "/>
                                 <connections>
                                     <action selector="backFilterBtn:" destination="zof-v8-80R" eventType="touchUpInside" id="GSh-D0-K0C"/>
                                 </connections>
@@ -234,15 +233,6 @@
                                 <color key="tintColor" red="0.11372549019607843" green="0.66666666666666663" blue="0.95294117647058818" alpha="1" colorSpace="calibratedRGB"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="만남 핀"/>
-                                <buttonConfiguration key="configuration" style="plain">
-                                    <attributedString key="attributedTitle">
-                                        <fragment content="만남 핀">
-                                            <attributes>
-                                                <font key="NSFont" size="14" name="NotoSansKR-Medium"/>
-                                            </attributes>
-                                        </fragment>
-                                    </attributedString>
-                                </buttonConfiguration>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XXT-f0-Vel">
                                 <rect key="frame" x="138" y="92" width="138" height="40"/>
@@ -251,15 +241,6 @@
                                 </constraints>
                                 <color key="tintColor" red="0.88627450980392153" green="0.88627450980392153" blue="0.88627450980392153" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain">
-                                    <attributedString key="attributedTitle">
-                                        <fragment content="커뮤니티 핀">
-                                            <attributes>
-                                                <font key="NSFont" size="14" name="NotoSansKR-Medium"/>
-                                            </attributes>
-                                        </fragment>
-                                    </attributedString>
-                                </buttonConfiguration>
                                 <connections>
                                     <action selector="communityFilterBtn:" destination="zof-v8-80R" eventType="touchUpInside" id="mla-UT-x2r"/>
                                 </connections>
@@ -271,15 +252,6 @@
                                 </constraints>
                                 <color key="tintColor" red="0.88627450980392153" green="0.88627450980392153" blue="0.88627450980392153" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain">
-                                    <attributedString key="attributedTitle">
-                                        <fragment content="이야기 핀">
-                                            <attributes>
-                                                <font key="NSFont" size="14" name="NotoSansKR-Medium"/>
-                                            </attributes>
-                                        </fragment>
-                                    </attributedString>
-                                </buttonConfiguration>
                                 <connections>
                                     <action selector="storyFilterBtn:" destination="zof-v8-80R" eventType="touchUpInside" id="dP0-aa-s21"/>
                                 </connections>
@@ -310,7 +282,6 @@
                                     <constraint firstAttribute="width" constant="48" id="wAJ-XN-bCX"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="iconFilterReset" title=" "/>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="zUH-Hv-09f"/>
@@ -371,7 +342,6 @@
                                     <constraint firstAttribute="height" constant="48" id="QaU-hM-NBi"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="iconFilterBack" title=" "/>
                                 <connections>
                                     <action selector="backFilterBtn:" destination="XdW-ss-Lpe" eventType="touchUpInside" id="BO2-tX-Dno"/>
                                     <action selector="backFilterBtn:" destination="zof-v8-80R" eventType="touchUpInside" id="or8-Hc-faV"/>
@@ -384,7 +354,6 @@
                                     <constraint firstAttribute="width" constant="48" id="oFs-G4-wG9"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="iconFilterReset" title=" "/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="카테고리" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FFt-KC-IQU">
                                 <rect key="frame" x="16" y="148" width="52" height="20.5"/>
@@ -399,15 +368,6 @@
                                 </constraints>
                                 <color key="tintColor" red="0.8862745098" green="0.8862745098" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain">
-                                    <attributedString key="attributedTitle">
-                                        <fragment content="이야기 핀">
-                                            <attributes>
-                                                <font key="NSFont" size="14" name="NotoSansKR-Medium"/>
-                                            </attributes>
-                                        </fragment>
-                                    </attributedString>
-                                </buttonConfiguration>
                                 <connections>
                                     <action selector="storyFilterBtn:" destination="zof-v8-80R" eventType="touchUpInside" id="9ui-Rc-m65"/>
                                     <action selector="storyFilterBtn:" destination="XdW-ss-Lpe" eventType="touchUpInside" id="q32-ZV-8qd"/>
@@ -420,15 +380,6 @@
                                 </constraints>
                                 <color key="tintColor" red="0.88627450980392153" green="0.88627450980392153" blue="0.88627450980392153" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain">
-                                    <attributedString key="attributedTitle">
-                                        <fragment content="만남 핀">
-                                            <attributes>
-                                                <font key="NSFont" size="14" name="NotoSansKR-Medium"/>
-                                            </attributes>
-                                        </fragment>
-                                    </attributedString>
-                                </buttonConfiguration>
                                 <connections>
                                     <action selector="mettingFilterBtn:" destination="XdW-ss-Lpe" eventType="touchUpInside" id="HDS-2B-8IB"/>
                                 </connections>
@@ -453,15 +404,6 @@
                                 </constraints>
                                 <color key="tintColor" red="0.11372549019607843" green="0.66666666666666663" blue="0.95294117647058818" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain">
-                                    <attributedString key="attributedTitle">
-                                        <fragment content="커뮤니티 핀">
-                                            <attributes>
-                                                <font key="NSFont" size="14" name="NotoSansKR-Medium"/>
-                                            </attributes>
-                                        </fragment>
-                                    </attributedString>
-                                </buttonConfiguration>
                                 <connections>
                                     <action selector="communityFilterBtn:" destination="zof-v8-80R" eventType="touchUpInside" id="oQB-hy-dRR"/>
                                 </connections>
@@ -510,18 +452,11 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="top" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M1f-kj-9Y5">
                                 <rect key="frame" x="16" y="148" width="382" height="341"/>
                                 <color key="backgroundColor" red="0.11372549019607843" green="0.66666666666666663" blue="0.95294117647058818" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain">
-                                    <attributedString key="attributedTitle">
-                                        <fragment content="만남 핀">
-                                            <attributes>
-                                                <font key="NSFont" size="18" name="NotoSansKR-Medium"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="right" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                            </attributes>
-                                        </fragment>
-                                    </attributedString>
-                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </buttonConfiguration>
+                                <fontDescription key="fontDescription" name="NotoSansKR-Medium" family="Noto Sans KR" pointSize="18"/>
+                                <inset key="titleEdgeInsets" minX="0.0" minY="16" maxX="16" maxY="0.0"/>
+                                <state key="normal" title="만남 핀">
+                                    <color key="titleColor" red="0.8862745098" green="0.8862745098" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="meetingBtn:" destination="cN6-t9-zm3" eventType="touchUpInside" id="Tjl-y8-wmA"/>
                                 </connections>
@@ -529,45 +464,26 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kd4-9i-0T9">
                                 <rect key="frame" x="215" y="505" width="183" height="341"/>
                                 <color key="backgroundColor" red="0.1137254902" green="0.66666666669999997" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="NotoSansKR-Medium" family="Noto Sans KR" pointSize="18"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain">
-                                    <attributedString key="attributedTitle">
-                                        <fragment content="이야기 핀">
-                                            <attributes>
-                                                <font key="NSFont" size="18" name="NotoSansKR-Medium"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                            </attributes>
-                                        </fragment>
-                                    </attributedString>
-                                    <directionalEdgeInsets key="contentInsets" top="16" leading="0.0" bottom="0.0" trailing="0.0"/>
-                                </buttonConfiguration>
+                                <inset key="titleEdgeInsets" minX="0.0" minY="16" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="이야기 핀"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="odB-l8-Uce">
                                 <rect key="frame" x="16" y="505" width="183" height="341"/>
                                 <color key="backgroundColor" red="0.12156862745098039" green="0.45882352941176469" blue="0.68235294117647061" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="NotoSansKR-Medium" family="Noto Sans KR" pointSize="18"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain">
-                                    <attributedString key="attributedTitle">
-                                        <fragment content="커뮤니티 핀">
-                                            <attributes>
-                                                <font key="NSFont" size="18" name="NotoSansKR-Medium"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                            </attributes>
-                                        </fragment>
-                                    </attributedString>
-                                    <directionalEdgeInsets key="contentInsets" top="16" leading="0.0" bottom="0.0" trailing="0.0"/>
-                                </buttonConfiguration>
+                                <inset key="titleEdgeInsets" minX="0.0" minY="16" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="커뮤니티 핀"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CZx-BL-JKA">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CZx-BL-JKA">
                                 <rect key="frame" x="2" y="44" width="48" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="48" id="31x-5B-3H3"/>
                                     <constraint firstAttribute="height" constant="48" id="cYL-nR-9Wy"/>
                                 </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="btnBack" title=""/>
+                                <state key="normal" title="Button" image="iconBack"/>
                                 <connections>
                                     <action selector="backBtn:" destination="cN6-t9-zm3" eventType="touchUpInside" id="zmG-eA-OgL"/>
                                 </connections>
@@ -662,14 +578,13 @@
                                 <color key="textColor" red="0.8862745098" green="0.8862745098" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gg1-pv-fEQ">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gg1-pv-fEQ">
                                 <rect key="frame" x="2" y="44" width="48" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="RXC-Ee-flI"/>
                                     <constraint firstAttribute="width" constant="48" id="S1K-Pu-nwy"/>
                                 </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="btnBack" title=""/>
+                                <state key="normal" title="Button" image="btnBack"/>
                                 <connections>
                                     <action selector="backBtn:" destination="5OE-jE-19p" eventType="touchUpInside" id="G9m-3T-J22"/>
                                 </connections>
@@ -678,18 +593,6 @@
                                 <rect key="frame" x="179" y="58" width="56" height="21"/>
                                 <fontDescription key="fontDescription" name="NotoSansKR-Regular" family="Noto Sans KR" pointSize="14"/>
                                 <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vXN-0w-5uO">
-                                <rect key="frame" x="16" y="148" width="52" height="21"/>
-                                <attributedString key="attributedText">
-                                    <fragment content="카테고리">
-                                        <attributes>
-                                            <font key="NSFont" size="14" name="NotoSansKR-Medium"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -702,11 +605,9 @@
                             <constraint firstItem="Gg1-pv-fEQ" firstAttribute="top" secondItem="s3s-Ev-FHC" secondAttribute="top" id="T1n-n4-n2k"/>
                             <constraint firstItem="fes-mk-GTC" firstAttribute="top" secondItem="s3s-Ev-FHC" secondAttribute="top" constant="14" id="UQl-6b-WWa"/>
                             <constraint firstItem="s3s-Ev-FHC" firstAttribute="trailing" secondItem="eQ9-EG-FTx" secondAttribute="trailing" constant="36" id="Umi-OJ-3xw"/>
-                            <constraint firstItem="vXN-0w-5uO" firstAttribute="leading" secondItem="s3s-Ev-FHC" secondAttribute="leading" constant="16" id="WIs-VI-BCP"/>
                             <constraint firstItem="KA5-Yl-vFT" firstAttribute="centerX" secondItem="s3s-Ev-FHC" secondAttribute="centerX" id="gMn-Qf-9jL"/>
                             <constraint firstItem="fes-mk-GTC" firstAttribute="centerX" secondItem="s3s-Ev-FHC" secondAttribute="centerX" id="nOV-rw-Ami"/>
                             <constraint firstItem="GiD-kY-I2g" firstAttribute="leading" secondItem="s3s-Ev-FHC" secondAttribute="leading" constant="27" id="o35-54-Gfe"/>
-                            <constraint firstItem="vXN-0w-5uO" firstAttribute="top" secondItem="s3s-Ev-FHC" secondAttribute="top" constant="104" id="x9v-ZS-8Gc"/>
                             <constraint firstItem="GiD-kY-I2g" firstAttribute="top" secondItem="s3s-Ev-FHC" secondAttribute="top" constant="58" id="zwg-wY-Ty0"/>
                         </constraints>
                     </view>
@@ -724,8 +625,6 @@
         <image name="btnBack" width="48" height="48"/>
         <image name="iconBack" width="40" height="40"/>
         <image name="iconFeatherTag" width="20" height="20"/>
-        <image name="iconFilterBack" width="48" height="48"/>
-        <image name="iconFilterReset" width="48" height="48"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

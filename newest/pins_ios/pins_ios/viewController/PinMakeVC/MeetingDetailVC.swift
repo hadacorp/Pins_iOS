@@ -32,11 +32,12 @@ class MeetingDetailVC: UIViewController {
         scrollView.showsHorizontalScrollIndicator = false
         self.view.addSubview(scrollView)
         scrollView.snp.makeConstraints { make in
-            make.top.equalTo(self.view.safeAreaInsets).offset(184)
+            make.top.equalTo(132)
             make.leading.equalTo(0)
             make.trailing.equalTo(0)
             make.bottom.equalTo(0)
         }
+        scrollView.contentSize = CGSize(width: UIScreen.main.bounds.width, height: 1219)
     }
     
     private func setCollectionView(){
@@ -59,7 +60,7 @@ class MeetingDetailVC: UIViewController {
             view.width.equalTo(UIScreen.main.bounds.width - 28)
             view.centerX.equalTo(self.view)
             view.height.equalTo(208)
-            view.top.equalTo(0)
+            view.top.equalTo(52)
         }
     }
 }
@@ -68,11 +69,19 @@ class MeetingDetailVC: UIViewController {
 extension MeetingDetailVC{
     public func setUI(){
         createTriangle()
-        createLine(top: 208)
-        meetDateText()
-        meetDateDescriptionText()
+        meetSectionText(title: "카테고리", top: 16)
+        createLine(top: 260)
+        meetSectionText(title: "만남 날짜", top: 284)
+        meetSectionDescriptionText(title: "날짜를 선택해 주세요", top: 284)
         dateCollectionView()
-        createLine(top: 385)
+        createLine(top: 429)
+        meetSectionText(title: "만남 시각", top: 453)
+        meetSectionDescriptionText(title: "오후 5:00", top: 453)
+        createLine(top: 616)
+        meetSectionText(title: "참가 가능 성별", top: 640)
+        createLine(top: 728)
+        meetSectionText(title: "모집 인원", top: 752)
+        joinGenderCollectionView()
     }
     
     public func createTriangle(){
@@ -107,30 +116,31 @@ extension MeetingDetailVC{
         }
         line.backgroundColor = #colorLiteral(red: 0.9607843137, green: 0.9607843137, blue: 0.9607843137, alpha: 1)
     }
-    public func meetDateText(){
+    public func meetSectionText(title: String, top: Int){
         let text = UILabel()
         scrollView.addSubview(text)
         text.snp.makeConstraints { make in
-            make.width.equalTo(55)
+            make.width.equalTo(90)
             make.height.equalTo(20)
-            make.top.equalTo(228)
+            make.top.equalTo(top)
             make.leading.equalTo(16)
         }
-        text.text = "만남 날짜"
+        text.text = title
         text.font = UIFont(name: "NotoSansKR-Medium", size: 14)
     }
-    public func meetDateDescriptionText(){
+    public func meetSectionDescriptionText(title: String, top: Int){
         let text = UILabel()
         scrollView.addSubview(text)
         text.snp.makeConstraints { make in
             make.width.equalTo(123)
             make.height.equalTo(20)
-            make.top.equalTo(228)
+            make.top.equalTo(top)
             make.trailing.equalTo(self.view).offset(-16)
         }
-        text.text = "날짜를 선택해 주세요"
+        text.text = title
         text.font = UIFont(name: "NotoSansKR-Light", size: 14)
         text.textColor = UIColor(named: "skyBlue")
+        text.textAlignment = .right
     }
     
     public func dateCollectionView(){
@@ -153,7 +163,31 @@ extension MeetingDetailVC{
             view.width.equalTo(340)
             view.centerX.equalTo(self.view)
             view.height.equalTo(105)
-            view.top.equalTo(244)
+            view.top.equalTo(296)
+        }
+    }
+    
+    public func joinGenderCollectionView(){
+        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        layout.itemSize = CGSize(width: Int((UIScreen.main.bounds.width - 48) / 3), height: 28)
+        layout.minimumLineSpacing = 8
+        layout.scrollDirection = .horizontal
+        
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.tag = 2
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        collectionView.register(MeetingFilterCell.self, forCellWithReuseIdentifier: "MeetingFilterCell")
+        collectionView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0)
+        collectionView.decelerationRate = UIScrollView.DecelerationRate.fast
+        collectionView.showsHorizontalScrollIndicator = false
+        scrollView.addSubview(collectionView)
+        collectionView.snp.makeConstraints { view in
+            view.width.equalTo(UIScreen.main.bounds.width - 32)
+            view.centerX.equalTo(self.view)
+            view.height.equalTo(28)
+            view.top.equalTo(676)
         }
     }
 }
@@ -165,6 +199,9 @@ extension MeetingDetailVC: UICollectionViewDelegate, UICollectionViewDataSource{
         }
         else if collectionView.tag == 1{
             return 8
+        }
+        else if collectionView.tag == 2{
+            return 3
         }
         fatalError()
     }
@@ -217,6 +254,33 @@ extension MeetingDetailVC: UICollectionViewDelegate, UICollectionViewDataSource{
                 return cell
             }
         }
+        // MARK: - third collectionView
+        else if collectionView.tag == 2{
+            if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MeetingFilterCell", for: indexPath) as? MeetingFilterCell {
+                for v in cell.subviews{
+                    v.removeFromSuperview()
+                }
+                
+                let title = UILabel(frame: CGRect(x: 0, y: 0, width: cell.bounds.width, height: 28))
+                cell.addSubview(title)
+                cell.setupCell(color: .white)
+                if viewModel.getClickedGender() == indexPath.row{
+                    title.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+                    title.backgroundColor = #colorLiteral(red: 0.1137254902, green: 0.6666666667, blue: 0.9529411765, alpha: 1)
+                }
+                else{
+                    title.textColor = #colorLiteral(red: 0.4520480633, green: 0.4520593286, blue: 0.4520532489, alpha: 1)
+                    title.backgroundColor = #colorLiteral(red: 0.9625374675, green: 0.9625598788, blue: 0.9625478387, alpha: 1)
+                }
+                title.text = viewModel.getGenders()[indexPath.row]
+                title.font = UIFont(name: "NotoSansKR-Regular", size: 13)
+                title.textAlignment = .center
+                title.clipsToBounds = true
+                title.layer.cornerRadius = 14
+                
+                return cell
+            }
+        }
         fatalError("Unable to dequeue subclassed cell")
     }
     
@@ -227,6 +291,10 @@ extension MeetingDetailVC: UICollectionViewDelegate, UICollectionViewDataSource{
         }
         else if collectionView.tag == 1{
             viewModel.setClickedDate(count: indexPath.row)
+            collectionView.reloadData()
+        }
+        else if collectionView.tag == 2{
+            viewModel.setClickedGender(count: indexPath.row)
             collectionView.reloadData()
         }
     }
