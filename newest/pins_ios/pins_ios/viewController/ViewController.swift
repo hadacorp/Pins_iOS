@@ -373,7 +373,7 @@ extension ViewController: MKMapViewDelegate{
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         // 핀 클릭 시 카드뷰 띄워주기
         // 스크롤이 안됐는데 클릭이 됐으면
-        if currentIndex == goIndex{
+        if currentIndex == CGFloat(goIndex){
             let pivot = CLLocation(latitude: (view.annotation?.coordinate.latitude)!, longitude: (view.annotation?.coordinate.longitude)!)
             viewModel.setCheckablePins(checkablePins: viewModel.mergeSort(viewModel.getCheckablePins()!, pivot: pivot))
             currentIndex = 0
@@ -421,7 +421,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
         var offset = targetContentOffset.pointee
         let index = (offset.x + scrollView.contentInset.left) / cellWidthIncludingSpacing
         var roundedIndex = round(index)
-        goIndex = currentIndex
+        goIndex = Double(currentIndex)
         
         if scrollView.contentOffset.x > targetContentOffset.pointee.x {
             roundedIndex = floor(index)
