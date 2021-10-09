@@ -34,5 +34,29 @@ class PinMakeViewController: UIViewController {
         storyBtn.layer.cornerRadius = 16
         communityBtn.layer.masksToBounds = true
         communityBtn.layer.cornerRadius = 16
+        
+        createTriangle()
+    }
+    
+    public func createTriangle(){
+        let blueTri = UIImageView(image: UIImage(named: "iconTriangleBlue"))
+        let whiteTri = UIImageView(image: UIImage(named: "iconTriangleWhite"))
+        
+        self.view.addSubview(blueTri)
+        self.view.addSubview(whiteTri)
+        
+        blueTri.snp.makeConstraints { make in
+            make.width.equalTo(4)
+            make.height.equalTo(6)
+            make.top.equalTo(self.view.safeAreaLayoutGuide).offset(66)
+            make.leading.equalTo(UIScreen.main.bounds.width / 3 - 2)
+        }
+        
+        whiteTri.snp.makeConstraints { make in
+            make.width.equalTo(4)
+            make.height.equalTo(6)
+            make.top.equalTo(self.view.safeAreaLayoutGuide).offset(66)
+            make.trailing.equalTo(-UIScreen.main.bounds.width / 3 + 2)
+        }
     }
 }
