@@ -1,20 +1,28 @@
 PODS:
-  - RangeSeekSlider (1.8.0)
+  - AvailableHapticFeedback (1.0.2)
+  - MultiSlider (1.11.2):
+    - AvailableHapticFeedback
+    - SweeterSwift
   - SnapKit (5.0.1)
+  - SweeterSwift (1.1.4)
 
 DEPENDENCIES:
-  - RangeSeekSlider
+  - MultiSlider
   - SnapKit
 
 SPEC REPOS:
   trunk:
-    - RangeSeekSlider
+    - AvailableHapticFeedback
+    - MultiSlider
     - SnapKit
+    - SweeterSwift
 
 SPEC CHECKSUMS:
-  RangeSeekSlider: 650b11fa1edcb92e1e0ede797669d98622570fb5
+  AvailableHapticFeedback: 9b21b9f6d3e4566015988b5de35b40abefe6c09a
+  MultiSlider: 944d00877d371bbb5ce0a512fec517de87958775
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
+  SweeterSwift: 8a90cf3156f5a1b6f39785c479369a16633b5ea9
 
-PODFILE CHECKSUM: d35d749531c17be1346244312b4465c9f2a4b5bd
+PODFILE CHECKSUM: d41fd816d747e4b43bed78fb78323e3e26053098
 
 COCOAPODS: 1.10.1

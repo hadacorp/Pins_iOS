@@ -23,12 +23,14 @@ class MeetingDetailVCUI{
     public let countDescription = UILabel()
     public let ageDescription = UILabel()
     
+    public let nextButton = UIButton()
+    
     private var view: UIView!
     private var scrollView: UIScrollView!
     
-    init(view: UIView, scrollView: UIScrollView) {
+    init(parent: UIScrollView, view: UIView) {
+        self.scrollView = parent
         self.view = view
-        self.scrollView = scrollView
     }
     
     public func setUI(){
@@ -49,6 +51,8 @@ class MeetingDetailVCUI{
         createLine(top: 873)
         meetSectionText(title: "참가 가능 나이", top: 897)
         meetSectionDescriptionText(label: ageDescription, title: "20세 ~ 무제한", top: 897)
+        
+        initNextButton()
     }
     // MARK:- 상단 작은 삼각형
     public func createTriangle(){
@@ -253,5 +257,20 @@ class MeetingDetailVCUI{
             label.trailing.equalTo(0)
             label.top.equalTo(12)
         }
+    }
+    public func initNextButton(){
+        scrollView.addSubview(nextButton)
+        nextButton.snp.makeConstraints { btn in
+            btn.leading.equalTo(16)
+            btn.width.equalTo(UIScreen.main.bounds.width - 32)
+            btn.height.equalTo(41)
+            btn.top.equalTo(1018)
+        }
+        nextButton.setTitle("다음 단계", for: .normal)
+        nextButton.titleLabel?.font = UIFont(name: "NotoSansKR-Regular", size: 16)
+        nextButton.titleLabel?.textAlignment = .center
+        nextButton.titleLabel?.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        nextButton.layer.cornerRadius = 8
+        nextButton.backgroundColor = #colorLiteral(red: 0.5568627451, green: 0.8156862745, blue: 0.9490196078, alpha: 1)
     }
 }
