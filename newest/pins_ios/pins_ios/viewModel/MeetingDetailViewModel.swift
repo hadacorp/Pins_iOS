@@ -45,6 +45,25 @@ class MeetingDetailViewModel: MeetingDetailVCUI {
     public func getClickedGender() -> Int{
         return clickedGender
     }
+    public func setHourLabel(string: String){
+        hourLabel.text = string
+    }
+    public func setMinuteLabel(string: String){
+        minuteLabel.text = string
+    }
+    public func getHourPlusBtn() -> UIButton{
+        return hourPlusButton
+    }
+    public func getHourMinusBtn() -> UIButton{
+        return hourMinusButton
+    }
+    public func getMinutePlusBtn() -> UIButton{
+        return minutePlusButton
+    }
+    public func getMinuteMinusBtn() -> UIButton{
+        return minuteMinusButton
+    }
+    
     
     public func getDates() -> [String]{
         var result: [String] = []

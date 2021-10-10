@@ -10,6 +10,14 @@ import UIKit
 // MARK: - UISetting
 class MeetingDetailVCUI{
     
+    public let hourPlusButton = UIButton()
+    public let hourMinusButton = UIButton()
+    public let minutePlusButton = UIButton()
+    public let minuteMinusButton = UIButton()
+    
+    public let hourLabel = UILabel()
+    public let minuteLabel = UILabel()
+    
     private var view: UIView!
     private var scrollView: UIScrollView!
     
@@ -100,19 +108,13 @@ class MeetingDetailVCUI{
     public func joinTime(){
         let hourBackgroundTop = UIView()
         let hourBackgroundDown = UIView()
-        let hourPlusButton = UIButton()
-        let hourMinusButton = UIButton()
         
         let minuteBackgroundTop = UIView()
         let minuteBackgroundDown = UIView()
-        let minutePlusButton = UIButton()
-        let minuteMinusButton = UIButton()
         
         let hourSeparator = UIImageView()
         let minuteSeparator = UIImageView()
         
-        let hourLabel = UILabel()
-        let minuteLabel = UILabel()
         
         scrollView.addSubview(hourBackgroundTop)
         scrollView.addSubview(hourBackgroundDown)
@@ -167,11 +169,6 @@ class MeetingDetailVCUI{
         minutePlusButton.setImage(#imageLiteral(resourceName: "iconMeetPlus"), for: .normal)
         hourMinusButton.setImage(#imageLiteral(resourceName: "iconMeetMinus"), for: .normal)
         minuteMinusButton.setImage(#imageLiteral(resourceName: "iconMeetMinus"), for: .normal)
-        
-//        hourPlusButton.addTarget(self, action: #selector(plusHour), for: .touchUpInside)
-//        hourMinusButton.addTarget(self, action: #selector(minusHour), for: .touchUpInside)
-//        minutePlusButton.addTarget(self, action: #selector(plusMinute), for: .touchUpInside)
-//        minuteMinusButton.addTarget(self, action: #selector(minusMinute), for: .touchUpInside)
         
         hourBackgroundDown.addSubview(hourPlusButton)
         hourBackgroundDown.addSubview(hourMinusButton)
@@ -230,7 +227,7 @@ class MeetingDetailVCUI{
         hourBackgroundTop.addSubview(hourLabel)
         hourLabel.font = UIFont(name: "NotoSansKR-Regular", size: 20)
         hourLabel.textColor = #colorLiteral(red: 0.3764705882, green: 0.3764705882, blue: 0.3764705882, alpha: 1)
-        hourLabel.text = ""
+        hourLabel.text = "오후 5시"
         hourLabel.textAlignment = .center
         hourLabel.snp.makeConstraints { label in
             label.leading.equalTo(0)
@@ -241,7 +238,7 @@ class MeetingDetailVCUI{
         minuteBackgroundTop.addSubview(minuteLabel)
         minuteLabel.font = UIFont(name: "NotoSansKR-Regular", size: 20)
         minuteLabel.textColor = #colorLiteral(red: 0.3764705882, green: 0.3764705882, blue: 0.3764705882, alpha: 1)
-        minuteLabel.text = ""
+        minuteLabel.text = "00분"
         minuteLabel.textAlignment = .center
         minuteLabel.snp.makeConstraints { label in
             label.leading.equalTo(0)

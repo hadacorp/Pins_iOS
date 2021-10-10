@@ -20,13 +20,15 @@ class MeetingDetailVC: UIViewController {
     public var viewModel: MeetingDetailViewModel!
     
     override func viewDidLoad() {
-        viewModel = MeetingDetailViewModel(view: self.view, scrollView: scrollView)
         setScrollView()
+        viewModel = MeetingDetailViewModel(view: self.view, scrollView: scrollView)
         setCollectionView()
         dateCollectionView()
         viewModel.setUI()
         dateCollectionView()
         joinGenderCollectionView()
+        
+        setButtonEvent()
     }
     
     private func setScrollView(){
