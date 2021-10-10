@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RangeSeekSlider
 
 class MeetingDetailVC: UIViewController {
     @IBOutlet weak var topTitleFirst: UILabel!
@@ -16,13 +17,16 @@ class MeetingDetailVC: UIViewController {
     
     public var scrollView: UIScrollView!
     public var collectionView: UICollectionView!
-    
-    private var viewModel = MeetingDetailViewModel()
+    public var viewModel: MeetingDetailViewModel!
     
     override func viewDidLoad() {
+        viewModel = MeetingDetailViewModel(view: self.view, scrollView: scrollView)
         setScrollView()
         setCollectionView()
-        setUI()
+        dateCollectionView()
+        viewModel.setUI()
+        dateCollectionView()
+        joinGenderCollectionView()
     }
     
     private func setScrollView(){
@@ -63,86 +67,7 @@ class MeetingDetailVC: UIViewController {
             view.top.equalTo(52)
         }
     }
-}
-
-// MARK: - UISetting
-extension MeetingDetailVC{
-    public func setUI(){
-        createTriangle()
-        meetSectionText(title: "카테고리", top: 16)
-        createLine(top: 260)
-        meetSectionText(title: "만남 날짜", top: 284)
-        meetSectionDescriptionText(title: "날짜를 선택해 주세요", top: 284)
-        dateCollectionView()
-        createLine(top: 429)
-        meetSectionText(title: "만남 시각", top: 453)
-        meetSectionDescriptionText(title: "오후 5:00", top: 453)
-        createLine(top: 616)
-        meetSectionText(title: "참가 가능 성별", top: 640)
-        createLine(top: 728)
-        meetSectionText(title: "모집 인원", top: 752)
-        joinGenderCollectionView()
-    }
-    
-    public func createTriangle(){
-        let blueTri = UIImageView(image: UIImage(named: "iconTriangleBlue"))
-        let whiteTri = UIImageView(image: UIImage(named: "iconTriangleWhite"))
-        
-        self.view.addSubview(blueTri)
-        self.view.addSubview(whiteTri)
-        
-        whiteTri.snp.makeConstraints { make in
-            make.width.equalTo(4)
-            make.height.equalTo(6)
-            make.top.equalTo(self.view.safeAreaLayoutGuide).offset(66)
-            make.leading.equalTo(UIScreen.main.bounds.width / 3 - 2)
-        }
-        
-        blueTri.snp.makeConstraints { make in
-            make.width.equalTo(4)
-            make.height.equalTo(6)
-            make.top.equalTo(self.view.safeAreaLayoutGuide).offset(66)
-            make.trailing.equalTo(-UIScreen.main.bounds.width / 3 + 2)
-        }
-    }
-    public func createLine(top: Int){
-        let line = UIView()
-        scrollView.addSubview(line)
-        line.snp.makeConstraints { make in
-            make.width.equalTo(scrollView)
-            make.height.equalTo(8)
-            make.leading.equalTo(0)
-            make.top.equalTo(top)
-        }
-        line.backgroundColor = #colorLiteral(red: 0.9607843137, green: 0.9607843137, blue: 0.9607843137, alpha: 1)
-    }
-    public func meetSectionText(title: String, top: Int){
-        let text = UILabel()
-        scrollView.addSubview(text)
-        text.snp.makeConstraints { make in
-            make.width.equalTo(90)
-            make.height.equalTo(20)
-            make.top.equalTo(top)
-            make.leading.equalTo(16)
-        }
-        text.text = title
-        text.font = UIFont(name: "NotoSansKR-Medium", size: 14)
-    }
-    public func meetSectionDescriptionText(title: String, top: Int){
-        let text = UILabel()
-        scrollView.addSubview(text)
-        text.snp.makeConstraints { make in
-            make.width.equalTo(123)
-            make.height.equalTo(20)
-            make.top.equalTo(top)
-            make.trailing.equalTo(self.view).offset(-16)
-        }
-        text.text = title
-        text.font = UIFont(name: "NotoSansKR-Light", size: 14)
-        text.textColor = UIColor(named: "skyBlue")
-        text.textAlignment = .right
-    }
-    
+    // MARK:- 만남 날짜
     public func dateCollectionView(){
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
@@ -167,6 +92,7 @@ extension MeetingDetailVC{
         }
     }
     
+    // MARK:- 참가 가능 성별
     public func joinGenderCollectionView(){
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
@@ -191,6 +117,7 @@ extension MeetingDetailVC{
         }
     }
 }
+
 
 extension MeetingDetailVC: UICollectionViewDelegate, UICollectionViewDataSource{
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
