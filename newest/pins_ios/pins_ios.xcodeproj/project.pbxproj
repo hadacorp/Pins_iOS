@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6CAAB4AB6E68F9BD750A3D4B /* Pods_pins_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2E236C66795D43169F6D9A9 /* Pods_pins_ios.framework */; };
 		B704D48026DBCE6800DB20D2 /* AnimationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B704D47F26DBCE6800DB20D2 /* AnimationManager.swift */; };
 		B704F03C26E36C5900DA9E06 /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B704F03B26E36C5900DA9E06 /* Cell.swift */; };
 		B709090026E1FD990075BF50 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70908FF26E1FD990075BF50 /* SearchViewModel.swift */; };
@@ -35,6 +36,7 @@
 		B74F96A826E4A80E0064B900 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74F96A726E4A80E0064B900 /* SearchViewController.swift */; };
 		B74F96AB26E4AB0B0064B900 /* Extension+CLLocationCoordinate2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74F96AA26E4AB0B0064B900 /* Extension+CLLocationCoordinate2D.swift */; };
 		B74F96AD26E4AB3E0064B900 /* Extension+UISearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74F96AC26E4AB3E0064B900 /* Extension+UISearchBar.swift */; };
+		B76080DA2713507E000A710D /* MeetingDetailVCSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76080D92713507E000A710D /* MeetingDetailVCSlider.swift */; };
 		B77EC71526F0E59A0002C0D6 /* GetSearchKeywordPinAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77EC71426F0E59A0002C0D6 /* GetSearchKeywordPinAPI.swift */; };
 		B77EC71726F0EF540002C0D6 /* GetPlaceCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77EC71626F0EF540002C0D6 /* GetPlaceCard.swift */; };
 		B77EC71926F0EF5E0002C0D6 /* GetKeywordCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77EC71826F0EF5E0002C0D6 /* GetKeywordCard.swift */; };
@@ -104,6 +106,7 @@
 		B74F96A726E4A80E0064B900 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		B74F96AA26E4AB0B0064B900 /* Extension+CLLocationCoordinate2D.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+CLLocationCoordinate2D.swift"; sourceTree = "<group>"; };
 		B74F96AC26E4AB3E0064B900 /* Extension+UISearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UISearchBar.swift"; sourceTree = "<group>"; };
+		B76080D92713507E000A710D /* MeetingDetailVCSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingDetailVCSlider.swift; sourceTree = "<group>"; };
 		B77EC71426F0E59A0002C0D6 /* GetSearchKeywordPinAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetSearchKeywordPinAPI.swift; sourceTree = "<group>"; };
 		B77EC71626F0EF540002C0D6 /* GetPlaceCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPlaceCard.swift; sourceTree = "<group>"; };
 		B77EC71826F0EF5E0002C0D6 /* GetKeywordCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetKeywordCard.swift; sourceTree = "<group>"; };
@@ -140,6 +143,7 @@
 		B7F4417426EBB62100546257 /* PinType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinType.swift; sourceTree = "<group>"; };
 		B7FBC47726C28730001838D1 /* CustomPintAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPintAnnotation.swift; sourceTree = "<group>"; };
 		B8817DC6ED24C308687E6104 /* Pods-pins_ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pins_ios.debug.xcconfig"; path = "Target Support Files/Pods-pins_ios/Pods-pins_ios.debug.xcconfig"; sourceTree = "<group>"; };
+		C2E236C66795D43169F6D9A9 /* Pods_pins_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pins_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +152,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B7C008812712245800E94A3E /* Foundation.framework in Frameworks */,
+				6CAAB4AB6E68F9BD750A3D4B /* Pods_pins_ios.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -158,6 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				B7D998102712115400AED01B /* Foundation.framework */,
+				C2E236C66795D43169F6D9A9 /* Pods_pins_ios.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -271,6 +277,7 @@
 				B741BA4A26E9116B00BB04E7 /* Debouncer.swift */,
 				B7A0D84A26EA6ECF00AD5B46 /* Gradient.swift */,
 				B7B70B2726F78FBE006052A1 /* CoreDataManager.swift */,
+				B76080D92713507E000A710D /* MeetingDetailVCSlider.swift */,
 			);
 			path = Utill;
 			sourceTree = "<group>";
@@ -487,6 +494,7 @@
 				B709090926E273840075BF50 /* HomeResponse.swift in Sources */,
 				B70CFC3526BFDC0C00B7DA74 /* PinMaker.swift in Sources */,
 				B724315B26C18A950091152E /* SmallRoundedBtn.swift in Sources */,
+				B76080DA2713507E000A710D /* MeetingDetailVCSlider.swift in Sources */,
 				B797A3AD270F5C6700A87047 /* MeetingDetailViewModel.swift in Sources */,
 				B7C5DAA826C805640011EE41 /* BigRoundedbutton.swift in Sources */,
 				B7A0D84926EA571200AD5B46 /* Pin.swift in Sources */,

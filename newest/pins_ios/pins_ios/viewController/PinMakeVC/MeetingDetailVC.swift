@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import RangeSeekSlider
 
 class MeetingDetailVC: UIViewController {
     @IBOutlet weak var topTitleFirst: UILabel!
@@ -21,13 +20,14 @@ class MeetingDetailVC: UIViewController {
     
     override func viewDidLoad() {
         setScrollView()
-        viewModel = MeetingDetailViewModel(view: self.view, scrollView: scrollView)
+        viewModel = MeetingDetailViewModel(parent: scrollView, view: self.view)
         setCollectionView()
         dateCollectionView()
         viewModel.setUI()
         dateCollectionView()
         joinGenderCollectionView()
-        
+        countSlider()
+//        ageSlider()
         setButtonEvent()
     }
     
@@ -118,8 +118,19 @@ class MeetingDetailVC: UIViewController {
             view.top.equalTo(676)
         }
     }
+    
+    // MARK:- Slider
+    let leading: CGFloat = 32
+    let trailing: CGFloat = UIScreen.main.bounds.width - 32
+    let backgroundBlue = UIView()
+    let backgroundGray = UIView()
+    public func countSlider(){
+        singleSlider(top: 808)
+    }
+    
+    public func ageSlider(){
+    }
 }
-
 
 extension MeetingDetailVC: UICollectionViewDelegate, UICollectionViewDataSource{
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

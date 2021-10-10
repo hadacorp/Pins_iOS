@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double RangeSeekSliderVersionNumber;
-FOUNDATION_EXPORT const unsigned char RangeSeekSliderVersionString[];
+FOUNDATION_EXPORT double AvailableHapticFeedbackVersionNumber;
+FOUNDATION_EXPORT const unsigned char AvailableHapticFeedbackVersionString[];
 
