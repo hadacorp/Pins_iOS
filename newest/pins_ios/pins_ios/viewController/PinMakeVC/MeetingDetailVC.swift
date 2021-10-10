@@ -43,7 +43,7 @@ class MeetingDetailVC: UIViewController {
             make.trailing.equalTo(0)
             make.bottom.equalTo(0)
         }
-        scrollView.contentSize = CGSize(width: UIScreen.main.bounds.width, height: 1219)
+        scrollView.contentSize = CGSize(width: UIScreen.main.bounds.width, height: 1067)
     }
     
     private func setCollectionView(){
@@ -220,6 +220,7 @@ extension MeetingDetailVC: UICollectionViewDelegate, UICollectionViewDataSource{
         }
         else if collectionView.tag == 1{
             viewModel.setClickedDate(count: indexPath.row)
+            viewModel.setDateDescription(string: viewModel.getDate(index: indexPath.row))
             collectionView.reloadData()
         }
         else if collectionView.tag == 2{

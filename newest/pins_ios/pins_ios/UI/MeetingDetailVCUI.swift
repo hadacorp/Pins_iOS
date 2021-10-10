@@ -18,6 +18,11 @@ class MeetingDetailVCUI{
     public let hourLabel = UILabel()
     public let minuteLabel = UILabel()
     
+    public let dateDescription = UILabel()
+    public let timeDescription = UILabel()
+    public let countDescription = UILabel()
+    public let ageDescription = UILabel()
+    
     private var view: UIView!
     private var scrollView: UIScrollView!
     
@@ -31,15 +36,19 @@ class MeetingDetailVCUI{
         meetSectionText(title: "카테고리", top: 16)
         createLine(top: 260)
         meetSectionText(title: "만남 날짜", top: 284)
-        meetSectionDescriptionText(title: "날짜를 선택해 주세요", top: 284)
+        meetSectionDescriptionText(label: dateDescription, title: "날짜를 선택해 주세요", top: 284)
         createLine(top: 429)
         meetSectionText(title: "만남 시각", top: 453)
-        meetSectionDescriptionText(title: "오후 5:00", top: 453)
+        meetSectionDescriptionText(label: timeDescription, title: "오후 5:00", top: 453)
         createLine(top: 616)
         meetSectionText(title: "참가 가능 성별", top: 640)
         createLine(top: 728)
         meetSectionText(title: "모집 인원", top: 752)
+        meetSectionDescriptionText(label: countDescription, title: "1명", top: 752)
         joinTime()
+        createLine(top: 873)
+        meetSectionText(title: "참가 가능 나이", top: 897)
+        meetSectionDescriptionText(label: ageDescription, title: "20세 ~ 무제한", top: 897)
     }
     // MARK:- 상단 작은 삼각형
     public func createTriangle(){
@@ -89,19 +98,18 @@ class MeetingDetailVCUI{
         text.font = UIFont(name: "NotoSansKR-Medium", size: 14)
     }
     // MARK:- 왼쪽 상세 정보 텍스트
-    public func meetSectionDescriptionText(title: String, top: Int){
-        let text = UILabel()
-        scrollView.addSubview(text)
-        text.snp.makeConstraints { make in
-            make.width.equalTo(123)
+    public func meetSectionDescriptionText(label: UILabel, title: String, top: Int){
+        scrollView.addSubview(label)
+        label.snp.makeConstraints { make in
+            make.width.equalTo(200)
             make.height.equalTo(20)
             make.top.equalTo(top)
             make.trailing.equalTo(self.view).offset(-16)
         }
-        text.text = title
-        text.font = UIFont(name: "NotoSansKR-Light", size: 14)
-        text.textColor = UIColor(named: "skyBlue")
-        text.textAlignment = .right
+        label.text = title
+        label.font = UIFont(name: "NotoSansKR-Light", size: 14)
+        label.textColor = UIColor(named: "skyBlue")
+        label.textAlignment = .right
     }
     
     // MARK:- 만남 시각
