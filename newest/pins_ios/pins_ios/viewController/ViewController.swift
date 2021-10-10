@@ -352,18 +352,20 @@ extension ViewController: MKMapViewDelegate{
     
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
         if let startPos = startPos{
-            if mapView.centerCoordinate.distance(from: startPos) > 1500 && paramSearchText == "" && currentIndex == 0{
-                GetLocation().requestGet(latitude: mapView.centerCoordinate.latitude, longitude: mapView.centerCoordinate.longitude) { [self] (success, data) in
-                    if let data = data as? [Pin] {
-                        fetchDatasToDistance(data: data)
+            if paramSearchText != nil{
+                if mapView.centerCoordinate.distance(from: startPos) > 1500 && paramSearchText == "" && currentIndex == 0{
+                    GetLocation().requestGet(latitude: mapView.centerCoordinate.latitude, longitude: mapView.centerCoordinate.longitude) { [self] (success, data) in
+                        if let data = data as? [Pin] {
+                            fetchDatasToDistance(data: data)
+                        }
                     }
                 }
-            }
-            else if mapView.centerCoordinate.distance(from: startPos) > 1500 && paramSearchText != "" && currentIndex == 0{
-                print(mapView.centerCoordinate)
-                GetKeyword().requestGet(keyword: paramSearchText!, latitude: mapView.centerCoordinate.latitude, longitude: mapView.centerCoordinate.longitude) { [self] (success, data) in
-                    if let data = data as? [Pin] {
-                        fetchDatasToDistance(data: data)
+                else if mapView.centerCoordinate.distance(from: startPos) > 1500 && paramSearchText != "" && currentIndex == 0{
+                    print(mapView.centerCoordinate)
+                    GetKeyword().requestGet(keyword: paramSearchText!, latitude: mapView.centerCoordinate.latitude, longitude: mapView.centerCoordinate.longitude) { [self] (success, data) in
+                        if let data = data as? [Pin] {
+                            fetchDatasToDistance(data: data)
+                        }
                     }
                 }
             }
