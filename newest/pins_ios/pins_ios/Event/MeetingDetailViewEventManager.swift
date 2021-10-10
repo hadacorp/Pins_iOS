@@ -11,20 +11,24 @@ extension MeetingDetailVC{
     @objc func plusHour(){
         viewModel.plusHour()
         viewModel.setHourLabel(string: viewModel.getHour())
+        viewModel.setTimeDescription(string: viewModel.getTime())
     }
     @objc func minusHour(){
         viewModel.minusHour()
         viewModel.setHourLabel(string: viewModel.getHour())
+        viewModel.setTimeDescription(string: viewModel.getTime())
     }
     @objc func plusMinute(){
         viewModel.plusMinute()
         viewModel.setHourLabel(string: viewModel.getHour())
         viewModel.setMinuteLabel(string: viewModel.getMinute())
+        viewModel.setTimeDescription(string: viewModel.getTime())
     }
     @objc func minusMinute(){
         viewModel.minusMinute()
         viewModel.setHourLabel(string: viewModel.getHour())
         viewModel.setMinuteLabel(string: viewModel.getMinute())
+        viewModel.setTimeDescription(string: viewModel.getTime())
     }
     
     public func setButtonEvent(){

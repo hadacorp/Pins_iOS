@@ -63,7 +63,23 @@ class MeetingDetailViewModel: MeetingDetailVCUI {
     public func getMinuteMinusBtn() -> UIButton{
         return minuteMinusButton
     }
+    public func setDateDescription(string: String){
+        dateDescription.text = string
+    }
+    public func setTimeDescription(string: String){
+        timeDescription.text = string
+    }
     
+    public func getDate(index: Int) -> String{
+        let today = Date()
+        let next = Calendar.current.date(byAdding: .day, value: index, to: today)
+        let year = Calendar.current.component(.year, from: next!)
+        let month = Calendar.current.component(.month, from: next!)
+        let day = Calendar.current.component(.day, from: next!)
+        let weekday = Calendar.current.component(.weekday, from: next!)
+        
+        return "\(year)년 \(month)월 \(day)일 \(weeks[(weekday % 7)])요일"
+    }
     
     public func getDates() -> [String]{
         var result: [String] = []
@@ -85,7 +101,7 @@ class MeetingDetailViewModel: MeetingDetailVCUI {
     }
     public func minusHour(){
         meetTime -= 60
-        if meetTime < 0{
+        if meetTime <= 0{
             meetTime += 1440
         }
     }
@@ -98,14 +114,14 @@ class MeetingDetailViewModel: MeetingDetailVCUI {
     }
     public func minusMinute(){
         meetTime -= 10
-        if meetTime < 0{
+        if meetTime <= 0{
             meetTime += 1440
         }
     }
     
     public func convertTime() -> String{
         var ampm = ""
-        if meetTime >= 0 && meetTime <= 720{
+        if (meetTime >= 0 && meetTime < 720) || meetTime == 1440{
             ampm = "오전 "
         }
         else{
@@ -123,6 +139,28 @@ class MeetingDetailViewModel: MeetingDetailVCUI {
             minuteString = "0\(minute)"
         }
         return ampm + "\(hour)시" + minuteString + "분"
+    }
+    
+    public func getTime() -> String{
+        var ampm = ""
+        if (meetTime >= 0 && meetTime < 720) || meetTime == 1440{
+            ampm = "오전 "
+        }
+        else{
+            ampm = "오후 "
+        }
+        
+        var hour = meetTime / 60
+        if hour > 12 {
+            hour = hour - 12
+        }
+        
+        let minute = meetTime % 60
+        var minuteString = String(minute)
+        if minute < 10{
+            minuteString = "0\(minute)"
+        }
+        return ampm + "\(hour):" + minuteString
     }
     
     public func getHour() -> String{
