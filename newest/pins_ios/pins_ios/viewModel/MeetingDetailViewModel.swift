@@ -85,6 +85,10 @@ class MeetingDetailViewModel: MeetingDetailVCUI {
         countDescription.text = string
     }
     
+    public func setAgeDescription(string: String){
+        ageDescription.text = string
+    }
+    
     public func getDate(index: Int) -> String{
         let today = Date()
         let next = Calendar.current.date(byAdding: .day, value: index, to: today)
@@ -193,5 +197,9 @@ class MeetingDetailViewModel: MeetingDetailVCUI {
         let minute = convertTime()
         let index = minute.firstIndex(of: "시")!
         return String(minute[minute.index(after: index) ..< minute.endIndex])
+    }
+
+    public func activateNextButton(){
+        
     }
 }

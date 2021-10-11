@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RangeSeekSlider
 
 class MeetingDetailVC: UIViewController {
     @IBOutlet weak var topTitleFirst: UILabel!
@@ -18,6 +19,8 @@ class MeetingDetailVC: UIViewController {
     public var collectionView: UICollectionView!
     public var viewModel: MeetingDetailViewModel!
     
+    let rangeSlider = RangeSeekSlider()
+    
     override func viewDidLoad() {
         setScrollView()
         viewModel = MeetingDetailViewModel(parent: scrollView, view: self.view)
@@ -27,7 +30,7 @@ class MeetingDetailVC: UIViewController {
         dateCollectionView()
         joinGenderCollectionView()
         countSlider()
-//        ageSlider()
+        ageSlider()
         setButtonEvent()
     }
     
@@ -129,6 +132,48 @@ class MeetingDetailVC: UIViewController {
     }
     
     public func ageSlider(){
+        scrollView.addSubview(rangeSlider)
+        rangeSlider.snp.makeConstraints { slider in
+            slider.top.equalTo(941)
+            slider.leading.equalTo(18)
+            slider.height.equalTo(28)
+            slider.width.equalTo(UIScreen.main.bounds.width - 36)
+        }
+        rangeSlider.delegate = self
+        rangeSlider.minValue = 20
+        rangeSlider.maxValue = 50
+        rangeSlider.selectedMinValue = 20
+        rangeSlider.selectedMaxValue = 50
+        rangeSlider.handleColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        rangeSlider.handleDiameter = 28.0
+        rangeSlider.lineHeight = 4
+        rangeSlider.tintColor = #colorLiteral(red: 0.8862745098, green: 0.8862745098, blue: 0.8862745098, alpha: 1)
+        rangeSlider.colorBetweenHandles = #colorLiteral(red: 0.1137254902, green: 0.6666666667, blue: 0.9529411765, alpha: 1)
+        rangeSlider.selectedHandleDiameterMultiplier = 1.0
+        rangeSlider.hideLabels = true
+    }
+}
+// MARK: - Slider Delegate
+extension MeetingDetailVC: RangeSeekSliderDelegate {
+    func rangeSeekSlider(_ slider: RangeSeekSlider, didChange minValue: CGFloat, maxValue: CGFloat) {
+        if maxValue == rangeSlider.maxValue && Int(minValue) != Int(rangeSlider.maxValue){
+            viewModel.setAgeDescription(string: "\(Int(minValue))세 ~ 무제한")
+        }
+        else if Int(maxValue) == Int(rangeSlider.maxValue) && Int(minValue) == Int(rangeSlider.maxValue){
+            print("asd")
+            viewModel.setAgeDescription(string: "무제한")
+        }
+        else{
+            viewModel.setAgeDescription(string: "\(Int(minValue))세 ~ \(Int(maxValue))세")
+        }
+    }
+
+    func didStartTouches(in slider: RangeSeekSlider) {
+        print("did start touches")
+    }
+
+    func didEndTouches(in slider: RangeSeekSlider) {
+        print("did end touches")
     }
 }
 
@@ -227,11 +272,13 @@ extension MeetingDetailVC: UICollectionViewDelegate, UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView.tag == 0{
             viewModel.setClicked(count: indexPath.row)
+            // 체크
             collectionView.reloadData()
         }
         else if collectionView.tag == 1{
             viewModel.setClickedDate(count: indexPath.row)
             viewModel.setDateDescription(string: viewModel.getDate(index: indexPath.row))
+            // 체크
             collectionView.reloadData()
         }
         else if collectionView.tag == 2{
