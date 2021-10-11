@@ -31,7 +31,17 @@ extension MeetingDetailVC{
         viewModel.setTimeDescription(string: viewModel.getTime())
     }
     
+    @objc func nextView(){
+        if viewModel.checkNext(){
+            let VC1 = self.storyboard!.instantiateViewController(withIdentifier: "MeetingContentVC") as! MeetingContentVC
+            // save
+            viewModel.saveSetting()
+            self.navigationController!.pushViewController(VC1, animated: false)
+        }
+    }
+    
     public func setButtonEvent(){
+        viewModel.getNextBtn().addTarget(self, action: #selector(nextView), for: .touchUpInside)
         viewModel.getHourPlusBtn().addTarget(self, action: #selector(plusHour), for: .touchUpInside)
         viewModel.getHourMinusBtn().addTarget(self, action: #selector(minusHour), for: .touchUpInside)
         viewModel.getMinutePlusBtn().addTarget(self, action: #selector(plusMinute), for: .touchUpInside)

@@ -156,6 +156,8 @@ class MeetingDetailVC: UIViewController {
 // MARK: - Slider Delegate
 extension MeetingDetailVC: RangeSeekSliderDelegate {
     func rangeSeekSlider(_ slider: RangeSeekSlider, didChange minValue: CGFloat, maxValue: CGFloat) {
+        viewModel.setMinAge(age: Int(minValue))
+        viewModel.setMaxAge(age: Int(maxValue))
         if maxValue == rangeSlider.maxValue && Int(minValue) != Int(rangeSlider.maxValue){
             viewModel.setAgeDescription(string: "\(Int(minValue))세 ~ 무제한")
         }
@@ -273,12 +275,14 @@ extension MeetingDetailVC: UICollectionViewDelegate, UICollectionViewDataSource{
         if collectionView.tag == 0{
             viewModel.setClicked(count: indexPath.row)
             // 체크
+            viewModel.activateNextButton()
             collectionView.reloadData()
         }
         else if collectionView.tag == 1{
             viewModel.setClickedDate(count: indexPath.row)
             viewModel.setDateDescription(string: viewModel.getDate(index: indexPath.row))
             // 체크
+            viewModel.activateNextButton()
             collectionView.reloadData()
         }
         else if collectionView.tag == 2{

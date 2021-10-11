@@ -71,6 +71,10 @@
 		B7F06733270759D200CFCE13 /* GetLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F06732270759D200CFCE13 /* GetLocation.swift */; };
 		B7F4417326EB92C200546257 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F4417226EB92C200546257 /* UIImage.swift */; };
 		B7F4417526EBB62100546257 /* PinType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F4417426EBB62100546257 /* PinType.swift */; };
+		B7FA1D782714889D005F924A /* MeetingContentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7FA1D772714889D005F924A /* MeetingContentVC.swift */; };
+		B7FA1D7C27148D3B005F924A /* Extension+UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7FA1D7B27148D3B005F924A /* Extension+UITextField.swift */; };
+		B7FA1D7E27148F82005F924A /* MeetingContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7FA1D7D27148F82005F924A /* MeetingContentViewModel.swift */; };
+		B7FA1D8027149D36005F924A /* PostMeetingPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7FA1D7F27149D36005F924A /* PostMeetingPin.swift */; };
 		B7FBC47826C28730001838D1 /* CustomPintAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7FBC47726C28730001838D1 /* CustomPintAnnotation.swift */; };
 /* End PBXBuildFile section */
 
@@ -141,6 +145,10 @@
 		B7F06732270759D200CFCE13 /* GetLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetLocation.swift; sourceTree = "<group>"; };
 		B7F4417226EB92C200546257 /* UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		B7F4417426EBB62100546257 /* PinType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinType.swift; sourceTree = "<group>"; };
+		B7FA1D772714889D005F924A /* MeetingContentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingContentVC.swift; sourceTree = "<group>"; };
+		B7FA1D7B27148D3B005F924A /* Extension+UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UITextField.swift"; sourceTree = "<group>"; };
+		B7FA1D7D27148F82005F924A /* MeetingContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingContentViewModel.swift; sourceTree = "<group>"; };
+		B7FA1D7F27149D36005F924A /* PostMeetingPin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostMeetingPin.swift; sourceTree = "<group>"; };
 		B7FBC47726C28730001838D1 /* CustomPintAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPintAnnotation.swift; sourceTree = "<group>"; };
 		B8817DC6ED24C308687E6104 /* Pods-pins_ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pins_ios.debug.xcconfig"; path = "Target Support Files/Pods-pins_ios/Pods-pins_ios.debug.xcconfig"; sourceTree = "<group>"; };
 		C2E236C66795D43169F6D9A9 /* Pods_pins_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pins_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -206,6 +214,7 @@
 				B70ADB8826FF8902007997E2 /* GetCardByPinId.swift */,
 				B7F06730270740ED00CFCE13 /* GetKeyword.swift */,
 				B7F06732270759D200CFCE13 /* GetLocation.swift */,
+				B7FA1D7F27149D36005F924A /* PostMeetingPin.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -298,6 +307,7 @@
 			children = (
 				B74B3C06270DF9BB00C6284C /* PinMakeViewController.swift */,
 				B797A3AA270F55BF00A87047 /* MeetingDetailVC.swift */,
+				B7FA1D772714889D005F924A /* MeetingContentVC.swift */,
 			);
 			path = PinMakeVC;
 			sourceTree = "<group>";
@@ -308,6 +318,7 @@
 				B74F96AA26E4AB0B0064B900 /* Extension+CLLocationCoordinate2D.swift */,
 				B74F96AC26E4AB3E0064B900 /* Extension+UISearchBar.swift */,
 				B7EB6006271300DF0037B7C6 /* Extension+UIView.swift */,
+				B7FA1D7B27148D3B005F924A /* Extension+UITextField.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -353,6 +364,7 @@
 				B70908FF26E1FD990075BF50 /* SearchViewModel.swift */,
 				B74B3C04270CA21B00C6284C /* MeetingFilterViewModel.swift */,
 				B797A3AC270F5C6700A87047 /* MeetingDetailViewModel.swift */,
+				B7FA1D7D27148F82005F924A /* MeetingContentViewModel.swift */,
 			);
 			path = viewModel;
 			sourceTree = "<group>";
@@ -495,6 +507,7 @@
 				B70CFC3526BFDC0C00B7DA74 /* PinMaker.swift in Sources */,
 				B724315B26C18A950091152E /* SmallRoundedBtn.swift in Sources */,
 				B76080DA2713507E000A710D /* MeetingDetailVCSlider.swift in Sources */,
+				B7FA1D7E27148F82005F924A /* MeetingContentViewModel.swift in Sources */,
 				B797A3AD270F5C6700A87047 /* MeetingDetailViewModel.swift in Sources */,
 				B7C5DAA826C805640011EE41 /* BigRoundedbutton.swift in Sources */,
 				B7A0D84926EA571200AD5B46 /* Pin.swift in Sources */,
@@ -526,16 +539,19 @@
 				B741BA4B26E9116B00BB04E7 /* Debouncer.swift in Sources */,
 				B79DE32526EB34A20098285B /* PinCard.swift in Sources */,
 				B709090026E1FD990075BF50 /* SearchViewModel.swift in Sources */,
+				B7FA1D782714889D005F924A /* MeetingContentVC.swift in Sources */,
 				B797A3AB270F55BF00A87047 /* MeetingDetailVC.swift in Sources */,
 				B7EB6007271300DF0037B7C6 /* Extension+UIView.swift in Sources */,
 				B7B70B2226F78F0D006052A1 /* RecentSearchModel.xcdatamodeld in Sources */,
 				B7F06733270759D200CFCE13 /* GetLocation.swift in Sources */,
 				B7C5DAAA26C805D50011EE41 /* ThumbnailImg.swift in Sources */,
+				B7FA1D7C27148D3B005F924A /* Extension+UITextField.swift in Sources */,
 				B70CFC2326BFD82500B7DA74 /* SceneDelegate.swift in Sources */,
 				B77EC71526F0E59A0002C0D6 /* GetSearchKeywordPinAPI.swift in Sources */,
 				B7EB60092713010C0037B7C6 /* MeetingDetailVCUI.swift in Sources */,
 				B709090326E2006E0075BF50 /* SearchViewEventManager.swift in Sources */,
 				B7F4417526EBB62100546257 /* PinType.swift in Sources */,
+				B7FA1D8027149D36005F924A /* PostMeetingPin.swift in Sources */,
 				B74B3C03270C12C000C6284C /* MeetingFilterCell.swift in Sources */,
 				B74B3C05270CA21B00C6284C /* MeetingFilterViewModel.swift in Sources */,
 				B704D48026DBCE6800DB20D2 /* AnimationManager.swift in Sources */,

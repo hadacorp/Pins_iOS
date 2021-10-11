@@ -8,7 +8,7 @@
 import UIKit
 
 class MeetingPin {
-    static let shared = MeetingPin()
+    static var shared = MeetingPin()
     
     var title: String?
     var content: String?

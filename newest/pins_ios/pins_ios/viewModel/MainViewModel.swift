@@ -205,58 +205,62 @@ class MainViewModel: MainVCUI {
     }
     
     public func focusPin(pinAnnotation: [String : CustomPintAnnotation], annotationView: MKAnnotationView, annotation: MKAnnotation){
-        let pinTemp = pinAnnotation[annotation.subtitle!! + annotation.title!!]!
-        if pinTemp.pinType == PinType.meet.rawValue {
-            switch pinTemp.pinCategory {
-            case "대화/친목":
-                annotationView.image = UIImage(named: "pinSelectedTalk")
-            case "산책/반려동물":
-                annotationView.image = UIImage(named: "pinSelectedWalk")
-            case "맛집탐방":
-                annotationView.image = UIImage(named: "pinSelectedMeal")
-            case "영화/문화생활":
-                annotationView.image = UIImage(named: "pinSelectedMovie")
-            case "게임/오락":
-                annotationView.image = UIImage(named: "pinSelectedGame")
-            case "스포츠/운동":
-                annotationView.image = UIImage(named: "pinSelectedSport")
-            case "등산/캠핑":
-                annotationView.image = UIImage(named: "pinSelectedHiking")
-            case "스터디/독서":
-                annotationView.image = UIImage(named: "pinSelectedStudy")
-            case "여행/드라이브":
-                annotationView.image = UIImage(named: "pinSelectedTrip")
-            case "거래/나눔":
-                annotationView.image = UIImage(named: "pinSelectedTrade")
-            default:
-                annotationView.image = UIImage(named: "pinSelectedOthers")
-            }
-            UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseOut) {
-                annotationView.transform = CGAffineTransform(scaleX: 1.2, y: 1.2).translatedBy(x: 0, y: -4.6)
-            }
-        }
-        else{
-            annotationView.image = #imageLiteral(resourceName: "pinStorySelected")
-            // subview 삭제
-            for view in annotationView.subviews {
-                view.removeFromSuperview()
-            }
-            
-            let label = UILabel(frame: CGRect(x: 0, y: 3, width: 62, height: 17))
-            annotationView.addSubview(label)
-            label.snp.makeConstraints { text in
-                text.width.equalTo(62)
-                text.height.equalTo(17)
-                text.top.equalTo(3)
-                text.centerX.equalTo(annotationView)
-            }
-            label.text = pinTemp.pinCategory
-            label.textColor = #colorLiteral(red: 0.7137254902, green: 0.2156862745, blue: 1, alpha: 1)
-            label.textAlignment = .center
-            label.font = UIFont(name: "NotoSansKR-Regular", size: 12)
-            
-            UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseOut) {
-                annotationView.transform = CGAffineTransform(scaleX: 1.2, y: 1.2).translatedBy(x: 0, y: -3.1)
+        if let subtitle = annotation.subtitle{
+            if let subtitle = subtitle{
+                let pinTemp = pinAnnotation[subtitle + annotation.title!!]!
+                if pinTemp.pinType == PinType.meet.rawValue {
+                    switch pinTemp.pinCategory {
+                    case "대화/친목":
+                        annotationView.image = UIImage(named: "pinSelectedTalk")
+                    case "산책/반려동물":
+                        annotationView.image = UIImage(named: "pinSelectedWalk")
+                    case "맛집탐방":
+                        annotationView.image = UIImage(named: "pinSelectedMeal")
+                    case "영화/문화생활":
+                        annotationView.image = UIImage(named: "pinSelectedMovie")
+                    case "게임/오락":
+                        annotationView.image = UIImage(named: "pinSelectedGame")
+                    case "스포츠/운동":
+                        annotationView.image = UIImage(named: "pinSelectedSport")
+                    case "등산/캠핑":
+                        annotationView.image = UIImage(named: "pinSelectedHiking")
+                    case "스터디/독서":
+                        annotationView.image = UIImage(named: "pinSelectedStudy")
+                    case "여행/드라이브":
+                        annotationView.image = UIImage(named: "pinSelectedTrip")
+                    case "거래/나눔":
+                        annotationView.image = UIImage(named: "pinSelectedTrade")
+                    default:
+                        annotationView.image = UIImage(named: "pinSelectedOthers")
+                    }
+                    UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseOut) {
+                        annotationView.transform = CGAffineTransform(scaleX: 1.2, y: 1.2).translatedBy(x: 0, y: -4.6)
+                    }
+                }
+                else{
+                    annotationView.image = #imageLiteral(resourceName: "pinStorySelected")
+                    // subview 삭제
+                    for view in annotationView.subviews {
+                        view.removeFromSuperview()
+                    }
+                    
+                    let label = UILabel(frame: CGRect(x: 0, y: 3, width: 62, height: 17))
+                    annotationView.addSubview(label)
+                    label.snp.makeConstraints { text in
+                        text.width.equalTo(62)
+                        text.height.equalTo(17)
+                        text.top.equalTo(3)
+                        text.centerX.equalTo(annotationView)
+                    }
+                    label.text = pinTemp.pinCategory
+                    label.textColor = #colorLiteral(red: 0.7137254902, green: 0.2156862745, blue: 1, alpha: 1)
+                    label.textAlignment = .center
+                    label.font = UIFont(name: "NotoSansKR-Regular", size: 12)
+                    
+                    UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseOut) {
+                        annotationView.transform = CGAffineTransform(scaleX: 1.2, y: 1.2).translatedBy(x: 0, y: -3.1)
+                    }
+                }
             }
         }
     }
