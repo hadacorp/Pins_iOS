@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F69984ED0D5D3CC1B9D170E4AC78A24E"
-               BuildableName = "MultiSlider.framework"
-               BlueprintName = "MultiSlider"
+               BlueprintIdentifier = "4AFB864B337D1F74C1D79F4FC8F6C67F"
+               BuildableName = "RangeSeekSlider.framework"
+               BlueprintName = "RangeSeekSlider"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

@@ -33,6 +33,7 @@ extension MeetingDetailVC{
         scrollView.addSubview(circleView)
         circleView.backgroundColor = .white
         circleView.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.04)
+        circleView.layer.borderWidth = 0.5
         circleView.layer.cornerRadius = 14
         circleView.layer.shadowColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         circleView.layer.shadowOpacity = 0.15
