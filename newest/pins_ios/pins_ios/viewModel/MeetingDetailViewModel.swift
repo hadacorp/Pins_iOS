@@ -15,10 +15,23 @@ class MeetingDetailViewModel: MeetingDetailVCUI {
     private var joinCount = 1
     private var joinMax = 9
     
+    private var minAge = 20
+    private var maxAge = 50
+    
+    private var paramHour = 0
+    private var paramMinute = 0
+    
     private var weeks: [String] = ["토", "일", "월", "화", "수", "목", "금"]
     private var genders: [String] = ["성별 무관", "남자만", "여자만"]
     
     private var meetTime: Int = 1020
+    
+    public func setMinAge(age: Int){
+        minAge = age
+    }
+    public func setMaxAge(age: Int){
+        maxAge = age
+    }
     
     public func getJoinCount() -> Int{
         return joinCount
@@ -75,6 +88,9 @@ class MeetingDetailViewModel: MeetingDetailVCUI {
     public func getMinuteMinusBtn() -> UIButton{
         return minuteMinusButton
     }
+    public func getNextBtn() -> UIButton{
+        return nextButton
+    }
     public func setDateDescription(string: String){
         dateDescription.text = string
     }
@@ -87,6 +103,14 @@ class MeetingDetailViewModel: MeetingDetailVCUI {
     
     public func setAgeDescription(string: String){
         ageDescription.text = string
+    }
+    
+    public func getDay(index: Int) -> Int{
+        let today = Date()
+        let next = Calendar.current.date(byAdding: .day, value: index, to: today)
+        let day = Calendar.current.component(.day, from: next!)
+        
+        return day
     }
     
     public func getDate(index: Int) -> String{
@@ -148,6 +172,8 @@ class MeetingDetailViewModel: MeetingDetailVCUI {
         }
         
         var hour = meetTime / 60
+        paramHour = hour
+        
         if hour > 12 {
             hour = hour - 12
         }
@@ -156,10 +182,15 @@ class MeetingDetailViewModel: MeetingDetailVCUI {
         }
         
         let minute = meetTime % 60
+        paramMinute = minute
+        
         var minuteString = String(minute)
         if minute < 10{
             minuteString = "0\(minute)"
         }
+        
+        
+        
         return ampm + "\(hour)시" + minuteString + "분"
     }
     
@@ -199,7 +230,33 @@ class MeetingDetailViewModel: MeetingDetailVCUI {
         return String(minute[minute.index(after: index) ..< minute.endIndex])
     }
 
+    public func checkNext() -> Bool{
+        if clicked != -1 && clickedDate != -1{
+            return true
+        }
+        return false
+    }
     public func activateNextButton(){
-        
+        if checkNext(){
+            nextButton.backgroundColor = #colorLiteral(red: 0.1137254902, green: 0.6666666667, blue: 0.9529411765, alpha: 1)
+        }
+    }
+    public func saveSetting(){
+        MeetingPin.shared.category = filters[clicked]
+        MeetingPin.shared.date = clickedDate
+        MeetingPin.shared.hour = paramHour
+        MeetingPin.shared.minute = paramMinute
+        if clickedGender == 0{
+            MeetingPin.shared.setGender = "Both"
+        }
+        else if clickedGender == 1{
+            MeetingPin.shared.setGender = "Male"
+        }
+        else if clickedGender == 2{
+            MeetingPin.shared.setGender = "Female"
+        }
+        MeetingPin.shared.setLimit = joinCount
+        MeetingPin.shared.minAge = minAge
+        MeetingPin.shared.maxAge = maxAge
     }
 }

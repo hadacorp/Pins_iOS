@@ -59,6 +59,10 @@ class ViewController: UIViewController{
         setGradation()
         // collection 세팅
         setCollectionView()
+        
+        paramLatitude = mainMap.centerCoordinate.latitude
+        paramLongitude = mainMap.centerCoordinate.longitude
+        paramType = 1
     }
 
     override func viewWillAppear(_ animated: Bool) {

@@ -106,6 +106,7 @@ extension ViewController{
     }
     
     @objc func changeAddPinView(){
+        cancelCreatePin()
         let VC1 = self.storyboard!.instantiateViewController(withIdentifier: "PinMakeViewVC") as! PinMakeViewController
         // 핀 생성 위치 저장
         MeetingPin.shared.latitude = mainMap.centerCoordinate.latitude
