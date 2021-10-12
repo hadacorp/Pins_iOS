@@ -60,9 +60,13 @@ class ViewController: UIViewController{
         // collection 세팅
         setCollectionView()
         
-        paramLatitude = mainMap.centerCoordinate.latitude
-        paramLongitude = mainMap.centerCoordinate.longitude
-        paramType = 1
+        currentLocation = locationManager.location
+        // 현재 위치로 이동
+        if let currentLocation = currentLocation {
+            paramLatitude = currentLocation.coordinate.latitude
+            paramLongitude = currentLocation.coordinate.longitude
+            paramType = 1
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {

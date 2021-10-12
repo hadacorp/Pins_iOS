@@ -15,6 +15,8 @@ class PinMakeViewController: UIViewController {
     @IBOutlet weak var backBtn: UIButton!
     
     @IBAction func backBtn(_ sender: Any) {
+        (self.navigationController?.viewControllers.first as? ViewController)?.paramLatitude = MeetingPin.shared.latitude
+        (self.navigationController?.viewControllers.first as? ViewController)?.paramLongitude = MeetingPin.shared.longitude
         self.navigationController?.popViewController(animated: true)
     }
     

@@ -18,7 +18,7 @@ class MeetingDetailViewModel: MeetingDetailVCUI {
     private var minAge = 20
     private var maxAge = 50
     
-    private var paramHour = 0
+    private var paramHour = 17
     private var paramMinute = 0
     
     private var weeks: [String] = ["토", "일", "월", "화", "수", "목", "금"]
