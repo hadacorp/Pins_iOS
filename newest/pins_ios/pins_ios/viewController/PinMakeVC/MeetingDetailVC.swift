@@ -46,9 +46,9 @@ class MeetingDetailVC: UIViewController {
             make.top.equalTo(132)
             make.leading.equalTo(0)
             make.trailing.equalTo(0)
-            make.bottom.equalTo(0)
+            make.bottom.equalTo(view.safeAreaLayoutGuide).offset(-49)
         }
-        scrollView.contentSize = CGSize(width: UIScreen.main.bounds.width, height: 1067)
+        scrollView.contentSize = CGSize(width: UIScreen.main.bounds.width, height: 1018)
     }
     
     private func setCollectionView(){

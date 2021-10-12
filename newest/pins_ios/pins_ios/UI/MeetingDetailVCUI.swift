@@ -39,6 +39,8 @@ class MeetingDetailVCUI{
         createLine(top: 260)
         meetSectionText(title: "만남 날짜", top: 284)
         meetSectionDescriptionText(label: dateDescription, title: "날짜를 선택해 주세요", top: 284)
+        detailText(top: 384, leading: 36, trailing: 0, position: 0, text: "오늘")
+        detailText(top: 384, leading: 0, trailing: 38, position: 2, text: "7일 후")
         createLine(top: 429)
         meetSectionText(title: "만남 시각", top: 453)
         meetSectionDescriptionText(label: timeDescription, title: "오후 5:00", top: 453)
@@ -46,14 +48,55 @@ class MeetingDetailVCUI{
         meetSectionText(title: "참가 가능 성별", top: 640)
         createLine(top: 728)
         meetSectionText(title: "모집 인원", top: 752)
+        subtitle(title: "(본인 제외)", top: 753, leading: 73)
         meetSectionDescriptionText(label: countDescription, title: "1명", top: 752)
+        detailText(top: 828, leading: 32, trailing: 0, position: 0, text: "1명")
+        detailText(top: 828, leading: 0, trailing: 0, position: 1, text: "5명")
+        detailText(top: 828, leading: 0, trailing: 32, position: 2, text: "10명")
         joinTime()
         createLine(top: 873)
         meetSectionText(title: "참가 가능 나이", top: 897)
         meetSectionDescriptionText(label: ageDescription, title: "20세 ~ 무제한", top: 897)
-        
+        detailText(top: 973, leading: 32, trailing: 0, position: 0, text: "20세")
+        detailText(top: 973, leading: 0, trailing: 0, position: 1, text: "35세")
+        detailText(top: 973, leading: 0, trailing: 32, position: 2, text: "무제한")
         initNextButton()
     }
+    // MARK:- 상단 작은 삼각형
+    // pos : 0 왼쪽, 1 중앙, 2 오른쪽
+    public func detailText(top: CGFloat, leading: CGFloat, trailing: CGFloat, position: Int, text: String){
+        let dash = UIView()
+        scrollView.addSubview(dash)
+        dash.snp.makeConstraints { dash in
+            dash.width.equalTo(1)
+            dash.height.equalTo(4)
+            dash.top.equalTo(top)
+            if position == 0{
+                dash.leading.equalTo(leading)
+            }
+            else if position == 1{
+                dash.centerX.equalTo(scrollView)
+            }
+            else if position == 2{
+                dash.trailing.equalTo(UIScreen.main.bounds.width - trailing)
+            }
+        }
+        dash.backgroundColor = #colorLiteral(red: 0.6, green: 0.6, blue: 0.6, alpha: 1)
+        
+        let label = UILabel()
+        dash.addSubview(label)
+        label.snp.makeConstraints { text in
+            text.top.equalTo(dash).offset(4)
+            text.centerX.equalTo(dash)
+            text.width.equalTo(50)
+            text.height.equalTo(18)
+        }
+        label.text = text
+        label.font = UIFont(name: "NotoSansKR-Regular", size: 12)
+        label.textColor = #colorLiteral(red: 0.6, green: 0.6, blue: 0.6, alpha: 1)
+        label.textAlignment = .center
+    }
+    
     // MARK:- 상단 작은 삼각형
     public func createTriangle(){
         let blueTri = UIImageView(image: UIImage(named: "iconTriangleBlue"))
@@ -101,6 +144,20 @@ class MeetingDetailVCUI{
         text.text = title
         text.font = UIFont(name: "NotoSansKR-Medium", size: 14)
     }
+    // MARK:- 오른쪽 상세 정보 텍스트
+    public func subtitle(title: String, top: Int, leading: Int){
+        let text = UILabel()
+        scrollView.addSubview(text)
+        text.snp.makeConstraints { make in
+            make.width.equalTo(120)
+            make.height.equalTo(20)
+            make.top.equalTo(top)
+            make.leading.equalTo(leading)
+        }
+        text.text = title
+        text.font = UIFont(name: "NotoSansKR-Regular", size: 12)
+        text.textColor = #colorLiteral(red: 0.6, green: 0.6, blue: 0.6, alpha: 1)
+    }
     // MARK:- 왼쪽 상세 정보 텍스트
     public func meetSectionDescriptionText(label: UILabel, title: String, top: Int){
         scrollView.addSubview(label)
@@ -111,7 +168,7 @@ class MeetingDetailVCUI{
             make.trailing.equalTo(self.view).offset(-16)
         }
         label.text = title
-        label.font = UIFont(name: "NotoSansKR-Medium", size: 14)
+        label.font = UIFont(name: "NotoSansKR-Regular", size: 14)
         label.textColor = UIColor(named: "skyBlue")
         label.textAlignment = .right
     }
@@ -259,12 +316,12 @@ class MeetingDetailVCUI{
         }
     }
     public func initNextButton(){
-        scrollView.addSubview(nextButton)
+        self.view.addSubview(nextButton)
         nextButton.snp.makeConstraints { btn in
             btn.leading.equalTo(16)
             btn.width.equalTo(UIScreen.main.bounds.width - 32)
             btn.height.equalTo(41)
-            btn.top.equalTo(1018)
+            btn.bottom.equalTo(view.safeAreaLayoutGuide).offset(-4)
         }
         nextButton.setTitle("다음 단계", for: .normal)
         nextButton.titleLabel?.font = UIFont(name: "NotoSansKR-Regular", size: 16)
