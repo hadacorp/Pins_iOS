@@ -22,6 +22,8 @@ class MeetingDetailVC: UIViewController {
     let rangeSlider = RangeSeekSlider()
     
     override func viewDidLoad() {
+        // 스크롤 방지
+        navigationController?.interactivePopGestureRecognizer?.isEnabled = false
         setScrollView()
         viewModel = MeetingDetailViewModel(parent: scrollView, view: self.view)
         setCollectionView()
