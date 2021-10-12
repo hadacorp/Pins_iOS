@@ -17,7 +17,6 @@ class MeetingContentVC: UIViewController {
         if viewModel.getTitleCheck() && viewModel.getContentCheck() {
             MeetingPin.shared.title = titleTextField.text
             MeetingPin.shared.content = contentTextField.text
-            dump(MeetingPin.shared)
             PostMeetingPin().requestPost(url: "http://bangi98.cafe24.com:8081/pin/meetingpin",
                                          method: "Post",
                                          param: [
@@ -35,6 +34,9 @@ class MeetingContentVC: UIViewController {
                                             "minute" : MeetingPin.shared.minute!,
                                          ]) { (success, data) in
                 DispatchQueue.main.async {
+                    (self.navigationController?.viewControllers.first as? ViewController)?.paramLatitude = MeetingPin.shared.latitude
+                    (self.navigationController?.viewControllers.first as? ViewController)?.paramLongitude = MeetingPin.shared.longitude
+                     
                     self.navigationController?.popToRootViewController(animated: true)
                 }
             }

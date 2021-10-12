@@ -111,7 +111,7 @@ class MeetingDetailVCUI{
             make.trailing.equalTo(self.view).offset(-16)
         }
         label.text = title
-        label.font = UIFont(name: "NotoSansKR-Light", size: 14)
+        label.font = UIFont(name: "NotoSansKR-Medium", size: 14)
         label.textColor = UIColor(named: "skyBlue")
         label.textAlignment = .right
     }
