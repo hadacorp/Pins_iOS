@@ -26,6 +26,8 @@ class PinMakeViewController: UIViewController {
     }
     
     override func viewDidLoad() {
+        // 스크롤 방지
+        navigationController?.interactivePopGestureRecognizer?.isEnabled = false
         setUI()
     }
     
