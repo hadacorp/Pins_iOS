@@ -64,6 +64,9 @@
 		B7DE776D270B668900F8F0EB /* MeetingFilterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7DE776C270B668900F8F0EB /* MeetingFilterController.swift */; };
 		B7DE776F270B75F700F8F0EB /* CommunityFilterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7DE776E270B75F700F8F0EB /* CommunityFilterController.swift */; };
 		B7DE7771270B760300F8F0EB /* StoryFilterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7DE7770270B760300F8F0EB /* StoryFilterController.swift */; };
+		B7E6BFE927180437006051DA /* CommunityDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E6BFE827180437006051DA /* CommunityDetailVC.swift */; };
+		B7E6BFEB2718071A006051DA /* CommunityDetailVCUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E6BFEA2718071A006051DA /* CommunityDetailVCUI.swift */; };
+		B7E6BFED27180759006051DA /* CommunityDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E6BFEC27180759006051DA /* CommunityDetailViewModel.swift */; };
 		B7EB6007271300DF0037B7C6 /* Extension+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7EB6006271300DF0037B7C6 /* Extension+UIView.swift */; };
 		B7EB60092713010C0037B7C6 /* MeetingDetailVCUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7EB60082713010C0037B7C6 /* MeetingDetailVCUI.swift */; };
 		B7EB600B271319930037B7C6 /* MeetingDetailViewEventManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7EB600A271319930037B7C6 /* MeetingDetailViewEventManager.swift */; };
@@ -138,6 +141,9 @@
 		B7DE776C270B668900F8F0EB /* MeetingFilterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingFilterController.swift; sourceTree = "<group>"; };
 		B7DE776E270B75F700F8F0EB /* CommunityFilterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityFilterController.swift; sourceTree = "<group>"; };
 		B7DE7770270B760300F8F0EB /* StoryFilterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryFilterController.swift; sourceTree = "<group>"; };
+		B7E6BFE827180437006051DA /* CommunityDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityDetailVC.swift; sourceTree = "<group>"; };
+		B7E6BFEA2718071A006051DA /* CommunityDetailVCUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityDetailVCUI.swift; sourceTree = "<group>"; };
+		B7E6BFEC27180759006051DA /* CommunityDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityDetailViewModel.swift; sourceTree = "<group>"; };
 		B7EB6006271300DF0037B7C6 /* Extension+UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIView.swift"; sourceTree = "<group>"; };
 		B7EB60082713010C0037B7C6 /* MeetingDetailVCUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingDetailVCUI.swift; sourceTree = "<group>"; };
 		B7EB600A271319930037B7C6 /* MeetingDetailViewEventManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingDetailViewEventManager.swift; sourceTree = "<group>"; };
@@ -308,6 +314,7 @@
 				B74B3C06270DF9BB00C6284C /* PinMakeViewController.swift */,
 				B797A3AA270F55BF00A87047 /* MeetingDetailVC.swift */,
 				B7FA1D772714889D005F924A /* MeetingContentVC.swift */,
+				B7E6BFE827180437006051DA /* CommunityDetailVC.swift */,
 			);
 			path = PinMakeVC;
 			sourceTree = "<group>";
@@ -329,6 +336,7 @@
 				B74CDCA426DF9AA200043ADE /* MainVCUI.swift */,
 				B74CDCA626DF9AB100043ADE /* SearchVCUI.swift */,
 				B7EB60082713010C0037B7C6 /* MeetingDetailVCUI.swift */,
+				B7E6BFEA2718071A006051DA /* CommunityDetailVCUI.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -365,6 +373,7 @@
 				B74B3C04270CA21B00C6284C /* MeetingFilterViewModel.swift */,
 				B797A3AC270F5C6700A87047 /* MeetingDetailViewModel.swift */,
 				B7FA1D7D27148F82005F924A /* MeetingContentViewModel.swift */,
+				B7E6BFEC27180759006051DA /* CommunityDetailViewModel.swift */,
 			);
 			path = viewModel;
 			sourceTree = "<group>";
@@ -503,12 +512,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				B741BA4826E8FCFD00BB04E7 /* Place.swift in Sources */,
+				B7E6BFED27180759006051DA /* CommunityDetailViewModel.swift in Sources */,
 				B709090926E273840075BF50 /* HomeResponse.swift in Sources */,
 				B70CFC3526BFDC0C00B7DA74 /* PinMaker.swift in Sources */,
 				B724315B26C18A950091152E /* SmallRoundedBtn.swift in Sources */,
 				B76080DA2713507E000A710D /* MeetingDetailVCSlider.swift in Sources */,
 				B7FA1D7E27148F82005F924A /* MeetingContentViewModel.swift in Sources */,
 				B797A3AD270F5C6700A87047 /* MeetingDetailViewModel.swift in Sources */,
+				B7E6BFEB2718071A006051DA /* CommunityDetailVCUI.swift in Sources */,
 				B7C5DAA826C805640011EE41 /* BigRoundedbutton.swift in Sources */,
 				B7A0D84926EA571200AD5B46 /* Pin.swift in Sources */,
 				B77EC71926F0EF5E0002C0D6 /* GetKeywordCard.swift in Sources */,
@@ -525,6 +536,7 @@
 				B7BFF298270F784B005AD1B8 /* MeetingDateCell.swift in Sources */,
 				B7A0D84B26EA6ECF00AD5B46 /* Gradient.swift in Sources */,
 				B7DE776F270B75F700F8F0EB /* CommunityFilterController.swift in Sources */,
+				B7E6BFE927180437006051DA /* CommunityDetailVC.swift in Sources */,
 				B77EC71726F0EF540002C0D6 /* GetPlaceCard.swift in Sources */,
 				B7A0D84D26EA6FF700AD5B46 /* CarouselCell.swift in Sources */,
 				B74F96AB26E4AB0B0064B900 /* Extension+CLLocationCoordinate2D.swift in Sources */,

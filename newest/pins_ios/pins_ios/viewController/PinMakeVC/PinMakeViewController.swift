@@ -25,6 +25,11 @@ class PinMakeViewController: UIViewController {
         self.navigationController!.pushViewController(VC1, animated: false)
     }
     
+    @IBAction func communityBtn(_ sender: Any) {
+        let VC = self.storyboard!.instantiateViewController(withIdentifier: "CommunityDetailVC") as! CommunityDetailVC
+        self.navigationController!.pushViewController(VC, animated: false)
+    }
+    
     override func viewDidLoad() {
         // 스크롤 방지
         navigationController?.interactivePopGestureRecognizer?.isEnabled = false
