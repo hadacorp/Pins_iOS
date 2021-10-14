@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MeetingFilterCell: UICollectionViewCell {
+class FilterCell: UICollectionViewCell {
     override init(frame: CGRect){
         super.init(frame: frame)
     }

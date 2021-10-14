@@ -62,7 +62,7 @@ class MeetingDetailVC: UIViewController {
         collectionView.tag = 0
         collectionView.dataSource = self
         collectionView.delegate = self
-        collectionView.register(MeetingFilterCell.self, forCellWithReuseIdentifier: "MeetingFilterCell")
+        collectionView.register(FilterCell.self, forCellWithReuseIdentifier: "MeetingFilterCell")
         collectionView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0)
         collectionView.decelerationRate = UIScrollView.DecelerationRate.fast
         collectionView.showsHorizontalScrollIndicator = false
@@ -111,7 +111,7 @@ class MeetingDetailVC: UIViewController {
         collectionView.tag = 2
         collectionView.dataSource = self
         collectionView.delegate = self
-        collectionView.register(MeetingFilterCell.self, forCellWithReuseIdentifier: "MeetingFilterCell")
+        collectionView.register(FilterCell.self, forCellWithReuseIdentifier: "MeetingFilterCell")
         collectionView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0)
         collectionView.decelerationRate = UIScrollView.DecelerationRate.fast
         collectionView.showsHorizontalScrollIndicator = false
@@ -198,7 +198,7 @@ extension MeetingDetailVC: UICollectionViewDelegate, UICollectionViewDataSource{
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         // MARK: - first collectionView
         if collectionView.tag == 0{
-            if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MeetingFilterCell", for: indexPath) as? MeetingFilterCell {
+            if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MeetingFilterCell", for: indexPath) as? FilterCell {
                 for v in cell.subviews{
                     v.removeFromSuperview()
                 }
@@ -245,7 +245,7 @@ extension MeetingDetailVC: UICollectionViewDelegate, UICollectionViewDataSource{
         }
         // MARK: - third collectionView
         else if collectionView.tag == 2{
-            if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MeetingFilterCell", for: indexPath) as? MeetingFilterCell {
+            if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MeetingFilterCell", for: indexPath) as? FilterCell {
                 for v in cell.subviews{
                     v.removeFromSuperview()
                 }
