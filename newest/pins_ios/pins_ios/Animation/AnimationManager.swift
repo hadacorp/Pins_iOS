@@ -221,6 +221,9 @@ extension ViewController{
     }
     
     @objc func createPinButton(){
+        for annotation in mainMap.annotations{
+            mainMap.view(for: annotation)?.isHidden = true
+        }
         UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseOut) { [self] in
             viewModel.getAddButton().layer.opacity = 0
             viewModel.getMoveButton().layer.opacity = 0
@@ -236,6 +239,9 @@ extension ViewController{
         }
     }
     @objc func cancelCreatePin(){
+        for annotation in mainMap.annotations{
+            mainMap.view(for: annotation)?.isHidden = false
+        }
         UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseOut) { [self] in
             viewModel.getAddButton().layer.opacity = 0.9
             viewModel.getMoveButton().layer.opacity = 0.9
