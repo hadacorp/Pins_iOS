@@ -22,8 +22,10 @@ class CommunityDetailVCUI {
         createTriangle()
         createLine(top: 260)
         meetSectionText(title: "참가 방식", top: 284)
+        createLine(top: 372)
+        meetSectionText(title: "프로필 방식", top: 396)
+        subtitle(title: "(생성 후 변경 불가)", top: 397, leading: 86)
     }
-    
     // MARK:- 상단 작은 삼각형 생성
     public func createTriangle(){
         let blueTri = UIImageView(image: UIImage(named: "iconTriangleBlue"))
@@ -59,6 +61,7 @@ class CommunityDetailVCUI {
         text.text = title
         text.font = UIFont(name: "NotoSansKR-Medium", size: 14)
     }
+    
     // MARK:- 오른쪽 상세 정보 텍스트
     public func subtitle(title: String, top: Int, leading: Int){
         let text = UILabel()

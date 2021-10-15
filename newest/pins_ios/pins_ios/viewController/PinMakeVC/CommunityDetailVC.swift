@@ -28,6 +28,7 @@ class CommunityDetailVC: UIViewController {
         setScrollView()
         setCollectionView()
         joinTypeCollectionView()
+        profileTypeCollectionView()
         
         viewModel = CommunityDetailViewModel(parent: scrollView, view: self.view)
         viewModel.setUI()
@@ -99,6 +100,31 @@ class CommunityDetailVC: UIViewController {
             view.top.equalTo(320)
         }
     }
+    
+    // 프로필 방식
+    public func profileTypeCollectionView(){
+        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        layout.itemSize = CGSize(width: Int((UIScreen.main.bounds.width - 48) / 2), height: 28)
+        layout.minimumLineSpacing = 8
+        layout.scrollDirection = .horizontal
+        
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.tag = 2
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        collectionView.register(FilterCell.self, forCellWithReuseIdentifier: "ProfileTypeCell")
+        collectionView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0)
+        collectionView.decelerationRate = UIScrollView.DecelerationRate.fast
+        collectionView.showsHorizontalScrollIndicator = false
+        scrollView.addSubview(collectionView)
+        collectionView.snp.makeConstraints { view in
+            view.width.equalTo(UIScreen.main.bounds.width - 32)
+            view.centerX.equalTo(self.view)
+            view.height.equalTo(28)
+            view.top.equalTo(432)
+        }
+    }
 }
 
 extension CommunityDetailVC: UIScrollViewDelegate{
@@ -159,6 +185,33 @@ extension CommunityDetailVC: UICollectionViewDelegate, UICollectionViewDataSourc
                 return cell
             }
         }
+        
+        else if collectionView.tag == 2{
+            if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProfileTypeCell", for: indexPath) as? FilterCell {
+                for v in cell.subviews{
+                    v.removeFromSuperview()
+                }
+                
+                let title = UILabel(frame: CGRect(x: 0, y: 0, width: cell.bounds.width, height: 28))
+                cell.addSubview(title)
+                cell.setupCell(color: .white)
+                if viewModel.getProfileClicked() == indexPath.row{
+                    title.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+                    title.backgroundColor = #colorLiteral(red: 0.1137254902, green: 0.6666666667, blue: 0.9529411765, alpha: 1)
+                }
+                else{
+                    title.textColor = #colorLiteral(red: 0.4520480633, green: 0.4520593286, blue: 0.4520532489, alpha: 1)
+                    title.backgroundColor = #colorLiteral(red: 0.9625374675, green: 0.9625598788, blue: 0.9625478387, alpha: 1)
+                }
+                title.text = viewModel.getProfileType()[indexPath.row]
+                title.font = UIFont(name: "NotoSansKR-Regular", size: 13)
+                title.textAlignment = .center
+                title.clipsToBounds = true
+                title.layer.cornerRadius = 14
+                
+                return cell
+            }
+        }
         fatalError()
     }
     
@@ -167,6 +220,9 @@ extension CommunityDetailVC: UICollectionViewDelegate, UICollectionViewDataSourc
             return viewModel.getFiltersCount()
         }
         else if collectionView.tag == 1{
+            return 2
+        }
+        else if collectionView.tag == 2{
             return 2
         }
         fatalError()
@@ -180,6 +236,10 @@ extension CommunityDetailVC: UICollectionViewDelegate, UICollectionViewDataSourc
         }
         else if collectionView.tag == 1{
             viewModel.setJoinTypeClicked(type: indexPath.row)
+            collectionView.reloadData()
+        }
+        else if collectionView.tag == 2{
+            viewModel.setProfileClicked(type: indexPath.row)
             collectionView.reloadData()
         }
     }
