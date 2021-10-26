@@ -24,10 +24,10 @@ class MainVCUI {
     // 내 위치로 이동 버튼
     public var myLocationButton = SmallRoundedBtn(radius: 16, color: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0), image: #imageLiteral(resourceName: "iconLocation"))
     public var refreshButton = SmallRoundedBtn(radius: 16, color: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0), image: #imageLiteral(resourceName: "iconRefresh"))
+    
     // 그라데이션 위, 아래
     public var gradationUp = UIImageView(image: #imageLiteral(resourceName: "gradationUp"))
     public var gradationDown = UIImageView(image: #imageLiteral(resourceName: "gradationDown"))
-    public var gra = UIView()
     
     // 필터 버튼
     public var filterMeet = UIButton()
@@ -49,7 +49,6 @@ class MainVCUI {
             if let layout = layout {                
 //                initGradationUp(parent: parent)
 //                initGradationDown(parent: parent)
-                
                 initsearchButton(parent: parent, layout: layout)
                 initAddButton(parent: parent, layout: layout)
                 initMoveButton(parent: parent, layout: layout)
@@ -61,7 +60,6 @@ class MainVCUI {
                 initSearchBackground(parent: parent)
                 initMyLocationButton(parent: parent)
                 initRefreshButton(parent: parent)
-                
                 initFilterMeet(parent: parent, layout: layout)
                 initFilterCommunity(parent: parent, layout: layout)
                 initFilterStory(parent: parent, layout: layout)
