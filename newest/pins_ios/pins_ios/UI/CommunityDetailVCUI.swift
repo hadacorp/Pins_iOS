@@ -25,6 +25,10 @@ class CommunityDetailVCUI {
         createLine(top: 372)
         meetSectionText(title: "프로필 방식", top: 396)
         subtitle(title: "(생성 후 변경 불가)", top: 397, leading: 86)
+        createLine(top: 484)
+        meetSectionText(title: "참가 가능 성별", top: 508)
+        createLine(top: 596)
+        meetSectionText(title: "참가 가능 나이", top: 620)
     }
     // MARK:- 상단 작은 삼각형 생성
     public func createTriangle(){

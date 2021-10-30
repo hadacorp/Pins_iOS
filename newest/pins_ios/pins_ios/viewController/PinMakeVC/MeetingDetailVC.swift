@@ -18,7 +18,6 @@ class MeetingDetailVC: UIViewController {
     public var scrollView: UIScrollView!
     public var collectionView: UICollectionView!
     public var viewModel: MeetingDetailViewModel!
-    
     let rangeSlider = RangeSeekSlider()
     
     override func viewDidLoad() {
