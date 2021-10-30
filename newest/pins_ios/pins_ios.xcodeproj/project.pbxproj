@@ -10,6 +10,8 @@
 		6CAAB4AB6E68F9BD750A3D4B /* Pods_pins_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2E236C66795D43169F6D9A9 /* Pods_pins_ios.framework */; };
 		B70062BF272D937D00639CBE /* CommunityDetailEventManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70062BE272D937D00639CBE /* CommunityDetailEventManager.swift */; };
 		B70062C1272D93C700639CBE /* CommunityPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70062C0272D93C700639CBE /* CommunityPin.swift */; };
+		B70062C3272DA6BA00639CBE /* CommunityContentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70062C2272DA6BA00639CBE /* CommunityContentVC.swift */; };
+		B70062C5272DB1AF00639CBE /* CommunityContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70062C4272DB1AF00639CBE /* CommunityContentViewModel.swift */; };
 		B704D48026DBCE6800DB20D2 /* AnimationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B704D47F26DBCE6800DB20D2 /* AnimationManager.swift */; };
 		B704F03C26E36C5900DA9E06 /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B704F03B26E36C5900DA9E06 /* Cell.swift */; };
 		B709090026E1FD990075BF50 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70908FF26E1FD990075BF50 /* SearchViewModel.swift */; };
@@ -87,6 +89,8 @@
 		2D0B3C31DB79E4926C9C74A0 /* Pods-pins_ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pins_ios.release.xcconfig"; path = "Target Support Files/Pods-pins_ios/Pods-pins_ios.release.xcconfig"; sourceTree = "<group>"; };
 		B70062BE272D937D00639CBE /* CommunityDetailEventManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityDetailEventManager.swift; sourceTree = "<group>"; };
 		B70062C0272D93C700639CBE /* CommunityPin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityPin.swift; sourceTree = "<group>"; };
+		B70062C2272DA6BA00639CBE /* CommunityContentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityContentVC.swift; sourceTree = "<group>"; };
+		B70062C4272DB1AF00639CBE /* CommunityContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityContentViewModel.swift; sourceTree = "<group>"; };
 		B704D47F26DBCE6800DB20D2 /* AnimationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationManager.swift; sourceTree = "<group>"; };
 		B704F03B26E36C5900DA9E06 /* Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
 		B70908FF26E1FD990075BF50 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
@@ -321,6 +325,7 @@
 				B797A3AA270F55BF00A87047 /* MeetingDetailVC.swift */,
 				B7FA1D772714889D005F924A /* MeetingContentVC.swift */,
 				B7E6BFE827180437006051DA /* CommunityDetailVC.swift */,
+				B70062C2272DA6BA00639CBE /* CommunityContentVC.swift */,
 			);
 			path = PinMakeVC;
 			sourceTree = "<group>";
@@ -380,6 +385,7 @@
 				B797A3AC270F5C6700A87047 /* MeetingDetailViewModel.swift */,
 				B7FA1D7D27148F82005F924A /* MeetingContentViewModel.swift */,
 				B7E6BFEC27180759006051DA /* CommunityDetailViewModel.swift */,
+				B70062C4272DB1AF00639CBE /* CommunityContentViewModel.swift */,
 			);
 			path = viewModel;
 			sourceTree = "<group>";
@@ -528,6 +534,7 @@
 				B7E6BFEB2718071A006051DA /* CommunityDetailVCUI.swift in Sources */,
 				B7C5DAA826C805640011EE41 /* BigRoundedbutton.swift in Sources */,
 				B7A0D84926EA571200AD5B46 /* Pin.swift in Sources */,
+				B70062C5272DB1AF00639CBE /* CommunityContentViewModel.swift in Sources */,
 				B77EC71926F0EF5E0002C0D6 /* GetKeywordCard.swift in Sources */,
 				B787EA0126E4FEC30044D786 /* MainViewEventManager.swift in Sources */,
 				B7EB600B271319930037B7C6 /* MeetingDetailViewEventManager.swift in Sources */,
@@ -561,6 +568,7 @@
 				B7FA1D782714889D005F924A /* MeetingContentVC.swift in Sources */,
 				B797A3AB270F55BF00A87047 /* MeetingDetailVC.swift in Sources */,
 				B7EB6007271300DF0037B7C6 /* Extension+UIView.swift in Sources */,
+				B70062C3272DA6BA00639CBE /* CommunityContentVC.swift in Sources */,
 				B7B70B2226F78F0D006052A1 /* RecentSearchModel.xcdatamodeld in Sources */,
 				B70062C1272D93C700639CBE /* CommunityPin.swift in Sources */,
 				B7F06733270759D200CFCE13 /* GetLocation.swift in Sources */,
