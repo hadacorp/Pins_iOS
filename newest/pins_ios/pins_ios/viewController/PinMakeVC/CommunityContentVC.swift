@@ -8,6 +8,15 @@
 import UIKit
 
 class CommunityContentVC: UIViewController {
+    @IBAction func backBtn(_ sender: Any) {
+        self.navigationController?.popViewController(animated: false)
+    }
+    @IBOutlet weak var successBtn: UIButton!
+    @IBAction func successBtn(_ sender: Any) {
+        // API 호출
+    }
+    
+    
     override func viewDidLoad() {
         setUI()
     }
@@ -15,6 +24,7 @@ class CommunityContentVC: UIViewController {
     private func setUI(){
         initImageView()
         createTriangle()
+        successBtn.setTitleColor(#colorLiteral(red: 0.9215686275, green: 0.9215686275, blue: 0.9215686275, alpha: 1), for: .normal)
     }
     
     private func initImageView(){

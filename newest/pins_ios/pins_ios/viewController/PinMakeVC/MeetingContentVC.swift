@@ -8,15 +8,14 @@
 import UIKit
 
 class MeetingContentVC: UIViewController {
-    @IBOutlet weak var successBtn: UIButton!
-    @IBOutlet weak var titleTextField: UITextField!
-    @IBOutlet weak var contentTextField: UITextField!
+    @IBOutlet weak var titleTextView: UITextView!
+    @IBOutlet weak var contentTextView: UITextView!
     @IBOutlet weak var backBtn: UIButton!
     
     @IBAction func successBtn(_ sender: Any) {
         if viewModel.getTitleCheck() && viewModel.getContentCheck() {
-            MeetingPin.shared.title = titleTextField.text
-            MeetingPin.shared.content = contentTextField.text
+            MeetingPin.shared.title = titleTextView.text
+            MeetingPin.shared.content = contentTextView.text
             PostMeetingPin().requestPost(url: "http://bangi98.cafe24.com:8081/pin/meetingpin",
                                          method: "Post",
                                          param: [
@@ -54,16 +53,17 @@ class MeetingContentVC: UIViewController {
     }
     
     private func setUI(){
-        titleTextField.delegate = self
-        contentTextField.delegate = self
+        titleTextView.delegate = self
+        contentTextView.delegate = self
         
-        titleTextField.tag = 1
-        contentTextField.tag = 2
+        titleTextView.tag = 1
+        contentTextView.tag = 2
         
         backBtn.setTitleColor(#colorLiteral(red: 0.9215686275, green: 0.9215686275, blue: 0.9215686275, alpha: 1), for: .normal)
-        
-        titleTextField.setPlaceholderColor(#colorLiteral(red: 0.6, green: 0.6, blue: 0.6, alpha: 1))
-        contentTextField.setPlaceholderColor(#colorLiteral(red: 0.6, green: 0.6, blue: 0.6, alpha: 1))
+        titleTextView.textContainerInset = .zero
+        contentTextView.textContainerInset = .zero
+        titleTextView.textColor = #colorLiteral(red: 0.6, green: 0.6, blue: 0.6, alpha: 1)
+        contentTextView.textColor = #colorLiteral(red: 0.6, green: 0.6, blue: 0.6, alpha: 1)
         createTriangle()
     }
     
@@ -90,10 +90,27 @@ class MeetingContentVC: UIViewController {
     }
 }
 
-extension MeetingContentVC: UITextFieldDelegate{
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        if textField.tag == 1{
-            let newLength = textField.text!.count + string.count - range.length
+extension MeetingContentVC: UITextViewDelegate{
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.textColor == #colorLiteral(red: 0.6, green: 0.6, blue: 0.6, alpha: 1) {
+            textView.text = nil
+            textView.textColor = UIColor.black
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.tag == 1 && textView.text.isEmpty {
+            textView.text = "제목(4~30글자)"
+            textView.textColor = #colorLiteral(red: 0.6, green: 0.6, blue: 0.6, alpha: 1)
+        }
+        else if textView.tag == 2 && textView.text.isEmpty {
+            textView.text = "내용을 적어주세요"
+            textView.textColor = #colorLiteral(red: 0.6, green: 0.6, blue: 0.6, alpha: 1)
+        }
+    }
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if textView.tag == 1{
+            let newLength = textView.text!.count + text.count - range.length
             
             if newLength >= 4{
                 viewModel.setTitleCheck(bool: true)
@@ -109,10 +126,10 @@ extension MeetingContentVC: UITextFieldDelegate{
                 backBtn.setTitleColor(#colorLiteral(red: 0.9215686275, green: 0.9215686275, blue: 0.9215686275, alpha: 1), for: .normal)
             }
             
-            return !(newLength > 30)
+            return !(newLength >= 30)
         }
-        if textField.tag == 2{
-            let newLength = textField.text!.count + string.count - range.length
+        if textView.tag == 2{
+            let newLength = textView.text!.count + text.count - range.length
             
             if newLength > 0{
                 viewModel.setContentCheck(bool: true)
@@ -127,6 +144,7 @@ extension MeetingContentVC: UITextFieldDelegate{
             else{
                 backBtn.setTitleColor(#colorLiteral(red: 0.9215686275, green: 0.9215686275, blue: 0.9215686275, alpha: 1), for: .normal)
             }
+            return !(newLength >= 300)
             
         }
         return true
