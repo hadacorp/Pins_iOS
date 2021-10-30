@@ -31,10 +31,12 @@ class CommunityDetailVC: UIViewController {
         setCollectionView()
         joinTypeCollectionView()
         profileTypeCollectionView()
+        joinGenderCollectionView()
         viewModel = CommunityDetailViewModel(parent: scrollView, view: self.view)
         viewModel.setUI()
         
         ageSlider()
+        setButtonEvent()
     }
     
     // MARK:- Private func
@@ -126,6 +128,31 @@ class CommunityDetailVC: UIViewController {
             view.centerX.equalTo(self.view)
             view.height.equalTo(28)
             view.top.equalTo(432)
+        }
+    }
+    
+    // MARK:- 참가 가능 성별
+    public func joinGenderCollectionView(){
+        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        layout.itemSize = CGSize(width: Int((UIScreen.main.bounds.width - 48) / 3), height: 28)
+        layout.minimumLineSpacing = 8
+        layout.scrollDirection = .horizontal
+        
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.tag = 3
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        collectionView.register(FilterCell.self, forCellWithReuseIdentifier: "AgeCell")
+        collectionView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0)
+        collectionView.decelerationRate = UIScrollView.DecelerationRate.fast
+        collectionView.showsHorizontalScrollIndicator = false
+        scrollView.addSubview(collectionView)
+        collectionView.snp.makeConstraints { view in
+            view.width.equalTo(UIScreen.main.bounds.width - 32)
+            view.centerX.equalTo(self.view)
+            view.height.equalTo(28)
+            view.top.equalTo(544)
         }
     }
     
@@ -264,6 +291,32 @@ extension CommunityDetailVC: UICollectionViewDelegate, UICollectionViewDataSourc
                 return cell
             }
         }
+        else if collectionView.tag == 3{
+            if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AgeCell", for: indexPath) as? FilterCell {
+                for v in cell.subviews{
+                    v.removeFromSuperview()
+                }
+                
+                let title = UILabel(frame: CGRect(x: 0, y: 0, width: cell.bounds.width, height: 28))
+                cell.addSubview(title)
+                cell.setupCell(color: .white)
+                if viewModel.getClickedGender() == indexPath.row{
+                    title.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+                    title.backgroundColor = #colorLiteral(red: 0.1137254902, green: 0.6666666667, blue: 0.9529411765, alpha: 1)
+                }
+                else{
+                    title.textColor = #colorLiteral(red: 0.4520480633, green: 0.4520593286, blue: 0.4520532489, alpha: 1)
+                    title.backgroundColor = #colorLiteral(red: 0.9625374675, green: 0.9625598788, blue: 0.9625478387, alpha: 1)
+                }
+                title.text = viewModel.getGenders()[indexPath.row]
+                title.font = UIFont(name: "NotoSansKR-Regular", size: 13)
+                title.textAlignment = .center
+                title.clipsToBounds = true
+                title.layer.cornerRadius = 14
+                
+                return cell
+            }
+        }
         fatalError()
     }
     
@@ -277,13 +330,16 @@ extension CommunityDetailVC: UICollectionViewDelegate, UICollectionViewDataSourc
         else if collectionView.tag == 2{
             return 2
         }
+        else if collectionView.tag == 3{
+            return 3
+        }
         fatalError()
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView.tag == 0{
             viewModel.setFilterClicked(count: indexPath.row)
             // 체크
-//            viewModel.activateNextButton()
+            viewModel.activateNextButton()
             collectionView.reloadData()
         }
         else if collectionView.tag == 1{
@@ -292,6 +348,10 @@ extension CommunityDetailVC: UICollectionViewDelegate, UICollectionViewDataSourc
         }
         else if collectionView.tag == 2{
             viewModel.setProfileClicked(type: indexPath.row)
+            collectionView.reloadData()
+        }
+        else if collectionView.tag == 3{
+            viewModel.setClickedGender(count: indexPath.row)
             collectionView.reloadData()
         }
     }
