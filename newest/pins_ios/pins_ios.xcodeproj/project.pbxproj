@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		6CAAB4AB6E68F9BD750A3D4B /* Pods_pins_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2E236C66795D43169F6D9A9 /* Pods_pins_ios.framework */; };
+		B70062BF272D937D00639CBE /* CommunityDetailEventManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70062BE272D937D00639CBE /* CommunityDetailEventManager.swift */; };
+		B70062C1272D93C700639CBE /* CommunityPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70062C0272D93C700639CBE /* CommunityPin.swift */; };
 		B704D48026DBCE6800DB20D2 /* AnimationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B704D47F26DBCE6800DB20D2 /* AnimationManager.swift */; };
 		B704F03C26E36C5900DA9E06 /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B704F03B26E36C5900DA9E06 /* Cell.swift */; };
 		B709090026E1FD990075BF50 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70908FF26E1FD990075BF50 /* SearchViewModel.swift */; };
@@ -83,6 +85,8 @@
 
 /* Begin PBXFileReference section */
 		2D0B3C31DB79E4926C9C74A0 /* Pods-pins_ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pins_ios.release.xcconfig"; path = "Target Support Files/Pods-pins_ios/Pods-pins_ios.release.xcconfig"; sourceTree = "<group>"; };
+		B70062BE272D937D00639CBE /* CommunityDetailEventManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityDetailEventManager.swift; sourceTree = "<group>"; };
+		B70062C0272D93C700639CBE /* CommunityPin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityPin.swift; sourceTree = "<group>"; };
 		B704D47F26DBCE6800DB20D2 /* AnimationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationManager.swift; sourceTree = "<group>"; };
 		B704F03B26E36C5900DA9E06 /* Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
 		B70908FF26E1FD990075BF50 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
@@ -205,6 +209,7 @@
 				B709090226E2006E0075BF50 /* SearchViewEventManager.swift */,
 				B787EA0026E4FEC30044D786 /* MainViewEventManager.swift */,
 				B7EB600A271319930037B7C6 /* MeetingDetailViewEventManager.swift */,
+				B70062BE272D937D00639CBE /* CommunityDetailEventManager.swift */,
 			);
 			path = Event;
 			sourceTree = "<group>";
@@ -233,6 +238,7 @@
 				B7A0D84826EA571200AD5B46 /* Pin.swift */,
 				B7F4417426EBB62100546257 /* PinType.swift */,
 				B797A3A5270F459B00A87047 /* MeetingPin.swift */,
+				B70062C0272D93C700639CBE /* CommunityPin.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -538,6 +544,7 @@
 				B7DE776F270B75F700F8F0EB /* CommunityFilterController.swift in Sources */,
 				B7E6BFE927180437006051DA /* CommunityDetailVC.swift in Sources */,
 				B77EC71726F0EF540002C0D6 /* GetPlaceCard.swift in Sources */,
+				B70062BF272D937D00639CBE /* CommunityDetailEventManager.swift in Sources */,
 				B7A0D84D26EA6FF700AD5B46 /* CarouselCell.swift in Sources */,
 				B74F96AB26E4AB0B0064B900 /* Extension+CLLocationCoordinate2D.swift in Sources */,
 				B74F96AD26E4AB3E0064B900 /* Extension+UISearchBar.swift in Sources */,
@@ -555,6 +562,7 @@
 				B797A3AB270F55BF00A87047 /* MeetingDetailVC.swift in Sources */,
 				B7EB6007271300DF0037B7C6 /* Extension+UIView.swift in Sources */,
 				B7B70B2226F78F0D006052A1 /* RecentSearchModel.xcdatamodeld in Sources */,
+				B70062C1272D93C700639CBE /* CommunityPin.swift in Sources */,
 				B7F06733270759D200CFCE13 /* GetLocation.swift in Sources */,
 				B7C5DAAA26C805D50011EE41 /* ThumbnailImg.swift in Sources */,
 				B7FA1D7C27148D3B005F924A /* Extension+UITextField.swift in Sources */,
