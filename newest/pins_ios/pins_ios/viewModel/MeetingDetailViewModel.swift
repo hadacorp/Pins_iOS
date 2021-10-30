@@ -24,6 +24,7 @@ class MeetingDetailViewModel: MeetingDetailVCUI {
     private var weeks: [String] = ["토", "일", "월", "화", "수", "목", "금"]
     private var genders: [String] = ["성별 무관", "남자만", "여자만"]
     
+    // 오후 5시 00분
     private var meetTime: Int = 1020
     
     public func setMinAge(age: Int){

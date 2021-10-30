@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RangeSeekSlider
 
 class CommunityDetailVC: UIViewController {
     // MARK:- IBAction func
@@ -16,6 +17,7 @@ class CommunityDetailVC: UIViewController {
     // MARK:- Private variable
     private var scrollView: UIScrollView!
     private var collectionView: UICollectionView!
+    private let rangeSlider = RangeSeekSlider()
     
     // MARK:- Public variable
     public var viewModel: CommunityDetailViewModel!
@@ -29,9 +31,10 @@ class CommunityDetailVC: UIViewController {
         setCollectionView()
         joinTypeCollectionView()
         profileTypeCollectionView()
-        
         viewModel = CommunityDetailViewModel(parent: scrollView, view: self.view)
         viewModel.setUI()
+        
+        ageSlider()
     }
     
     // MARK:- Private func
@@ -48,7 +51,7 @@ class CommunityDetailVC: UIViewController {
             make.trailing.equalTo(0)
             make.bottom.equalTo(view.safeAreaLayoutGuide).offset(-49)
         }
-        scrollView.contentSize = CGSize(width: UIScreen.main.bounds.width, height: 1018)
+        scrollView.contentSize = CGSize(width: UIScreen.main.bounds.width, height: 741)
     }
     
     // 카테고리
@@ -125,7 +128,56 @@ class CommunityDetailVC: UIViewController {
             view.top.equalTo(432)
         }
     }
+    
+    public func ageSlider(){
+        scrollView.addSubview(rangeSlider)
+        rangeSlider.snp.makeConstraints { slider in
+            slider.top.equalTo(664)
+            slider.leading.equalTo(18)
+            slider.height.equalTo(28)
+            slider.width.equalTo(UIScreen.main.bounds.width - 36)
+        }
+        rangeSlider.delegate = self
+        rangeSlider.minValue = 20
+        rangeSlider.maxValue = 50
+        rangeSlider.selectedMinValue = 20
+        rangeSlider.selectedMaxValue = 50
+        rangeSlider.handleColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        rangeSlider.handleDiameter = 28.0
+        rangeSlider.lineHeight = 4
+        rangeSlider.tintColor = #colorLiteral(red: 0.8862745098, green: 0.8862745098, blue: 0.8862745098, alpha: 1)
+        rangeSlider.colorBetweenHandles = #colorLiteral(red: 0.1137254902, green: 0.6666666667, blue: 0.9529411765, alpha: 1)
+        rangeSlider.selectedHandleDiameterMultiplier = 1.0
+        rangeSlider.hideLabels = true
+    }
 }
+
+// MARK: - Slider Delegate
+extension CommunityDetailVC: RangeSeekSliderDelegate {
+    func rangeSeekSlider(_ slider: RangeSeekSlider, didChange minValue: CGFloat, maxValue: CGFloat) {
+        viewModel.setMinAge(age: Int(minValue))
+        viewModel.setMaxAge(age: Int(maxValue))
+        if maxValue == rangeSlider.maxValue && Int(minValue) != Int(rangeSlider.maxValue){
+            viewModel.setAgeDescription(string: "\(Int(minValue))세 ~ 무제한")
+        }
+        else if Int(maxValue) == Int(rangeSlider.maxValue) && Int(minValue) == Int(rangeSlider.maxValue){
+            print("asd")
+            viewModel.setAgeDescription(string: "무제한")
+        }
+        else{
+            viewModel.setAgeDescription(string: "\(Int(minValue))세 ~ \(Int(maxValue))세")
+        }
+    }
+
+    func didStartTouches(in slider: RangeSeekSlider) {
+        print("did start touches")
+    }
+
+    func didEndTouches(in slider: RangeSeekSlider) {
+        print("did end touches")
+    }
+}
+
 
 extension CommunityDetailVC: UIScrollViewDelegate{
     

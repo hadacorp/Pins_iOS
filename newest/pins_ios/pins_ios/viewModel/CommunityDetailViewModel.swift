@@ -15,6 +15,19 @@ class CommunityDetailViewModel: CommunityDetailVCUI {
     private var joinTypeClicked: Int = 0
     private var profileClicked: Int = 0
     
+    private var minAge = 20
+    private var maxAge = 50
+    
+    public func setMinAge(age: Int){
+        minAge = age
+    }
+    public func setMaxAge(age: Int){
+        maxAge = age
+    }
+    public func setAgeDescription(string: String){
+        ageDescription.text = string
+    }
+    
     public func getProfileType() -> [String]{
         return profile
     }
