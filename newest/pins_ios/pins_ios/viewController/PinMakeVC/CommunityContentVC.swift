@@ -20,12 +20,16 @@ class CommunityContentVC: UIViewController {
         // API 호출
     }
     
+    // image picker
+    let picker = UIImagePickerController()
+    let btn = UIButton()
     
     override func viewDidLoad() {
         setUI()
     }
     
     private func setUI(){
+        picker.delegate = self
         initImageView()
         createTriangle()
         successBtn.setTitleColor(#colorLiteral(red: 0.9215686275, green: 0.9215686275, blue: 0.9215686275, alpha: 1), for: .normal)
@@ -51,7 +55,6 @@ class CommunityContentVC: UIViewController {
     }
     
     private func initImageView(){
-        let btn = UIButton()
         view.addSubview(btn)
         btn.snp.makeConstraints { make in
             make.width.height.equalTo(110)
@@ -67,9 +70,9 @@ class CommunityContentVC: UIViewController {
         btn.addTarget(self, action: #selector(clickImageBtn), for: .touchUpInside)
     }
     private func initImageViewIcon(parent: UIView){
-        let img = UIImageView(image: #imageLiteral(resourceName: "iconCamera"))
-        parent.addSubview(img)
-        img.snp.makeConstraints { make in
+        let mainImg = UIImageView(image: #imageLiteral(resourceName: "iconCamera"))
+        parent.addSubview(mainImg)
+        mainImg.snp.makeConstraints { make in
             make.width.equalTo(20)
             make.height.equalTo(17)
             make.top.equalTo(39)
@@ -113,6 +116,9 @@ class CommunityContentVC: UIViewController {
     
     @objc func clickImageBtn(){
         print("Clicked")
+        picker.sourceType = .photoLibrary
+        
+        present(picker, animated: true, completion: nil)
     }
 }
 
@@ -155,5 +161,19 @@ extension CommunityContentVC: UITextViewDelegate{
             return !(newLength >= 300)
         }
         return true
+    }
+}
+extension CommunityContentVC : UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            btn.setImage(image, for: .normal)
+            
+            for i in btn.subviews{
+                i.removeFromSuperview()
+            }
+        }
+        
+        btn.imageView?.layer.cornerRadius = 8
+        dismiss(animated: true, completion: nil)
     }
 }
