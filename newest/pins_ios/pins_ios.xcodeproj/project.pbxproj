@@ -74,6 +74,7 @@
 		B7EB6007271300DF0037B7C6 /* Extension+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7EB6006271300DF0037B7C6 /* Extension+UIView.swift */; };
 		B7EB60092713010C0037B7C6 /* MeetingDetailVCUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7EB60082713010C0037B7C6 /* MeetingDetailVCUI.swift */; };
 		B7EB600B271319930037B7C6 /* MeetingDetailViewEventManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7EB600A271319930037B7C6 /* MeetingDetailViewEventManager.swift */; };
+		B7EEC995272ECC9B00AD98B0 /* PostCommunityPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7EEC994272ECC9B00AD98B0 /* PostCommunityPin.swift */; };
 		B7F06731270740ED00CFCE13 /* GetKeyword.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F06730270740ED00CFCE13 /* GetKeyword.swift */; };
 		B7F06733270759D200CFCE13 /* GetLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F06732270759D200CFCE13 /* GetLocation.swift */; };
 		B7F4417326EB92C200546257 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F4417226EB92C200546257 /* UIImage.swift */; };
@@ -155,6 +156,7 @@
 		B7EB6006271300DF0037B7C6 /* Extension+UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIView.swift"; sourceTree = "<group>"; };
 		B7EB60082713010C0037B7C6 /* MeetingDetailVCUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingDetailVCUI.swift; sourceTree = "<group>"; };
 		B7EB600A271319930037B7C6 /* MeetingDetailViewEventManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingDetailViewEventManager.swift; sourceTree = "<group>"; };
+		B7EEC994272ECC9B00AD98B0 /* PostCommunityPin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCommunityPin.swift; sourceTree = "<group>"; };
 		B7F06730270740ED00CFCE13 /* GetKeyword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetKeyword.swift; sourceTree = "<group>"; };
 		B7F06732270759D200CFCE13 /* GetLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetLocation.swift; sourceTree = "<group>"; };
 		B7F4417226EB92C200546257 /* UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
@@ -230,6 +232,7 @@
 				B7F06730270740ED00CFCE13 /* GetKeyword.swift */,
 				B7F06732270759D200CFCE13 /* GetLocation.swift */,
 				B7FA1D7F27149D36005F924A /* PostMeetingPin.swift */,
+				B7EEC994272ECC9B00AD98B0 /* PostCommunityPin.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -580,6 +583,7 @@
 				B709090326E2006E0075BF50 /* SearchViewEventManager.swift in Sources */,
 				B7F4417526EBB62100546257 /* PinType.swift in Sources */,
 				B7FA1D8027149D36005F924A /* PostMeetingPin.swift in Sources */,
+				B7EEC995272ECC9B00AD98B0 /* PostCommunityPin.swift in Sources */,
 				B74B3C03270C12C000C6284C /* FilterCell.swift in Sources */,
 				B74B3C05270CA21B00C6284C /* MeetingFilterViewModel.swift in Sources */,
 				B704D48026DBCE6800DB20D2 /* AnimationManager.swift in Sources */,
