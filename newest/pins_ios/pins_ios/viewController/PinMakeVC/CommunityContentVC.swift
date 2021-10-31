@@ -18,6 +18,8 @@ class CommunityContentVC: UIViewController {
     @IBOutlet weak var successBtn: UIButton!
     @IBAction func successBtn(_ sender: Any) {
         // API 호출
+        
+        PostCommunityPin().uploadImage(paramName: "file", fileName: "20211031", image: btn.imageView!.image!)
     }
     
     // image picker
