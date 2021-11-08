@@ -47,6 +47,9 @@ class ViewController: UIViewController{
         super.viewDidLoad()
         // navigation 뒤로가기 스와이프 예외처리
         navigationController?.interactivePopGestureRecognizer?.delegate = nil
+        
+        ViewControllers.shared.picker = UIImagePickerController()
+        
         // 처음 권환 체크
         setPermission()
         // viewModel 생성
@@ -90,7 +93,7 @@ class ViewController: UIViewController{
                     }
                 }
                 // 키워드 검색
-                else if paramType == 0 {
+                else if paramType == 0 && paramSearchText != ""{
                     GetKeyword().requestGet(keyword: paramSearchText!, latitude: latitude, longitude: longitude) { (success, data) in
                         if let data = data as? [Pin] {
                             if data.count > 0{

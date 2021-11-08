@@ -28,9 +28,8 @@ class CommunityContentVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUI()
-        picker = UIImagePickerController()
+        picker = ViewControllers.shared.picker
         picker.delegate = self
-        print(picker.delegate)
     }
     
     private func setUI(){
@@ -169,10 +168,7 @@ extension CommunityContentVC: UITextViewDelegate{
 }
 extension CommunityContentVC : UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        print("asdfasdf")
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-            dump(btn.subviews)
-            print(btn.subviews.count)
             for i in btn.subviews{
                 i.removeFromSuperview()
             }
