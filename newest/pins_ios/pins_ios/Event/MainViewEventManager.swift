@@ -111,6 +111,10 @@ extension ViewController{
         // 핀 생성 위치 저장
         MeetingPin.shared.latitude = mainMap.centerCoordinate.latitude
         MeetingPin.shared.longitude = mainMap.centerCoordinate.longitude
+        
+        CommunityPin.shared.latitude = mainMap.centerCoordinate.latitude
+        CommunityPin.shared.longitude = mainMap.centerCoordinate.longitude
+        
         self.navigationController!.pushViewController(VC1, animated: true)
     }
     
