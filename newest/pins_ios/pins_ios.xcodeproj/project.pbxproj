@@ -29,6 +29,7 @@
 		B724315B26C18A950091152E /* SmallRoundedBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = B724315A26C18A950091152E /* SmallRoundedBtn.swift */; };
 		B73572A22700BB5300E1967E /* RecentResearchTerm+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73572A02700BB5300E1967E /* RecentResearchTerm+CoreDataClass.swift */; };
 		B73572A32700BB5300E1967E /* RecentResearchTerm+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73572A12700BB5300E1967E /* RecentResearchTerm+CoreDataProperties.swift */; };
+		B736564E2739852900DDFB5E /* ViewControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B736564D2739852900DDFB5E /* ViewControllers.swift */; };
 		B741BA4626E8F5E800BB04E7 /* GetPlaceKeyword.swift in Sources */ = {isa = PBXBuildFile; fileRef = B741BA4526E8F5E800BB04E7 /* GetPlaceKeyword.swift */; };
 		B741BA4826E8FCFD00BB04E7 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = B741BA4726E8FCFD00BB04E7 /* Place.swift */; };
 		B741BA4B26E9116B00BB04E7 /* Debouncer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B741BA4A26E9116B00BB04E7 /* Debouncer.swift */; };
@@ -111,6 +112,7 @@
 		B724315A26C18A950091152E /* SmallRoundedBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallRoundedBtn.swift; sourceTree = "<group>"; };
 		B73572A02700BB5300E1967E /* RecentResearchTerm+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RecentResearchTerm+CoreDataClass.swift"; sourceTree = "<group>"; };
 		B73572A12700BB5300E1967E /* RecentResearchTerm+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RecentResearchTerm+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		B736564D2739852900DDFB5E /* ViewControllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllers.swift; sourceTree = "<group>"; };
 		B741BA4526E8F5E800BB04E7 /* GetPlaceKeyword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPlaceKeyword.swift; sourceTree = "<group>"; };
 		B741BA4726E8FCFD00BB04E7 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		B741BA4A26E9116B00BB04E7 /* Debouncer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Debouncer.swift; sourceTree = "<group>"; };
@@ -246,6 +248,7 @@
 				B7F4417426EBB62100546257 /* PinType.swift */,
 				B797A3A5270F459B00A87047 /* MeetingPin.swift */,
 				B70062C0272D93C700639CBE /* CommunityPin.swift */,
+				B736564D2739852900DDFB5E /* ViewControllers.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -576,6 +579,7 @@
 				B70062C1272D93C700639CBE /* CommunityPin.swift in Sources */,
 				B7F06733270759D200CFCE13 /* GetLocation.swift in Sources */,
 				B7C5DAAA26C805D50011EE41 /* ThumbnailImg.swift in Sources */,
+				B736564E2739852900DDFB5E /* ViewControllers.swift in Sources */,
 				B7FA1D7C27148D3B005F924A /* Extension+UITextField.swift in Sources */,
 				B70CFC2326BFD82500B7DA74 /* SceneDelegate.swift in Sources */,
 				B77EC71526F0E59A0002C0D6 /* GetSearchKeywordPinAPI.swift in Sources */,
