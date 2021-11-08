@@ -18,12 +18,26 @@ class CommunityContentVC: UIViewController {
     @IBOutlet weak var successBtn: UIButton!
     @IBAction func successBtn(_ sender: Any) {
         // API 호출
-        PostCommunityPin().uploadImage(paramName: "file", fileName: "20211031", image: btn.imageView!.image!)
+        PostCommunityPin().requestPost(image: thumb.image!,
+                                       params: [
+                                            "title": "key",
+                                            "content": "value",
+                                            "setGender": "Male",
+                                            "minAge": "20",
+                                            "maxAge": "30",
+                                            "setLimit": "5",
+                                            "longitude": CommunityPin.shared.longitude!,
+                                            "latitude": CommunityPin.shared.latitude!
+        ]) { (success, data) in
+            print(data)
+            print(success)
+        }
     }
     
     // image picker
     var picker: UIImagePickerController!
     let btn = UIButton()
+    let thumb = UIImageView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -172,7 +186,6 @@ extension CommunityContentVC : UIImagePickerControllerDelegate, UINavigationCont
             for i in btn.subviews{
                 i.removeFromSuperview()
             }
-            let thumb = UIImageView()
             thumb.image = image
             btn.addSubview(thumb)
             thumb.snp.makeConstraints { make in

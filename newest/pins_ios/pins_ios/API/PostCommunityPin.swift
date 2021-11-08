@@ -4,62 +4,88 @@
 //
 //  Created by judongseok on 2021/10/31.
 //
-
+//let parameters = [
+//    [
+//        "title": "key",
+//        "content": "value",
+//        "setGender": "Male",
+//        "minAge": "20",
+//        "maxAge": "30",
+//        "setLimit": "5",
+//        "longitude": CommunityPin.shared.longitude!,
+//        "latitude": CommunityPin.shared.latitude!
+//    ]] as [[String : Any]]
+//http://bangi98.cafe24.com:8081/pin/communitypin
 import UIKit
 
 class PostCommunityPin {
-    func uploadImage(paramName: String, fileName: String, image: UIImage) {
-        let parameters = [
-            [
-                "key": "key",
-                "value": "value",
-                "type": "text"
-            ]] as [[String : Any]]
+    var boundary: String!
+    var parameters: [String : Any]!
+    // image 데이터를 만들기위한 요소들
+    var imageData: Data!
+    var mimeType: String!
+    var filename: String!
+    var imageKey: String!
+    
+    func generateBoundary() -> String {
+        return "Boundary-\(UUID().uuidString)"
+    }
+    
+    func makeBody() -> Data {
+        var bodyData = Data()
         
-        let boundary = "Boundary-\(UUID().uuidString)"
-        var body = ""
-        for param in parameters {
-            if param["disabled"] == nil {
-                let paramName = param["key"]!
-                body += "--\(boundary)\r\n"
-                body += "Content-Disposition:form-data; name=\"\(paramName)\""
-                if param["contentType"] != nil {
-                    body += "\r\nContent-Type: \(param["contentType"] as! String)"
-                }
-                let paramType = param["type"] as! String
-                if paramType == "text" {
-                    let paramValue = param["value"] as! String
-                    body += "\r\n\r\n\(paramValue)\r\n"
-                } else {
-                    let paramSrc = param["src"] as! String
-                    let fileData = try? NSData(contentsOfFile:paramSrc, options:[]) as Data
-                    let fileContent = String(data: fileData!, encoding: .utf8)!
-                    body += "; filename=\"\(paramSrc)\"\r\n"
-                    + "Content-Type: \"content-type header\"\r\n\r\n\(fileContent)\r\n"
-                }
-            }
+        for (key, value) in parameters {
+            bodyData.append(boundary.data(using: .utf8)!)
+            bodyData.append("Content-Disposition: form-data; name=\"\(key)\"\r\n\r\n".data(using: .utf8)!)
+            bodyData.append("\(value)\r\n".data(using: .utf8)!)
         }
-        body += "--\(boundary)--\r\n";
-        let postData = body.data(using: .utf8)
         
-        var request = URLRequest(url: URL(string: "https://apitest....")!,timeoutInterval: Double.infinity)
-        request.addValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
+        bodyData.append(boundary.data(using: .utf8)!)
+        bodyData.append("Content-Disposition: form-data; name=\"\(String(describing: imageKey))\"; filename=\"\(String(describing: filename))\"\r\n".data(using: .utf8)!)
+        bodyData.append("Content-Type: \(String(describing: mimeType))\r\n\r\n".data(using: .utf8)!)
+        bodyData.append(imageData)
+        bodyData.append("\r\n".data(using: .utf8)!)
+        bodyData.append("--".appending(boundary.appending("--")).data(using: .utf8)!)
+        
+        return bodyData
+    }
+    
+    func requestPost(image: UIImage, params: [String: Any], completionHandler: @escaping (Bool, Any) -> Void) {
+        parameters = params
+        imageData = image.jpegData(compressionQuality: 1)!
+        mimeType = "image/jpg"
+        filename = "odong.jpg"
+        imageKey = "image"
+        
+        // 사전 준비
+        boundary = generateBoundary()
+        let boundaryPrefix = "--\(String(describing: boundary))\r\n"
+        
+        let url = URL(string: "http://bangi98.cafe24.com:8081/pin/communitypin")!
+        var request = URLRequest(url: url)
+        request.httpMethod = "Post"
+        request.setValue("multipart/form-data; boundary=\(String(describing: boundary))", forHTTPHeaderField: "Content-Type")
         request.addValue("eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIwMTAtNzc2MC02MzkzIiwicm9sZXMiOlsiUk9MRV9VU0VSIl0sImV4cCI6MTY2MTYxNDI4OH0.Ojb-VgKgoXJSB5Y9u9-165Y2VwLNuP1Pv-KbDeYt_Yg", forHTTPHeaderField: "X-AUTH-TOKEN")
+        request.httpBody = makeBody()
         
-        request.httpMethod = "POST"
-        request.httpBody = postData
-        
-        print(request)
-        dump(request)
-        dump(request.httpBody)
-        let task = URLSession.shared.dataTask(with: request) { data, response, error in
-            guard let data = data else {
-                print(String(describing: error))
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
+            guard error == nil else {
+                print("Error: error calling GET")
+                print(error!)
                 return
             }
-            print(String(data: data, encoding: .utf8)!)
-        }
-        
-        task.resume()
+            guard let data = data else {
+                print("Error: Did not receive data")
+                return
+            }
+            guard let response = response as? HTTPURLResponse, (200 ..< 300) ~= response.statusCode else {
+                print("Error: HTTP request failed")
+                print(response)
+                return
+            }
+            let output = data
+            
+            completionHandler(true, output)
+        }.resume()
     }
 }
