@@ -709,7 +709,7 @@
                                 <fontDescription key="fontDescription" name="NotoSansKR-Regular" family="Noto Sans KR" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="커뮤니티명(4~12글자)" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="XNW-fs-Cd9">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text="커뮤니티명(4~12글자)" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="XNW-fs-Cd9">
                                 <rect key="frame" x="16" y="290" width="382" height="20"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
