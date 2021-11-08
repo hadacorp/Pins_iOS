@@ -18,20 +18,22 @@ class CommunityContentVC: UIViewController {
     @IBOutlet weak var successBtn: UIButton!
     @IBAction func successBtn(_ sender: Any) {
         // API 호출
-        
         PostCommunityPin().uploadImage(paramName: "file", fileName: "20211031", image: btn.imageView!.image!)
     }
     
     // image picker
-    let picker = UIImagePickerController()
+    var picker: UIImagePickerController!
     let btn = UIButton()
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         setUI()
+        picker = UIImagePickerController()
+        picker.delegate = self
+        print(picker.delegate)
     }
     
     private func setUI(){
-        picker.delegate = self
         initImageView()
         createTriangle()
         successBtn.setTitleColor(#colorLiteral(red: 0.9215686275, green: 0.9215686275, blue: 0.9215686275, alpha: 1), for: .normal)
@@ -167,15 +169,23 @@ extension CommunityContentVC: UITextViewDelegate{
 }
 extension CommunityContentVC : UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        print("asdfasdf")
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-            btn.setImage(image, for: .normal)
-            
+            dump(btn.subviews)
+            print(btn.subviews.count)
             for i in btn.subviews{
                 i.removeFromSuperview()
             }
+            let thumb = UIImageView()
+            thumb.image = image
+            btn.addSubview(thumb)
+            thumb.snp.makeConstraints { make in
+                make.top.leading.trailing.bottom.equalTo(0)
+            }
+            thumb.contentMode = .scaleAspectFill
+            thumb.clipsToBounds = true
+            thumb.layer.cornerRadius = 8
         }
-        
-        btn.imageView?.layer.cornerRadius = 8
         dismiss(animated: true, completion: nil)
     }
 }

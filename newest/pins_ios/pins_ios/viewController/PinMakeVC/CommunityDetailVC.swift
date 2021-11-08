@@ -21,12 +21,12 @@ class CommunityDetailVC: UIViewController {
     
     // MARK:- Public variable
     public var viewModel: CommunityDetailViewModel!
-    
+    public var VC1: CommunityContentVC!
     // MARK:- Life cycle
     override func viewDidLoad() {
         // 스크롤 방지
         navigationController?.interactivePopGestureRecognizer?.isEnabled = false
-        
+        VC1 = storyboard!.instantiateViewController(withIdentifier: "CommunityContentVC") as? CommunityContentVC
         setScrollView()
         setCollectionView()
         joinTypeCollectionView()
