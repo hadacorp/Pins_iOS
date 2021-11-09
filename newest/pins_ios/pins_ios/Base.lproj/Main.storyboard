@@ -468,6 +468,9 @@
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="titleEdgeInsets" minX="0.0" minY="16" maxX="0.0" maxY="0.0"/>
                                 <state key="normal" title="이야기 핀"/>
+                                <connections>
+                                    <action selector="storyBtn:" destination="cN6-t9-zm3" eventType="touchUpInside" id="vKo-I1-GYu"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="odB-l8-Uce">
                                 <rect key="frame" x="16" y="505" width="183" height="341"/>
@@ -987,7 +990,7 @@
                                 </constraints>
                                 <state key="normal" title="Button" image="btnBack"/>
                                 <connections>
-                                    <action selector="backBtn:" destination="5OE-jE-19p" eventType="touchUpInside" id="1GB-nM-KEL"/>
+                                    <action selector="backBtn:" destination="2iu-KK-IRc" eventType="touchUpInside" id="bYo-Gs-lrE"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="핀 만들기" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qpm-vk-BKt">

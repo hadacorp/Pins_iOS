@@ -20,22 +20,23 @@ class PostCommunityPin {
     }
     
     func makeBody() -> Data {
-        var bodyData = Data()
+        var body = Data()
         
+        let imgDataKey = "img"
+        let boundaryPrefix = "--\(String(describing: boundary))\r\n"
         for (key, value) in parameters {
-            bodyData.append(boundary.data(using: .utf8)!)
-            bodyData.append("Content-Disposition: form-data; name=\"\(key)\"\r\n\r\n".data(using: .utf8)!)
-            bodyData.append("\(value)\r\n".data(using: .utf8)!)
+            body.append(boundaryPrefix.data(using: .utf8)!)
+            body.append("Content-Disposition: form-data; name=\"\(key)\"\r\n\r\n".data(using: .utf8)!)
+            body.append("\(value)\r\n".data(using: .utf8)!)
+            
         }
-        
-        bodyData.append(boundary.data(using: .utf8)!)
-        bodyData.append("Content-Disposition: form-data; name=\"\(String(describing: imageKey))\"; filename=\"\(String(describing: filename))\"\r\n".data(using: .utf8)!)
-        bodyData.append("Content-Type: \(String(describing: mimeType))\r\n\r\n".data(using: .utf8)!)
-        bodyData.append(imageData)
-        bodyData.append("\r\n".data(using: .utf8)!)
-        bodyData.append("--".appending(boundary.appending("--")).data(using: .utf8)!)
-        
-        return bodyData
+        body.append(boundaryPrefix.data(using: .utf8)!)
+        body.append("Content-Disposition: form-data; name=\"\(imgDataKey)\"; filename=\"\(String(describing: filename))\"\r\n".data(using: .utf8)!)
+        body.append("Content-Type: \(String(describing: mimeType))\r\n\r\n".data(using: .utf8)!)
+        body.append(imageData)
+        body.append("\r\n".data(using: .utf8)!)
+        body.append("--".appending(boundary.appending("--")).data(using: .utf8)!)
+        return body as Data
     }
     
     func requestPost(image: UIImage, params: [String: Any], completionHandler: @escaping (Bool, Any) -> Void) {
@@ -47,8 +48,6 @@ class PostCommunityPin {
         
         // 사전 준비
         boundary = generateBoundary()
-        let boundaryPrefix = "--\(String(describing: boundary))\r\n"
-        
         let url = URL(string: "http://bangi98.cafe24.com:8081/pin/communitypin")!
         var request = URLRequest(url: url)
         request.httpMethod = "Post"
@@ -56,6 +55,8 @@ class PostCommunityPin {
         request.addValue("eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIwMTAtNzc2MC02MzkzIiwicm9sZXMiOlsiUk9MRV9VU0VSIl0sImV4cCI6MTY2MTYxNDI4OH0.Ojb-VgKgoXJSB5Y9u9-165Y2VwLNuP1Pv-KbDeYt_Yg", forHTTPHeaderField: "X-AUTH-TOKEN")
         request.httpBody = makeBody()
         
+        print(request.httpBody)
+        print(request.httpBody! as NSData)
         URLSession.shared.dataTask(with: request) { (data, response, error) in
             guard error == nil else {
                 print("Error: error calling GET")
@@ -67,11 +68,8 @@ class PostCommunityPin {
                 return
             }
             guard let response = response as? HTTPURLResponse, (200 ..< 300) ~= response.statusCode else {
+                print(response)
                 print("Error: HTTP request failed")
-                let responseJSON = try? JSONSerialization.jsonObject(with: request.httpBody!, options: [])
-                if let responseJSON = responseJSON as? [String: Any] {
-                    print(responseJSON)
-                }
                 return
             }
             let output = data

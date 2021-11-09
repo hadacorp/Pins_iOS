@@ -18,7 +18,7 @@ class CommunityContentVC: UIViewController {
     @IBOutlet weak var successBtn: UIButton!
     @IBAction func successBtn(_ sender: Any) {
         // API 호출
-        PostCommunityPin().requestPost(image: thumb.image!,
+        PostCommunityPin().requestPost(image: thumb.image!.resize(newWidth: 300),
                                        params: [
                                             "title": "key",
                                             "content": "value",
@@ -26,6 +26,9 @@ class CommunityContentVC: UIViewController {
                                             "minAge": "20",
                                             "maxAge": "30",
                                             "setLimit": "5",
+                                            "participationType": 0,
+                                            "profileType": 0,
+                                            "detail": "asdf",
                                             "longitude": CommunityPin.shared.longitude!,
                                             "latitude": CommunityPin.shared.latitude!
         ]) { (success, data) in
