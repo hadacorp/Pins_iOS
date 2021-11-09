@@ -4,18 +4,6 @@
 //
 //  Created by judongseok on 2021/10/31.
 //
-//let parameters = [
-//    [
-//        "title": "key",
-//        "content": "value",
-//        "setGender": "Male",
-//        "minAge": "20",
-//        "maxAge": "30",
-//        "setLimit": "5",
-//        "longitude": CommunityPin.shared.longitude!,
-//        "latitude": CommunityPin.shared.latitude!
-//    ]] as [[String : Any]]
-//http://bangi98.cafe24.com:8081/pin/communitypin
 import UIKit
 
 class PostCommunityPin {
@@ -80,7 +68,10 @@ class PostCommunityPin {
             }
             guard let response = response as? HTTPURLResponse, (200 ..< 300) ~= response.statusCode else {
                 print("Error: HTTP request failed")
-                print(response)
+                let responseJSON = try? JSONSerialization.jsonObject(with: request.httpBody!, options: [])
+                if let responseJSON = responseJSON as? [String: Any] {
+                    print(responseJSON)
+                }
                 return
             }
             let output = data
