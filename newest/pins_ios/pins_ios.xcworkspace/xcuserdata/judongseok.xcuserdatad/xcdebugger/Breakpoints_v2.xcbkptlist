@@ -634,9 +634,9 @@
             filePath = "pins_ios/API/PostCommunityPin.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "53"
-            endingLineNumber = "53"
-            landmarkName = "requestPost(image:params:completionHandler:)"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
+            landmarkName = "makeBody()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -650,9 +650,9 @@
             filePath = "pins_ios/API/PostCommunityPin.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "54"
-            endingLineNumber = "54"
-            landmarkName = "requestPost(image:params:completionHandler:)"
+            startingLineNumber = "42"
+            endingLineNumber = "42"
+            landmarkName = "makeBody()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
