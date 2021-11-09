@@ -30,6 +30,10 @@ class PinMakeViewController: UIViewController {
         self.navigationController!.pushViewController(VC, animated: false)
     }
     
+    @IBAction func storyBtn(_ sender: Any) {
+        let VC = self.storyboard!.instantiateViewController(withIdentifier: "StoryDetailVC") as! StoryDetailVC
+        self.navigationController!.pushViewController(VC, animated: false)
+    }
     override func viewDidLoad() {
         // 스크롤 방지
         navigationController?.interactivePopGestureRecognizer?.isEnabled = false
