@@ -52,6 +52,8 @@ class StoryDetailViewModel {
         nextButton.backgroundColor = #colorLiteral(red: 0.5568627451, green: 0.8156862745, blue: 0.9490196078, alpha: 1)
     }
     
+    
+    
     public func setUI(parent: UIView){
         initNextButton(parent: parent)
     }
