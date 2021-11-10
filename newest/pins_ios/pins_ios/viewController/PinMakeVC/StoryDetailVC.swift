@@ -16,6 +16,7 @@ class StoryDetailVC: UIViewController {
     
     override func viewDidLoad() {
         viewModel.setUI(parent: self.view)
+        viewModel.nextButton.addTarget(self, action: #selector(nextView), for: .touchUpInside)
         createTriangle()
         setCollectionView()
         meetSectionText(title: "카테고리", top: 104)
@@ -80,6 +81,15 @@ class StoryDetailVC: UIViewController {
             make.height.equalTo(6)
             make.top.equalTo(self.view.safeAreaLayoutGuide).offset(66)
             make.trailing.equalTo(-UIScreen.main.bounds.width / 3 + 2)
+        }
+    }
+    
+    @objc func nextView(){
+        if viewModel.checkNext(){
+            let VC1 = self.storyboard!.instantiateViewController(withIdentifier: "StoryContentVC") as! StoryContentVC
+            // save
+//            viewModel.saveSetting()
+            self.navigationController!.pushViewController(VC1, animated: false)
         }
     }
 }
