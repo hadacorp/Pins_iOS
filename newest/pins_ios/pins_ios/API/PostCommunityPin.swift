@@ -41,9 +41,10 @@ class PostCommunityPin {
     
     func requestPost(image: UIImage, params: [String: Any], completionHandler: @escaping (Bool, Any) -> Void) {
         parameters = params
-        imageData = image.jpegData(compressionQuality: 1)!
-        mimeType = "image/jpg"
-        filename = "odong.jpg"
+//        imageData = image.pngData()!
+        imageData = image.jpegData(compressionQuality: 0.3)!
+        mimeType = "image/jpeg"
+        filename = "odong.jpeg"
         imageKey = "image"
         
         // 사전 준비
