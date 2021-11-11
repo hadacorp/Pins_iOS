@@ -7,6 +7,7 @@
 
 import UIKit
 import BSImagePicker
+import Photos
 
 class StoryContentVC: UIViewController {
     @IBOutlet weak var successBtn: UIButton!
@@ -16,10 +17,14 @@ class StoryContentVC: UIViewController {
     
     @IBOutlet weak var contentTextView: UITextView!
     @IBOutlet weak var titleTextView: UITextView!
-    // image picker
-    var picker: UIImagePickerController!
+    
+    private var selectedAssets: [PHAsset] = []
+    private var userSelectedImages: [UIImage] = []
+    private var scrollView = UIScrollView()
+    
     override func viewDidLoad() {
         setUI()
+        initScrollView()
         initImageView()
     }
     
@@ -36,13 +41,27 @@ class StoryContentVC: UIViewController {
         
         titleTextView.textColor = #colorLiteral(red: 0.6, green: 0.6, blue: 0.6, alpha: 1)
         contentTextView.textColor = #colorLiteral(red: 0.6, green: 0.6, blue: 0.6, alpha: 1)
-        
-        picker = ViewControllers.shared.picker
+    }
+    
+    private func initScrollView(){
+        scrollView.delegate = self
+        scrollView.showsVerticalScrollIndicator = false
+        scrollView.showsHorizontalScrollIndicator = false
+        self.view.addSubview(scrollView)
+        scrollView.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide).offset(88)
+            make.leading.equalTo(0)
+            make.trailing.equalTo(0)
+            make.bottom.equalTo(self.view).offset(-(UIScreen.main.bounds.height - 212))
+        }
+        print(UIScreen.main.bounds.height - 132)
+        scrollView.contentSize = CGSize(width: 76 * userSelectedImages.count, height: 92)
+        scrollView.backgroundColor = .red
     }
     
     private func initImageView(){
         let btn = UIButton()
-        view.addSubview(btn)
+        scrollView.addSubview(btn)
         btn.snp.makeConstraints { make in
             make.width.height.equalTo(60)
             make.top.equalTo(self.view.safeAreaLayoutGuide).offset(104)
@@ -100,12 +119,12 @@ class StoryContentVC: UIViewController {
 
         }, finish: { (assets) in
                 // User finished selection assets.
-                
-//            for i in 0..<assets.count {
-//                self.selectedAssets.append(assets[i])
-//             }
-//             self.convertAssetToImages()
-//             self.delegate?.didPickImagesToUpload(images: self.userSelectedImages)
+            for i in 0..<assets.count {
+                self.selectedAssets.append(assets[i])
+             }
+             self.convertAssetToImages()
+            
+            print(self.userSelectedImages)
          })
     }
 }
@@ -131,5 +150,29 @@ extension StoryContentVC: UITextViewDelegate{
 extension StoryContentVC : UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         dismiss(animated: true, completion: nil)
+    }
+    func convertAssetToImages() {
+        if selectedAssets.count != 0 {
+            
+            for i in 0..<selectedAssets.count {
+                
+                let imageManager = PHImageManager.default()
+                let option = PHImageRequestOptions()
+                option.isSynchronous = true
+                var thumbnail = UIImage()
+                
+                imageManager.requestImage(for: selectedAssets[i],
+                                          targetSize: CGSize(width: 200, height: 200),
+                                          contentMode: .aspectFit,
+                                          options: option) { (result, info) in
+                    thumbnail = result!
+                }
+                
+                let data = thumbnail.jpegData(compressionQuality: 0.7)
+                let newImage = UIImage(data: data!)
+                
+                self.userSelectedImages.append(newImage! as UIImage)
+            }
+        }
     }
 }
