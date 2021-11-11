@@ -55,8 +55,7 @@ class StoryContentVC: UIViewController {
             make.bottom.equalTo(self.view).offset(-(UIScreen.main.bounds.height - 212))
         }
         print(UIScreen.main.bounds.height - 132)
-        scrollView.contentSize = CGSize(width: 76 * userSelectedImages.count, height: 92)
-        scrollView.backgroundColor = .red
+        scrollView.contentSize = CGSize(width: 76 * userSelectedImages.count, height: 76)
     }
     
     private func initImageView(){
@@ -104,28 +103,47 @@ class StoryContentVC: UIViewController {
         let imagePicker = ImagePickerController()
         imagePicker.settings.selection.max = 5
         imagePicker.settings.fetch.assets.supportedMediaTypes = [.image]
-            
+        
         let vc = UIApplication.shared.windows.first!.rootViewController
-            
+        
         vc?.presentImagePicker(imagePicker, select: { (asset) in
-                
-                // User selected an asset. Do something with it. Perhaps begin processing/upload?
-       
+            
+            // User selected an asset. Do something with it. Perhaps begin processing/upload?
+            
         }, deselect: { (asset) in
-                // User deselected an asset. Cancel whatever you did when asset was selected.
-      
+            // User deselected an asset. Cancel whatever you did when asset was selected.
+            
         }, cancel: { (assets) in
-                // User canceled selection.
-
-        }, finish: { (assets) in
-                // User finished selection assets.
+            // User canceled selection.
+            
+        }, finish: { [self] (assets) in
+            // User finished selection assets.
             for i in 0..<assets.count {
                 self.selectedAssets.append(assets[i])
-             }
-             self.convertAssetToImages()
+            }
+            self.convertAssetToImages()
             
-            print(self.userSelectedImages)
-         })
+            for i in 0..<userSelectedImages.count{
+                let imageView = UIImageView()
+                
+                scrollView.addSubview(imageView)
+                imageView.image = userSelectedImages[i]
+                
+                imageView.snp.makeConstraints { make in
+                    make.width.height.equalTo(60)
+                    make.leading.equalTo(92 + (i * 76))
+                    make.top.equalTo(16)
+                }
+                imageView.contentMode = .scaleAspectFill
+                imageView.clipsToBounds = true
+                imageView.layer.cornerRadius = 8
+                imageView.backgroundColor = .red
+            }
+            
+            // scrollView resetting
+            scrollView.contentSize = CGSize(width: (76 * (userSelectedImages.count + 1)) + 16, height: 76)
+            userSelectedImages = []
+        })
     }
 }
 extension StoryContentVC: UITextViewDelegate{
@@ -147,13 +165,18 @@ extension StoryContentVC: UITextViewDelegate{
         }
     }
 }
+extension StoryContentVC: UIScrollViewDelegate{
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        scrollView.contentOffset.y = 0
+    }
+}
+
 extension StoryContentVC : UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         dismiss(animated: true, completion: nil)
     }
     func convertAssetToImages() {
         if selectedAssets.count != 0 {
-            
             for i in 0..<selectedAssets.count {
                 
                 let imageManager = PHImageManager.default()
@@ -162,9 +185,9 @@ extension StoryContentVC : UIImagePickerControllerDelegate, UINavigationControll
                 var thumbnail = UIImage()
                 
                 imageManager.requestImage(for: selectedAssets[i],
-                                          targetSize: CGSize(width: 200, height: 200),
-                                          contentMode: .aspectFit,
-                                          options: option) { (result, info) in
+                                             targetSize: CGSize(width: 200, height: 200),
+                                             contentMode: .aspectFit,
+                                             options: option) { (result, info) in
                     thumbnail = result!
                 }
                 
