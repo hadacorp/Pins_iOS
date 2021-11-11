@@ -112,6 +112,7 @@ class CommunityContentVC: UIViewController {
         text.textColor = #colorLiteral(red: 0.5450980392, green: 0.5921568627, blue: 0.6941176471, alpha: 1)
         text.font = UIFont(name: "NotoSansKR-Regular", size: 11)
     }
+    
     public func createTriangle(){
         let whiteTriF = UIImageView(image: UIImage(named: "iconTriangleWhite"))
         let whiteTriS = UIImageView(image: UIImage(named: "iconTriangleWhite"))
