@@ -22,7 +22,7 @@ class PostCommunityPin {
     func makeBody() -> Data {
         var body = Data()
         
-        let imgDataKey = "img"
+        let imgDataKey = "file"
         let boundaryPrefix = "--\(String(describing: boundary))\r\n"
         for (key, value) in parameters {
             body.append(boundaryPrefix.data(using: .utf8)!)
@@ -52,7 +52,7 @@ class PostCommunityPin {
         let url = URL(string: "http://bangi98.cafe24.com:8081/pin/communitypin")!
         var request = URLRequest(url: url)
         request.httpMethod = "Post"
-        request.setValue("multipart/form-data; boundary=\(String(describing: boundary))", forHTTPHeaderField: "Content-Type")
+        request.addValue("multipart/form-data; boundary=\(String(describing: boundary))", forHTTPHeaderField: "Content-Type")
         request.addValue("eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIwMTAtNzc2MC02MzkzIiwicm9sZXMiOlsiUk9MRV9VU0VSIl0sImV4cCI6MTY2MTYxNDI4OH0.Ojb-VgKgoXJSB5Y9u9-165Y2VwLNuP1Pv-KbDeYt_Yg", forHTTPHeaderField: "X-AUTH-TOKEN")
         request.httpBody = makeBody()
         
