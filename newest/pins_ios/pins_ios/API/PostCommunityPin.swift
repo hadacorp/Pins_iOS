@@ -22,7 +22,7 @@ class PostCommunityPin {
     func makeBody() -> Data {
         var body = Data()
         
-        let imgDataKey = "file"
+        let imgDataKey = "image"
         let boundaryPrefix = "--\(String(describing: boundary))\r\n"
         for (key, value) in parameters {
             body.append(boundaryPrefix.data(using: .utf8)!)
@@ -43,8 +43,8 @@ class PostCommunityPin {
         parameters = params
 //        imageData = image.pngData()!
         imageData = image.jpegData(compressionQuality: 0.3)!
-        mimeType = "image/jpeg"
-        filename = "odong.jpeg"
+        mimeType = "image/jpg"
+        filename = "odong.jpg"
         imageKey = "image"
         
         // 사전 준비

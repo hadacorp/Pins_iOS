@@ -18,7 +18,7 @@ class CommunityContentVC: UIViewController {
     @IBOutlet weak var successBtn: UIButton!
     @IBAction func successBtn(_ sender: Any) {
         // API 호출
-        PostCommunityPin().requestPost(image: thumb.image!.resize(newWidth: 500),
+        PostCommunityPin().requestPost(image: thumb.image!.resize(newWidth: 5),
                                        params: [
                                             "title": "key",
                                             "content": "value",
