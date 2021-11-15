@@ -67,7 +67,7 @@ extension ViewController{
         mainMap.removeAnnotations(mainMap.annotations)
         // 현재 화면 기준 좌표 저장
         let curPos = mainMap.centerCoordinate
-        if paramSearchText == ""{
+        if paramSearchText == "" || paramSearchText == nil{
             // Get API
             GetLocation().requestGet(latitude: curPos.latitude, longitude: curPos.longitude) { [self] (success, data) in
                 if let data = data as? [Pin]{

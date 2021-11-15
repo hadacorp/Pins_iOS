@@ -21,21 +21,18 @@ class PostCommunityPin {
     
     func makeBody() -> Data {
         var body = Data()
-        
         let imgDataKey = "image"
-        let boundaryPrefix = "--\(String(describing: boundary))\r\n"
         for (key, value) in parameters {
-            body.append(boundaryPrefix.data(using: .utf8)!)
+            body.append("\r\n--\(String(describing: boundary))\r\n".data(using: .utf8)!)
             body.append("Content-Disposition: form-data; name=\"\(key)\"\r\n\r\n".data(using: .utf8)!)
-            body.append("\(value)\r\n".data(using: .utf8)!)
-            
+            body.append("\(value)".data(using: .utf8)!)
         }
-        body.append(boundaryPrefix.data(using: .utf8)!)
-        body.append("Content-Disposition: form-data; name=\"\(imgDataKey)\"; filename=\"\(String(describing: filename))\"\r\n".data(using: .utf8)!)
-        body.append("Content-Type: \(String(describing: mimeType))\r\n\r\n".data(using: .utf8)!)
+        
+        body.append("\r\n--\(String(describing: boundary))\r\n".data(using: .utf8)!)
+        body.append("Content-Disposition: form-data; name=\"\(imgDataKey)\"; filename=\"\(filename)\"\r\n".data(using: .utf8)!)
+        body.append("Content-Type: image/jpeg\r\n\r\n".data(using: .utf8)!)
         body.append(imageData)
-        body.append("\r\n".data(using: .utf8)!)
-        body.append("--".appending(boundary.appending("--")).data(using: .utf8)!)
+        body.append("\r\n--\(String(describing: boundary))--\r\n".data(using: .utf8)!)
         return body as Data
     }
     
