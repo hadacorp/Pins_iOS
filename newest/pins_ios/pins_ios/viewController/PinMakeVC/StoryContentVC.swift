@@ -117,6 +117,16 @@ class StoryContentVC: UIViewController {
             // User canceled selection.
             
         }, finish: { [self] (assets) in
+            // 스크롤뷰 리셋
+            userSelectedImages.removeAll()
+            selectedAssets.removeAll()
+            for image in scrollView.subviews{
+                if image.tag == 1{
+                    image.removeFromSuperview()
+                    print(scrollView.subviews)
+                }
+            }
+            
             // User finished selection assets.
             for i in 0..<assets.count {
                 self.selectedAssets.append(assets[i])
@@ -125,6 +135,7 @@ class StoryContentVC: UIViewController {
             
             for i in 0..<userSelectedImages.count{
                 let imageView = UIImageView()
+                imageView.tag = 1
                 
                 scrollView.addSubview(imageView)
                 imageView.image = userSelectedImages[i]
@@ -142,7 +153,6 @@ class StoryContentVC: UIViewController {
             
             // scrollView resetting
             scrollView.contentSize = CGSize(width: (76 * (userSelectedImages.count + 1)) + 16, height: 76)
-            userSelectedImages = []
         })
     }
 }

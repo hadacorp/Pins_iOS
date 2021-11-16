@@ -29,7 +29,7 @@ class PostCommunityPin {
         }
         
         body.append("\r\n--\(String(describing: boundary))\r\n".data(using: .utf8)!)
-        body.append("Content-Disposition: form-data; name=\"\(imgDataKey)\"; filename=\"\(filename)\"\r\n".data(using: .utf8)!)
+        body.append("Content-Disposition: form-data; name=\"\(imgDataKey)\"; filename=\"\(String(describing: filename))\"\r\n".data(using: .utf8)!)
         body.append("Content-Type: image/jpeg\r\n\r\n".data(using: .utf8)!)
         body.append(imageData)
         body.append("\r\n--\(String(describing: boundary))--\r\n".data(using: .utf8)!)
