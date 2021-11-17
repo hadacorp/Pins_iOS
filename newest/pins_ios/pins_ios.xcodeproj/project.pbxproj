@@ -15,6 +15,8 @@
 		B70253E7273ADC3500119E4E /* Extension+UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70253E6273ADC3500119E4E /* Extension+UIImage.swift */; };
 		B704D48026DBCE6800DB20D2 /* AnimationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B704D47F26DBCE6800DB20D2 /* AnimationManager.swift */; };
 		B704F03C26E36C5900DA9E06 /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B704F03B26E36C5900DA9E06 /* Cell.swift */; };
+		B706B767274546B60017CBB0 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B706B766274546B60017CBB0 /* LoginVC.swift */; };
+		B706B76C274564810017CBB0 /* Extension+UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B706B76B274564810017CBB0 /* Extension+UIButton.swift */; };
 		B709090026E1FD990075BF50 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70908FF26E1FD990075BF50 /* SearchViewModel.swift */; };
 		B709090326E2006E0075BF50 /* SearchViewEventManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B709090226E2006E0075BF50 /* SearchViewEventManager.swift */; };
 		B709090626E263620075BF50 /* GetKeywordPinAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B709090526E263620075BF50 /* GetKeywordPinAPI.swift */; };
@@ -100,6 +102,8 @@
 		B70253E6273ADC3500119E4E /* Extension+UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIImage.swift"; sourceTree = "<group>"; };
 		B704D47F26DBCE6800DB20D2 /* AnimationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationManager.swift; sourceTree = "<group>"; };
 		B704F03B26E36C5900DA9E06 /* Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
+		B706B766274546B60017CBB0 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		B706B76B274564810017CBB0 /* Extension+UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIButton.swift"; sourceTree = "<group>"; };
 		B70908FF26E1FD990075BF50 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		B709090226E2006E0075BF50 /* SearchViewEventManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewEventManager.swift; sourceTree = "<group>"; };
 		B709090526E263620075BF50 /* GetKeywordPinAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetKeywordPinAPI.swift; sourceTree = "<group>"; };
@@ -219,6 +223,13 @@
 			path = Animation;
 			sourceTree = "<group>";
 		};
+		B706B768274562500017CBB0 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		B709090126E200590075BF50 /* Event */ = {
 			isa = PBXGroup;
 			children = (
@@ -282,6 +293,7 @@
 		B70CFC1F26BFD82500B7DA74 /* pins_ios */ = {
 			isa = PBXGroup;
 			children = (
+				B706B768274562500017CBB0 /* Protocols */,
 				B741BA4926E9112800BB04E7 /* Utill */,
 				B744091B26E7AFE800A90B91 /* Cell */,
 				B79ACD3326E13008008990C3 /* Fonts */,
@@ -354,6 +366,7 @@
 				B7EB6006271300DF0037B7C6 /* Extension+UIView.swift */,
 				B7FA1D7B27148D3B005F924A /* Extension+UITextField.swift */,
 				B70253E6273ADC3500119E4E /* Extension+UIImage.swift */,
+				B706B76B274564810017CBB0 /* Extension+UIButton.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -417,6 +430,7 @@
 				B7DE776C270B668900F8F0EB /* MeetingFilterController.swift */,
 				B7DE7770270B760300F8F0EB /* StoryFilterController.swift */,
 				B7DE776E270B75F700F8F0EB /* CommunityFilterController.swift */,
+				B706B766274546B60017CBB0 /* LoginVC.swift */,
 			);
 			path = viewController;
 			sourceTree = "<group>";
@@ -588,9 +602,11 @@
 				B709090026E1FD990075BF50 /* SearchViewModel.swift in Sources */,
 				B7FA1D782714889D005F924A /* MeetingContentVC.swift in Sources */,
 				B797A3AB270F55BF00A87047 /* MeetingDetailVC.swift in Sources */,
+				B706B76C274564810017CBB0 /* Extension+UIButton.swift in Sources */,
 				B7EB6007271300DF0037B7C6 /* Extension+UIView.swift in Sources */,
 				B70062C3272DA6BA00639CBE /* CommunityContentVC.swift in Sources */,
 				B7B70B2226F78F0D006052A1 /* RecentSearchModel.xcdatamodeld in Sources */,
+				B706B767274546B60017CBB0 /* LoginVC.swift in Sources */,
 				B70062C1272D93C700639CBE /* CommunityPin.swift in Sources */,
 				B7F06733270759D200CFCE13 /* GetLocation.swift in Sources */,
 				B7C5DAAA26C805D50011EE41 /* ThumbnailImg.swift in Sources */,
