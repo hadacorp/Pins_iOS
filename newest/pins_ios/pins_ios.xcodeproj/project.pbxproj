@@ -17,6 +17,7 @@
 		B704F03C26E36C5900DA9E06 /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B704F03B26E36C5900DA9E06 /* Cell.swift */; };
 		B706B767274546B60017CBB0 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B706B766274546B60017CBB0 /* LoginVC.swift */; };
 		B706B76C274564810017CBB0 /* Extension+UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B706B76B274564810017CBB0 /* Extension+UIButton.swift */; };
+		B706B76E274565DC0017CBB0 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = B706B76D274565DC0017CBB0 /* Button.swift */; };
 		B709090026E1FD990075BF50 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70908FF26E1FD990075BF50 /* SearchViewModel.swift */; };
 		B709090326E2006E0075BF50 /* SearchViewEventManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B709090226E2006E0075BF50 /* SearchViewEventManager.swift */; };
 		B709090626E263620075BF50 /* GetKeywordPinAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B709090526E263620075BF50 /* GetKeywordPinAPI.swift */; };
@@ -104,6 +105,7 @@
 		B704F03B26E36C5900DA9E06 /* Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
 		B706B766274546B60017CBB0 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		B706B76B274564810017CBB0 /* Extension+UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIButton.swift"; sourceTree = "<group>"; };
+		B706B76D274565DC0017CBB0 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		B70908FF26E1FD990075BF50 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		B709090226E2006E0075BF50 /* SearchViewEventManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewEventManager.swift; sourceTree = "<group>"; };
 		B709090526E263620075BF50 /* GetKeywordPinAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetKeywordPinAPI.swift; sourceTree = "<group>"; };
@@ -226,6 +228,7 @@
 		B706B768274562500017CBB0 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				B706B76D274565DC0017CBB0 /* Button.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -598,6 +601,7 @@
 				B728919F273A52440075169D /* StoryDetailVC.swift in Sources */,
 				B741BA4B26E9116B00BB04E7 /* Debouncer.swift in Sources */,
 				B71CF7EB273C1DEC00B9E360 /* StoryContentVC.swift in Sources */,
+				B706B76E274565DC0017CBB0 /* Button.swift in Sources */,
 				B79DE32526EB34A20098285B /* PinCard.swift in Sources */,
 				B709090026E1FD990075BF50 /* SearchViewModel.swift in Sources */,
 				B7FA1D782714889D005F924A /* MeetingContentVC.swift in Sources */,
