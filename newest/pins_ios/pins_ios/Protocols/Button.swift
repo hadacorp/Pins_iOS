@@ -35,3 +35,22 @@ struct RoundedButton: Button{
 }
 
 let button1: RoundedButton = RoundedButton(button: UIButton(), radius: 8)
+
+
+protocol Rounded{
+    var radius: CGFloat { get set }
+    func round(what: UIButton)
+}
+
+extension Rounded{
+    func round(what: UIButton){
+        what.layer.cornerRadius = radius
+    }
+}
+
+struct customButton: Rounded{
+    var button: UIButton
+    var radius: CGFloat
+}
+
+let button2: customButton = customButton(button: UIButton(), radius: 8)
