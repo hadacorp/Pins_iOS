@@ -10,12 +10,14 @@ import UIKit
 class LoginVC: UIViewController {
     @IBOutlet weak var whiteButton: UIButton!
     @IBOutlet weak var blueButton: UIButton!
-    
+    var signupForm: SignupForm!
     override func viewDidLoad() {
         setUI()
+        SignupForm(parent: self.view)
     }
     
     private func setUI(){
+        
         whiteButton.layer.cornerRadius = 8;
         blueButton.layer.cornerRadius = 8;
         
