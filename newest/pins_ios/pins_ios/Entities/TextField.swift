@@ -73,18 +73,22 @@ public func TextForm(descriptionText: String, placeholder: String) -> UIView{
 }
 
 // MARK: -Organisms
-struct SignupForm{
-    var parent: UIView
+class SignupForm: UIView{
     var phoneNumber = TextForm(descriptionText: "휴대폰 번호", placeholder: "휴대폰 번호")
     
-    init(parent: UIView) {
-        self.parent = parent
-        AddSubviews()
-        SetAutoLayout()
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        self.AddSubviews()
+        self.SetAutoLayout()
     }
     
-    mutating func AddSubviews(){
-        parent.addSubview(phoneNumber)
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    func AddSubviews(){
+        self.addSubview(phoneNumber)
     }
     
     func SetAutoLayout(){
