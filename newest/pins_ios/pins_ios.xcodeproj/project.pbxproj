@@ -84,6 +84,8 @@
 		B7EB60092713010C0037B7C6 /* MeetingDetailVCUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7EB60082713010C0037B7C6 /* MeetingDetailVCUI.swift */; };
 		B7EB600B271319930037B7C6 /* MeetingDetailViewEventManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7EB600A271319930037B7C6 /* MeetingDetailViewEventManager.swift */; };
 		B7EEC995272ECC9B00AD98B0 /* PostCommunityPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7EEC994272ECC9B00AD98B0 /* PostCommunityPin.swift */; };
+		B7F0593D27493D9A00F0E431 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F0593C27493D9A00F0E431 /* BaseViewController.swift */; };
+		B7F0593F2749601600F0E431 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F0593E2749601600F0E431 /* SignUpVC.swift */; };
 		B7F06731270740ED00CFCE13 /* GetKeyword.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F06730270740ED00CFCE13 /* GetKeyword.swift */; };
 		B7F06733270759D200CFCE13 /* GetLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F06732270759D200CFCE13 /* GetLocation.swift */; };
 		B7F4417326EB92C200546257 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F4417226EB92C200546257 /* UIImage.swift */; };
@@ -175,6 +177,8 @@
 		B7EB60082713010C0037B7C6 /* MeetingDetailVCUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingDetailVCUI.swift; sourceTree = "<group>"; };
 		B7EB600A271319930037B7C6 /* MeetingDetailViewEventManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingDetailViewEventManager.swift; sourceTree = "<group>"; };
 		B7EEC994272ECC9B00AD98B0 /* PostCommunityPin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCommunityPin.swift; sourceTree = "<group>"; };
+		B7F0593C27493D9A00F0E431 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		B7F0593E2749601600F0E431 /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		B7F06730270740ED00CFCE13 /* GetKeyword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetKeyword.swift; sourceTree = "<group>"; };
 		B7F06732270759D200CFCE13 /* GetLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetLocation.swift; sourceTree = "<group>"; };
 		B7F4417226EB92C200546257 /* UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
@@ -231,6 +235,7 @@
 			isa = PBXGroup;
 			children = (
 				B706B76D274565DC0017CBB0 /* Button.swift */,
+				B7F0593C27493D9A00F0E431 /* BaseViewController.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -437,6 +442,7 @@
 				B7DE7770270B760300F8F0EB /* StoryFilterController.swift */,
 				B7DE776E270B75F700F8F0EB /* CommunityFilterController.swift */,
 				B706B766274546B60017CBB0 /* LoginVC.swift */,
+				B7F0593E2749601600F0E431 /* SignUpVC.swift */,
 			);
 			path = viewController;
 			sourceTree = "<group>";
@@ -575,6 +581,7 @@
 				B70062C5272DB1AF00639CBE /* CommunityContentViewModel.swift in Sources */,
 				B77EC71926F0EF5E0002C0D6 /* GetKeywordCard.swift in Sources */,
 				B787EA0126E4FEC30044D786 /* MainViewEventManager.swift in Sources */,
+				B7F0593F2749601600F0E431 /* SignUpVC.swift in Sources */,
 				B7EB600B271319930037B7C6 /* MeetingDetailViewEventManager.swift in Sources */,
 				B74B3C07270DF9BB00C6284C /* PinMakeViewController.swift in Sources */,
 				B74F96A826E4A80E0064B900 /* SearchViewController.swift in Sources */,
@@ -622,6 +629,7 @@
 				B736564E2739852900DDFB5E /* ViewControllers.swift in Sources */,
 				B7FA1D7C27148D3B005F924A /* Extension+UITextField.swift in Sources */,
 				B70CFC2326BFD82500B7DA74 /* SceneDelegate.swift in Sources */,
+				B7F0593D27493D9A00F0E431 /* BaseViewController.swift in Sources */,
 				B77EC71526F0E59A0002C0D6 /* GetSearchKeywordPinAPI.swift in Sources */,
 				B7EB60092713010C0037B7C6 /* MeetingDetailVCUI.swift in Sources */,
 				B709090326E2006E0075BF50 /* SearchViewEventManager.swift in Sources */,
