@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="mcw-3J-lw3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="i8q-E7-Kl4">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment version="4096" identifier="iOS"/>
@@ -54,11 +54,11 @@
             <objects>
                 <viewController storyboardIdentifier="SearchVC" id="CzO-7p-Yd9" customClass="SearchViewController" customModule="pins_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4te-Ta-yUL">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fVH-JW-V7k">
-                                <rect key="frame" x="0.0" y="110" width="414" height="752"/>
+                                <rect key="frame" x="0.0" y="65" width="414" height="743"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="kPW-43-TYM">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
@@ -142,7 +142,7 @@
                                 </prototypes>
                             </tableView>
                             <searchBar contentMode="redraw" searchBarStyle="minimal" text="" translatesAutoresizingMaskIntoConstraints="NO" id="OcM-NZ-1Y5">
-                                <rect key="frame" x="16" y="60" width="382" height="40"/>
+                                <rect key="frame" x="16" y="16" width="382" height="40"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="9Yc-Gp-nt8"/>
@@ -152,7 +152,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sgu-hb-1AE">
-                                <rect key="frame" x="16" y="60" width="40" height="40"/>
+                                <rect key="frame" x="16" y="16" width="40" height="40"/>
                                 <state key="normal" image="iconBack"/>
                                 <connections>
                                     <action selector="backButton:" destination="CzO-7p-Yd9" eventType="touchUpInside" id="u8v-rF-wWA"/>
@@ -216,6 +216,9 @@
                                     </attributedString>
                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="signupBtn:" destination="mcw-3J-lw3" eventType="touchUpInside" id="9M1-J6-nto"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xTt-Lt-idx">
                                 <rect key="frame" x="16" y="787" width="187" height="48"/>
@@ -250,6 +253,7 @@
                             <constraint firstItem="xTt-Lt-idx" firstAttribute="width" secondItem="DJf-mP-fLh" secondAttribute="width" multiplier="0.451691" id="ymQ-hZ-g7V"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="ApS-za-GHZ"/>
                     <connections>
                         <outlet property="blueButton" destination="K0h-eD-nWY" id="obL-OZ-kHF"/>
                         <outlet property="whiteButton" destination="xTt-Lt-idx" id="3mm-kr-ZaH"/>
@@ -257,7 +261,22 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E1N-Ok-qnx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3688.4057971014495" y="-1590.4017857142856"/>
+            <point key="canvasLocation" x="-543" y="-558"/>
+        </scene>
+        <!--Sign UpVC-->
+        <scene sceneID="FTK-Yr-Gu7">
+            <objects>
+                <viewController storyboardIdentifier="SignUpVC" id="tE4-N8-xNI" customClass="SignUpVC" customModule="pins_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="OX7-cJ-vMr">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="uLy-oj-6g2"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4qr-Vi-UV8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="120" y="-558"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="FuF-rf-o2a">
@@ -267,12 +286,12 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="djs-Fk-crP"/>
+                        <segue destination="mcw-3J-lw3" kind="relationship" relationship="rootViewController" id="gjO-RP-79N"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cqP-Kq-iKc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-722" y="101"/>
+            <point key="canvasLocation" x="-1351" y="-558"/>
         </scene>
         <!--Meeting Filter Controller-->
         <scene sceneID="9Ud-VU-Vf7">
@@ -520,11 +539,11 @@
             <objects>
                 <viewController storyboardIdentifier="PinMakeViewVC" id="cN6-t9-zm3" customClass="PinMakeViewController" customModule="pins_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mEd-M0-9T8">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="top" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M1f-kj-9Y5">
-                                <rect key="frame" x="16" y="148" width="382" height="341"/>
+                                <rect key="frame" x="16" y="104" width="382" height="336"/>
                                 <color key="backgroundColor" red="0.11372549019607843" green="0.66666666666666663" blue="0.95294117647058818" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="NotoSansKR-Medium" family="Noto Sans KR" pointSize="18"/>
                                 <inset key="titleEdgeInsets" minX="0.0" minY="16" maxX="16" maxY="0.0"/>
@@ -536,7 +555,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kd4-9i-0T9">
-                                <rect key="frame" x="215" y="505" width="183" height="341"/>
+                                <rect key="frame" x="215" y="456" width="183" height="336"/>
                                 <color key="backgroundColor" red="0.1137254902" green="0.66666666669999997" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="NotoSansKR-Medium" family="Noto Sans KR" pointSize="18"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -547,7 +566,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="odB-l8-Uce">
-                                <rect key="frame" x="16" y="505" width="183" height="341"/>
+                                <rect key="frame" x="16" y="456" width="183" height="336"/>
                                 <color key="backgroundColor" red="0.12156862745098039" green="0.45882352941176469" blue="0.68235294117647061" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="NotoSansKR-Medium" family="Noto Sans KR" pointSize="18"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -558,7 +577,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CZx-BL-JKA">
-                                <rect key="frame" x="0.0" y="44" width="48" height="48"/>
+                                <rect key="frame" x="0.0" y="0.0" width="48" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="48" id="31x-5B-3H3"/>
                                     <constraint firstAttribute="height" constant="48" id="cYL-nR-9Wy"/>
@@ -569,25 +588,25 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="핀 만들기" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CcJ-Km-HAQ">
-                                <rect key="frame" x="179.5" y="58" width="55.5" height="20.5"/>
+                                <rect key="frame" x="179.5" y="14" width="55.5" height="20.5"/>
                                 <fontDescription key="fontDescription" name="NotoSansKR-Regular" family="Noto Sans KR" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="핀 종류 선택" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LI0-61-pNQ">
-                                <rect key="frame" x="27" y="102" width="72.5" height="20.5"/>
+                                <rect key="frame" x="27" y="58" width="72.5" height="20.5"/>
                                 <fontDescription key="fontDescription" name="NotoSansKR-Medium" family="Noto Sans KR" pointSize="14"/>
                                 <color key="textColor" red="0.11372549019607843" green="0.66666666666666663" blue="0.95294117647058818" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="상세 설정" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3vA-e6-YVV">
-                                <rect key="frame" x="179.5" y="102" width="55.5" height="20.5"/>
+                                <rect key="frame" x="179.5" y="58" width="55.5" height="20.5"/>
                                 <fontDescription key="fontDescription" name="NotoSansKR-Medium" family="Noto Sans KR" pointSize="14"/>
                                 <color key="textColor" red="0.88627450980392153" green="0.88627450980392153" blue="0.88627450980392153" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="내용 입력" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vFd-8j-UIq">
-                                <rect key="frame" x="322.5" y="102" width="55.5" height="20.5"/>
+                                <rect key="frame" x="322.5" y="58" width="55.5" height="20.5"/>
                                 <fontDescription key="fontDescription" name="NotoSansKR-Medium" family="Noto Sans KR" pointSize="14"/>
                                 <color key="textColor" red="0.8862745098" green="0.8862745098" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
