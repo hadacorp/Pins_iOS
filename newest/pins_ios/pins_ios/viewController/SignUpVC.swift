@@ -9,28 +9,11 @@ import UIKit
 
 class SignUpVC: UIViewController, BaseViewController{
     override func viewDidLoad() {
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
-        
         setUI()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         self.nameTextField.becomeFirstResponder()
-    }
-    
-    @objc
-    func keyboardWillShow(_ sender: Notification) {
-        if let keyboardFrame: NSValue = sender.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
-            let keybaordRectangle = keyboardFrame.cgRectValue
-            let keyboardHeight = keybaordRectangle.height
-            nameSuccess.frame.origin.y -= keyboardHeight
-        }
-    }
-    
-    @objc
-    func keyboardWillHide(_ sender: Notification) {
-        nameSuccess.frame.origin.y = 0 // Move view to original position
     }
     
     let nameLine: UIView = {
@@ -95,7 +78,20 @@ class SignUpVC: UIViewController, BaseViewController{
 }
 
 extension SignUpVC{
+    @objc
+    func keyboardWillShow(_ sender: Notification) {
+        if let keyboardFrame: NSValue = sender.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
+            let keybaordRectangle = keyboardFrame.cgRectValue
+            let keyboardHeight = keybaordRectangle.height
+            
+            nameSuccess.snp.makeConstraints { make in
+                make.bottom.equalTo(-keyboardHeight)
+            }
+        }
+    }
+    
      func setUI(){
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         addSubViews()
         setLayout()
         setDelegate()
