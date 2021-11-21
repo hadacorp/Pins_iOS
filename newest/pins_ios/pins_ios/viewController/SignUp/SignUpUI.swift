@@ -36,7 +36,7 @@ extension SignUpVC{
         
         namePlaceholder.snp.makeConstraints { make in
             make.leading.equalTo(0)
-            make.top.equalTo(0)
+            make.top.equalTo(self.view.safeAreaLayoutGuide).offset(137)
         }
         
         nameTextField.snp.makeConstraints { make in
@@ -74,12 +74,16 @@ extension SignUpVC{
         }
     }
     
-    func lineFocus(){
-        nameLine.backgroundColor = #colorLiteral(red: 0.1137254902, green: 0.6666666667, blue: 0.9529411765, alpha: 1)
+    func lineFocus(line: UIView){
+        line.backgroundColor = #colorLiteral(red: 0.1137254902, green: 0.6666666667, blue: 0.9529411765, alpha: 1)
     }
     
-    func lineUnfocus(){
-        nameLine.backgroundColor = #colorLiteral(red: 0.6, green: 0.6, blue: 0.6, alpha: 1)
+    func lineUnfocus(line: UIView){
+        line.backgroundColor = #colorLiteral(red: 0.6, green: 0.6, blue: 0.6, alpha: 1)
+    }
+    
+    func changeTitle(text: String){
+        mainTitle.text = text
     }
 }
 
@@ -100,5 +104,24 @@ extension SignUpVC{
     @objc
     func backAction(){
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    @objc
+    func nameDownAction(){
+        UIView.animate(withDuration: 0.1, delay: 0, options: .curveEaseInOut) { [self] in
+            namePlaceholder.snp.makeConstraints { make in
+                make.top.equalTo(self.view.safeAreaLayoutGuide).offset(194)
+            }
+            nameTextField.snp.updateConstraints { make in
+                make.top.equalTo(self.view.safeAreaLayoutGuide).offset(214)
+            }
+            nameLine.snp.updateConstraints { make in
+                make.top.equalTo(self.view.safeAreaLayoutGuide).offset(247)
+            }
+            
+            self.view.layoutIfNeeded()
+        }
+        lineUnfocus(line: nameLine)
+        changeTitle(text: "주민등록번호를 입력해 주세요.")
     }
 }
