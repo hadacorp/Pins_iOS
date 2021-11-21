@@ -84,6 +84,7 @@
 		B7EB60092713010C0037B7C6 /* MeetingDetailVCUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7EB60082713010C0037B7C6 /* MeetingDetailVCUI.swift */; };
 		B7EB600B271319930037B7C6 /* MeetingDetailViewEventManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7EB600A271319930037B7C6 /* MeetingDetailViewEventManager.swift */; };
 		B7EE75A3274A861400AB0B38 /* SignUpUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7EE75A2274A861400AB0B38 /* SignUpUI.swift */; };
+		B7EE75A5274A9D4300AB0B38 /* LabelButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7EE75A4274A9D4300AB0B38 /* LabelButton.swift */; };
 		B7EEC995272ECC9B00AD98B0 /* PostCommunityPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7EEC994272ECC9B00AD98B0 /* PostCommunityPin.swift */; };
 		B7F0593D27493D9A00F0E431 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F0593C27493D9A00F0E431 /* BaseViewController.swift */; };
 		B7F0593F2749601600F0E431 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F0593E2749601600F0E431 /* SignUpVC.swift */; };
@@ -178,6 +179,7 @@
 		B7EB60082713010C0037B7C6 /* MeetingDetailVCUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingDetailVCUI.swift; sourceTree = "<group>"; };
 		B7EB600A271319930037B7C6 /* MeetingDetailViewEventManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingDetailViewEventManager.swift; sourceTree = "<group>"; };
 		B7EE75A2274A861400AB0B38 /* SignUpUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpUI.swift; sourceTree = "<group>"; };
+		B7EE75A4274A9D4300AB0B38 /* LabelButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelButton.swift; sourceTree = "<group>"; };
 		B7EEC994272ECC9B00AD98B0 /* PostCommunityPin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCommunityPin.swift; sourceTree = "<group>"; };
 		B7F0593C27493D9A00F0E431 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		B7F0593E2749601600F0E431 /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
@@ -238,6 +240,7 @@
 			children = (
 				B706B76D274565DC0017CBB0 /* Button.swift */,
 				B7F0593C27493D9A00F0E431 /* BaseViewController.swift */,
+				B7EE75A4274A9D4300AB0B38 /* LabelButton.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -648,6 +651,7 @@
 				B7F4417526EBB62100546257 /* PinType.swift in Sources */,
 				B7FA1D8027149D36005F924A /* PostMeetingPin.swift in Sources */,
 				B7EEC995272ECC9B00AD98B0 /* PostCommunityPin.swift in Sources */,
+				B7EE75A5274A9D4300AB0B38 /* LabelButton.swift in Sources */,
 				B74B3C03270C12C000C6284C /* FilterCell.swift in Sources */,
 				B74B3C05270CA21B00C6284C /* MeetingFilterViewModel.swift in Sources */,
 				B704D48026DBCE6800DB20D2 /* AnimationManager.swift in Sources */,

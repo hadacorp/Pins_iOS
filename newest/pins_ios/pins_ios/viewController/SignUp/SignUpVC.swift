@@ -76,14 +76,16 @@ class SignUpVC: UIViewController, BaseViewController{
         return textField
     }()
     
-    let nameSuccess: UILabel = {
-        let button = UILabel()
+    let nameSuccess: UIButton = {
+        let button = UIButton()
         
-        button.text = "확인"
-        button.textAlignment = .center
-        button.font = UIFont(name: "NotoSansKR-Regular", size: 16)
-        button.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        button.setTitle("확인", for: .normal)
+        button.titleLabel?.textAlignment = .center
+        button.titleLabel?.font = UIFont(name: "NotoSansKR-Regular", size: 16)
+        button.setTitleColor(.white, for: .normal)
         button.backgroundColor = #colorLiteral(red: 0.1137254902, green: 0.6666666667, blue: 0.9529411765, alpha: 1)
+        
+        button.addTarget(self, action: #selector(nameDownAction), for: .touchUpInside)
         return button
     }()
     
@@ -108,12 +110,12 @@ extension SignUpVC: UITextFieldDelegate{
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         if textField.tag == 1{
-            lineFocus()
+            lineFocus(line: nameLine)
         }
     }
     func textFieldDidEndEditing(_ textField: UITextField) {
         if textField.tag == 1{
-            lineUnfocus()
+            lineUnfocus(line: nameLine)
         }
     }
 }
