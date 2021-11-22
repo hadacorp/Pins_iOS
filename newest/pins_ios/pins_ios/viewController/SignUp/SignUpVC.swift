@@ -97,6 +97,44 @@ class SignUpVC: UIViewController, BaseViewController{
         title.textColor = #colorLiteral(red: 0.06666666667, green: 0.06666666667, blue: 0.06666666667, alpha: 1)
         return title
     }()
+    
+    let idcardPlaceholder: UILabel = {
+        let placeholder = UILabel()
+
+        placeholder.textColor = #colorLiteral(red: 0.6, green: 0.6, blue: 0.6, alpha: 1)
+        placeholder.font = UIFont(name: "NotoSansKR-Regular", size: 20)
+        placeholder.text = "주민등록번호"
+        placeholder.textAlignment = .left
+        placeholder.layer.opacity = 0
+        return placeholder
+    }()
+    
+    let idcardTextField: UITextField = {
+        let textField = UITextField()
+        
+        textField.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        textField.font = UIFont(name: "NotoSansKR-Regular", size: 20)
+        textField.setPlaceholderColor(#colorLiteral(red: 0.6, green: 0.6, blue: 0.6, alpha: 1))
+        textField.tag = 2
+        textField.layer.opacity = 0
+        return textField
+    }()
+    
+    let idLine: UIView = {
+        let line = UIView()
+        
+        line.backgroundColor = #colorLiteral(red: 0.9215686275, green: 0.9215686275, blue: 0.9215686275, alpha: 1)
+        line.layer.opacity = 0
+        return line
+    }()
+    
+    let idSlash: UIView = {
+        let line = UIView()
+        
+        line.backgroundColor = #colorLiteral(red: 0.6, green: 0.6, blue: 0.6, alpha: 1)
+        line.layer.opacity = 0
+        return line
+    }()
 }
 
 // MARK: -Extension
@@ -105,6 +143,9 @@ extension SignUpVC: UITextFieldDelegate{
         if textField.tag == 1{
             placeholderUp(text: namePlaceholder)
         }
+        if textField.tag == 2{
+            placeholderUp(text: idcardPlaceholder)
+        }
         return true
     }
     
@@ -112,10 +153,16 @@ extension SignUpVC: UITextFieldDelegate{
         if textField.tag == 1{
             lineFocus(line: nameLine)
         }
+        else if textField.tag == 2{
+            lineFocus(line: idLine)
+        }
     }
     func textFieldDidEndEditing(_ textField: UITextField) {
         if textField.tag == 1{
             lineUnfocus(line: nameLine)
+        }
+        else if textField.tag == 2{
+            lineUnfocus(line: idLine)
         }
     }
 }
