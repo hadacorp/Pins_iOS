@@ -69,8 +69,11 @@ extension SignUpVC{
     func placeholderUp(text: UILabel){
         // 애니메이션
         text.font = UIFont(name: "NotoSansKR-Regular", size: 14)
-        text.snp.remakeConstraints {
-            $0.top.equalTo(-20)
+        UIView.animate(withDuration: 0.25, delay: 0, options: .curveEaseOut) {
+            text.snp.remakeConstraints {
+                $0.top.equalTo(-20)
+            }
+            self.view.layoutIfNeeded()
         }
     }
     
@@ -108,7 +111,7 @@ extension SignUpVC{
     
     @objc
     func nameDownAction(){
-        UIView.animate(withDuration: 0.1, delay: 0, options: .curveEaseInOut) { [self] in
+        UIView.animate(withDuration: 0.25, delay: 0, options: .curveEaseOut) { [self] in
             namePlaceholder.snp.makeConstraints { make in
                 make.top.equalTo(self.view.safeAreaLayoutGuide).offset(194)
             }
@@ -123,5 +126,6 @@ extension SignUpVC{
         }
         lineUnfocus(line: nameLine)
         changeTitle(text: "주민등록번호를 입력해 주세요.")
+        nameSuccess.isHidden = true
     }
 }
