@@ -17,6 +17,7 @@ extension SignUpVC{
     
     func setDelegate(){
         nameTextField.delegate = self
+        idcardTextField.delegate = self
     }
     
     func addSubViews(){
@@ -26,6 +27,10 @@ extension SignUpVC{
         view.addSubview(nameSuccess)
         view.addSubview(mainTitle)
         view.addSubview(backBtn)
+        view.addSubview(idcardTextField)
+        idcardTextField.addSubview(idcardPlaceholder)
+        view.addSubview(idLine)
+        view.addSubview(idSlash)
     }
     
     func setLayout(){
@@ -64,6 +69,31 @@ extension SignUpVC{
             make.top.equalTo(self.view.safeAreaLayoutGuide).offset(4)
             make.width.height.equalTo(48)
         }
+        
+        idcardPlaceholder.snp.makeConstraints { make in
+            make.leading.equalTo(0)
+            make.top.equalTo(self.view.safeAreaLayoutGuide).offset(137)
+        }
+        
+        idcardTextField.snp.makeConstraints { make in
+            make.leading.equalTo(16)
+            make.top.equalTo(self.view.safeAreaLayoutGuide).offset(137)
+            make.width.equalTo(UIScreen.main.bounds.width * 0.39)
+        }
+        
+        idLine.snp.makeConstraints { make in
+            make.leading.equalTo(16)
+            make.top.equalTo(self.view.safeAreaLayoutGuide).offset(170)
+            make.width.equalTo(UIScreen.main.bounds.width * 0.39)
+            make.height.equalTo(2)
+        }
+        
+        idSlash.snp.makeConstraints { make in
+            make.top.equalTo(self.view.safeAreaLayoutGuide).offset(152)
+            make.centerX.equalTo(self.view)
+            make.width.equalTo(16)
+            make.height.equalTo(2)
+        }
     }
     
     func placeholderUp(text: UILabel){
@@ -75,6 +105,15 @@ extension SignUpVC{
             }
             self.view.layoutIfNeeded()
         }
+    }
+    
+    func appearId(){
+        idcardTextField.layer.opacity = 1
+        idcardPlaceholder.layer.opacity = 1
+        idLine.layer.opacity = 1
+        idSlash.layer.opacity = 1
+        
+        idcardTextField.becomeFirstResponder()
     }
     
     func lineFocus(line: UIView){
@@ -122,10 +161,14 @@ extension SignUpVC{
                 make.top.equalTo(self.view.safeAreaLayoutGuide).offset(247)
             }
             
+            lineUnfocus(line: nameLine)
+            nameSuccess.isHidden = true
+            
+            appearId()
+            
             self.view.layoutIfNeeded()
         }
-        lineUnfocus(line: nameLine)
+        
         changeTitle(text: "주민등록번호를 입력해 주세요.")
-        nameSuccess.isHidden = true
     }
 }
