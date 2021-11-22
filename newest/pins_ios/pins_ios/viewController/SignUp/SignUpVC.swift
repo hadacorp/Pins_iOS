@@ -98,7 +98,7 @@ class SignUpVC: UIViewController, BaseViewController{
         return title
     }()
     
-    let idcardPlaceholder: UILabel = {
+    let idcardFirstPlaceholder: UILabel = {
         let placeholder = UILabel()
 
         placeholder.textColor = #colorLiteral(red: 0.6, green: 0.6, blue: 0.6, alpha: 1)
@@ -109,7 +109,7 @@ class SignUpVC: UIViewController, BaseViewController{
         return placeholder
     }()
     
-    let idcardTextField: UITextField = {
+    let idcardFirstTextField: UITextField = {
         let textField = UITextField()
         
         textField.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
@@ -117,10 +117,11 @@ class SignUpVC: UIViewController, BaseViewController{
         textField.setPlaceholderColor(#colorLiteral(red: 0.6, green: 0.6, blue: 0.6, alpha: 1))
         textField.tag = 2
         textField.layer.opacity = 0
+        textField.keyboardType = .numberPad
         return textField
     }()
     
-    let idLine: UIView = {
+    let idLineFirst: UIView = {
         let line = UIView()
         
         line.backgroundColor = #colorLiteral(red: 0.9215686275, green: 0.9215686275, blue: 0.9215686275, alpha: 1)
@@ -128,12 +129,77 @@ class SignUpVC: UIViewController, BaseViewController{
         return line
     }()
     
-    let idSlash: UIView = {
+    let idSlashFirst: UIView = {
         let line = UIView()
         
         line.backgroundColor = #colorLiteral(red: 0.6, green: 0.6, blue: 0.6, alpha: 1)
         line.layer.opacity = 0
         return line
+    }()
+    
+    let idcardLastTextField: UITextField = {
+        let textField = UITextField()
+        
+        textField.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        textField.font = UIFont(name: "NotoSansKR-Regular", size: 20)
+        textField.setPlaceholderColor(#colorLiteral(red: 0.6, green: 0.6, blue: 0.6, alpha: 1))
+        textField.tag = 3
+        textField.layer.opacity = 0
+        textField.keyboardType = .numberPad
+        
+        return textField
+    }()
+    
+    let idLineLast: UIView = {
+        let line = UIView()
+        
+        line.backgroundColor = #colorLiteral(red: 0.9215686275, green: 0.9215686275, blue: 0.9215686275, alpha: 1)
+        line.layer.opacity = 0
+        return line
+    }()
+    
+    let idDots: UIView = {
+        let background = UIView()
+        
+        for i in 0..<6{
+            let dot = UIView()
+            background.addSubview(dot)
+            dot.snp.makeConstraints { make in
+                make.leading.equalTo(4 + 20 * i)
+                make.top.equalTo(0)
+                make.width.height.equalTo(16)
+            }
+            dot.backgroundColor = #colorLiteral(red: 0.6, green: 0.6, blue: 0.6, alpha: 1)
+            dot.layer.cornerRadius = 8
+        }
+        background.layer.opacity = 0
+        return background
+    }()
+    
+    let mobileLine: UIView = {
+        let line = UIView()
+        
+        line.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        line.layer.opacity = 0
+        return line
+    }()
+    
+    let mobileLabel: UILabel = {
+        let label = UILabel()
+        
+        label.text = "통신사"
+        label.textColor = #colorLiteral(red: 0.6, green: 0.6, blue: 0.6, alpha: 1)
+        label.font = UIFont(name: "NotoSansKR-Regular", size: 20)
+        label.layer.opacity = 0
+        return label
+    }()
+    
+    let mobileUnfold: UIImageView = {
+        let image = UIImageView()
+        
+        image.image = #imageLiteral(resourceName: "unfold")
+        image.layer.opacity = 0
+        return image
     }()
 }
 
@@ -144,7 +210,20 @@ extension SignUpVC: UITextFieldDelegate{
             placeholderUp(text: namePlaceholder)
         }
         if textField.tag == 2{
-            placeholderUp(text: idcardPlaceholder)
+            placeholderUp(text: idcardFirstPlaceholder)
+            let newLength = textField.text!.count + string.count - range.length
+            
+            if newLength > 5{
+                textField.text! += string
+                idcardLastTextField.becomeFirstResponder()
+            }
+        }
+        if textField.tag == 3{
+            let newLength = textField.text!.count + string.count - range.length
+            if newLength > 0{
+                textField.text = string
+                idcardDownAction()
+            }
         }
         return true
     }
@@ -154,7 +233,10 @@ extension SignUpVC: UITextFieldDelegate{
             lineFocus(line: nameLine)
         }
         else if textField.tag == 2{
-            lineFocus(line: idLine)
+            lineFocus(line: idLineFirst)
+        }
+        else if textField.tag == 3{
+            lineFocus(line: idLineLast)
         }
     }
     func textFieldDidEndEditing(_ textField: UITextField) {
@@ -162,7 +244,10 @@ extension SignUpVC: UITextFieldDelegate{
             lineUnfocus(line: nameLine)
         }
         else if textField.tag == 2{
-            lineUnfocus(line: idLine)
+            lineUnfocus(line: idLineFirst)
+        }
+        else if textField.tag == 3{
+            lineUnfocus(line: idLineLast)
         }
     }
 }
