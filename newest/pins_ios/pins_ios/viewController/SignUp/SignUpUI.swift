@@ -85,13 +85,13 @@ extension SignUpVC{
         idcardFirstTextField.snp.makeConstraints { make in
             make.leading.equalTo(16)
             make.top.equalTo(self.view.safeAreaLayoutGuide).offset(137)
-            make.width.equalTo(UIScreen.main.bounds.width * 0.39)
+            make.width.equalTo(UIScreen.main.bounds.width / 2 - 32 - 8)
         }
         
         idLineFirst.snp.makeConstraints { make in
             make.leading.equalTo(16)
             make.top.equalTo(self.view.safeAreaLayoutGuide).offset(170)
-            make.width.equalTo(UIScreen.main.bounds.width * 0.39)
+            make.width.equalTo(UIScreen.main.bounds.width / 2 - 32 - 8)
             make.height.equalTo(2)
         }
         
@@ -103,14 +103,14 @@ extension SignUpVC{
         }
         
         idcardLastTextField.snp.makeConstraints { make in
-            make.trailing.equalTo(-143)
             make.top.equalTo(self.view.safeAreaLayoutGuide).offset(137)
-            make.width.equalTo(12)
+            make.centerX.equalTo(self.view).offset(27 / 2 + 16 + 8)
+            make.width.equalTo(27)
         }
         
         idLineLast.snp.makeConstraints { make in
-            make.trailing.equalTo(-136)
             make.top.equalTo(self.view.safeAreaLayoutGuide).offset(170)
+            make.centerX.equalTo(self.view).offset(27 / 2 + 16 + 8)
             make.width.equalTo(27)
             make.height.equalTo(2)
         }
@@ -118,7 +118,7 @@ extension SignUpVC{
         idDots.snp.makeConstraints { make in
             make.trailing.equalTo(-16)
             make.top.equalTo(self.view.safeAreaLayoutGuide).offset(144)
-            make.width.equalTo(120)
+            make.width.equalTo(UIScreen.main.bounds.width / 2 - 67)
             make.height.equalTo(16)
         }
         
@@ -178,7 +178,7 @@ extension SignUpVC{
     }
     
     func lineUnfocus(line: UIView){
-        line.backgroundColor = #colorLiteral(red: 0.6, green: 0.6, blue: 0.6, alpha: 1)
+        line.backgroundColor = #colorLiteral(red: 0.9215686275, green: 0.9215686275, blue: 0.9215686275, alpha: 1)
     }
     
     func changeTitle(text: String){
@@ -231,7 +231,7 @@ extension SignUpVC{
     
     func idcardDownAction(){
         UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseInOut) { [self] in
-            namePlaceholder.snp.updateConstraints { make in
+            namePlaceholder.snp.remakeConstraints { make in
                 make.top.equalTo(self.view.safeAreaLayoutGuide).offset(271)
             }
             nameTextField.snp.updateConstraints { make in
