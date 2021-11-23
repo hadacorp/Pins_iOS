@@ -26,6 +26,13 @@ class SignUpVC: UIViewController, BaseViewController{
         return line
     }()
     
+    let nameLineFocus: UIView = {
+        let line = UIView()
+        line.tag = -1
+        line.backgroundColor = #colorLiteral(red: 0.1137254902, green: 0.6666666667, blue: 0.9529411765, alpha: 1)
+        return line
+    }()
+    
     let backBtn: UIButton = {
         let btn = UIButton()
         
@@ -129,6 +136,13 @@ class SignUpVC: UIViewController, BaseViewController{
         return line
     }()
     
+    let idLineFirstFocus: UIView = {
+        let line = UIView()
+        
+        line.backgroundColor = #colorLiteral(red: 0.1137254902, green: 0.6666666667, blue: 0.9529411765, alpha: 1)
+        return line
+    }()
+    
     let idSlashFirst: UIView = {
         let line = UIView()
         
@@ -159,6 +173,13 @@ class SignUpVC: UIViewController, BaseViewController{
         return line
     }()
     
+    let idLineLastFocus: UIView = {
+        let line = UIView()
+        
+        line.backgroundColor = #colorLiteral(red: 0.1137254902, green: 0.6666666667, blue: 0.9529411765, alpha: 1)
+        return line
+    }()
+    
     let idDots: UIView = {
         let background = UIView()
         let gap = (UIScreen.main.bounds.width / 2 - 163) / 6
@@ -180,7 +201,7 @@ class SignUpVC: UIViewController, BaseViewController{
     let mobileLine: UIView = {
         let line = UIView()
         
-        line.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        line.backgroundColor = #colorLiteral(red: 0.9215686275, green: 0.9215686275, blue: 0.9215686275, alpha: 1)
         line.layer.opacity = 0
         return line
     }()
@@ -214,9 +235,15 @@ extension SignUpVC: UITextFieldDelegate{
             placeholderUp(text: idcardFirstPlaceholder)
             let newLength = textField.text!.count + string.count - range.length
             
-            if newLength > 5{
+            if newLength > 5 && textField.text!.count == 5{
                 textField.text! += string
                 idcardLastTextField.becomeFirstResponder()
+            }
+            else if newLength <= 5{
+                return true
+            }
+            else {
+                return false
             }
         }
         if textField.tag == 3{
@@ -231,24 +258,26 @@ extension SignUpVC: UITextFieldDelegate{
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         if textField.tag == 1{
-            lineFocus(line: nameLine)
+            if nameLineFocus.tag != -1{
+                lineFocus(line: nameLineFocus, width: UIScreen.main.bounds.width - 32)
+            }
         }
         else if textField.tag == 2{
-            lineFocus(line: idLineFirst)
+            lineFocus(line: idLineFirstFocus, width: UIScreen.main.bounds.width / 2 - 40)
         }
         else if textField.tag == 3{
-            lineFocus(line: idLineLast)
+            lineFocus(line: idLineLastFocus, width: 27)
         }
     }
     func textFieldDidEndEditing(_ textField: UITextField) {
         if textField.tag == 1{
-            lineUnfocus(line: nameLine)
+            lineUnfocus(line: nameLineFocus)
         }
         else if textField.tag == 2{
-            lineUnfocus(line: idLineFirst)
+            lineUnfocus(line: idLineFirstFocus)
         }
         else if textField.tag == 3{
-            lineUnfocus(line: idLineLast)
+            lineUnfocus(line: idLineLastFocus)
         }
     }
 }

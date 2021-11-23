@@ -12,7 +12,7 @@ class LoginVC: UIViewController {
     @IBOutlet weak var blueButton: UIButton!
     @IBAction func signupBtn(_ sender: Any) {
         let signup = self.storyboard!.instantiateViewController(withIdentifier: "SignUpVC") as! SignUpVC
-        self.navigationController?.pushViewController(signup, animated: false)
+        self.navigationController?.pushViewController(signup, animated: true)
     }
     
     override func viewDidLoad() {

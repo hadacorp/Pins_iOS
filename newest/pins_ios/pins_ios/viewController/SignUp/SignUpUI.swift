@@ -35,9 +35,12 @@ extension SignUpVC{
         view.addSubview(idcardLastTextField)
         view.addSubview(idLineLast)
         view.addSubview(idDots)
-        view.addSubview(mobileLine)
         view.addSubview(mobileLabel)
         view.addSubview(mobileUnfold)
+        mobileLabel.addSubview(mobileLine)
+        nameLine.addSubview(nameLineFocus)
+        idLineFirst.addSubview(idLineFirstFocus)
+        idLineLast.addSubview(idLineLastFocus)
     }
     
     func setLayout(){
@@ -61,6 +64,13 @@ extension SignUpVC{
             make.leading.equalTo(16)
             make.trailing.equalTo(-16)
             make.top.equalTo(self.view.safeAreaLayoutGuide).offset(170)
+            make.height.equalTo(2)
+        }
+        
+        nameLineFocus.snp.makeConstraints { make in
+            make.top.equalTo(0)
+            make.centerX.equalTo((UIScreen.main.bounds.width - 32) / 2)
+            make.width.equalTo(UIScreen.main.bounds.width - 32)
             make.height.equalTo(2)
         }
         
@@ -95,6 +105,20 @@ extension SignUpVC{
             make.height.equalTo(2)
         }
         
+        idLineFirstFocus.snp.makeConstraints { make in
+            make.top.equalTo(0)
+            make.centerX.equalTo((UIScreen.main.bounds.width / 2 - 40) / 2)
+            make.width.equalTo(0)
+            make.height.equalTo(2)
+        }
+        
+        idLineLastFocus.snp.makeConstraints { make in
+            make.top.equalTo(0)
+            make.centerX.equalTo(27 / 2)
+            make.width.equalTo(0)
+            make.height.equalTo(2)
+        }
+        
         idSlashFirst.snp.makeConstraints { make in
             make.top.equalTo(self.view.safeAreaLayoutGuide).offset(152)
             make.centerX.equalTo(self.view)
@@ -123,9 +147,9 @@ extension SignUpVC{
         }
         
         mobileLine.snp.makeConstraints { make in
-            make.leading.equalTo(16)
-            make.trailing.equalTo(-16)
-            make.top.equalTo(self.view.safeAreaLayoutGuide).offset(170)
+            make.leading.equalTo(self.view).offset(16)
+            make.trailing.equalTo(self.view).offset(-16)
+            make.bottom.equalTo(4)
             make.height.equalTo(2)
         }
         
@@ -169,16 +193,25 @@ extension SignUpVC{
         mobileUnfold.layer.opacity = 1
         mobileLabel.layer.opacity = 1
         mobileLine.layer.opacity = 1
-        lineFocus(line: mobileLine)
         self.view.endEditing(true)
     }
     
-    func lineFocus(line: UIView){
-        line.backgroundColor = #colorLiteral(red: 0.1137254902, green: 0.6666666667, blue: 0.9529411765, alpha: 1)
+    func lineFocus(line: UIView, width: CGFloat){
+        UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseInOut) {
+            line.snp.updateConstraints { make in
+                make.width.equalTo(width)
+            }
+            self.view.layoutIfNeeded()
+        }
     }
     
     func lineUnfocus(line: UIView){
-        line.backgroundColor = #colorLiteral(red: 0.9215686275, green: 0.9215686275, blue: 0.9215686275, alpha: 1)
+        UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseInOut) {
+            line.snp.updateConstraints { make in
+                make.width.equalTo(0)
+            }
+            self.view.layoutIfNeeded()
+        }
     }
     
     func changeTitle(text: String){
@@ -218,8 +251,9 @@ extension SignUpVC{
                 make.top.equalTo(self.view.safeAreaLayoutGuide).offset(247)
             }
             
-            lineUnfocus(line: nameLine)
+            lineUnfocus(line: nameLineFocus)
             nameSuccess.isHidden = true
+            nameLineFocus.tag = 0
             
             appearId()
             
@@ -266,7 +300,7 @@ extension SignUpVC{
             self.view.layoutIfNeeded()
         }
         
-        lineUnfocus(line: idLineLast)
+        lineUnfocus(line: idLineLastFocus)
         changeTitle(text: "통신사를 선택해 주세요.")
     }
 }
