@@ -141,6 +141,7 @@ class SignUpVC: UIViewController, BaseViewController{
         let textField = UITextField()
         
         textField.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        textField.textAlignment = .center
         textField.font = UIFont(name: "NotoSansKR-Regular", size: 20)
         textField.setPlaceholderColor(#colorLiteral(red: 0.6, green: 0.6, blue: 0.6, alpha: 1))
         textField.tag = 3
@@ -160,12 +161,12 @@ class SignUpVC: UIViewController, BaseViewController{
     
     let idDots: UIView = {
         let background = UIView()
-        
-        for i in 0..<6{
+        let gap = (UIScreen.main.bounds.width / 2 - 163) / 6
+        for i in 0..<6 {
             let dot = UIView()
             background.addSubview(dot)
             dot.snp.makeConstraints { make in
-                make.leading.equalTo(4 + 20 * i)
+                make.leading.equalTo(gap + CGFloat(CGFloat(16 + gap) * CGFloat(i)))
                 make.top.equalTo(0)
                 make.width.height.equalTo(16)
             }
