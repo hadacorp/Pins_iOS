@@ -3,7 +3,7 @@ import SnapKit
 
 class CustomModalViewController: UIViewController {
     let mobileList: [String] = ["SKT", "KT", "LG U+", "SKT 알뜰폰", "KT 알뜰폰", "LG U+ 알뜰폰"]
-    
+    weak var delegate: SecondViewControllerDelegate?
     // 1
     lazy var containerView: UIView = {
         let view = UIView()
@@ -26,7 +26,7 @@ class CustomModalViewController: UIViewController {
             btn.setTitle(mobileList[i], for: .normal)
             btn.setTitleColor(#colorLiteral(red: 0.6, green: 0.6, blue: 0.6, alpha: 1), for: .normal)
             btn.titleLabel!.font = UIFont(name: "NotoSansKR-Regular", size: 20)
-            btn.addTarget(self, action: #selector(clickMobileList), for: .touchUpInside)
+            btn.addTarget(self, action: #selector(clickMobileList(name:)), for: .touchUpInside)
             view.addSubview(btn)
             
             btn.snp.makeConstraints { make in
@@ -207,8 +207,8 @@ class CustomModalViewController: UIViewController {
     }
     
     @objc
-    func clickMobileList(){
-        dump(self.navigationController)
-        print("asdf")
+    func clickMobileList(name sender: UIButton){
+        delegate?.dismissSecondViewController(mobileType: (sender.titleLabel?.text!)!)
+        animateDismissView()
     }
 }

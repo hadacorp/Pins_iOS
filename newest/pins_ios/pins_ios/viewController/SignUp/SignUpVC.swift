@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol SecondViewControllerDelegate: AnyObject {
+    func dismissSecondViewController(mobileType: String)
+}
+
 class SignUpVC: UIViewController, BaseViewController{
     // MARK: -ViewController LifeCycle
     override func viewDidLoad() {
@@ -15,10 +19,13 @@ class SignUpVC: UIViewController, BaseViewController{
     
     override func viewDidAppear(_ animated: Bool) {
         self.nameTextField.becomeFirstResponder()
+        print("asdf")
     }
     
-    // MARK: -Initial UI
+    // MARK: -Param Variable
+    public var paramMobile: String?
     
+    // MARK: -Initial UI
     let nameLine: UIView = {
         let line = UIView()
         

@@ -70,6 +70,7 @@
 		B7B70B2226F78F0D006052A1 /* RecentSearchModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B7B70B2026F78F0D006052A1 /* RecentSearchModel.xcdatamodeld */; };
 		B7B70B2826F78FBE006052A1 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B70B2726F78FBE006052A1 /* CoreDataManager.swift */; };
 		B7B72835274D2D7C00451871 /* HalfModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B72834274D2D7C00451871 /* HalfModalView.swift */; };
+		B7B72837274D4F0500451871 /* SIgnupUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B72836274D4F0500451871 /* SIgnupUser.swift */; };
 		B7BFF298270F784B005AD1B8 /* MeetingDateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7BFF297270F784B005AD1B8 /* MeetingDateCell.swift */; };
 		B7C008812712245800E94A3E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7D998102712115400AED01B /* Foundation.framework */; };
 		B7C5DAA826C805640011EE41 /* BigRoundedbutton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C5DAA726C805640011EE41 /* BigRoundedbutton.swift */; };
@@ -166,6 +167,7 @@
 		B7B70B2126F78F0D006052A1 /* RecentSearchModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RecentSearchModel.xcdatamodel; sourceTree = "<group>"; };
 		B7B70B2726F78FBE006052A1 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		B7B72834274D2D7C00451871 /* HalfModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HalfModalView.swift; sourceTree = "<group>"; };
+		B7B72836274D4F0500451871 /* SIgnupUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SIgnupUser.swift; sourceTree = "<group>"; };
 		B7BFF297270F784B005AD1B8 /* MeetingDateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingDateCell.swift; sourceTree = "<group>"; };
 		B7C5DAA726C805640011EE41 /* BigRoundedbutton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigRoundedbutton.swift; sourceTree = "<group>"; };
 		B7C5DAA926C805D50011EE41 /* ThumbnailImg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbnailImg.swift; sourceTree = "<group>"; };
@@ -286,6 +288,7 @@
 				B70062C0272D93C700639CBE /* CommunityPin.swift */,
 				B736564D2739852900DDFB5E /* ViewControllers.swift */,
 				B706B76F27460D6C0017CBB0 /* TextField.swift */,
+				B7B72836274D4F0500451871 /* SIgnupUser.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -639,6 +642,7 @@
 				B7EB6007271300DF0037B7C6 /* Extension+UIView.swift in Sources */,
 				B70062C3272DA6BA00639CBE /* CommunityContentVC.swift in Sources */,
 				B7EE75A3274A861400AB0B38 /* SignUpUI.swift in Sources */,
+				B7B72837274D4F0500451871 /* SIgnupUser.swift in Sources */,
 				B7B70B2226F78F0D006052A1 /* RecentSearchModel.xcdatamodeld in Sources */,
 				B706B767274546B60017CBB0 /* LoginVC.swift in Sources */,
 				B70062C1272D93C700639CBE /* CommunityPin.swift in Sources */,
