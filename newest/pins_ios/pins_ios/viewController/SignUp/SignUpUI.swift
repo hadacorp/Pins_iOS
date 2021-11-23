@@ -194,6 +194,10 @@ extension SignUpVC{
         mobileLabel.layer.opacity = 1
         mobileLine.layer.opacity = 1
         self.view.endEditing(true)
+        
+        let vc = CustomModalViewController()
+        vc.modalPresentationStyle = .overCurrentContext
+        self.present(vc, animated: false)
     }
     
     func lineFocus(line: UIView, width: CGFloat){
