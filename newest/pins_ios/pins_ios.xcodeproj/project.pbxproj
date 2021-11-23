@@ -69,6 +69,7 @@
 		B7A0D84D26EA6FF700AD5B46 /* CarouselCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A0D84C26EA6FF700AD5B46 /* CarouselCell.swift */; };
 		B7B70B2226F78F0D006052A1 /* RecentSearchModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B7B70B2026F78F0D006052A1 /* RecentSearchModel.xcdatamodeld */; };
 		B7B70B2826F78FBE006052A1 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B70B2726F78FBE006052A1 /* CoreDataManager.swift */; };
+		B7B72835274D2D7C00451871 /* HalfModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B72834274D2D7C00451871 /* HalfModalView.swift */; };
 		B7BFF298270F784B005AD1B8 /* MeetingDateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7BFF297270F784B005AD1B8 /* MeetingDateCell.swift */; };
 		B7C008812712245800E94A3E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7D998102712115400AED01B /* Foundation.framework */; };
 		B7C5DAA826C805640011EE41 /* BigRoundedbutton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C5DAA726C805640011EE41 /* BigRoundedbutton.swift */; };
@@ -164,6 +165,7 @@
 		B7A0D84C26EA6FF700AD5B46 /* CarouselCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselCell.swift; sourceTree = "<group>"; };
 		B7B70B2126F78F0D006052A1 /* RecentSearchModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RecentSearchModel.xcdatamodel; sourceTree = "<group>"; };
 		B7B70B2726F78FBE006052A1 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		B7B72834274D2D7C00451871 /* HalfModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HalfModalView.swift; sourceTree = "<group>"; };
 		B7BFF297270F784B005AD1B8 /* MeetingDateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingDateCell.swift; sourceTree = "<group>"; };
 		B7C5DAA726C805640011EE41 /* BigRoundedbutton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigRoundedbutton.swift; sourceTree = "<group>"; };
 		B7C5DAA926C805D50011EE41 /* ThumbnailImg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbnailImg.swift; sourceTree = "<group>"; };
@@ -457,6 +459,7 @@
 			children = (
 				B7F0593E2749601600F0E431 /* SignUpVC.swift */,
 				B7EE75A2274A861400AB0B38 /* SignUpUI.swift */,
+				B7B72834274D2D7C00451871 /* HalfModalView.swift */,
 			);
 			path = SignUp;
 			sourceTree = "<group>";
@@ -598,6 +601,7 @@
 				B7F0593F2749601600F0E431 /* SignUpVC.swift in Sources */,
 				B7EB600B271319930037B7C6 /* MeetingDetailViewEventManager.swift in Sources */,
 				B74B3C07270DF9BB00C6284C /* PinMakeViewController.swift in Sources */,
+				B7B72835274D2D7C00451871 /* HalfModalView.swift in Sources */,
 				B74F96A826E4A80E0064B900 /* SearchViewController.swift in Sources */,
 				B71CF7E9273C0A6A00B9E360 /* StoryDetailViewModel.swift in Sources */,
 				B706B77027460D6C0017CBB0 /* TextField.swift in Sources */,
