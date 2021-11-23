@@ -41,6 +41,7 @@ extension SignUpVC{
         nameLine.addSubview(nameLineFocus)
         idLineFirst.addSubview(idLineFirstFocus)
         idLineLast.addSubview(idLineLastFocus)
+        view.addSubview(mobileTouchArea)
     }
     
     func setLayout(){
@@ -164,6 +165,12 @@ extension SignUpVC{
             make.width.equalTo(10)
             make.height.equalTo(5)
         }
+        
+        mobileTouchArea.snp.makeConstraints { make in
+            make.leading.equalTo(mobileLabel)
+            make.trailing.equalTo(-16)
+            make.top.equalTo(mobileLabel)
+        }
     }
     
     func placeholderUp(text: UILabel){
@@ -193,11 +200,10 @@ extension SignUpVC{
         mobileUnfold.layer.opacity = 1
         mobileLabel.layer.opacity = 1
         mobileLine.layer.opacity = 1
+        mobileTouchArea.layer.opacity = 1
         self.view.endEditing(true)
         
-        let vc = CustomModalViewController()
-        vc.modalPresentationStyle = .overCurrentContext
-        self.present(vc, animated: false)
+        openHalfmodal()
     }
     
     func lineFocus(line: UIView, width: CGFloat){
@@ -225,6 +231,13 @@ extension SignUpVC{
 
 // MARK: -Event
 extension SignUpVC{
+    @objc
+    func openHalfmodal(){
+        let vc = CustomModalViewController()
+        vc.modalPresentationStyle = .overCurrentContext
+        self.present(vc, animated: false)
+    }
+    
     @objc
     func keyboardWillShow(_ sender: Notification) {
         if let keyboardFrame: NSValue = sender.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
