@@ -1,12 +1,39 @@
 import UIKit
+import SnapKit
 
 class CustomModalViewController: UIViewController {
+    let mobileList: [String] = ["SKT", "KT", "LG U+", "SKT 알뜰폰", "KT 알뜰폰", "LG U+ 알뜰폰"]
+    
     // 1
     lazy var containerView: UIView = {
         let view = UIView()
         view.backgroundColor = .white
         view.layer.cornerRadius = 16
         view.clipsToBounds = true
+        
+        let title = UILabel()
+        view.addSubview(title)
+        title.text = "통신사 선택"
+        title.font = UIFont(name: "NotoSansKR-Medium", size: 20)
+        title.textColor = #colorLiteral(red: 0.06666666667, green: 0.06666666667, blue: 0.06666666667, alpha: 1)
+        title.snp.makeConstraints { make in
+            make.leading.equalTo(32)
+            make.top.equalTo(24)
+        }
+        
+        for i in 0..<mobileList.count {
+            let btn = UIButton()
+            btn.setTitle(mobileList[i], for: .normal)
+            btn.setTitleColor(#colorLiteral(red: 0.6, green: 0.6, blue: 0.6, alpha: 1), for: .normal)
+            btn.titleLabel!.font = UIFont(name: "NotoSansKR-Regular", size: 20)
+            btn.addTarget(self, action: #selector(clickMobileList), for: .touchUpInside)
+            view.addSubview(btn)
+            
+            btn.snp.makeConstraints { make in
+                make.leading.equalTo(32)
+                make.top.equalTo(69 + i * 45)
+            }
+        }
         return view
     }()
     
@@ -24,7 +51,7 @@ class CustomModalViewController: UIViewController {
     let dismissibleHeight: CGFloat = 200
     let maximumContainerHeight: CGFloat = UIScreen.main.bounds.height - 64
     // keep updated with new height
-    var currentContainerHeight: CGFloat = 300
+    var currentContainerHeight: CGFloat = 375
     
     // 3. Dynamic container constraint
     var containerViewHeightConstraint: NSLayoutConstraint?
@@ -93,11 +120,11 @@ class CustomModalViewController: UIViewController {
     @objc func handlePanGesture(gesture: UIPanGestureRecognizer) {
         let translation = gesture.translation(in: view)
         // Drag to top will be minus value and vice versa
-        print("Pan gesture y offset: \(translation.y)")
+        // print("Pan gesture y offset: \(translation.y)")
 
         // Get drag direction
-        let isDraggingDown = translation.y > 0
-        print("Dragging direction: \(isDraggingDown ? "going down" : "going up")")
+        // let isDraggingDown = translation.y > 0
+        // print("Dragging direction: \(isDraggingDown ? "going down" : "going up")")
 
         // New height is based on value of dragging plus current container height
         let newHeight = currentContainerHeight - translation.y
@@ -123,14 +150,17 @@ class CustomModalViewController: UIViewController {
                 // Condition 2: If new height is below default, animate back to default
                 animateContainerHeight(defaultHeight)
             }
-            else if newHeight < maximumContainerHeight && isDraggingDown {
-                // Condition 3: If new height is below max and going down, set to default height
+            else{
                 animateContainerHeight(defaultHeight)
             }
-            else if newHeight > defaultHeight && !isDraggingDown {
-                // Condition 4: If new height is below max and going up, set to max height at top
-                animateContainerHeight(maximumContainerHeight)
-            }
+//            else if newHeight < maximumContainerHeight && isDraggingDown {
+//                // Condition 3: If new height is below max and going down, set to default height
+//                animateContainerHeight(defaultHeight)
+//            }
+//            else if newHeight > defaultHeight && !isDraggingDown {
+//                // Condition 4: If new height is below max and going up, set to max height at top
+//                animateContainerHeight(maximumContainerHeight)
+//            }
         default:
             break
         }
@@ -174,5 +204,11 @@ class CustomModalViewController: UIViewController {
         // Activate constraints
         containerViewHeightConstraint?.isActive = true
         containerViewBottomConstraint?.isActive = true
+    }
+    
+    @objc
+    func clickMobileList(){
+        dump(self.navigationController)
+        print("asdf")
     }
 }

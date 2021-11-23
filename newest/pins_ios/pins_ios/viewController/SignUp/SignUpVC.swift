@@ -33,6 +33,14 @@ class SignUpVC: UIViewController, BaseViewController{
         return line
     }()
     
+    let mobileTouchArea: UIButton = {
+        let btn = UIButton()
+        
+        btn.layer.opacity = 0
+        btn.addTarget(self, action: #selector(openHalfmodal), for: .touchUpInside)
+        return btn
+    }()
+    
     let backBtn: UIButton = {
         let btn = UIButton()
         
