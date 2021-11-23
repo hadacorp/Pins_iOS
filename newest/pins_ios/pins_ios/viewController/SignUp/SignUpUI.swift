@@ -233,8 +233,11 @@ extension SignUpVC{
 extension SignUpVC{
     @objc
     func openHalfmodal(){
+        self.view.endEditing(true)
         let vc = CustomModalViewController()
+        vc.delegate = self
         vc.modalPresentationStyle = .overCurrentContext
+//        self.navigationController?.pushViewController(vc, animated: false)
         self.present(vc, animated: false)
     }
     
@@ -319,5 +322,12 @@ extension SignUpVC{
         
         lineUnfocus(line: idLineLastFocus)
         changeTitle(text: "통신사를 선택해 주세요.")
+    }
+}
+
+extension SignUpVC: SecondViewControllerDelegate{
+    func dismissSecondViewController(mobileType: String) {
+        mobileLabel.text = mobileType
+        mobileLabel.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
     }
 }
