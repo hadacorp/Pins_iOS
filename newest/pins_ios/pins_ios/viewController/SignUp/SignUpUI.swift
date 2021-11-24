@@ -42,9 +42,38 @@ extension SignUpVC{
         idLineFirst.addSubview(idLineFirstFocus)
         idLineLast.addSubview(idLineLastFocus)
         view.addSubview(mobileTouchArea)
+        view.addSubview(phoneNumberLine)
+        phoneNumberLine.addSubview(phoneNumberLineFocus)
+        view.addSubview(phoneNumberTextField)
+        phoneNumberTextField.addSubview(phoneNumberPlaceholder)
     }
     
     func setLayout(){
+        phoneNumberTextField.snp.makeConstraints { make in
+            make.leading.equalTo(self.view.safeAreaLayoutGuide).offset(16)
+            make.trailing.equalTo(0)
+            make.top.equalTo(self.view.safeAreaLayoutGuide).offset(137)
+        }
+        
+        phoneNumberPlaceholder.snp.makeConstraints { make in
+            make.leading.equalTo(0)
+            make.top.equalTo(self.view.safeAreaLayoutGuide).offset(137)
+        }
+        
+        phoneNumberLine.snp.makeConstraints { make in
+            make.leading.equalTo(16)
+            make.trailing.equalTo(-16)
+            make.top.equalTo(self.view.safeAreaLayoutGuide).offset(170)
+            make.height.equalTo(2)
+        }
+        
+        phoneNumberLineFocus.snp.makeConstraints { make in
+            make.top.equalTo(0)
+            make.centerX.equalTo((UIScreen.main.bounds.width - 32) / 2)
+            make.width.equalTo(0)
+            make.height.equalTo(2)
+        }
+        
         mainTitle.snp.makeConstraints { make in
             make.leading.equalTo(16)
             make.top.equalTo(self.view.safeAreaLayoutGuide).offset(64)
@@ -322,6 +351,47 @@ extension SignUpVC{
         
         lineUnfocus(line: idLineLastFocus)
         changeTitle(text: "통신사를 선택해 주세요.")
+    }
+    
+    func mobileDownAction(){
+        UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseInOut) { [self] in
+            namePlaceholder.snp.remakeConstraints { make in
+                make.top.equalTo(self.view.safeAreaLayoutGuide).offset(348)
+            }
+            nameTextField.snp.updateConstraints { make in
+                make.top.equalTo(self.view.safeAreaLayoutGuide).offset(368)
+            }
+            nameLine.snp.updateConstraints { make in
+                make.top.equalTo(self.view.safeAreaLayoutGuide).offset(401)
+            }
+            
+            idDots.snp.updateConstraints { make in
+                make.top.equalTo(self.view.safeAreaLayoutGuide).offset(298)
+            }
+            idcardLastTextField.snp.updateConstraints { make in
+                make.top.equalTo(self.view.safeAreaLayoutGuide).offset(291)
+            }
+            idLineLast.snp.updateConstraints { make in
+                make.top.equalTo(self.view.safeAreaLayoutGuide).offset(324)
+            }
+            idLineFirst.snp.updateConstraints { make in
+                make.top.equalTo(self.view.safeAreaLayoutGuide).offset(324)
+            }
+            idcardFirstPlaceholder.snp.makeConstraints { make in
+                make.top.equalTo(self.view.safeAreaLayoutGuide).offset(271)
+            }
+            idcardFirstTextField.snp.updateConstraints { make in
+                make.top.equalTo(self.view.safeAreaLayoutGuide).offset(291)
+            }
+            idSlashFirst.snp.updateConstraints { make in
+                make.top.equalTo(self.view.safeAreaLayoutGuide).offset(306)
+            }
+            
+            
+            self.view.layoutIfNeeded()
+        }
+        
+        changeTitle(text: "휴대폰 번호를 입력해 주세요.")
     }
 }
 
