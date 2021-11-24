@@ -317,6 +317,12 @@ extension SignUpVC{
 // MARK: -Event
 extension SignUpVC{
     @objc
+    func changeCertificationVC(){
+        let certVC = self.storyboard!.instantiateViewController(withIdentifier: "CertificationVC") as! CertificationVC
+        self.navigationController?.pushViewController(certVC, animated: true)
+    }
+    
+    @objc
     func appearCertification(){
         UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseInOut) { [self] in
             certificationBackground.snp.updateConstraints { make in

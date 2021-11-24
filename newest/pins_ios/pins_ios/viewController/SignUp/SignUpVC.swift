@@ -60,6 +60,7 @@ class SignUpVC: UIViewController, BaseViewController{
         btn.layer.cornerRadius = 8
         btn.backgroundColor = #colorLiteral(red: 0.1137254902, green: 0.6666666667, blue: 0.9529411765, alpha: 1)
         btn.titleEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 2, right: 0.0)
+        btn.addTarget(self, action: #selector(changeCertificationVC), for: .touchUpInside)
         return btn
     }()
     let certificationTitle: UILabel = {
