@@ -87,7 +87,6 @@ class SignUpVC: UIViewController, BaseViewController{
     let phoneNumberLineFocus: UIView = {
         let line = UIView()
         line.backgroundColor = #colorLiteral(red: 0.1137254902, green: 0.6666666667, blue: 0.9529411765, alpha: 1)
-        line.layer.opacity = 0
         return line
     }()
     
@@ -235,10 +234,20 @@ class SignUpVC: UIViewController, BaseViewController{
         return line
     }()
     
-    let mobileLabel: UILabel = {
+    let mobilePlaceholder: UILabel = {
         let label = UILabel()
         
         label.text = "통신사"
+        label.textColor = #colorLiteral(red: 0.6, green: 0.6, blue: 0.6, alpha: 1)
+        label.font = UIFont(name: "NotoSansKR-Regular", size: 20)
+        label.layer.opacity = 0
+        return label
+    }()
+    
+    let mobileLabel: UILabel = {
+        let label = UILabel()
+        
+        label.text = " "
         label.textColor = #colorLiteral(red: 0.6, green: 0.6, blue: 0.6, alpha: 1)
         label.font = UIFont(name: "NotoSansKR-Regular", size: 20)
         label.layer.opacity = 0
@@ -257,12 +266,12 @@ class SignUpVC: UIViewController, BaseViewController{
 // MARK: -Extension
 extension SignUpVC: UITextFieldDelegate{
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let newLength = textField.text!.count + string.count - range.length
         if textField.tag == 1{
             placeholderUp(text: namePlaceholder)
         }
         if textField.tag == 2{
             placeholderUp(text: idcardFirstPlaceholder)
-            let newLength = textField.text!.count + string.count - range.length
             
             if newLength > 5 && textField.text!.count == 5{
                 textField.text! += string
@@ -276,10 +285,25 @@ extension SignUpVC: UITextFieldDelegate{
             }
         }
         if textField.tag == 3{
-            let newLength = textField.text!.count + string.count - range.length
             if newLength > 0{
                 textField.text = string
                 idcardDownAction()
+            }
+        }
+        if textField.tag == 4{
+            placeholderUp(text: phoneNumberPlaceholder)
+            let text = textField.text
+            textField.text = text!.applyPatternOnNumbers(pattern: "###-####-####", replacementCharacter: "#")
+            if newLength > 12 && textField.text!.count == 12{
+                textField.text! += string
+                print("End")
+                self.view.endEditing(true)
+            }
+            else if newLength <= 12{
+                return true
+            }
+            else {
+                return false
             }
         }
         return true
@@ -297,6 +321,9 @@ extension SignUpVC: UITextFieldDelegate{
         else if textField.tag == 3{
             lineFocus(line: idLineLastFocus, width: 27)
         }
+        else if textField.tag == 4{
+            lineFocus(line: phoneNumberLineFocus, width: UIScreen.main.bounds.width - 32)
+        }
     }
     func textFieldDidEndEditing(_ textField: UITextField) {
         if textField.tag == 1{
@@ -307,6 +334,9 @@ extension SignUpVC: UITextFieldDelegate{
         }
         else if textField.tag == 3{
             lineUnfocus(line: idLineLastFocus)
+        }
+        else if textField.tag == 4{
+            lineUnfocus(line: phoneNumberLineFocus)
         }
     }
 }

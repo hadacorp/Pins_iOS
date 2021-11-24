@@ -19,6 +19,7 @@ extension SignUpVC{
         nameTextField.delegate = self
         idcardFirstTextField.delegate = self
         idcardLastTextField.delegate = self
+        phoneNumberTextField.delegate = self
     }
     
     func addSubViews(){
@@ -36,6 +37,7 @@ extension SignUpVC{
         view.addSubview(idLineLast)
         view.addSubview(idDots)
         view.addSubview(mobileLabel)
+        mobileLabel.addSubview(mobilePlaceholder)
         view.addSubview(mobileUnfold)
         mobileLabel.addSubview(mobileLine)
         nameLine.addSubview(nameLineFocus)
@@ -58,6 +60,7 @@ extension SignUpVC{
         phoneNumberPlaceholder.snp.makeConstraints { make in
             make.leading.equalTo(0)
             make.top.equalTo(self.view.safeAreaLayoutGuide).offset(137)
+            make.width.equalTo(150)
         }
         
         phoneNumberLine.snp.makeConstraints { make in
@@ -185,6 +188,7 @@ extension SignUpVC{
         
         mobileLabel.snp.makeConstraints { make in
             make.leading.equalTo(16)
+            make.trailing.equalTo(16)
             make.top.equalTo(self.view.safeAreaLayoutGuide).offset(137)
         }
         
@@ -199,6 +203,11 @@ extension SignUpVC{
             make.leading.equalTo(mobileLabel)
             make.trailing.equalTo(-16)
             make.top.equalTo(mobileLabel)
+        }
+        
+        mobilePlaceholder.snp.makeConstraints { make in
+            make.leading.equalTo(0)
+            make.top.equalTo(0)
         }
     }
     
@@ -228,11 +237,19 @@ extension SignUpVC{
     func appearMobile(){
         mobileUnfold.layer.opacity = 1
         mobileLabel.layer.opacity = 1
+        mobilePlaceholder.layer.opacity = 1
         mobileLine.layer.opacity = 1
         mobileTouchArea.layer.opacity = 1
         self.view.endEditing(true)
         
         openHalfmodal()
+    }
+    
+    func appearPhoneNumber(){
+        phoneNumberLine.layer.opacity = 1
+        phoneNumberPlaceholder.layer.opacity = 1
+        phoneNumberTextField.layer.opacity = 1
+        phoneNumberTextField.becomeFirstResponder()
     }
     
     func lineFocus(line: UIView, width: CGFloat){
@@ -377,7 +394,7 @@ extension SignUpVC{
             idLineFirst.snp.updateConstraints { make in
                 make.top.equalTo(self.view.safeAreaLayoutGuide).offset(324)
             }
-            idcardFirstPlaceholder.snp.makeConstraints { make in
+            idcardFirstPlaceholder.snp.updateConstraints { make in
                 make.top.equalTo(self.view.safeAreaLayoutGuide).offset(271)
             }
             idcardFirstTextField.snp.updateConstraints { make in
@@ -387,10 +404,18 @@ extension SignUpVC{
                 make.top.equalTo(self.view.safeAreaLayoutGuide).offset(306)
             }
             
-            
+            mobileLabel.snp.updateConstraints { make in
+                make.top.equalTo(self.view.safeAreaLayoutGuide).offset(214)
+            }
+            mobileUnfold.snp.updateConstraints { make in
+                make.top.equalTo(self.view.safeAreaLayoutGuide).offset(228)
+            }
+            mobileTouchArea.snp.makeConstraints { make in
+                make.top.equalTo(self.view.safeAreaLayoutGuide).offset(214)
+            }
+            appearPhoneNumber()
             self.view.layoutIfNeeded()
         }
-        
         changeTitle(text: "휴대폰 번호를 입력해 주세요.")
     }
 }
@@ -399,5 +424,7 @@ extension SignUpVC: SecondViewControllerDelegate{
     func dismissSecondViewController(mobileType: String) {
         mobileLabel.text = mobileType
         mobileLabel.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        mobileDownAction()
+        placeholderUp(text: mobilePlaceholder)
     }
 }

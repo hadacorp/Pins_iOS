@@ -12,6 +12,7 @@
 		B70062C1272D93C700639CBE /* CommunityPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70062C0272D93C700639CBE /* CommunityPin.swift */; };
 		B70062C3272DA6BA00639CBE /* CommunityContentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70062C2272DA6BA00639CBE /* CommunityContentVC.swift */; };
 		B70062C5272DB1AF00639CBE /* CommunityContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70062C4272DB1AF00639CBE /* CommunityContentViewModel.swift */; };
+		B70228E7274E8DA300D412A4 /* Extension+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70228E6274E8DA300D412A4 /* Extension+String.swift */; };
 		B70253E7273ADC3500119E4E /* Extension+UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70253E6273ADC3500119E4E /* Extension+UIImage.swift */; };
 		B704D48026DBCE6800DB20D2 /* AnimationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B704D47F26DBCE6800DB20D2 /* AnimationManager.swift */; };
 		B704F03C26E36C5900DA9E06 /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B704F03B26E36C5900DA9E06 /* Cell.swift */; };
@@ -107,6 +108,7 @@
 		B70062C0272D93C700639CBE /* CommunityPin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityPin.swift; sourceTree = "<group>"; };
 		B70062C2272DA6BA00639CBE /* CommunityContentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityContentVC.swift; sourceTree = "<group>"; };
 		B70062C4272DB1AF00639CBE /* CommunityContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityContentViewModel.swift; sourceTree = "<group>"; };
+		B70228E6274E8DA300D412A4 /* Extension+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+String.swift"; sourceTree = "<group>"; };
 		B70253E6273ADC3500119E4E /* Extension+UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIImage.swift"; sourceTree = "<group>"; };
 		B704D47F26DBCE6800DB20D2 /* AnimationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationManager.swift; sourceTree = "<group>"; };
 		B704F03B26E36C5900DA9E06 /* Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
@@ -388,6 +390,7 @@
 				B7FA1D7B27148D3B005F924A /* Extension+UITextField.swift */,
 				B70253E6273ADC3500119E4E /* Extension+UIImage.swift */,
 				B706B76B274564810017CBB0 /* Extension+UIButton.swift */,
+				B70228E6274E8DA300D412A4 /* Extension+String.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -609,6 +612,7 @@
 				B71CF7E9273C0A6A00B9E360 /* StoryDetailViewModel.swift in Sources */,
 				B706B77027460D6C0017CBB0 /* TextField.swift in Sources */,
 				B7F06731270740ED00CFCE13 /* GetKeyword.swift in Sources */,
+				B70228E7274E8DA300D412A4 /* Extension+String.swift in Sources */,
 				B7FBC47826C28730001838D1 /* CustomPintAnnotation.swift in Sources */,
 				B797A3A6270F459B00A87047 /* MeetingPin.swift in Sources */,
 				B70ADB8926FF8902007997E2 /* GetCardByPinId.swift in Sources */,
