@@ -27,10 +27,12 @@ class CustomModalViewController: UIViewController {
             btn.setTitleColor(#colorLiteral(red: 0.6, green: 0.6, blue: 0.6, alpha: 1), for: .normal)
             btn.titleLabel!.font = UIFont(name: "NotoSansKR-Regular", size: 20)
             btn.addTarget(self, action: #selector(clickMobileList(name:)), for: .touchUpInside)
+            btn.contentHorizontalAlignment = UIControl.ContentHorizontalAlignment.left
             view.addSubview(btn)
             
             btn.snp.makeConstraints { make in
                 make.leading.equalTo(32)
+                make.trailing.equalTo(0)
                 make.top.equalTo(69 + i * 45)
             }
         }
@@ -38,11 +40,11 @@ class CustomModalViewController: UIViewController {
     }()
     
     // 2
-    let maxDimmedAlpha: CGFloat = 0.6
+    let maxDimmedAlpha: CGFloat = 0.7
     lazy var dimmedView: UIView = {
         let view = UIView()
+        view.alpha = 0
         view.backgroundColor = .black
-        view.alpha = maxDimmedAlpha
         return view
     }()
     
