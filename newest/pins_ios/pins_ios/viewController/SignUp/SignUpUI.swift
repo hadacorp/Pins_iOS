@@ -13,6 +13,12 @@ extension SignUpVC{
         addSubViews()
         setLayout()
         setDelegate()
+        setGesture()
+    }
+    
+    func setGesture(){
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(disappearCertification))
+        certificationBlack.addGestureRecognizer(tapGesture)
     }
     
     func setDelegate(){
@@ -48,9 +54,34 @@ extension SignUpVC{
         phoneNumberLine.addSubview(phoneNumberLineFocus)
         view.addSubview(phoneNumberTextField)
         phoneNumberTextField.addSubview(phoneNumberPlaceholder)
+        view.addSubview(confirmBtn)
+        view.addSubview(certificationBlack)
+        view.addSubview(certificationBackground)
+        certificationBackground.addSubview(certificationTitle)
+        certificationBackground.addSubview(certificationButton)
     }
     
     func setLayout(){
+        certificationBlack.snp.makeConstraints { make in
+            make.leading.trailing.top.bottom.equalTo(self.view)
+        }
+        certificationBackground.snp.makeConstraints { make in
+            make.leading.equalTo(0)
+            make.trailing.equalTo(0)
+            make.top.equalTo(UIScreen.main.bounds.height)
+            make.height.equalTo(375)
+        }
+        certificationButton.snp.makeConstraints { make in
+            make.leading.equalTo(32)
+            make.trailing.equalTo(-32)
+            make.top.equalTo(282)
+            make.bottom.equalTo(-34)
+        }
+        certificationTitle.snp.makeConstraints { make in
+            make.top.equalTo(24)
+            make.leading.equalTo(32)
+        }
+        
         phoneNumberTextField.snp.makeConstraints { make in
             make.leading.equalTo(self.view.safeAreaLayoutGuide).offset(16)
             make.trailing.equalTo(0)
@@ -79,6 +110,7 @@ extension SignUpVC{
         
         mainTitle.snp.makeConstraints { make in
             make.leading.equalTo(16)
+            make.trailing.equalTo(0)
             make.top.equalTo(self.view.safeAreaLayoutGuide).offset(64)
         }
         
@@ -209,6 +241,13 @@ extension SignUpVC{
             make.leading.equalTo(0)
             make.top.equalTo(0)
         }
+        
+        confirmBtn.snp.makeConstraints { make in
+            make.leading.equalTo(16)
+            make.trailing.equalTo(-16)
+            make.bottom.equalTo(self.view.safeAreaLayoutGuide)
+            make.height.equalTo(52)
+        }
     }
     
     func placeholderUp(text: UILabel){
@@ -240,7 +279,6 @@ extension SignUpVC{
         mobilePlaceholder.layer.opacity = 1
         mobileLine.layer.opacity = 1
         mobileTouchArea.layer.opacity = 1
-        self.view.endEditing(true)
         
         openHalfmodal()
     }
@@ -250,6 +288,7 @@ extension SignUpVC{
         phoneNumberPlaceholder.layer.opacity = 1
         phoneNumberTextField.layer.opacity = 1
         phoneNumberTextField.becomeFirstResponder()
+        confirmBtn.layer.opacity = 1
     }
     
     func lineFocus(line: UIView, width: CGFloat){
@@ -277,6 +316,28 @@ extension SignUpVC{
 
 // MARK: -Event
 extension SignUpVC{
+    @objc
+    func appearCertification(){
+        UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseInOut) { [self] in
+            certificationBackground.snp.updateConstraints { make in
+                make.top.equalTo(UIScreen.main.bounds.height - 375)
+            }
+            certificationBlack.layer.opacity = 0.3
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    @objc
+    func disappearCertification(sender: UITapGestureRecognizer){
+        UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseInOut) { [self] in
+            certificationBackground.snp.updateConstraints { make in
+                make.top.equalTo(UIScreen.main.bounds.height)
+            }
+            certificationBlack.layer.opacity = 0
+            self.view.layoutIfNeeded()
+        }
+    }
+    
     @objc
     func openHalfmodal(){
         self.view.endEditing(true)
@@ -330,93 +391,96 @@ extension SignUpVC{
     }
     
     func idcardDownAction(){
-        UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseInOut) { [self] in
-            namePlaceholder.snp.remakeConstraints { make in
-                make.top.equalTo(self.view.safeAreaLayoutGuide).offset(271)
-            }
-            nameTextField.snp.updateConstraints { make in
-                make.top.equalTo(self.view.safeAreaLayoutGuide).offset(291)
-            }
-            nameLine.snp.updateConstraints { make in
-                make.top.equalTo(self.view.safeAreaLayoutGuide).offset(324)
+        if idcardDownFirst{
+            UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseInOut) { [self] in
+                namePlaceholder.snp.remakeConstraints { make in
+                    make.top.equalTo(self.view.safeAreaLayoutGuide).offset(271)
+                }
+                nameTextField.snp.updateConstraints { make in
+                    make.top.equalTo(self.view.safeAreaLayoutGuide).offset(291)
+                }
+                nameLine.snp.updateConstraints { make in
+                    make.top.equalTo(self.view.safeAreaLayoutGuide).offset(324)
+                }
+                
+                idDots.snp.updateConstraints { make in
+                    make.top.equalTo(self.view.safeAreaLayoutGuide).offset(221)
+                }
+                idcardLastTextField.snp.updateConstraints { make in
+                    make.top.equalTo(self.view.safeAreaLayoutGuide).offset(214)
+                }
+                idLineLast.snp.updateConstraints { make in
+                    make.top.equalTo(self.view.safeAreaLayoutGuide).offset(247)
+                }
+                idLineFirst.snp.updateConstraints { make in
+                    make.top.equalTo(self.view.safeAreaLayoutGuide).offset(247)
+                }
+                idcardFirstPlaceholder.snp.makeConstraints { make in
+                    make.top.equalTo(self.view.safeAreaLayoutGuide).offset(194)
+                }
+                idcardFirstTextField.snp.updateConstraints { make in
+                    make.top.equalTo(self.view.safeAreaLayoutGuide).offset(214)
+                }
+                idSlashFirst.snp.updateConstraints { make in
+                    make.top.equalTo(self.view.safeAreaLayoutGuide).offset(229)
+                }
+                appearMobile()
+                self.view.layoutIfNeeded()
             }
             
-            idDots.snp.updateConstraints { make in
-                make.top.equalTo(self.view.safeAreaLayoutGuide).offset(221)
-            }
-            idcardLastTextField.snp.updateConstraints { make in
-                make.top.equalTo(self.view.safeAreaLayoutGuide).offset(214)
-            }
-            idLineLast.snp.updateConstraints { make in
-                make.top.equalTo(self.view.safeAreaLayoutGuide).offset(247)
-            }
-            idLineFirst.snp.updateConstraints { make in
-                make.top.equalTo(self.view.safeAreaLayoutGuide).offset(247)
-            }
-            idcardFirstPlaceholder.snp.makeConstraints { make in
-                make.top.equalTo(self.view.safeAreaLayoutGuide).offset(194)
-            }
-            idcardFirstTextField.snp.updateConstraints { make in
-                make.top.equalTo(self.view.safeAreaLayoutGuide).offset(214)
-            }
-            idSlashFirst.snp.updateConstraints { make in
-                make.top.equalTo(self.view.safeAreaLayoutGuide).offset(229)
-            }
-            appearMobile()
-            self.view.layoutIfNeeded()
+            changeTitle(text: "통신사를 선택해 주세요.")
         }
-        
-        lineUnfocus(line: idLineLastFocus)
-        changeTitle(text: "통신사를 선택해 주세요.")
     }
     
     func mobileDownAction(){
-        UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseInOut) { [self] in
-            namePlaceholder.snp.remakeConstraints { make in
-                make.top.equalTo(self.view.safeAreaLayoutGuide).offset(348)
+        if mobileDownFirst{
+            UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseInOut) { [self] in
+                namePlaceholder.snp.remakeConstraints { make in
+                    make.top.equalTo(self.view.safeAreaLayoutGuide).offset(348)
+                }
+                nameTextField.snp.updateConstraints { make in
+                    make.top.equalTo(self.view.safeAreaLayoutGuide).offset(368)
+                }
+                nameLine.snp.updateConstraints { make in
+                    make.top.equalTo(self.view.safeAreaLayoutGuide).offset(401)
+                }
+                
+                idDots.snp.updateConstraints { make in
+                    make.top.equalTo(self.view.safeAreaLayoutGuide).offset(298)
+                }
+                idcardLastTextField.snp.updateConstraints { make in
+                    make.top.equalTo(self.view.safeAreaLayoutGuide).offset(291)
+                }
+                idLineLast.snp.updateConstraints { make in
+                    make.top.equalTo(self.view.safeAreaLayoutGuide).offset(324)
+                }
+                idLineFirst.snp.updateConstraints { make in
+                    make.top.equalTo(self.view.safeAreaLayoutGuide).offset(324)
+                }
+                idcardFirstPlaceholder.snp.updateConstraints { make in
+                    make.top.equalTo(self.view.safeAreaLayoutGuide).offset(271)
+                }
+                idcardFirstTextField.snp.updateConstraints { make in
+                    make.top.equalTo(self.view.safeAreaLayoutGuide).offset(291)
+                }
+                idSlashFirst.snp.updateConstraints { make in
+                    make.top.equalTo(self.view.safeAreaLayoutGuide).offset(306)
+                }
+                
+                mobileLabel.snp.updateConstraints { make in
+                    make.top.equalTo(self.view.safeAreaLayoutGuide).offset(214)
+                }
+                mobileUnfold.snp.updateConstraints { make in
+                    make.top.equalTo(self.view.safeAreaLayoutGuide).offset(228)
+                }
+                mobileTouchArea.snp.makeConstraints { make in
+                    make.top.equalTo(self.view.safeAreaLayoutGuide).offset(214)
+                }
+                appearPhoneNumber()
+                self.view.layoutIfNeeded()
             }
-            nameTextField.snp.updateConstraints { make in
-                make.top.equalTo(self.view.safeAreaLayoutGuide).offset(368)
-            }
-            nameLine.snp.updateConstraints { make in
-                make.top.equalTo(self.view.safeAreaLayoutGuide).offset(401)
-            }
-            
-            idDots.snp.updateConstraints { make in
-                make.top.equalTo(self.view.safeAreaLayoutGuide).offset(298)
-            }
-            idcardLastTextField.snp.updateConstraints { make in
-                make.top.equalTo(self.view.safeAreaLayoutGuide).offset(291)
-            }
-            idLineLast.snp.updateConstraints { make in
-                make.top.equalTo(self.view.safeAreaLayoutGuide).offset(324)
-            }
-            idLineFirst.snp.updateConstraints { make in
-                make.top.equalTo(self.view.safeAreaLayoutGuide).offset(324)
-            }
-            idcardFirstPlaceholder.snp.updateConstraints { make in
-                make.top.equalTo(self.view.safeAreaLayoutGuide).offset(271)
-            }
-            idcardFirstTextField.snp.updateConstraints { make in
-                make.top.equalTo(self.view.safeAreaLayoutGuide).offset(291)
-            }
-            idSlashFirst.snp.updateConstraints { make in
-                make.top.equalTo(self.view.safeAreaLayoutGuide).offset(306)
-            }
-            
-            mobileLabel.snp.updateConstraints { make in
-                make.top.equalTo(self.view.safeAreaLayoutGuide).offset(214)
-            }
-            mobileUnfold.snp.updateConstraints { make in
-                make.top.equalTo(self.view.safeAreaLayoutGuide).offset(228)
-            }
-            mobileTouchArea.snp.makeConstraints { make in
-                make.top.equalTo(self.view.safeAreaLayoutGuide).offset(214)
-            }
-            appearPhoneNumber()
-            self.view.layoutIfNeeded()
+            changeTitle(text: "휴대폰 번호를 입력해 주세요.")
         }
-        changeTitle(text: "휴대폰 번호를 입력해 주세요.")
     }
 }
 
@@ -425,6 +489,7 @@ extension SignUpVC: SecondViewControllerDelegate{
         mobileLabel.text = mobileType
         mobileLabel.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         mobileDownAction()
+        mobileDownFirst = false
         placeholderUp(text: mobilePlaceholder)
     }
 }

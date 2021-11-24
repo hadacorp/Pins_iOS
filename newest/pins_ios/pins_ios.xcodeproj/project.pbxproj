@@ -13,6 +13,7 @@
 		B70062C3272DA6BA00639CBE /* CommunityContentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70062C2272DA6BA00639CBE /* CommunityContentVC.swift */; };
 		B70062C5272DB1AF00639CBE /* CommunityContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70062C4272DB1AF00639CBE /* CommunityContentViewModel.swift */; };
 		B70228E7274E8DA300D412A4 /* Extension+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70228E6274E8DA300D412A4 /* Extension+String.swift */; };
+		B70228E9274EA4B600D412A4 /* CertificationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70228E8274EA4B600D412A4 /* CertificationVC.swift */; };
 		B70253E7273ADC3500119E4E /* Extension+UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70253E6273ADC3500119E4E /* Extension+UIImage.swift */; };
 		B704D48026DBCE6800DB20D2 /* AnimationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B704D47F26DBCE6800DB20D2 /* AnimationManager.swift */; };
 		B704F03C26E36C5900DA9E06 /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B704F03B26E36C5900DA9E06 /* Cell.swift */; };
@@ -109,6 +110,7 @@
 		B70062C2272DA6BA00639CBE /* CommunityContentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityContentVC.swift; sourceTree = "<group>"; };
 		B70062C4272DB1AF00639CBE /* CommunityContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityContentViewModel.swift; sourceTree = "<group>"; };
 		B70228E6274E8DA300D412A4 /* Extension+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+String.swift"; sourceTree = "<group>"; };
+		B70228E8274EA4B600D412A4 /* CertificationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificationVC.swift; sourceTree = "<group>"; };
 		B70253E6273ADC3500119E4E /* Extension+UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIImage.swift"; sourceTree = "<group>"; };
 		B704D47F26DBCE6800DB20D2 /* AnimationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationManager.swift; sourceTree = "<group>"; };
 		B704F03B26E36C5900DA9E06 /* Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
@@ -466,6 +468,7 @@
 				B7F0593E2749601600F0E431 /* SignUpVC.swift */,
 				B7EE75A2274A861400AB0B38 /* SignUpUI.swift */,
 				B7B72834274D2D7C00451871 /* HalfModalView.swift */,
+				B70228E8274EA4B600D412A4 /* CertificationVC.swift */,
 			);
 			path = SignUp;
 			sourceTree = "<group>";
@@ -667,6 +670,7 @@
 				B74B3C03270C12C000C6284C /* FilterCell.swift in Sources */,
 				B74B3C05270CA21B00C6284C /* MeetingFilterViewModel.swift in Sources */,
 				B704D48026DBCE6800DB20D2 /* AnimationManager.swift in Sources */,
+				B70228E9274EA4B600D412A4 /* CertificationVC.swift in Sources */,
 				B7DE776D270B668900F8F0EB /* MeetingFilterController.swift in Sources */,
 				B7B70B2826F78FBE006052A1 /* CoreDataManager.swift in Sources */,
 				B7C5DAAD26C80A550011EE41 /* MainViewModel.swift in Sources */,
