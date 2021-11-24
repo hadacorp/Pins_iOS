@@ -15,6 +15,7 @@ class SignUpVC: UIViewController, BaseViewController{
     // MARK: -ViewController LifeCycle
     override func viewDidLoad() {
         setUI()
+        hideKeyboard()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -23,8 +24,51 @@ class SignUpVC: UIViewController, BaseViewController{
     
     // MARK: -Param Variable
     public var paramMobile: String?
-    
+    public var idcardDownFirst = true
+    public var mobileDownFirst = true
     // MARK: -Initial UI
+    let confirmBtn: UIButton = {
+        let btn = UIButton()
+        btn.setTitle("확인", for: .normal)
+        btn.setTitleColor(.white, for: .normal)
+        btn.titleLabel?.font = UIFont(name: "NotoSansKR-Regular", size: 16)
+        btn.layer.cornerRadius = 8
+        btn.backgroundColor = #colorLiteral(red: 0.1137254902, green: 0.6666666667, blue: 0.9529411765, alpha: 1)
+        btn.layer.opacity = 0
+        btn.addTarget(self, action: #selector(appearCertification), for: .touchUpInside)
+        return btn
+    }()
+    
+    let certificationBlack: UIView = {
+        let bg = UIView()
+        bg.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        bg.layer.opacity = 0
+        return bg
+    }()
+    
+    let certificationBackground: UIView = {
+        let background = UIView()
+        background.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        background.layer.cornerRadius = 32
+        return background
+    }()
+    let certificationButton: UIButton = {
+        let btn = UIButton()
+        btn.setTitle("문자 인증 받기", for: .normal)
+        btn.setTitleColor(.white, for: .normal)
+        btn.titleLabel?.font = UIFont(name: "NotoSansKR-Regular", size: 14)
+        btn.layer.cornerRadius = 8
+        btn.backgroundColor = #colorLiteral(red: 0.1137254902, green: 0.6666666667, blue: 0.9529411765, alpha: 1)
+        btn.titleEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 2, right: 0.0)
+        return btn
+    }()
+    let certificationTitle: UILabel = {
+        let label = UILabel()
+        label.text = "약관에 전체 동의"
+        label.font = UIFont(name: "NotoSansKR-Medium", size: 20)
+        return label
+    }()
+    
     let nameLine: UIView = {
         let line = UIView()
         
@@ -74,6 +118,7 @@ class SignUpVC: UIViewController, BaseViewController{
         textField.setPlaceholderColor(#colorLiteral(red: 0.6, green: 0.6, blue: 0.6, alpha: 1))
         textField.tag = 4
         textField.layer.opacity = 0
+        textField.keyboardType = .numberPad
         return textField
     }()
     
@@ -288,6 +333,9 @@ extension SignUpVC: UITextFieldDelegate{
             if newLength > 0{
                 textField.text = string
                 idcardDownAction()
+                lineUnfocus(line: idLineLastFocus)
+                self.view.endEditing(true)
+                idcardDownFirst = false
             }
         }
         if textField.tag == 4{
@@ -296,7 +344,7 @@ extension SignUpVC: UITextFieldDelegate{
             textField.text = text!.applyPatternOnNumbers(pattern: "###-####-####", replacementCharacter: "#")
             if newLength > 12 && textField.text!.count == 12{
                 textField.text! += string
-                print("End")
+                changeTitle(text: "내용이 정확한지 확인해 주세요.")
                 self.view.endEditing(true)
             }
             else if newLength <= 12{
@@ -338,5 +386,16 @@ extension SignUpVC: UITextFieldDelegate{
         else if textField.tag == 4{
             lineUnfocus(line: phoneNumberLineFocus)
         }
+    }
+}
+
+extension SignUpVC {
+    func hideKeyboard() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self,
+            action: #selector(dismissKeyboard))
+        view.addGestureRecognizer(tap)
+    }
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
 }

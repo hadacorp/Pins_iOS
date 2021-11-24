@@ -40,7 +40,7 @@ class CustomModalViewController: UIViewController {
     }()
     
     // 2
-    let maxDimmedAlpha: CGFloat = 0.7
+    let maxDimmedAlpha: CGFloat = 0.3
     lazy var dimmedView: UIView = {
         let view = UIView()
         view.alpha = 0
