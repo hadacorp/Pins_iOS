@@ -62,6 +62,7 @@ class SignUpVC: UIViewController, BaseViewController{
         placeholder.font = UIFont(name: "NotoSansKR-Regular", size: 20)
         placeholder.text = "휴대폰 번호"
         placeholder.textAlignment = .left
+        placeholder.layer.opacity = 0
         return placeholder
     }()
     
@@ -71,9 +72,23 @@ class SignUpVC: UIViewController, BaseViewController{
         textField.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         textField.font = UIFont(name: "NotoSansKR-Regular", size: 20)
         textField.setPlaceholderColor(#colorLiteral(red: 0.6, green: 0.6, blue: 0.6, alpha: 1))
-        textField.tag = 1
-        
+        textField.tag = 4
+        textField.layer.opacity = 0
         return textField
+    }()
+    
+    let phoneNumberLine: UIView = {
+        let line = UIView()
+        line.backgroundColor = #colorLiteral(red: 0.9215686275, green: 0.9215686275, blue: 0.9215686275, alpha: 1)
+        line.layer.opacity = 0
+        return line
+    }()
+    
+    let phoneNumberLineFocus: UIView = {
+        let line = UIView()
+        line.backgroundColor = #colorLiteral(red: 0.1137254902, green: 0.6666666667, blue: 0.9529411765, alpha: 1)
+        line.layer.opacity = 0
+        return line
     }()
     
     let namePlaceholder: UILabel = {
