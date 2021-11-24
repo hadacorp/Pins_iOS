@@ -19,7 +19,6 @@ class SignUpVC: UIViewController, BaseViewController{
     
     override func viewDidAppear(_ animated: Bool) {
         self.nameTextField.becomeFirstResponder()
-        print("asdf")
     }
     
     // MARK: -Param Variable
