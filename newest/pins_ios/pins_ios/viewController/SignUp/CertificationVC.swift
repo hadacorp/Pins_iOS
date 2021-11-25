@@ -26,6 +26,27 @@ class CertificationVC: UIViewController, BaseViewController{
         label.textColor = #colorLiteral(red: 0.06666666667, green: 0.06666666667, blue: 0.06666666667, alpha: 1)
         return label
     }()
+    
+    let placeholder: UILabel = {
+        let label = UILabel()
+        label.text = "인증번호"
+        label.font = UIFont(name: "NotoSansKR-Regular", size: 20)
+        label.textColor = #colorLiteral(red: 0.6, green: 0.6, blue: 0.6, alpha: 1)
+        return label
+    }()
+    
+    let numberTextField: UITextField = {
+        let field = UITextField()
+        field.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        field.font = UIFont(name: "NotoSansKR-Regular", size: 20)
+        return field
+    }()
+    
+    let line: UIView = {
+        let line = UIView()
+        line.backgroundColor = #colorLiteral(red: 0.1137254902, green: 0.6666666667, blue: 0.9529411765, alpha: 1)
+        return line
+    }()
 }
 
 // MARK: - ViewController LifeCycle
@@ -50,6 +71,9 @@ extension CertificationVC{
     func addSubViews() {
         view.addSubview(backBtn)
         view.addSubview(titleLabel)
+        view.addSubview(placeholder)
+        view.addSubview(line)
+        view.addSubview(numberTextField)
     }
     
     func setLayout() {
@@ -62,6 +86,21 @@ extension CertificationVC{
             make.leading.equalTo(16)
             make.top.equalTo(self.view.safeAreaLayoutGuide).offset(64)
             make.height.equalTo(69)
+        }
+        placeholder.snp.makeConstraints { make in
+            make.leading.equalTo(16)
+            make.top.equalTo(self.view.safeAreaLayoutGuide).offset(177)
+        }
+        line.snp.makeConstraints { make in
+            make.leading.equalTo(16)
+            make.trailing.equalTo(-16)
+            make.top.equalTo(self.view.safeAreaLayoutGuide).offset(210)
+            make.height.equalTo(2)
+        }
+        numberTextField.snp.makeConstraints { make in
+            make.leading.equalTo(16)
+            make.trailing.equalTo(-16)
+            make.top.equalTo(self.view.safeAreaLayoutGuide).offset(177)
         }
     }
 }
