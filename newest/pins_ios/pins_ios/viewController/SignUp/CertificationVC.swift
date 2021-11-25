@@ -65,15 +65,15 @@ extension CertificationVC{
     }
     
     func setDelegate() {
-        
+        numberTextField.delegate = self
     }
     
     func addSubViews() {
         view.addSubview(backBtn)
         view.addSubview(titleLabel)
-        view.addSubview(placeholder)
         view.addSubview(line)
         view.addSubview(numberTextField)
+        numberTextField.addSubview(placeholder)
     }
     
     func setLayout() {
@@ -88,8 +88,8 @@ extension CertificationVC{
             make.height.equalTo(69)
         }
         placeholder.snp.makeConstraints { make in
-            make.leading.equalTo(16)
-            make.top.equalTo(self.view.safeAreaLayoutGuide).offset(177)
+            make.leading.equalTo(0)
+            make.top.equalTo(0)
         }
         line.snp.makeConstraints { make in
             make.leading.equalTo(16)
@@ -103,6 +103,17 @@ extension CertificationVC{
             make.top.equalTo(self.view.safeAreaLayoutGuide).offset(177)
         }
     }
+    
+    func placeholderUp(text: UILabel){
+        // 애니메이션
+        text.font = UIFont(name: "NotoSansKR-Regular", size: 14)
+        UIView.animate(withDuration: 0.25, delay: 0, options: .curveEaseOut) {
+            text.snp.remakeConstraints {
+                $0.top.equalTo(-20)
+            }
+            self.view.layoutIfNeeded()
+        }
+    }
 }
 
 // MARK: - ViewController Event Function
@@ -110,5 +121,13 @@ extension CertificationVC{
     @objc
     func backAction(){
         self.navigationController?.popViewController(animated: true)
+    }
+}
+
+// MARK: - ViewController Delegate
+extension CertificationVC: UITextFieldDelegate{
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        placeholderUp(text: placeholder)
+        return true
     }
 }
