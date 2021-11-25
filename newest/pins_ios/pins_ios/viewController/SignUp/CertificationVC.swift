@@ -47,6 +47,15 @@ class CertificationVC: UIViewController, BaseViewController{
         line.backgroundColor = #colorLiteral(red: 0.1137254902, green: 0.6666666667, blue: 0.9529411765, alpha: 1)
         return line
     }()
+    
+    let resendBtn: UILabel = {
+        let label = UILabel()
+        label.text = "인증문자 재전송"
+        label.textColor = #colorLiteral(red: 0.3764705882, green: 0.3764705882, blue: 0.3764705882, alpha: 1)
+        label.font = UIFont(name: "NotoSansKR-Regular", size: 12)
+        label.underline()
+        return label
+    }()
 }
 
 // MARK: - ViewController LifeCycle
@@ -74,6 +83,7 @@ extension CertificationVC{
         view.addSubview(line)
         view.addSubview(numberTextField)
         numberTextField.addSubview(placeholder)
+        view.addSubview(resendBtn)
     }
     
     func setLayout() {
@@ -101,6 +111,10 @@ extension CertificationVC{
             make.leading.equalTo(16)
             make.trailing.equalTo(-16)
             make.top.equalTo(self.view.safeAreaLayoutGuide).offset(177)
+        }
+        resendBtn.snp.makeConstraints { make in
+            make.trailing.equalTo(-16)
+            make.top.equalTo(self.view.safeAreaLayoutGuide).offset(218)
         }
     }
     
