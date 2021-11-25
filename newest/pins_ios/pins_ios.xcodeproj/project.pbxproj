@@ -52,6 +52,7 @@
 		B74F96AB26E4AB0B0064B900 /* Extension+CLLocationCoordinate2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74F96AA26E4AB0B0064B900 /* Extension+CLLocationCoordinate2D.swift */; };
 		B74F96AD26E4AB3E0064B900 /* Extension+UISearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74F96AC26E4AB3E0064B900 /* Extension+UISearchBar.swift */; };
 		B76080DA2713507E000A710D /* MeetingDetailVCSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76080D92713507E000A710D /* MeetingDetailVCSlider.swift */; };
+		B7639527274FE65B00F30D3D /* Extension+UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7639526274FE65B00F30D3D /* Extension+UILabel.swift */; };
 		B77EC71526F0E59A0002C0D6 /* GetSearchKeywordPinAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77EC71426F0E59A0002C0D6 /* GetSearchKeywordPinAPI.swift */; };
 		B77EC71726F0EF540002C0D6 /* GetPlaceCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77EC71626F0EF540002C0D6 /* GetPlaceCard.swift */; };
 		B77EC71926F0EF5E0002C0D6 /* GetKeywordCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77EC71826F0EF5E0002C0D6 /* GetKeywordCard.swift */; };
@@ -151,6 +152,7 @@
 		B74F96AA26E4AB0B0064B900 /* Extension+CLLocationCoordinate2D.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+CLLocationCoordinate2D.swift"; sourceTree = "<group>"; };
 		B74F96AC26E4AB3E0064B900 /* Extension+UISearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UISearchBar.swift"; sourceTree = "<group>"; };
 		B76080D92713507E000A710D /* MeetingDetailVCSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingDetailVCSlider.swift; sourceTree = "<group>"; };
+		B7639526274FE65B00F30D3D /* Extension+UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UILabel.swift"; sourceTree = "<group>"; };
 		B77EC71426F0E59A0002C0D6 /* GetSearchKeywordPinAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetSearchKeywordPinAPI.swift; sourceTree = "<group>"; };
 		B77EC71626F0EF540002C0D6 /* GetPlaceCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPlaceCard.swift; sourceTree = "<group>"; };
 		B77EC71826F0EF5E0002C0D6 /* GetKeywordCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetKeywordCard.swift; sourceTree = "<group>"; };
@@ -393,6 +395,7 @@
 				B70253E6273ADC3500119E4E /* Extension+UIImage.swift */,
 				B706B76B274564810017CBB0 /* Extension+UIButton.swift */,
 				B70228E6274E8DA300D412A4 /* Extension+String.swift */,
+				B7639526274FE65B00F30D3D /* Extension+UILabel.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -665,6 +668,7 @@
 				B709090326E2006E0075BF50 /* SearchViewEventManager.swift in Sources */,
 				B7F4417526EBB62100546257 /* PinType.swift in Sources */,
 				B7FA1D8027149D36005F924A /* PostMeetingPin.swift in Sources */,
+				B7639527274FE65B00F30D3D /* Extension+UILabel.swift in Sources */,
 				B7EEC995272ECC9B00AD98B0 /* PostCommunityPin.swift in Sources */,
 				B7EE75A5274A9D4300AB0B38 /* LabelButton.swift in Sources */,
 				B74B3C03270C12C000C6284C /* FilterCell.swift in Sources */,
