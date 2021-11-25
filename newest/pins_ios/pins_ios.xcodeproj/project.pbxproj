@@ -53,6 +53,7 @@
 		B74F96AD26E4AB3E0064B900 /* Extension+UISearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74F96AC26E4AB3E0064B900 /* Extension+UISearchBar.swift */; };
 		B76080DA2713507E000A710D /* MeetingDetailVCSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76080D92713507E000A710D /* MeetingDetailVCSlider.swift */; };
 		B7639527274FE65B00F30D3D /* Extension+UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7639526274FE65B00F30D3D /* Extension+UILabel.swift */; };
+		B7639529274FFBC500F30D3D /* NicknameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7639528274FFBC500F30D3D /* NicknameVC.swift */; };
 		B77EC71526F0E59A0002C0D6 /* GetSearchKeywordPinAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77EC71426F0E59A0002C0D6 /* GetSearchKeywordPinAPI.swift */; };
 		B77EC71726F0EF540002C0D6 /* GetPlaceCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77EC71626F0EF540002C0D6 /* GetPlaceCard.swift */; };
 		B77EC71926F0EF5E0002C0D6 /* GetKeywordCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77EC71826F0EF5E0002C0D6 /* GetKeywordCard.swift */; };
@@ -153,6 +154,7 @@
 		B74F96AC26E4AB3E0064B900 /* Extension+UISearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UISearchBar.swift"; sourceTree = "<group>"; };
 		B76080D92713507E000A710D /* MeetingDetailVCSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingDetailVCSlider.swift; sourceTree = "<group>"; };
 		B7639526274FE65B00F30D3D /* Extension+UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UILabel.swift"; sourceTree = "<group>"; };
+		B7639528274FFBC500F30D3D /* NicknameVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameVC.swift; sourceTree = "<group>"; };
 		B77EC71426F0E59A0002C0D6 /* GetSearchKeywordPinAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetSearchKeywordPinAPI.swift; sourceTree = "<group>"; };
 		B77EC71626F0EF540002C0D6 /* GetPlaceCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPlaceCard.swift; sourceTree = "<group>"; };
 		B77EC71826F0EF5E0002C0D6 /* GetKeywordCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetKeywordCard.swift; sourceTree = "<group>"; };
@@ -472,6 +474,7 @@
 				B7EE75A2274A861400AB0B38 /* SignUpUI.swift */,
 				B7B72834274D2D7C00451871 /* HalfModalView.swift */,
 				B70228E8274EA4B600D412A4 /* CertificationVC.swift */,
+				B7639528274FFBC500F30D3D /* NicknameVC.swift */,
 			);
 			path = SignUp;
 			sourceTree = "<group>";
@@ -666,6 +669,7 @@
 				B77EC71526F0E59A0002C0D6 /* GetSearchKeywordPinAPI.swift in Sources */,
 				B7EB60092713010C0037B7C6 /* MeetingDetailVCUI.swift in Sources */,
 				B709090326E2006E0075BF50 /* SearchViewEventManager.swift in Sources */,
+				B7639529274FFBC500F30D3D /* NicknameVC.swift in Sources */,
 				B7F4417526EBB62100546257 /* PinType.swift in Sources */,
 				B7FA1D8027149D36005F924A /* PostMeetingPin.swift in Sources */,
 				B7639527274FE65B00F30D3D /* Extension+UILabel.swift in Sources */,
