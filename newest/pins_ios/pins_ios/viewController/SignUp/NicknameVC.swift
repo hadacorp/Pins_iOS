@@ -20,7 +20,6 @@ class NicknameVC: UIViewController, BaseViewController {
         let label = UILabel()
         label.text = "본인 인증 완료."
         label.numberOfLines = 2
-        label.setLineSpacing(lineSpacing: 2.0)
         label.font = UIFont(name: "NotoSansKR-Medium", size: 20)
         label.textColor = #colorLiteral(red: 0.06666666667, green: 0.06666666667, blue: 0.06666666667, alpha: 1)
         return label
@@ -29,10 +28,36 @@ class NicknameVC: UIViewController, BaseViewController {
         let label = UILabel()
         label.text = "사용하실 닉네임을 입력해 주세요!"
         label.numberOfLines = 2
-        label.setLineSpacing(lineSpacing: 2.0)
         label.font = UIFont(name: "NotoSansKR-Medium", size: 20)
         label.textColor = #colorLiteral(red: 0.06666666667, green: 0.06666666667, blue: 0.06666666667, alpha: 1)
         return label
+    }()
+    
+    let nickPlaceholder: UILabel = {
+        let placeholder = UILabel()
+
+        placeholder.textColor = #colorLiteral(red: 0.6, green: 0.6, blue: 0.6, alpha: 1)
+        placeholder.font = UIFont(name: "NotoSansKR-Regular", size: 20)
+        placeholder.text = "닉네임"
+        placeholder.textAlignment = .left
+        return placeholder
+    }()
+    
+    let nickTextField: UITextField = {
+        let textField = UITextField()
+        
+        textField.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        textField.font = UIFont(name: "NotoSansKR-Regular", size: 20)
+        textField.setPlaceholderColor(#colorLiteral(red: 0.6, green: 0.6, blue: 0.6, alpha: 1))
+        textField.tag = 4
+        textField.keyboardType = .numberPad
+        return textField
+    }()
+    
+    let nickLine: UIView = {
+        let line = UIView()
+        line.backgroundColor = #colorLiteral(red: 0.9215686275, green: 0.9215686275, blue: 0.9215686275, alpha: 1)
+        return line
     }()
 }
 
@@ -59,6 +84,9 @@ extension NicknameVC{
         view.addSubview(backBtn)
         view.addSubview(titleLabel_1)
         view.addSubview(titleLabel_2)
+        view.addSubview(nickTextField)
+        view.addSubview(nickLine)
+        nickTextField.addSubview(nickPlaceholder)
     }
     
     func setLayout() {
