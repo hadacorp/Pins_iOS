@@ -49,8 +49,7 @@ class NicknameVC: UIViewController, BaseViewController {
         textField.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         textField.font = UIFont(name: "NotoSansKR-Regular", size: 20)
         textField.setPlaceholderColor(#colorLiteral(red: 0.6, green: 0.6, blue: 0.6, alpha: 1))
-        textField.tag = 4
-        textField.keyboardType = .numberPad
+        textField.tag = 0
         return textField
     }()
     
@@ -65,6 +64,7 @@ class NicknameVC: UIViewController, BaseViewController {
 extension NicknameVC{
     override func viewDidLoad() {
         setUI()
+        nickTextField.becomeFirstResponder()
     }
 }
 
@@ -77,7 +77,7 @@ extension NicknameVC{
     }
     
     func setDelegate() {
-        
+        nickTextField.delegate = self
     }
     
     func addSubViews() {
@@ -103,6 +103,20 @@ extension NicknameVC{
             make.leading.equalTo(16)
             make.top.equalTo(self.view.safeAreaLayoutGuide).offset(104)
         }
+        nickPlaceholder.snp.makeConstraints { make in
+            make.leading.equalTo(0)
+            make.top.equalTo(0)
+        }
+        nickTextField.snp.makeConstraints { make in
+            make.leading.equalTo(16)
+            make.top.equalTo(self.view.safeAreaLayoutGuide).offset(177)
+        }
+        nickLine.snp.makeConstraints { make in
+            make.leading.equalTo(16)
+            make.trailing.equalTo(16)
+            make.top.equalTo(self.view.safeAreaLayoutGuide).offset(210)
+            make.height.equalTo(2)
+        }
     }
 }
 
@@ -112,4 +126,8 @@ extension NicknameVC{
     func backAction(){
         self.navigationController?.popViewController(animated: true)
     }
+}
+
+extension NicknameVC: UITextFieldDelegate{
+    
 }
