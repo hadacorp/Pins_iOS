@@ -45,9 +45,9 @@ class CommunityContentVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUI()
         picker = ViewControllers.shared.picker
         picker.delegate = self
+        setUI()
     }
     
     private func setUI(){
