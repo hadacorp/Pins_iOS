@@ -185,7 +185,7 @@ extension NicknameVC{
     }
     
     func checkNickname(nick: String){
-        let pattern = "^[~!@#$%^&*]{0,}$"
+        let pattern = "(?=.*[!@#$%^])"
         print(nick)
         let regex = try? NSRegularExpression(pattern: pattern)
         if let _ = regex?.firstMatch(in: nick, options: [], range: NSRange(location: 0, length: nick.count)) {
@@ -206,7 +206,11 @@ extension NicknameVC{
                                         param: ["nickName": nick]) { [self] (success, data) in
             let bool = String(data: data as! Data, encoding: .utf8).flatMap(Bool.init)
             if bool == false{
-                print("가능")
+                DispatchQueue.main.async {
+                    let profileVC = self.storyboard!.instantiateViewController(withIdentifier: "ProfileVC") as! ProfileVC
+                    profileVC.paramNick = nick
+                    self.navigationController?.pushViewController(profileVC, animated: true)
+                }
             }
             else{
                 DispatchQueue.main.async {

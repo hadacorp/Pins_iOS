@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ufp-e9-dKN">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="i8q-E7-Kl4">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment version="4096" identifier="iOS"/>
@@ -308,10 +308,10 @@
             </objects>
             <point key="canvasLocation" x="-542" y="-911"/>
         </scene>
-        <!--View Controller-->
+        <!--ProfileVC-->
         <scene sceneID="waL-X2-ska">
             <objects>
-                <viewController id="Idu-JY-DWB" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProfileVC" id="Idu-JY-DWB" customClass="ProfileVC" customModule="pins_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LrD-oZ-Naz">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -331,12 +331,12 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="mcw-3J-lw3" kind="relationship" relationship="rootViewController" id="gjO-RP-79N"/>
+                        <segue destination="mcw-3J-lw3" kind="relationship" relationship="rootViewController" id="jai-TI-LTT"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cqP-Kq-iKc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3359" y="-911"/>
+            <point key="canvasLocation" x="-3468" y="-912"/>
         </scene>
         <!--Meeting Filter Controller-->
         <scene sceneID="9Ud-VU-Vf7">
