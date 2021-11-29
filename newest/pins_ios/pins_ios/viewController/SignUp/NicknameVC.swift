@@ -8,6 +8,8 @@
 import UIKit
 
 class NicknameVC: UIViewController, BaseViewController {
+    var textSize = 0
+    
     let backBtn: UIButton = {
         let btn = UIButton()
         
@@ -35,7 +37,7 @@ class NicknameVC: UIViewController, BaseViewController {
     
     let nickPlaceholder: UILabel = {
         let placeholder = UILabel()
-
+        
         placeholder.textColor = #colorLiteral(red: 0.6, green: 0.6, blue: 0.6, alpha: 1)
         placeholder.font = UIFont(name: "NotoSansKR-Regular", size: 20)
         placeholder.text = "닉네임"
@@ -45,7 +47,7 @@ class NicknameVC: UIViewController, BaseViewController {
     
     let nickTextField: UITextField = {
         let textField = UITextField()
-        
+
         textField.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         textField.font = UIFont(name: "NotoSansKR-Regular", size: 20)
         textField.setPlaceholderColor(#colorLiteral(red: 0.6, green: 0.6, blue: 0.6, alpha: 1))
@@ -53,13 +55,14 @@ class NicknameVC: UIViewController, BaseViewController {
         return textField
     }()
     
+    
     let nickLine: UIView = {
         let line = UIView()
         line.backgroundColor = #colorLiteral(red: 0.1137254902, green: 0.6666666667, blue: 0.9529411765, alpha: 1)
         return line
     }()
     
-    let nickDiscription: UILabel = {
+    let nickDescription: UILabel = {
         let text = UILabel()
         text.text = "한글 닉네임을 권장드려요."
         text.textColor = #colorLiteral(red: 0.1137254902, green: 0.6666666667, blue: 0.9529411765, alpha: 1)
@@ -79,6 +82,14 @@ class NicknameVC: UIViewController, BaseViewController {
         button.addTarget(self, action: #selector(nextView), for: .touchUpInside)
         return button
     }()
+    
+    let nickByte: UILabel = {
+        let label = UILabel()
+        label.text = "2~8 글자"
+        label.font = UIFont(name: "NotoSansKR-Regular", size: 16)
+        label.textColor = #colorLiteral(red: 0.3764705882, green: 0.3764705882, blue: 0.3764705882, alpha: 1)
+        return label
+    }()
 }
 
 // MARK: - VIewController LifeCycle
@@ -92,6 +103,10 @@ extension NicknameVC{
 // MARK: - ViewController Setting UI
 extension NicknameVC{
     func setUI() {
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(textDidChange(_:)),
+                                               name: UITextField.textDidChangeNotification,
+                                               object: textField)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         setDelegate()
         addSubViews()
@@ -109,8 +124,9 @@ extension NicknameVC{
         view.addSubview(nickTextField)
         view.addSubview(nickLine)
         nickTextField.addSubview(nickPlaceholder)
-        view.addSubview(nickDiscription)
+        view.addSubview(nickDescription)
         view.addSubview(confirmButton)
+        view.addSubview(nickByte)
     }
     
     func setLayout() {
@@ -141,7 +157,7 @@ extension NicknameVC{
             make.top.equalTo(self.view.safeAreaLayoutGuide).offset(210)
             make.height.equalTo(2)
         }
-        nickDiscription.snp.makeConstraints { make in
+        nickDescription.snp.makeConstraints { make in
             make.leading.equalTo(16)
             make.top.equalTo(self.view.safeAreaLayoutGuide).offset(218)
         }
@@ -150,6 +166,10 @@ extension NicknameVC{
             make.trailing.equalTo(0)
             make.bottom.equalTo(self.view.safeAreaLayoutGuide).offset(0)
             make.height.equalTo(48)
+        }
+        nickByte.snp.makeConstraints { make in
+            make.trailing.equalTo(-16)
+            make.top.equalTo(self.view.safeAreaLayoutGuide).offset(180)
         }
     }
     
@@ -164,9 +184,61 @@ extension NicknameVC{
         }
     }
     
+    func checkNickname(nick: String){
+        let pattern = "^[~!@#$%^&*]{0,}$"
+        print(nick)
+        let regex = try? NSRegularExpression(pattern: pattern)
+        if let _ = regex?.firstMatch(in: nick, options: [], range: NSRange(location: 0, length: nick.count)) {
+            // 있는경우
+            errorNickname(type: 0)
+            print("특수문자 있어요")
+            return
+        }
+        if nick.contains(" "){
+            errorNickname(type: 0)
+            return
+        }
+        if nick.count > 8{
+            errorNickname(type: 2)
+            return
+        }
+        PostCheckNickname().requestPost(url: "http://bangi98.cafe24.com:8081/users/nickname", method: "POST",
+                                        param: ["nickName": nick]) { [self] (success, data) in
+            let bool = String(data: data as! Data, encoding: .utf8).flatMap(Bool.init)
+            if bool == false{
+                print("가능")
+            }
+            else{
+                DispatchQueue.main.async {
+                    errorNickname(type: 1)
+                }
+                print("불가능")
+            }
+        }
+    }
+    
+    func errorNickname(type: Int){
+        // 특수문자
+        if type == 0{
+            nickDescription.text! = "띄어쓰기 및 특수문자 사용 불가"
+        }
+        // 중복
+        else if type == 1{
+            nickDescription.text! = "이미 사용되고 있는 닉네임입니다."
+        }
+        else if type == 2{
+            nickDescription.text! = "글자수가 초과 됐습니다."
+        }
+        nickPlaceholder.textColor = #colorLiteral(red: 1, green: 0.3058823529, blue: 0.1607843137, alpha: 1)
+        nickLine.backgroundColor = #colorLiteral(red: 1, green: 0.3058823529, blue: 0.1607843137, alpha: 1)
+        nickDescription.textColor = #colorLiteral(red: 1, green: 0.3058823529, blue: 0.1607843137, alpha: 1)
+    }
+    
     @objc
     func nextView(){
         // 뷰 전환
+        // 닉네임 체크
+        checkNickname(nick: nickTextField.text!)
     }
     
     @objc
@@ -177,6 +249,25 @@ extension NicknameVC{
             
             confirmButton.snp.makeConstraints { make in
                 make.bottom.equalTo(-keyboardHeight)
+            }
+        }
+    }
+    
+    @objc private func textDidChange(_ notification: Notification) {
+        if let textField = notification.object as? UITextField {
+            if let text = textField.text {
+                
+                if text.count > 8 {
+                    // 8글자 넘어가면 자동으로 키보드 내려감
+                    textField.resignFirstResponder()
+                }
+                
+                // 초과되는 텍스트 제거
+                if text.count >= 8 {
+                    let index = text.index(text.startIndex, offsetBy: 8)
+                    let newString = text[text.startIndex..<index]
+                    textField.text = String(newString)
+                }
             }
         }
     }
@@ -192,8 +283,10 @@ extension NicknameVC{
 
 extension NicknameVC: UITextFieldDelegate{
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let newLength = textField.text!.count + string.count - range.length
         if textField.tag == 0{
             placeholderUp(text: nickPlaceholder)
+            return newLength < 10
         }
         return true
     }
