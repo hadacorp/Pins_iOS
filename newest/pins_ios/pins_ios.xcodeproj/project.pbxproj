@@ -55,6 +55,7 @@
 		B7639527274FE65B00F30D3D /* Extension+UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7639526274FE65B00F30D3D /* Extension+UILabel.swift */; };
 		B7639529274FFBC500F30D3D /* NicknameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7639528274FFBC500F30D3D /* NicknameVC.swift */; };
 		B76FA57E2755270F005E577F /* PostCheckNickname.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76FA57D2755270F005E577F /* PostCheckNickname.swift */; };
+		B76FA58027555857005E577F /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76FA57F27555857005E577F /* ProfileVC.swift */; };
 		B77EC71526F0E59A0002C0D6 /* GetSearchKeywordPinAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77EC71426F0E59A0002C0D6 /* GetSearchKeywordPinAPI.swift */; };
 		B77EC71726F0EF540002C0D6 /* GetPlaceCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77EC71626F0EF540002C0D6 /* GetPlaceCard.swift */; };
 		B77EC71926F0EF5E0002C0D6 /* GetKeywordCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77EC71826F0EF5E0002C0D6 /* GetKeywordCard.swift */; };
@@ -157,6 +158,7 @@
 		B7639526274FE65B00F30D3D /* Extension+UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UILabel.swift"; sourceTree = "<group>"; };
 		B7639528274FFBC500F30D3D /* NicknameVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameVC.swift; sourceTree = "<group>"; };
 		B76FA57D2755270F005E577F /* PostCheckNickname.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCheckNickname.swift; sourceTree = "<group>"; };
+		B76FA57F27555857005E577F /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		B77EC71426F0E59A0002C0D6 /* GetSearchKeywordPinAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetSearchKeywordPinAPI.swift; sourceTree = "<group>"; };
 		B77EC71626F0EF540002C0D6 /* GetPlaceCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPlaceCard.swift; sourceTree = "<group>"; };
 		B77EC71826F0EF5E0002C0D6 /* GetKeywordCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetKeywordCard.swift; sourceTree = "<group>"; };
@@ -478,6 +480,7 @@
 				B7B72834274D2D7C00451871 /* HalfModalView.swift */,
 				B70228E8274EA4B600D412A4 /* CertificationVC.swift */,
 				B7639528274FFBC500F30D3D /* NicknameVC.swift */,
+				B76FA57F27555857005E577F /* ProfileVC.swift */,
 			);
 			path = SignUp;
 			sourceTree = "<group>";
@@ -605,6 +608,7 @@
 				B741BA4826E8FCFD00BB04E7 /* Place.swift in Sources */,
 				B7E6BFED27180759006051DA /* CommunityDetailViewModel.swift in Sources */,
 				B709090926E273840075BF50 /* HomeResponse.swift in Sources */,
+				B76FA58027555857005E577F /* ProfileVC.swift in Sources */,
 				B70CFC3526BFDC0C00B7DA74 /* PinMaker.swift in Sources */,
 				B724315B26C18A950091152E /* SmallRoundedBtn.swift in Sources */,
 				B76080DA2713507E000A710D /* MeetingDetailVCSlider.swift in Sources */,
