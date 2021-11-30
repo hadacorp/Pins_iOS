@@ -316,8 +316,18 @@ extension SignUpVC{
 
 // MARK: -Event
 extension SignUpVC{
+    func saveData(){
+        SignupUser.shared.name = nameTextField.text!
+        SignupUser.shared.resredNumber = idcardFirstTextField.text! + "-" + idcardLastTextField.text!
+        SignupUser.shared.phoneNum = phoneNumberTextField.text!
+        print(SignupUser.shared.name)
+        print(SignupUser.shared.resredNumber)
+        print(SignupUser.shared.phoneNum)
+    }
+    
     @objc
     func changeCertificationVC(){
+        saveData()
         let certVC = self.storyboard!.instantiateViewController(withIdentifier: "CertificationVC") as! CertificationVC
         self.navigationController?.pushViewController(certVC, animated: true)
     }

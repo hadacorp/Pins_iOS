@@ -73,6 +73,16 @@ class ProfileVC: UIViewController, BaseViewController {
         text.font = UIFont(name: "NotoSansKR-Regular", size: 11)
         return text
     }()
+    let signupBtn: UIButton = {
+        let btn = UIButton()
+        btn.setTitle("가입 완료", for: .normal)
+        btn.titleLabel?.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        btn.titleLabel!.font = UIFont(name: "NotoSansKR-Regular", size: 16)
+        btn.backgroundColor = #colorLiteral(red: 0.1137254902, green: 0.6666666667, blue: 0.9529411765, alpha: 1)
+        btn.layer.cornerRadius = 8
+        btn.addTarget(self, action: #selector(signUp), for: .touchUpInside)
+        return btn
+    }()
 }
 
 //MARK: - Life Cycle
@@ -109,6 +119,7 @@ extension ProfileVC{
         view.addSubview(picture)
         view.addSubview(cameraImg)
         view.addSubview(cameraText)
+        view.addSubview(signupBtn)
     }
     
     func setLayout() {
@@ -153,6 +164,12 @@ extension ProfileVC{
             make.centerX.equalTo(self.view)
             make.top.equalTo(self.view.safeAreaLayoutGuide).offset(248)
         }
+        signupBtn.snp.makeConstraints { make in
+            make.leading.equalTo(16)
+            make.trailing.equalTo(-16)
+            make.bottom.equalTo(self.view.safeAreaLayoutGuide).offset(0)
+            make.height.equalTo(48)
+        }
     }
     
     @objc func clickImageBtn(){
@@ -160,12 +177,22 @@ extension ProfileVC{
         
         present(imagePicker, animated: true, completion: nil)
     }
+    
+    @objc func signUp(){
+        PostSignup().requestPost(image: SignupUser.shared.image!, params: ["name": SignupUser.shared.name!,
+                                                                          "nickName": SignupUser.shared.nickName!,
+                                                                          "resRedNumber": SignupUser.shared.resredNumber!,
+                                                                          "phoneNum": SignupUser.shared.phoneNum!]) { (success, data) in
+            print(data)
+        }
+    }
 }
 extension ProfileVC : UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             cameraText.layer.opacity = 0
             cameraImg.layer.opacity = 0
+            SignupUser.shared.image = image
             let thumb = UIImageView()
             thumb.image = image
             picture.addSubview(thumb)
