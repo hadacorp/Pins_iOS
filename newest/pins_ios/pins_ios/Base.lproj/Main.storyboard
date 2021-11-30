@@ -238,6 +238,9 @@
                                     </attributedString>
                                     <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="loginBtn:" destination="mcw-3J-lw3" eventType="touchUpInside" id="mP7-7T-kwd"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="23m-v1-g4g"/>

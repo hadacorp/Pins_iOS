@@ -403,6 +403,10 @@ extension ViewController: MKMapViewDelegate{
     func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
         viewModel.unfocusPin(pinAnnotation: pinAnnotation, annotationView: view, annotation: view.annotation!)
     }
+    
+    @objc func handleTap(sender: UITapGestureRecognizer){
+        print(viewModel.getCheckablePins()![Int(currentIndex)])
+    }
 }
 
 extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -412,6 +416,9 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let myCell = collectionView.dequeueReusableCell(withReuseIdentifier: "CarouselCell", for: indexPath) as? CarouselCell {
+            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(sender:))) // 2. add the gesture recognizer to a view
+            myCell.addGestureRecognizer(tapGesture)
+
             for v in myCell.subviews{
                 v.removeFromSuperview()
             }
