@@ -6,10 +6,14 @@
 //
 
 import Foundation
+import UIKit
 
 class SignupUser {
     static var shared = SignupUser()
-    
-    var mobileType: String?
+    var name: String?
+    var nickName: String?
+    var phoneNum: String?
+    var image: UIImage?
+    var resredNumber: String?
     private init() {}
 }

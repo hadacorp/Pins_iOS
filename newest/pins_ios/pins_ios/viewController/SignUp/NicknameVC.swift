@@ -8,7 +8,7 @@
 import UIKit
 
 class NicknameVC: UIViewController, BaseViewController {
-    var textSize = 0
+    var nickCheck = true
     
     let backBtn: UIButton = {
         let btn = UIButton()
@@ -85,7 +85,7 @@ class NicknameVC: UIViewController, BaseViewController {
     
     let nickByte: UILabel = {
         let label = UILabel()
-        label.text = "2~8 글자"
+        label.text = "0/16byte"
         label.font = UIFont(name: "NotoSansKR-Regular", size: 16)
         label.textColor = #colorLiteral(red: 0.3764705882, green: 0.3764705882, blue: 0.3764705882, alpha: 1)
         return label
@@ -103,10 +103,7 @@ extension NicknameVC{
 // MARK: - ViewController Setting UI
 extension NicknameVC{
     func setUI() {
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(textDidChange(_:)),
-                                               name: UITextField.textDidChangeNotification,
-                                               object: textField)
+        self.nickTextField.addTarget(self, action: #selector(self.textFieldDidChange(_:)), for: .editingChanged)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         setDelegate()
         addSubViews()
@@ -149,6 +146,7 @@ extension NicknameVC{
         }
         nickTextField.snp.makeConstraints { make in
             make.leading.equalTo(16)
+            make.trailing.equalTo(-95)
             make.top.equalTo(self.view.safeAreaLayoutGuide).offset(177)
         }
         nickLine.snp.makeConstraints { make in
@@ -198,15 +196,12 @@ extension NicknameVC{
             errorNickname(type: 0)
             return
         }
-        if nick.count > 8{
-            errorNickname(type: 2)
-            return
-        }
         PostCheckNickname().requestPost(url: "http://bangi98.cafe24.com:8081/users/nickname", method: "POST",
                                         param: ["nickName": nick]) { [self] (success, data) in
             let bool = String(data: data as! Data, encoding: .utf8).flatMap(Bool.init)
             if bool == false{
                 DispatchQueue.main.async {
+                    SignupUser.shared.nickName = nick
                     let profileVC = self.storyboard!.instantiateViewController(withIdentifier: "ProfileVC") as! ProfileVC
                     profileVC.paramNick = nick
                     self.navigationController?.pushViewController(profileVC, animated: true)
@@ -221,6 +216,12 @@ extension NicknameVC{
         }
     }
     
+    func goodNickName(){
+        nickPlaceholder.textColor = #colorLiteral(red: 0.6, green: 0.6, blue: 0.6, alpha: 1)
+        nickLine.backgroundColor = #colorLiteral(red: 0.1137254902, green: 0.6666666667, blue: 0.9529411765, alpha: 1)
+        nickDescription.textColor = #colorLiteral(red: 0.1137254902, green: 0.6666666667, blue: 0.9529411765, alpha: 1)
+        nickDescription.text! = "한글 닉네임을 권장드려요."
+    }
     func errorNickname(type: Int){
         // 특수문자
         if type == 0{
@@ -256,24 +257,16 @@ extension NicknameVC{
             }
         }
     }
-    
-    @objc private func textDidChange(_ notification: Notification) {
-        if let textField = notification.object as? UITextField {
-            if let text = textField.text {
-                
-                if text.count > 8 {
-                    // 8글자 넘어가면 자동으로 키보드 내려감
-                    textField.resignFirstResponder()
-                }
-                
-                // 초과되는 텍스트 제거
-                if text.count >= 8 {
-                    let index = text.index(text.startIndex, offsetBy: 8)
-                    let newString = text[text.startIndex..<index]
-                    textField.text = String(newString)
-                }
-            }
+    @objc func textFieldDidChange(_ sender: Any?) {
+        if self.nickTextField.text!.lengthOfBytes(using: .utf8) <= 16{
+            // 나중에 삭제해도 되는 변수
+            nickCheck = true
+            goodNickName()
         }
+        else{
+            errorNickname(type: 2)
+        }
+        nickByte.text = "\(self.nickTextField.text!.lengthOfBytes(using: .utf8))/16byte"
     }
 }
 
@@ -287,10 +280,8 @@ extension NicknameVC{
 
 extension NicknameVC: UITextFieldDelegate{
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        let newLength = textField.text!.count + string.count - range.length
         if textField.tag == 0{
             placeholderUp(text: nickPlaceholder)
-            return newLength < 10
         }
         return true
     }

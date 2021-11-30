@@ -1,12 +1,12 @@
 //
-//  PostCommunityPin.swift
+//  PostSignup.swift
 //  pins_ios
 //
-//  Created by judongseok on 2021/10/31.
+//  Created by judongseok on 2021/11/30.
 //
 import UIKit
 
-class PostCommunityPin {
+class PostSignup {
     var boundary: String!
     var parameters: [String : Any]!
     // image 데이터를 만들기위한 요소들
@@ -21,7 +21,7 @@ class PostCommunityPin {
     
     func makeBody() -> Data {
         var body = Data()
-        let imgDataKey = "image"
+        let imgDataKey = "profileImage"
         for (key, value) in parameters {
             body.append("\r\n--\(String(describing: boundary))\r\n".data(using: .utf8)!)
             body.append("Content-Disposition: form-data; name=\"\(key)\"\r\n\r\n".data(using: .utf8)!)
@@ -46,7 +46,7 @@ class PostCommunityPin {
         
         // 사전 준비
         boundary = generateBoundary()
-        let url = URL(string: "http://bangi98.cafe24.com:8081/pin/communitypin")!
+        let url = URL(string: "http://bangi98.cafe24.com:8081/users/join")!
         var request = URLRequest(url: url)
         request.httpMethod = "Post"
         request.addValue("multipart/form-data; boundary=\(String(describing: boundary))", forHTTPHeaderField: "Content-Type")
@@ -65,6 +65,7 @@ class PostCommunityPin {
             }
             guard let response = response as? HTTPURLResponse, (200 ..< 300) ~= response.statusCode else {
                 print("Error: HTTP request failed")
+                dump(response)
                 return
             }
             let output = data
