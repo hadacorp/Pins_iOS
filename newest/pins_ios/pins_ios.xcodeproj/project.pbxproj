@@ -77,6 +77,7 @@
 		B7B70B2826F78FBE006052A1 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B70B2726F78FBE006052A1 /* CoreDataManager.swift */; };
 		B7B72835274D2D7C00451871 /* HalfModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B72834274D2D7C00451871 /* HalfModalView.swift */; };
 		B7B72837274D4F0500451871 /* SIgnupUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B72836274D4F0500451871 /* SIgnupUser.swift */; };
+		B7BEFB022756883600A34A49 /* GetMeetingPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7BEFB012756883600A34A49 /* GetMeetingPin.swift */; };
 		B7BFF298270F784B005AD1B8 /* MeetingDateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7BFF297270F784B005AD1B8 /* MeetingDateCell.swift */; };
 		B7C008812712245800E94A3E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7D998102712115400AED01B /* Foundation.framework */; };
 		B7C3F0D52756621700688165 /* PostSignup.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C3F0D42756621700688165 /* PostSignup.swift */; };
@@ -181,6 +182,7 @@
 		B7B70B2726F78FBE006052A1 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		B7B72834274D2D7C00451871 /* HalfModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HalfModalView.swift; sourceTree = "<group>"; };
 		B7B72836274D4F0500451871 /* SIgnupUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SIgnupUser.swift; sourceTree = "<group>"; };
+		B7BEFB012756883600A34A49 /* GetMeetingPin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMeetingPin.swift; sourceTree = "<group>"; };
 		B7BFF297270F784B005AD1B8 /* MeetingDateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingDateCell.swift; sourceTree = "<group>"; };
 		B7C3F0D42756621700688165 /* PostSignup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostSignup.swift; sourceTree = "<group>"; };
 		B7C5DAA726C805640011EE41 /* BigRoundedbutton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigRoundedbutton.swift; sourceTree = "<group>"; };
@@ -286,6 +288,7 @@
 				B7F06730270740ED00CFCE13 /* GetKeyword.swift */,
 				B7F06732270759D200CFCE13 /* GetLocation.swift */,
 				B7FA1D7F27149D36005F924A /* PostMeetingPin.swift */,
+				B7BEFB012756883600A34A49 /* GetMeetingPin.swift */,
 				B7EEC994272ECC9B00AD98B0 /* PostCommunityPin.swift */,
 				B76FA57D2755270F005E577F /* PostCheckNickname.swift */,
 				B7C3F0D42756621700688165 /* PostSignup.swift */,
@@ -665,6 +668,7 @@
 				B7EB6007271300DF0037B7C6 /* Extension+UIView.swift in Sources */,
 				B70062C3272DA6BA00639CBE /* CommunityContentVC.swift in Sources */,
 				B7EE75A3274A861400AB0B38 /* SignUpUI.swift in Sources */,
+				B7BEFB022756883600A34A49 /* GetMeetingPin.swift in Sources */,
 				B7B72837274D4F0500451871 /* SIgnupUser.swift in Sources */,
 				B7B70B2226F78F0D006052A1 /* RecentSearchModel.xcdatamodeld in Sources */,
 				B706B767274546B60017CBB0 /* LoginVC.swift in Sources */,

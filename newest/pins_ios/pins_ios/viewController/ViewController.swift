@@ -405,7 +405,17 @@ extension ViewController: MKMapViewDelegate{
     }
     
     @objc func handleTap(sender: UITapGestureRecognizer){
-        print(viewModel.getCheckablePins()![Int(currentIndex)])
+        let id = viewModel.getCheckablePins()![Int(currentIndex)].pinDBId!
+        // storypin
+        if viewModel.getCheckablePins()![Int(currentIndex)].pinType! == "storyPin"{
+            
+        }
+        // meetingpin
+        if viewModel.getCheckablePins()![Int(currentIndex)].pinType! == "meetingPin"{
+            GetMeetingPin().requestGet(id: id) { (success, data) in
+                print(data)
+            }
+        }
     }
 }
 
