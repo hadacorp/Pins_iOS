@@ -172,7 +172,7 @@ extension SearchViewController: UITableViewDelegate {
             latitude = (viewModel.getPlacesIndex(index: indexPath.row)?.latitude)!
             longitude = (viewModel.getPlacesIndex(index: indexPath.row)?.longitude)!
             
-            let preVC = self.navigationController?.viewControllers[0] as! ViewController
+            let preVC = self.navigationController?.viewControllers[1] as! ViewController
             preVC.paramLongitude = longitude
             preVC.paramLatitude = latitude
             preVC.paramSearchText = ""
@@ -190,7 +190,7 @@ extension SearchViewController: UITableViewDelegate {
             searchText.removeFirst()
             searchText.removeLast()
             if seleted.type == 1{
-                let preVC = self.navigationController?.viewControllers[0] as! ViewController
+                let preVC = self.navigationController?.viewControllers[1] as! ViewController
                 preVC.paramLongitude = longitude
                 preVC.paramLatitude = latitude
                 preVC.paramSearchText = ""

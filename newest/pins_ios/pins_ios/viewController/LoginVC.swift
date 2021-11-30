@@ -14,6 +14,10 @@ class LoginVC: UIViewController {
         let signup = self.storyboard!.instantiateViewController(withIdentifier: "SignUpVC") as! SignUpVC
         self.navigationController?.pushViewController(signup, animated: true)
     }
+    @IBAction func loginBtn(_ sender: Any) {
+        let mapView = self.storyboard!.instantiateViewController(withIdentifier: "MainVC") as! ViewController
+        self.navigationController?.pushViewController(mapView, animated: true)
+    }
     
     override func viewDidLoad() {
         setUI()
