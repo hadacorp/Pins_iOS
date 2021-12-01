@@ -32,16 +32,12 @@ class GetMeetingPin {
                 print("Error: HTTP request failed")
                 return
             }
-            guard let output = try? JSONDecoder().decode([Pin].self, from: data) else {
+            guard let output = try? JSONDecoder().decode(MeetingCardDetail.self, from: data) else {
+                dump(data)
                 print("Error: JSON Data Parsing failed")
                 return
             }
-            if output.isEmpty{
-                completionHandler(false, output)
-            }
-            else{
-                completionHandler(true, output)
-            }
+            completionHandler(true, output)
         }.resume()
     }
 }

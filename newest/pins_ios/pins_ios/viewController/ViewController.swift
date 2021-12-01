@@ -413,7 +413,13 @@ extension ViewController: MKMapViewDelegate{
         // meetingpin
         if viewModel.getCheckablePins()![Int(currentIndex)].pinType! == "meetingPin"{
             GetMeetingPin().requestGet(id: id) { (success, data) in
-                print(data)
+                // popup view 띄워주기
+                DispatchQueue.main.async {
+                    let vc = CardDetailViewController()
+                    vc.meetingCardDetail = data as? MeetingCardDetail
+                    vc.modalPresentationStyle = .overCurrentContext
+                    self.present(vc, animated: false)
+                }
             }
         }
     }

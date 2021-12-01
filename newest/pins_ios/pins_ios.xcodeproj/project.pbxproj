@@ -43,6 +43,8 @@
 		B741BA4626E8F5E800BB04E7 /* GetPlaceKeyword.swift in Sources */ = {isa = PBXBuildFile; fileRef = B741BA4526E8F5E800BB04E7 /* GetPlaceKeyword.swift */; };
 		B741BA4826E8FCFD00BB04E7 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = B741BA4726E8FCFD00BB04E7 /* Place.swift */; };
 		B741BA4B26E9116B00BB04E7 /* Debouncer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B741BA4A26E9116B00BB04E7 /* Debouncer.swift */; };
+		B7451A3F2757C84400643AD7 /* MeetingCardDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7451A3E2757C84400643AD7 /* MeetingCardDetail.swift */; };
+		B7451A412757D3A800643AD7 /* CardDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7451A402757D3A800643AD7 /* CardDetailViewController.swift */; };
 		B74B3C03270C12C000C6284C /* FilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74B3C02270C12C000C6284C /* FilterCell.swift */; };
 		B74B3C05270CA21B00C6284C /* MeetingFilterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74B3C04270CA21B00C6284C /* MeetingFilterViewModel.swift */; };
 		B74B3C07270DF9BB00C6284C /* PinMakeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74B3C06270DF9BB00C6284C /* PinMakeViewController.swift */; };
@@ -148,6 +150,8 @@
 		B741BA4526E8F5E800BB04E7 /* GetPlaceKeyword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPlaceKeyword.swift; sourceTree = "<group>"; };
 		B741BA4726E8FCFD00BB04E7 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		B741BA4A26E9116B00BB04E7 /* Debouncer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Debouncer.swift; sourceTree = "<group>"; };
+		B7451A3E2757C84400643AD7 /* MeetingCardDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingCardDetail.swift; sourceTree = "<group>"; };
+		B7451A402757D3A800643AD7 /* CardDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailViewController.swift; sourceTree = "<group>"; };
 		B74B3C02270C12C000C6284C /* FilterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCell.swift; sourceTree = "<group>"; };
 		B74B3C04270CA21B00C6284C /* MeetingFilterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingFilterViewModel.swift; sourceTree = "<group>"; };
 		B74B3C06270DF9BB00C6284C /* PinMakeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinMakeViewController.swift; sourceTree = "<group>"; };
@@ -308,6 +312,7 @@
 				B736564D2739852900DDFB5E /* ViewControllers.swift */,
 				B706B76F27460D6C0017CBB0 /* TextField.swift */,
 				B7B72836274D4F0500451871 /* SIgnupUser.swift */,
+				B7451A3E2757C84400643AD7 /* MeetingCardDetail.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -474,6 +479,7 @@
 				B7DE7770270B760300F8F0EB /* StoryFilterController.swift */,
 				B7DE776E270B75F700F8F0EB /* CommunityFilterController.swift */,
 				B706B766274546B60017CBB0 /* LoginVC.swift */,
+				B7451A402757D3A800643AD7 /* CardDetailViewController.swift */,
 			);
 			path = viewController;
 			sourceTree = "<group>";
@@ -624,6 +630,7 @@
 				B7C5DAA826C805640011EE41 /* BigRoundedbutton.swift in Sources */,
 				B7A0D84926EA571200AD5B46 /* Pin.swift in Sources */,
 				B70062C5272DB1AF00639CBE /* CommunityContentViewModel.swift in Sources */,
+				B7451A412757D3A800643AD7 /* CardDetailViewController.swift in Sources */,
 				B77EC71926F0EF5E0002C0D6 /* GetKeywordCard.swift in Sources */,
 				B787EA0126E4FEC30044D786 /* MainViewEventManager.swift in Sources */,
 				B7F0593F2749601600F0E431 /* SignUpVC.swift in Sources */,
@@ -691,6 +698,7 @@
 				B7639527274FE65B00F30D3D /* Extension+UILabel.swift in Sources */,
 				B7EEC995272ECC9B00AD98B0 /* PostCommunityPin.swift in Sources */,
 				B7EE75A5274A9D4300AB0B38 /* LabelButton.swift in Sources */,
+				B7451A3F2757C84400643AD7 /* MeetingCardDetail.swift in Sources */,
 				B74B3C03270C12C000C6284C /* FilterCell.swift in Sources */,
 				B74B3C05270CA21B00C6284C /* MeetingFilterViewModel.swift in Sources */,
 				B704D48026DBCE6800DB20D2 /* AnimationManager.swift in Sources */,
