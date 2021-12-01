@@ -451,13 +451,13 @@ class CardDetailViewController: UIViewController {
             make.leading.equalTo(44)
             make.top.equalTo(326)
         }
-        timeLabel.snp.makeConstraints { make in
+        ageLabel.snp.makeConstraints { make in
             make.leading.equalTo(44)
-            make.top.equalTo(326)
+            make.top.equalTo(354)
         }
-        timeLabel.snp.makeConstraints { make in
+        genderLabel.snp.makeConstraints { make in
             make.leading.equalTo(44)
-            make.top.equalTo(298)
+            make.top.equalTo(382)
         }
     }
     
