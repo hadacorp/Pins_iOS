@@ -550,8 +550,8 @@ class CardDetailViewController: UIViewController {
     }
     
     func initPartymember(){
+        var n = 0
         for i in meetingCardDetail.participantDetailList!{
-            var n = 0
             if meetingCardDetail.createUser?.id != i.id{
                 // 프로필 이미지
                 let proImg = UIImageView()
