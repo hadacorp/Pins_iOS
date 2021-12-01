@@ -190,11 +190,14 @@ extension SearchViewController: UITableViewDelegate {
             searchText.removeFirst()
             searchText.removeLast()
             if seleted.type == 1{
-                let preVC = self.navigationController?.viewControllers[1] as! ViewController
-                preVC.paramLongitude = longitude
-                preVC.paramLatitude = latitude
-                preVC.paramSearchText = ""
-                preVC.paramType = 1
+                let preVC = self.navigationController?.viewControllers[(self.navigationController?.viewControllers.count)! - 2]
+                guard let vc = preVC as? ViewController else {
+                    return
+                }
+                vc.paramLongitude = longitude
+                vc.paramLatitude = latitude
+                vc.paramSearchText = ""
+                vc.paramType = 1
                 self.navigationController?.popViewController(animated: true)
             }
             else{

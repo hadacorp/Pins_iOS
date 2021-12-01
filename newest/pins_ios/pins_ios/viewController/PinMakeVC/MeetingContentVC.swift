@@ -33,10 +33,14 @@ class MeetingContentVC: UIViewController {
                                             "minute" : MeetingPin.shared.minute!,
                                          ]) { (success, data) in
                 DispatchQueue.main.async {
-                    (self.navigationController?.viewControllers.first as? ViewController)?.paramLatitude = MeetingPin.shared.latitude
-                    (self.navigationController?.viewControllers.first as? ViewController)?.paramLongitude = MeetingPin.shared.longitude
-                     
-                    self.navigationController?.popToRootViewController(animated: true)
+                    for i in self.navigationController!.viewControllers{
+                        if let vc = i as? ViewController{
+                            vc.paramLatitude = MeetingPin.shared.latitude
+                            vc.paramLongitude = MeetingPin.shared.longitude
+                            
+                            self.navigationController?.popToViewController(vc, animated: true)
+                        }
+                    }
                 }
             }
         }

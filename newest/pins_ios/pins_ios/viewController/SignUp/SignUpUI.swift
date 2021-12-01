@@ -320,9 +320,6 @@ extension SignUpVC{
         SignupUser.shared.name = nameTextField.text!
         SignupUser.shared.resredNumber = idcardFirstTextField.text! + "-" + idcardLastTextField.text!
         SignupUser.shared.phoneNum = phoneNumberTextField.text!
-        print(SignupUser.shared.name)
-        print(SignupUser.shared.resredNumber)
-        print(SignupUser.shared.phoneNum)
     }
     
     @objc

@@ -184,6 +184,10 @@ extension ProfileVC{
                                                                           "resRedNumber": SignupUser.shared.resredNumber!,
                                                                           "phoneNum": SignupUser.shared.phoneNum!]) { (success, data) in
             print(data)
+            DispatchQueue.main.async {
+                let mapView = self.storyboard!.instantiateViewController(withIdentifier: "MainVC") as! ViewController
+                self.navigationController?.pushViewController(mapView, animated: true)
+            }
         }
     }
 }
