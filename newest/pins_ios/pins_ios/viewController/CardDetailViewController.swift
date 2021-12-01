@@ -53,6 +53,35 @@ class CardDetailViewController: UIViewController {
         return line
     }()
     
+    lazy var name: UILabel = {
+        let label = UILabel()
+        label.text = meetingCardDetail.createUser?.nickName!
+        label.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        label.font = UIFont(name: "NotoSansKR-Regular", size: 14)
+        return label
+    }()
+    
+    lazy var age: UILabel = {
+        let label = UILabel()
+        label.text = meetingCardDetail.createUser?.detail!
+        label.font = UIFont(name: "NotoSansKR-Regular", size: 12)
+        return label
+    }()
+    
+    lazy var star: UIImageView = {
+        let image = UIImageView()
+        image.image = #imageLiteral(resourceName: "star")
+        return image
+    }()
+    
+    lazy var siren: UIImageView = {
+        let image = UIImageView()
+        image.image = #imageLiteral(resourceName: "sirenIcon")
+        return image
+    }()
+    
+    lazy var 
+    
     // 2
     let maxDimmedAlpha: CGFloat = 0.3
     lazy var dimmedView: UIView = {
@@ -194,11 +223,16 @@ class CardDetailViewController: UIViewController {
         // 4. Add subviews
         view.addSubview(dimmedView)
         view.addSubview(containerView)
-        view.addSubview(profile)
-        view.addSubview(topUI)
-        view.addSubview(profileLine)
-        view.addSubview(contentLine)
-        view.addSubview(lastLine)
+        containerView.addSubview(profile)
+        containerView.addSubview(topUI)
+        containerView.addSubview(profileLine)
+        containerView.addSubview(contentLine)
+        containerView.addSubview(lastLine)
+        containerView.addSubview(name)
+        containerView.addSubview(age)
+        containerView.addSubview(star)
+        containerView.addSubview(siren)
+        
         
         dimmedView.translatesAutoresizingMaskIntoConstraints = false
         containerView.translatesAutoresizingMaskIntoConstraints = false
@@ -237,9 +271,37 @@ class CardDetailViewController: UIViewController {
         profileLine.snp.makeConstraints { make in
             make.leading.trailing.equalTo(0)
             make.top.equalTo(72)
+            make.height.equalTo(1)
         }
         contentLine.snp.makeConstraints { make in
-            make.leading.trailing.equalTo(0)
+            make.leading.equalTo(16)
+            make.trailing.equalTo(-16)
+            make.top.equalTo(283)
+            make.height.equalTo(1)
+        }
+        lastLine.snp.makeConstraints { make in
+            make.leading.equalTo(16)
+            make.trailing.equalTo(-16)
+            make.top.equalTo(420)
+            make.height.equalTo(1)
+        }
+        name.snp.makeConstraints { make in
+            make.leading.equalTo(64)
+            make.top.equalTo(17)
+        }
+        age.snp.makeConstraints { make in
+            make.leading.equalTo(64)
+            make.top.equalTo(36)
+        }
+        star.snp.makeConstraints { make in
+            make.trailing.equalTo(-64)
+            make.top.equalTo(16)
+            make.width.height.equalTo(40)
+        }
+        siren.snp.makeConstraints { make in
+            make.trailing.equalTo(-16)
+            make.top.equalTo(16)
+            make.width.height.equalTo(40)
         }
     }
 }
