@@ -23,8 +23,8 @@ class CardDetailViewController: UIViewController {
         let image = UIImageView()
         let url = URL(string: (meetingCardDetail.createUser?.image)!)
         image.load(url: url!)
-        let maskView = UIImageView(image: UIImage(named: "profileMask"))
-        image.mask = maskView
+//        let maskView = UIImageView(image: UIImage(named: "profileMask"))
+//        image.mask = maskView
         return image
     }()
     
@@ -80,7 +80,94 @@ class CardDetailViewController: UIViewController {
         return image
     }()
     
-    lazy var 
+    lazy var pinType: UILabel = {
+        let label = UILabel()
+        label.text = "만남"
+        label.textColor = #colorLiteral(red: 0.3764705882, green: 0.3764705882, blue: 0.3764705882, alpha: 1)
+        label.font = UIFont(name: "NotoSansKR-Regular", size: 12)
+        label.textAlignment = .center
+        label.backgroundColor = #colorLiteral(red: 0.9607843137, green: 0.9607843137, blue: 0.9607843137, alpha: 1)
+        label.clipsToBounds = true
+        label.layer.cornerRadius = 8
+        return label
+    }()
+    
+    lazy var category: UILabel = {
+        let label = UILabel()
+        label.text = meetingCardDetail.category!
+        label.textColor = #colorLiteral(red: 0.3764705882, green: 0.3764705882, blue: 0.3764705882, alpha: 1)
+        label.font = UIFont(name: "NotoSansKR-Regular", size: 12)
+        label.textAlignment = .center
+        label.backgroundColor = #colorLiteral(red: 0.9607843137, green: 0.9607843137, blue: 0.9607843137, alpha: 1)
+        label.clipsToBounds = true
+        label.layer.cornerRadius = 8
+        return label
+    }()
+    
+    lazy var cardTitle: UILabel = {
+        let label = UILabel()
+        label.text = meetingCardDetail.title!
+        label.font = UIFont(name: "NotoSansKR-Medium", size: 17)
+        label.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        return label
+    }()
+    
+    lazy var cardContent: UILabel = {
+        let label = UILabel()
+        label.text = meetingCardDetail.content!
+        label.font = UIFont(name: "NotoSansKR-Regular", size: 15)
+        label.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        return label
+    }()
+    
+    lazy var timeIcon: UIImageView = {
+        let image = UIImageView()
+        image.image = #imageLiteral(resourceName: "timeIcon")
+        return image
+    }()
+    lazy var locationIcon: UIImageView = {
+        let image = UIImageView()
+        image.image = #imageLiteral(resourceName: "locationIcon")
+        return image
+    }()
+    lazy var ageIcon: UIImageView = {
+        let image = UIImageView()
+        image.image = #imageLiteral(resourceName: "ageIcon")
+        return image
+    }()
+    lazy var genderIcon: UIImageView = {
+        let image = UIImageView()
+        image.image = #imageLiteral(resourceName: "genderIcon")
+        return image
+    }()
+    lazy var timeLabel: UILabel = {
+        let label = UILabel()
+        label.text = meetingCardDetail.date!
+        label.font = UIFont(name: "NotoSansKR-Regular", size: 14)
+        label.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        return label
+    }()
+    lazy var locationLabel: UILabel = {
+        let label = UILabel()
+        label.text = meetingCardDetail.address!
+        label.font = UIFont(name: "NotoSansKR-Regular", size: 14)
+        label.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        return label
+    }()
+    lazy var ageLabel: UILabel = {
+        let label = UILabel()
+        label.text = meetingCardDetail.ageRange!
+        label.font = UIFont(name: "NotoSansKR-Regular", size: 14)
+        label.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        return label
+    }()
+    lazy var genderLabel: UILabel = {
+        let label = UILabel()
+        label.text = meetingCardDetail.setGender!
+        label.font = UIFont(name: "NotoSansKR-Regular", size: 14)
+        label.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        return label
+    }()
     
     // 2
     let maxDimmedAlpha: CGFloat = 0.3
@@ -232,7 +319,18 @@ class CardDetailViewController: UIViewController {
         containerView.addSubview(age)
         containerView.addSubview(star)
         containerView.addSubview(siren)
-        
+        containerView.addSubview(pinType)
+        containerView.addSubview(category)
+        containerView.addSubview(cardTitle)
+        containerView.addSubview(cardContent)
+        containerView.addSubview(timeIcon)
+        containerView.addSubview(locationIcon)
+        containerView.addSubview(ageIcon)
+        containerView.addSubview(genderIcon)
+        containerView.addSubview(timeLabel)
+        containerView.addSubview(locationLabel)
+        containerView.addSubview(ageLabel)
+        containerView.addSubview(genderLabel)
         
         dimmedView.translatesAutoresizingMaskIntoConstraints = false
         containerView.translatesAutoresizingMaskIntoConstraints = false
@@ -303,6 +401,79 @@ class CardDetailViewController: UIViewController {
             make.top.equalTo(16)
             make.width.height.equalTo(40)
         }
+        pinType.snp.makeConstraints { make in
+            make.leading.equalTo(16)
+            make.top.equalTo(88)
+            make.width.equalTo(46)
+            make.height.equalTo(17)
+        }
+        category.snp.makeConstraints { make in
+            make.leading.equalTo(66)
+            make.top.equalTo(88)
+            make.width.equalTo(getStringWidth(string: category.text!))
+            make.height.equalTo(17)
+        }
+        cardTitle.snp.makeConstraints { make in
+            make.leading.equalTo(16)
+            make.trailing.equalTo(-16)
+            make.top.equalTo(113)
+        }
+        cardContent.snp.makeConstraints { make in
+            make.leading.equalTo(16)
+            make.trailing.equalTo(-16)
+            make.top.equalTo(179)
+        }
+        timeIcon.snp.makeConstraints { make in
+            make.leading.equalTo(16)
+            make.top.equalTo(299)
+            make.width.height.equalTo(20)
+        }
+        locationIcon.snp.makeConstraints { make in
+            make.leading.equalTo(16)
+            make.top.equalTo(327)
+            make.width.height.equalTo(20)
+        }
+        ageIcon.snp.makeConstraints { make in
+            make.leading.equalTo(16)
+            make.top.equalTo(355)
+            make.width.height.equalTo(20)
+        }
+        genderIcon.snp.makeConstraints { make in
+            make.leading.equalTo(16)
+            make.top.equalTo(383)
+            make.width.height.equalTo(20)
+        }
+        timeLabel.snp.makeConstraints { make in
+            make.leading.equalTo(44)
+            make.top.equalTo(298)
+        }
+        locationLabel.snp.makeConstraints { make in
+            make.leading.equalTo(44)
+            make.top.equalTo(326)
+        }
+        timeLabel.snp.makeConstraints { make in
+            make.leading.equalTo(44)
+            make.top.equalTo(326)
+        }
+        timeLabel.snp.makeConstraints { make in
+            make.leading.equalTo(44)
+            make.top.equalTo(298)
+        }
+    }
+    
+    func getStringWidth(string: String) -> Int{
+        var width = 0
+        width = string.count * 11
+        if string.contains("#") {
+            width += 5
+            width -= 11
+        }
+        if string.contains("/") {
+            width += 5
+            width -= 11
+        }
+        width += 24
+        return width
     }
 }
 
