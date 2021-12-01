@@ -23,8 +23,11 @@ class CardDetailViewController: UIViewController {
         let image = UIImageView()
         let url = URL(string: (meetingCardDetail.createUser?.image)!)
         image.load(url: url!)
-//        let maskView = UIImageView(image: UIImage(named: "profileMask"))
-//        image.mask = maskView
+        // 임시
+        image.layer.cornerRadius = 16
+        let maskView = UIImageView(image: UIImage(named: "profileMask"))
+        maskView.frame = CGRect(x: 0, y: 0, width: 40, height: 40)
+        image.mask = maskView
         return image
     }()
     
@@ -168,6 +171,31 @@ class CardDetailViewController: UIViewController {
         label.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         return label
     }()
+    lazy var partyLabel: UILabel = {
+        let label = UILabel()
+        label.text = "참가 인원"
+        label.font = UIFont(name: "NotoSansKR-Medium", size: 14)
+        label.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        return label
+    }()
+    lazy var partyNum: UILabel = {
+        let label = UILabel()
+        label.text = "\(meetingCardDetail.participantNum!)/5명"
+        label.font = UIFont(name: "NotoSansKR-Regular", size: 14)
+        label.textColor = #colorLiteral(red: 0.3764705882, green: 0.3764705882, blue: 0.3764705882, alpha: 1)
+        return label
+    }()
+    lazy var partyJoinButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("참가 신청", for: .normal)
+        button.titleLabel?.textAlignment = .center
+        button.titleLabel?.font = UIFont(name: "NotoSansKR-Regular", size: 16)
+        button.setTitleColor(.white, for: .normal)
+        button.backgroundColor = #colorLiteral(red: 0.1137254902, green: 0.6666666667, blue: 0.9529411765, alpha: 1)
+        button.layer.cornerRadius = 8
+        button.shadow(x: 0, y: 4, blur: 8, spread: 0, opacity: 0.16)
+        return button
+    }()
     
     // 2
     let maxDimmedAlpha: CGFloat = 0.3
@@ -181,7 +209,7 @@ class CardDetailViewController: UIViewController {
     let defaultHeight: CGFloat = 436
     
     let dismissibleHeight: CGFloat = 200
-    let maximumContainerHeight: CGFloat = UIScreen.main.bounds.height - 64
+    let maximumContainerHeight: CGFloat = UIScreen.main.bounds.height - 44
     // keep updated with new height
     var currentContainerHeight: CGFloat = 436
     
@@ -331,6 +359,9 @@ class CardDetailViewController: UIViewController {
         containerView.addSubview(locationLabel)
         containerView.addSubview(ageLabel)
         containerView.addSubview(genderLabel)
+        containerView.addSubview(partyNum)
+        containerView.addSubview(partyLabel)
+        containerView.addSubview(partyJoinButton)
         
         dimmedView.translatesAutoresizingMaskIntoConstraints = false
         containerView.translatesAutoresizingMaskIntoConstraints = false
@@ -363,6 +394,7 @@ class CardDetailViewController: UIViewController {
         }
         topUI.snp.makeConstraints { make in
             make.centerX.equalTo(self.view)
+            make.top.equalTo(8)
             make.width.equalTo(40)
             make.height.equalTo(4)
         }
@@ -459,6 +491,22 @@ class CardDetailViewController: UIViewController {
             make.leading.equalTo(44)
             make.top.equalTo(382)
         }
+        partyJoinButton.snp.makeConstraints { make in
+            make.leading.equalTo(16)
+            make.trailing.equalTo(-16)
+            // iOS 15 수정 요망
+            make.top.equalTo((maximumContainerHeight - 45) - (UIApplication.shared.windows.first?.safeAreaInsets.bottom)!)
+            make.height.equalTo(41)
+        }
+        partyNum.snp.makeConstraints { make in
+            make.trailing.equalTo(-16)
+            make.top.equalTo(435)
+        }
+        partyLabel.snp.makeConstraints { make in
+            make.leading.equalTo(16)
+            make.top.equalTo(435)
+        }
+        initPartymember()
     }
     
     func getStringWidth(string: String) -> Int{
@@ -475,5 +523,50 @@ class CardDetailViewController: UIViewController {
         width += 24
         return width
     }
+    
+    func initPartymember(){
+        for i in meetingCardDetail.participantDetailList!{
+            var n = 0
+            if meetingCardDetail.createUser?.id != i.id{
+                // 프로필 이미지
+                let proImg = UIImageView()
+                containerView.addSubview(proImg)
+                let url = URL(string: i.image!)
+                proImg.load(url: url!)
+                let maskView = UIImageView(image: UIImage(named: "profileMask"))
+                maskView.frame = CGRect(x: 0, y: 0, width: 40, height: 40)
+                proImg.mask = maskView
+                
+                // 닉네임
+                let nick = UILabel()
+                containerView.addSubview(nick)
+                nick.text = i.nickName!
+                nick.font = UIFont(name: "NotoSansKR-Regular", size: 14)
+                nick.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+                
+                // 디테일
+                let detail = UILabel()
+                containerView.addSubview(detail)
+                detail.text = i.detail!
+                detail.font = UIFont(name: "NotoSansKR-Regular", size: 12)
+                detail.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+                
+                // AutoLayout
+                proImg.snp.makeConstraints { make in
+                    make.leading.equalTo(16)
+                    make.top.equalTo(463 + 48 * n)
+                    make.height.width.equalTo(40)
+                }
+                nick.snp.makeConstraints { make in
+                    make.leading.equalTo(64)
+                    make.top.equalTo(463 + 48 * n)
+                }
+                detail.snp.makeConstraints { make in
+                    make.leading.equalTo(64)
+                    make.top.equalTo(nick.snp.top).offset(20)
+                }
+            }
+            n += 1
+        }
+    }
 }
-
