@@ -524,6 +524,31 @@ class CardDetailViewController: UIViewController {
         return width
     }
     
+    func getDay() -> String{
+        let weekArray = ["(일)", "(월)", "(화)", "(수)", "(목)", "(금)", "(토)"] // 요일 배열
+            
+        // date 포맷 선언
+        let date = DateFormatter()
+        date.locale = Locale(identifier: "ko_kr")
+        date.dateFormat = "yyyy-MM-dd"
+        let ms = meetingCardDetail.date!.index(meetingCardDetail.date!.startIndex, offsetBy: 0)
+        let me = meetingCardDetail.date!.index(meetingCardDetail.date!.startIndex, offsetBy: 2)
+        let month = meetingCardDetail.date![ms...me]
+        
+        let ds = meetingCardDetail.date!.index(meetingCardDetail.date!.startIndex, offsetBy: 5)
+        let de = meetingCardDetail.date!.index(meetingCardDetail.date!.startIndex, offsetBy: 7)
+        let day = meetingCardDetail.date![ds...de]
+        
+        print(month)
+        print(day)
+        
+        let inputDay = date.date(from: "2021-\(month)-\(day)") // 입력받은 날짜 date 설정
+        let cal = Calendar(identifier: .gregorian)         // 그레고리 캘린더 선언
+        let comps = cal.dateComponents([.weekday], from: inputDay!) // 입력 받은 날짜 캘린더 형시으로 변환
+        
+        return weekArray[comps.weekday! - 1] // 요일 반환
+    }
+    
     func initPartymember(){
         for i in meetingCardDetail.participantDetailList!{
             var n = 0
