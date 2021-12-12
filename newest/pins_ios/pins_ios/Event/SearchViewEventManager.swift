@@ -59,7 +59,7 @@ extension SearchViewController{
     
     func getSearchKeywordPins(){
         removeDuplicate(indexPath: nil, latitude: latitude, longitude: longitude)
-        let preVC = self.navigationController?.viewControllers[0] as! ViewController
+        let preVC = self.navigationController?.viewControllers[1] as! ViewController
         preVC.paramLongitude = longitude
         preVC.paramLatitude = latitude
         preVC.paramSearchText = searchText

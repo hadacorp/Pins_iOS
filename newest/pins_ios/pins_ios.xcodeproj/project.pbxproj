@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6CAAB4AB6E68F9BD750A3D4B /* Pods_pins_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2E236C66795D43169F6D9A9 /* Pods_pins_ios.framework */; };
 		B70062BF272D937D00639CBE /* CommunityDetailEventManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70062BE272D937D00639CBE /* CommunityDetailEventManager.swift */; };
 		B70062C1272D93C700639CBE /* CommunityPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70062C0272D93C700639CBE /* CommunityPin.swift */; };
 		B70062C3272DA6BA00639CBE /* CommunityContentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70062C2272DA6BA00639CBE /* CommunityContentVC.swift */; };
@@ -226,7 +225,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				B7C008812712245800E94A3E /* Foundation.framework in Frameworks */,
-				6CAAB4AB6E68F9BD750A3D4B /* Pods_pins_ios.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -326,6 +324,7 @@
 				06A97ED4BE8D2ADD09DB0A3B /* Frameworks */,
 			);
 			sourceTree = "<group>";
+			wrapsLines = 1;
 		};
 		B70CFC1E26BFD82500B7DA74 /* Products */ = {
 			isa = PBXGroup;
@@ -859,6 +858,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = X843D4L2C2;
+				EXCLUDED_ARCHS = Arm64;
 				INFOPLIST_FILE = pins_ios/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -883,6 +883,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development: wnehdtjr5@naver.com (CXQ3P5G24B)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = X843D4L2C2;
+				EXCLUDED_ARCHS = Arm64;
 				INFOPLIST_FILE = pins_ios/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = (
