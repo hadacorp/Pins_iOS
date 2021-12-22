@@ -11,6 +11,7 @@ class MainViewModel: MainVCUI {
     // MARK:- Public Variable
     public var checkablePins: [Pin]?
     public var temp: [Pin] = []
+    public var createMode: Bool = false
     
     // MARK:- Public function
     public func getPinCardsCount() -> Int{

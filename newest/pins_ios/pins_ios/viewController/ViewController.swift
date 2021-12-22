@@ -70,6 +70,8 @@ class ViewController: UIViewController{
             paramLongitude = currentLocation.coordinate.longitude
             paramType = 1
         }
+        
+        viewModel.createMode = false
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -342,6 +344,7 @@ extension ViewController: MKMapViewDelegate{
         guard !(annotation is MKUserLocation) else{
             return nil
         }
+       
         var annotationView = mainMap.dequeueReusableAnnotationView(withIdentifier: "custom")
         
         annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "custom")
@@ -361,9 +364,10 @@ extension ViewController: MKMapViewDelegate{
         return annotationView
     }
     
+    // 지도 움직였을 때 핀 fetch
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
         if let startPos = startPos{
-            if paramSearchText != nil{
+            if paramSearchText != nil && viewModel.createMode == false{
                 if mapView.centerCoordinate.distance(from: startPos) > 1500 && paramSearchText == "" && currentIndex == 0{
                     GetLocation().requestGet(latitude: mapView.centerCoordinate.latitude, longitude: mapView.centerCoordinate.longitude) { [self] (success, data) in
                         if let data = data as? [Pin] {
