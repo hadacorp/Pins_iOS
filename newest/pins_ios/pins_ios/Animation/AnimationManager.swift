@@ -221,6 +221,13 @@ extension ViewController{
     }
     
     @objc func createPinButton(){
+        // createMode 변경
+        viewModel.createMode = true
+        // 카드뷰 내리기
+        downCardView()
+        // 포커스 풀기
+        mainMap.deselectAnnotation(focusPin?.annotation, animated: true)
+        
         for annotation in mainMap.annotations{
             mainMap.view(for: annotation)?.isHidden = true
         }
