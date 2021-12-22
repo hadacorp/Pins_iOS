@@ -246,6 +246,7 @@ extension ViewController{
         }
     }
     @objc func cancelCreatePin(){
+        viewModel.createMode = false
         for annotation in mainMap.annotations{
             mainMap.view(for: annotation)?.isHidden = false
         }

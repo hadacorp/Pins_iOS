@@ -71,10 +71,11 @@ class ViewController: UIViewController{
             paramType = 1
         }
         
-        viewModel.createMode = false
     }
 
     override func viewWillAppear(_ animated: Bool) {
+        viewModel.createMode = false
+        
         if let latitude = paramLatitude {
             if let longitude = paramLongitude {
                 // 위치 검색
@@ -344,7 +345,8 @@ extension ViewController: MKMapViewDelegate{
         guard !(annotation is MKUserLocation) else{
             return nil
         }
-       
+        
+        
         var annotationView = mainMap.dequeueReusableAnnotationView(withIdentifier: "custom")
         
         annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "custom")
@@ -360,6 +362,11 @@ extension ViewController: MKMapViewDelegate{
                 view.removeFromSuperview()
             }
             viewModel.makePin(pinAnnotation: pinAnnotation, annotationView: annotationView!, annotation: annotation)
+        }
+        
+        // createMode 이면 안보이게
+        if viewModel.createMode == true{
+            annotationView!.isHidden = true
         }
         return annotationView
     }
