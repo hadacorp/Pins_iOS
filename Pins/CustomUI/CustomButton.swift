@@ -8,23 +8,22 @@ import UIKit
 import SnapKit
 
 // 버튼 타입
-public enum RoundedButtonType {
+public enum CustomButtonType {
     case big
     case middle
     case small
 }
 
-// 라운드 버튼
-class RoundedButton: UIButton {
+// 커스텀 버튼
+class CustomButton: UIButton {
     var height: CGFloat = 0
     var width: CGFloat = 0
-    var color: UIColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
     
     init() {
         super.init(frame: CGRect.zero)
     }
 
-    convenience init(type: RoundedButtonType, parent: UIView) {
+    convenience init(type: CustomButtonType, parent: UIView) {
         self.init()
         
         switch type {
@@ -46,7 +45,7 @@ class RoundedButton: UIButton {
         super.init(coder: aDecoder)!
     }
     
-    func setupConstraints(top: CGFloat, leading: CGFloat) -> RoundedButton {
+    func setupConstraints(top: CGFloat, leading: CGFloat) -> CustomButton {
         // 제약사항에 관한 세팅들
         self.snp.makeConstraints { make in
             make.top.equalTo(top)
@@ -55,7 +54,7 @@ class RoundedButton: UIButton {
         return self
     }
     
-    func setSize(width: CGFloat, height: CGFloat) -> RoundedButton {
+    func setSize(width: CGFloat, height: CGFloat) -> CustomButton {
         self.snp.makeConstraints { make in
             make.width.equalTo(width)
             make.height.equalTo(height)
@@ -63,21 +62,27 @@ class RoundedButton: UIButton {
         return self
     }
     
-    func setColor(color: CGColor) -> RoundedButton {
+    func setColor(color: CGColor) -> CustomButton {
         self.layer.backgroundColor = color
         return self
     }
     
-    func setRounded(size: CGFloat) -> RoundedButton {
+    func setRounded(size: CGFloat) -> CustomButton {
         self.layer.cornerRadius = size
         return self
     }
     
-    func setShadow(x: CGFloat, y: CGFloat, blur: CGFloat, opacity: Float, color: CGColor) -> RoundedButton {
+    func setShadow(x: CGFloat, y: CGFloat, blur: CGFloat, opacity: Float, color: CGColor) -> CustomButton {
         self.layer.shadowColor = color
         self.layer.shadowOpacity = opacity
         self.layer.shadowOffset = CGSize(width: x, height: y)
         self.layer.shadowRadius = blur
+        return self
+    }
+    
+    func setOpacity(opacity: Float) -> CustomButton {
+        self.layer.opacity = opacity
+        
         return self
     }
 }

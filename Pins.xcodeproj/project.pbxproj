@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B71F24E3278FB23D003D8DE3 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71F24E2278FB23D003D8DE3 /* BaseViewController.swift */; };
+		B71F24E7278FC33A003D8DE3 /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71F24E6278FC33A003D8DE3 /* CustomLabel.swift */; };
 		B73B4702278EEEBE00A60C37 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = B73B4701278EEEBE00A60C37 /* SnapKit */; };
 		B73B4705278EFD3E00A60C37 /* UIScreenSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73B4704278EFD3E00A60C37 /* UIScreenSize.swift */; };
 		B73B4707278F02D300A60C37 /* Extension+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73B4706278F02D300A60C37 /* Extension+UIColor.swift */; };
@@ -17,10 +19,12 @@
 		B7B5B6EE278E5EEE002BDBEA /* Pins.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B7B5B6EC278E5EEE002BDBEA /* Pins.xcdatamodeld */; };
 		B7B5B6F0278E5EEF002BDBEA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B7B5B6EF278E5EEF002BDBEA /* Assets.xcassets */; };
 		B7B5B6F3278E5EEF002BDBEA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7B5B6F1278E5EEF002BDBEA /* LaunchScreen.storyboard */; };
-		B7B5B6FC278E60E2002BDBEA /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B5B6FB278E60E2002BDBEA /* RoundedButton.swift */; };
+		B7B5B6FC278E60E2002BDBEA /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B5B6FB278E60E2002BDBEA /* CustomButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B71F24E2278FB23D003D8DE3 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		B71F24E6278FC33A003D8DE3 /* CustomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
 		B73B4704278EFD3E00A60C37 /* UIScreenSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScreenSize.swift; sourceTree = "<group>"; };
 		B73B4706278F02D300A60C37 /* Extension+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIColor.swift"; sourceTree = "<group>"; };
 		B7B5B6E0278E5EEE002BDBEA /* Pins.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pins.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -32,7 +36,7 @@
 		B7B5B6EF278E5EEF002BDBEA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B7B5B6F2278E5EEF002BDBEA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B7B5B6F4278E5EEF002BDBEA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B7B5B6FB278E60E2002BDBEA /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
+		B7B5B6FB278E60E2002BDBEA /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +56,7 @@
 			children = (
 				B73B4704278EFD3E00A60C37 /* UIScreenSize.swift */,
 				B73B4706278F02D300A60C37 /* Extension+UIColor.swift */,
+				B71F24E2278FB23D003D8DE3 /* BaseViewController.swift */,
 			);
 			path = Utill;
 			sourceTree = "<group>";
@@ -92,7 +97,8 @@
 		B7B5B6FA278E60A9002BDBEA /* CustomUI */ = {
 			isa = PBXGroup;
 			children = (
-				B7B5B6FB278E60E2002BDBEA /* RoundedButton.swift */,
+				B7B5B6FB278E60E2002BDBEA /* CustomButton.swift */,
+				B71F24E6278FC33A003D8DE3 /* CustomLabel.swift */,
 			);
 			path = CustomUI;
 			sourceTree = "<group>";
@@ -175,10 +181,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				B73B4705278EFD3E00A60C37 /* UIScreenSize.swift in Sources */,
+				B71F24E7278FC33A003D8DE3 /* CustomLabel.swift in Sources */,
 				B7B5B6E8278E5EEE002BDBEA /* ViewController.swift in Sources */,
 				B73B4707278F02D300A60C37 /* Extension+UIColor.swift in Sources */,
-				B7B5B6FC278E60E2002BDBEA /* RoundedButton.swift in Sources */,
+				B7B5B6FC278E60E2002BDBEA /* CustomButton.swift in Sources */,
 				B7B5B6E4278E5EEE002BDBEA /* AppDelegate.swift in Sources */,
+				B71F24E3278FB23D003D8DE3 /* BaseViewController.swift in Sources */,
 				B7B5B6E6278E5EEE002BDBEA /* SceneDelegate.swift in Sources */,
 				B7B5B6EE278E5EEE002BDBEA /* Pins.xcdatamodeld in Sources */,
 			);
