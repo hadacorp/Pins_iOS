@@ -15,8 +15,6 @@ class BaseViewController: UIViewController {
     
     // 자주 사용하는 프로퍼티를 넣어줘도 되요
     // MARK: - Property
-    let locationManager: CLLocationManager = CLLocationManager()
-    let mapView = MKMapView()
     
     // MARK: - Initializing
     init() {

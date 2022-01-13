@@ -10,13 +10,10 @@ import MapKit
 
 extension ViewController: MKMapViewDelegate, CLLocationManagerDelegate {
     func setMapUserLocation() {
+        locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.distanceFilter = kCLDistanceFilterNone
-        locationManager.startUpdatingLocation()
-        
-        mapView.showsUserLocation = true
-        mapView.setUserTrackingMode(.follow, animated: true)
     }
     
     override func didReceiveMemoryWarning() {
@@ -54,6 +51,8 @@ extension ViewController: MKMapViewDelegate, CLLocationManagerDelegate {
         switch status {
         case .authorizedAlways, .authorizedWhenInUse:
             print("GPS 권한 설정됨")
+            self.mapView.showsUserLocation = true
+            self.mapView.setUserTrackingMode(.follow, animated: true)
         case .restricted, .notDetermined:
             print("GPS 권한 설정되지 않음")
             DispatchQueue.main.async {
