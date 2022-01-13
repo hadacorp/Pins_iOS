@@ -27,6 +27,7 @@
 		B7B5B6F3278E5EEF002BDBEA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7B5B6F1278E5EEF002BDBEA /* LaunchScreen.storyboard */; };
 		B7B5B6FC278E60E2002BDBEA /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B5B6FB278E60E2002BDBEA /* CustomButton.swift */; };
 		B7C8103D279043A800258CC5 /* ViewController+Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C8103C279043A800258CC5 /* ViewController+Map.swift */; };
+		B7C8103F2790534C00258CC5 /* ViewController+Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C8103E2790534C00258CC5 /* ViewController+Action.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +52,7 @@
 		B7B5B6F4278E5EEF002BDBEA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B7B5B6FB278E60E2002BDBEA /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		B7C8103C279043A800258CC5 /* ViewController+Map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Map.swift"; sourceTree = "<group>"; };
+		B7C8103E2790534C00258CC5 /* ViewController+Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Action.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 			children = (
 				B7B5B6E7278E5EEE002BDBEA /* ViewController.swift */,
 				B7C8103C279043A800258CC5 /* ViewController+Map.swift */,
+				B7C8103E2790534C00258CC5 /* ViewController+Action.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -224,6 +227,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B73B4705278EFD3E00A60C37 /* UIScreenSize.swift in Sources */,
+				B7C8103F2790534C00258CC5 /* ViewController+Action.swift in Sources */,
 				B71F24E7278FC33A003D8DE3 /* CustomLabel.swift in Sources */,
 				B7B5B6E8278E5EEE002BDBEA /* ViewController.swift in Sources */,
 				B73B4707278F02D300A60C37 /* Extension+UIColor.swift in Sources */,

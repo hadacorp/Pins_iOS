@@ -6,16 +6,19 @@
 //
 
 import UIKit
+import MapKit
 import CoreLocation
 
 class ViewController: BaseViewController {
+    // MARK: - Property
+    let locationManager: CLLocationManager = CLLocationManager()
+    let mapView = MKMapView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // GPS 사용 허가 받기
+        setMapUserLocation()
         getLocationUsagePermission()
-        self.mapView.showsUserLocation = true
-        self.mapView.setUserTrackingMode(.follow, animated: true)
     }
     
     override func setupUI() {
@@ -96,8 +99,16 @@ class ViewController: BaseViewController {
     
     // ex
     @objc func printLog() {
+        // 위치 요청 시
+        let accuracyState = CLLocationManager().accuracyAuthorization
+        switch accuracyState {
+        case .fullAccuracy:
+            print("full")
+        case .reducedAccuracy:
+            print("reduce")
+        @unknown default:
+            print("Unknown")
+        }
         print("button clicked!")
-        self.mapView.showsUserLocation = true
-        self.mapView.setUserTrackingMode(.follow, animated: true)
     }
 }
