@@ -37,7 +37,7 @@ class CustomButton: UIButton {
             width = 100
             height = 100
         }
-        
+        self.layer.zPosition = 99
         parent.addSubview(self)
     }
     
