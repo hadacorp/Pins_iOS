@@ -15,6 +15,8 @@ class CustomLabel: UILabel {
     
     convenience init(parent: UIView) {
         self.init()
+        
+        parent.addSubview(self)
     }
     
     required init?(coder: NSCoder) {
@@ -32,4 +34,29 @@ class CustomLabel: UILabel {
         
         return self
     }
+    
+    func setText(text: String) -> CustomLabel {
+        self.text = text
+        
+        return self
+    }
+    
+    func setupConstraints(top: CGFloat, leading: CGFloat) -> CustomLabel {
+        // 제약사항에 관한 세팅들
+        self.snp.makeConstraints { make in
+            make.top.equalTo(top)
+            make.leading.equalTo(leading)
+        }
+        return self
+    }
+    
+    func setCenterXConstraint(top: CGFloat, center: UIView) -> CustomLabel {
+        self.snp.makeConstraints { make in
+            make.centerX.equalTo(center)
+            make.top.equalTo(top)
+        }
+        return self
+    }
+    
+    func end() { }
 }

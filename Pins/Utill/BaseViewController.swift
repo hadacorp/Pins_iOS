@@ -9,17 +9,14 @@
 import UIKit
 // 추가로 자주 사용하는 프레임워크 추가해주시면 되요
 import SnapKit
-
+import MapKit
 // BaseViewController는 UIViewController를 상속받습니다.
 class BaseViewController: UIViewController {
     
     // 자주 사용하는 프로퍼티를 넣어줘도 되요
     // MARK: - Property
-    public let safetyArea: UIView = {
-        let v = UIView()
-        v.backgroundColor = .white
-        return v
-    }()
+    let locationManager: CLLocationManager = CLLocationManager()
+    let mapView = MKMapView()
     
     // MARK: - Initializing
     init() {
@@ -33,27 +30,9 @@ class BaseViewController: UIViewController {
     // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        setBaseView()
         setupUI()
     }
     
-    func setBaseView() {
-        safetyArea.translatesAutoresizingMaskIntoConstraints = false
-        self.view.addSubview(safetyArea)
-        if #available(iOS 11, *) {
-            let guide = view.safeAreaLayoutGuide
-            safetyArea.topAnchor.constraint(equalTo: guide.topAnchor).isActive = true
-            safetyArea.bottomAnchor.constraint(equalTo: guide.bottomAnchor).isActive = true
-            safetyArea.leadingAnchor.constraint(equalTo: guide.leadingAnchor).isActive = true
-            safetyArea.trailingAnchor.constraint(equalTo: guide.trailingAnchor).isActive = true
-            
-        } else {
-            safetyArea.topAnchor.constraint(equalTo: topLayoutGuide.topAnchor).isActive = true
-            safetyArea.bottomAnchor.constraint(equalTo: bottomLayoutGuide.bottomAnchor).isActive = true
-            safetyArea.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-            safetyArea.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        }
-    }
     /// UI 생성 관련
     func setupUI() {
         // override point
