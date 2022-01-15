@@ -8,7 +8,7 @@ import MapKit
 import UIKit
 
 extension ViewController {
-    @objc func getUserLocation() {
+    func getUserLocation() {
         // 위치 요청 시
         let accuracyState = CLLocationManager().accuracyAuthorization
         switch accuracyState {

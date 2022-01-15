@@ -23,40 +23,26 @@ class CustomLabel: UILabel {
         super.init(coder: coder)!
     }
     
-    func setFont(name: String, size: CGFloat) -> CustomLabel {
+    @discardableResult public func setFont(name: String, size: CGFloat) -> CustomLabel {
         self.font = UIFont(name: name, size: size)
         
         return self
     }
     
-    func setColor(color: UIColor) -> CustomLabel {
+    @discardableResult public func setColor(color: UIColor) -> CustomLabel {
         self.textColor = color
         
         return self
     }
     
-    func setText(text: String) -> CustomLabel {
+    @discardableResult public func setText(text: String) -> CustomLabel {
         self.text = text
         
         return self
     }
     
-    func setupConstraints(top: CGFloat, leading: CGFloat) -> CustomLabel {
-        // 제약사항에 관한 세팅들
-        self.snp.makeConstraints { make in
-            make.top.equalTo(top)
-            make.leading.equalTo(leading)
-        }
+    @discardableResult public func makeConstraints(_ maker: @escaping (ConstraintMaker) -> Void) -> CustomLabel {
+        self.snp.makeConstraints { maker($0) }
         return self
     }
-    
-    func setCenterXConstraint(top: CGFloat, center: UIView) -> CustomLabel {
-        self.snp.makeConstraints { make in
-            make.centerX.equalTo(center)
-            make.top.equalTo(top)
-        }
-        return self
-    }
-    
-    func end() { }
 }
