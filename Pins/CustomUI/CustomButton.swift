@@ -45,16 +45,7 @@ class CustomButton: UIButton {
         super.init(coder: aDecoder)!
     }
     
-    func setupConstraints(top: CGFloat, leading: CGFloat) -> CustomButton {
-        // 제약사항에 관한 세팅들
-        self.snp.makeConstraints { make in
-            make.top.equalTo(top)
-            make.leading.equalTo(leading)
-        }
-        return self
-    }
-    
-    func setSize(width: CGFloat, height: CGFloat) -> CustomButton {
+    @discardableResult public func setSize(width: CGFloat, height: CGFloat) -> CustomButton {
         self.snp.makeConstraints { make in
             make.width.equalTo(width)
             make.height.equalTo(height)
@@ -62,17 +53,22 @@ class CustomButton: UIButton {
         return self
     }
     
-    func setColor(color: CGColor) -> CustomButton {
+    @discardableResult public func setImage(image: UIImage) -> CustomButton {
+        self.setImage(image, for: .normal)
+        return self
+    }
+    
+    @discardableResult public func setColor(color: CGColor) -> CustomButton {
         self.layer.backgroundColor = color
         return self
     }
     
-    func setRounded(size: CGFloat) -> CustomButton {
+    @discardableResult public func setRounded(size: CGFloat) -> CustomButton {
         self.layer.cornerRadius = size
         return self
     }
     
-    func setShadow(x: CGFloat, y: CGFloat, blur: CGFloat, opacity: Float, color: CGColor) -> CustomButton {
+    @discardableResult public func setShadow(x: CGFloat, y: CGFloat, blur: CGFloat, opacity: Float, color: CGColor) -> CustomButton {
         self.layer.shadowColor = color
         self.layer.shadowOpacity = opacity
         self.layer.shadowOffset = CGSize(width: x, height: y)
@@ -80,9 +76,13 @@ class CustomButton: UIButton {
         return self
     }
     
-    func setOpacity(opacity: Float) -> CustomButton {
+    @discardableResult public func setOpacity(opacity: Float) -> CustomButton {
         self.layer.opacity = opacity
-        
+        return self
+    }
+    
+    @discardableResult public func makeConstraints(_ maker: @escaping (ConstraintMaker) -> Void) -> CustomButton {
+        self.snp.makeConstraints { maker($0) }
         return self
     }
 }
