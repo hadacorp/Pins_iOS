@@ -32,7 +32,5 @@ class BaseViewController: UIViewController {
     }
     
     /// UI 생성 관련
-    func setupUI() {
-        // override point
-    }
+    func setupUI() { }
 }

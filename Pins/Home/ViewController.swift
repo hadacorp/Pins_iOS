@@ -22,11 +22,12 @@ class ViewController: BaseViewController {
         super.viewDidLoad()
         // GPS 사용 허가 받기
         setMapUserLocation()
+        setButtonAction()
     }
     
     override func setupUI() {
         // 위측 버튼 2개
-        CustomButton(type: .small, parent: mapView)
+        CustomButton(id: "search", parent: mapView)
             .setSize(width: 40, height: 40)
             .makeConstraints{
                 $0.top.equalTo(16 + UIScreenSize.shared.topPadding)
@@ -63,7 +64,7 @@ class ViewController: BaseViewController {
             .setOpacity(opacity: 0.9)
             .setImage(image: UIImage(named: "refresh")!)
         
-        CustomButton(type: .small, parent: mapView)
+        CustomButton(id: "userLocation", parent: mapView)
             .setSize(width: 40, height: 40)
             .makeConstraints{
                 $0.bottom.equalTo(-84 - UIScreenSize.shared.bottomPadding)
@@ -121,21 +122,6 @@ class ViewController: BaseViewController {
                 $0.top.equalTo(22 + UIScreenSize.shared.topPadding)
             }
             .setText(text: "인계동")
-    }
-    
-    // ex
-    @objc func printLog() {
-        // 위치 요청 시
-        let accuracyState = CLLocationManager().accuracyAuthorization
-        switch accuracyState {
-        case .fullAccuracy:
-            print("full")
-        case .reducedAccuracy:
-            print("reduce")
-        @unknown default:
-            print("Unknown")
-        }
-        print("button clicked!")
     }
 }
 
