@@ -15,15 +15,23 @@ struct User: Codable {
     var completed: Bool
 }
 
-final class NetworkService {
-    func getHomePinAndCard() {
+class NetworkService {
+    func getHomePinAndCard(completion: @escaping (NetworkResult<Any>) -> Void) {
         let url = "https://jsonplaceholder.typicode.com/todos/1"
-        let param: Parameters = [:]
+        var statusCode: Int?
+        var responseError: Error?
+        var user: User?
         
         let request = AF.request(url, method: .get, encoding: URLEncoding.default)
         
         request.responseDecodable(of: User.self){ data in
-            print(data)
-        }
+            statusCode = data.response?.statusCode
+            switch data.result {
+            case .success(let response):
+                user = response
+            case .failure(let error):
+                responseError = error
+            }
+        }.resume()
     }
 }

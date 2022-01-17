@@ -25,6 +25,7 @@
 		B76FFD022793087A00CA9AEB /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = B76FFD012793087A00CA9AEB /* Alamofire */; };
 		B76FFD072793103900CA9AEB /* GetHomePinAndCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76FFD062793103900CA9AEB /* GetHomePinAndCard.swift */; };
 		B76FFD0F2793165700CA9AEB /* UnitTestAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76FFD0E2793165700CA9AEB /* UnitTestAPI.swift */; };
+		B76FFD16279324CB00CA9AEB /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76FFD15279324CB00CA9AEB /* NetworkResult.swift */; };
 		B7B5B6E4278E5EEE002BDBEA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B5B6E3278E5EEE002BDBEA /* AppDelegate.swift */; };
 		B7B5B6E6278E5EEE002BDBEA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B5B6E5278E5EEE002BDBEA /* SceneDelegate.swift */; };
 		B7B5B6E8278E5EEE002BDBEA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B5B6E7278E5EEE002BDBEA /* ViewController.swift */; };
@@ -33,6 +34,8 @@
 		B7B5B6F0278E5EEF002BDBEA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B7B5B6EF278E5EEF002BDBEA /* Assets.xcassets */; };
 		B7B5B6F3278E5EEF002BDBEA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7B5B6F1278E5EEF002BDBEA /* LaunchScreen.storyboard */; };
 		B7B5B6FC278E60E2002BDBEA /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B5B6FB278E60E2002BDBEA /* CustomButton.swift */; };
+		B7BC718F27952BD100A229A0 /* UIStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7BC718E27952BD100A229A0 /* UIStorage.swift */; };
+		B7BC71922795377100A229A0 /* CustomUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7BC71912795377100A229A0 /* CustomUI.swift */; };
 		B7C8103D279043A800258CC5 /* ViewController+Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C8103C279043A800258CC5 /* ViewController+Map.swift */; };
 		B7C8103F2790534C00258CC5 /* ViewController+Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C8103E2790534C00258CC5 /* ViewController+Action.swift */; };
 /* End PBXBuildFile section */
@@ -75,6 +78,7 @@
 		B76FFD062793103900CA9AEB /* GetHomePinAndCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetHomePinAndCard.swift; sourceTree = "<group>"; };
 		B76FFD0C2793165700CA9AEB /* UnitTestAPI.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTestAPI.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B76FFD0E2793165700CA9AEB /* UnitTestAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTestAPI.swift; sourceTree = "<group>"; };
+		B76FFD15279324CB00CA9AEB /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
 		B7B5B6E0278E5EEE002BDBEA /* Pins.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pins.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7B5B6E3278E5EEE002BDBEA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B7B5B6E5278E5EEE002BDBEA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -85,6 +89,8 @@
 		B7B5B6F2278E5EEF002BDBEA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B7B5B6F4278E5EEF002BDBEA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B7B5B6FB278E60E2002BDBEA /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		B7BC718E27952BD100A229A0 /* UIStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStorage.swift; sourceTree = "<group>"; };
+		B7BC71912795377100A229A0 /* CustomUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUI.swift; sourceTree = "<group>"; };
 		B7C8103C279043A800258CC5 /* ViewController+Map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Map.swift"; sourceTree = "<group>"; };
 		B7C8103E2790534C00258CC5 /* ViewController+Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Action.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -140,9 +146,9 @@
 			isa = PBXGroup;
 			children = (
 				B73B4704278EFD3E00A60C37 /* UIScreenSize.swift */,
-				B73B4706278F02D300A60C37 /* Extension+UIColor.swift */,
 				B71F24E2278FB23D003D8DE3 /* BaseViewController.swift */,
-				B74EC84D2791CC9B005745C0 /* Extension+UIView.swift */,
+				B76FFD15279324CB00CA9AEB /* NetworkResult.swift */,
+				B7BC718E27952BD100A229A0 /* UIStorage.swift */,
 			);
 			path = Utill;
 			sourceTree = "<group>";
@@ -184,6 +190,7 @@
 		B7B5B6E2278E5EEE002BDBEA /* Pins */ = {
 			isa = PBXGroup;
 			children = (
+				B7BC719027952BD800A229A0 /* Extension */,
 				B71F24F5278FCFC8003D8DE3 /* Home */,
 				B71F24E8278FC691003D8DE3 /* Font */,
 				B73B4703278EFD2800A60C37 /* Utill */,
@@ -204,8 +211,18 @@
 			children = (
 				B7B5B6FB278E60E2002BDBEA /* CustomButton.swift */,
 				B71F24E6278FC33A003D8DE3 /* CustomLabel.swift */,
+				B7BC71912795377100A229A0 /* CustomUI.swift */,
 			);
 			path = CustomUI;
+			sourceTree = "<group>";
+		};
+		B7BC719027952BD800A229A0 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				B73B4706278F02D300A60C37 /* Extension+UIColor.swift */,
+				B74EC84D2791CC9B005745C0 /* Extension+UIView.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -338,6 +355,7 @@
 			files = (
 				B73B4705278EFD3E00A60C37 /* UIScreenSize.swift in Sources */,
 				B7C8103F2790534C00258CC5 /* ViewController+Action.swift in Sources */,
+				B7BC71922795377100A229A0 /* CustomUI.swift in Sources */,
 				B74EC84E2791CC9B005745C0 /* Extension+UIView.swift in Sources */,
 				B71F24E7278FC33A003D8DE3 /* CustomLabel.swift in Sources */,
 				B76FFD072793103900CA9AEB /* GetHomePinAndCard.swift in Sources */,
@@ -349,6 +367,8 @@
 				B71F24E3278FB23D003D8DE3 /* BaseViewController.swift in Sources */,
 				B7B5B6E6278E5EEE002BDBEA /* SceneDelegate.swift in Sources */,
 				B7B5B6EE278E5EEE002BDBEA /* Pins.xcdatamodeld in Sources */,
+				B7BC718F27952BD100A229A0 /* UIStorage.swift in Sources */,
+				B76FFD16279324CB00CA9AEB /* NetworkResult.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

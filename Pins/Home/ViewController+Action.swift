@@ -6,19 +6,43 @@
 //
 import MapKit
 import UIKit
+import RxSwift
+import RxCocoa
 
 extension ViewController {
+    // 버튼 이벤트 주입
+    func setButtonAction() {
+        getUserLocation()
+    }
+    
+    // 내 위치로 가기
     func getUserLocation() {
-        // 위치 요청 시
-        let accuracyState = CLLocationManager().accuracyAuthorization
-        switch accuracyState {
-        case .fullAccuracy:
-            print("full")
-        case .reducedAccuracy:
-            print("reduce")
-        @unknown default:
-            print("Unknown")
+        if let userLocationBtn = UIStorage.shared.getUI(id: "userLocation") as? CustomButton {
+            userLocationBtn.rx.tap
+                .bind{
+                    self.mapView.showsUserLocation = true
+                    self.mapView.setUserTrackingMode(.follow, animated: true)
+                }
+                .disposed(by: disposeBag)
         }
-        print("button clicked!")
+    }
+    
+    func apiTest() {
+        NetworkService().getHomePinAndCard { (response) in
+            switch(response) {
+            case .success(let personData):
+                if let data = personData as? User {
+                    print(data)
+                }
+            case .requestErr(let message):
+                print("requestErr", message)
+            case .pathErr:
+                print("pathErr")
+            case .serverErr:
+                print("serveErr")
+            case .networkFail:
+                print("networkFail")
+            }
+        }
     }
 }

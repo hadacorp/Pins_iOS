@@ -16,13 +16,27 @@ public enum CustomButtonType {
 
 // 커스텀 버튼
 class CustomButton: UIButton {
+    var id: String = ""
     var height: CGFloat = 0
     var width: CGFloat = 0
     
     init() {
         super.init(frame: CGRect.zero)
+        print("ARC count ++")
+    }
+    
+    deinit {
+        UIStorage.shared.releaseUI(id: id)
+        print("ARC count --")
     }
 
+    convenience init(id: String, parent: UIView) {
+        self.init()
+        self.id = id
+        UIStorage.shared.addUI(id: id, UI: self)
+        parent.addSubview(self)
+    }
+    
     convenience init(type: CustomButtonType, parent: UIView) {
         self.init()
         
@@ -37,7 +51,6 @@ class CustomButton: UIButton {
             width = 100
             height = 100
         }
-        self.layer.zPosition = 99
         parent.addSubview(self)
     }
     
