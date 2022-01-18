@@ -8,8 +8,10 @@
 // UIViewCtroller를 상속받기 떄문에 UIKit은 필수입니다.
 import UIKit
 // 추가로 자주 사용하는 프레임워크 추가해주시면 되요
-import SnapKit
 import MapKit
+import RxSwift
+import RxCocoa
+import CoreLocation
 // BaseViewController는 UIViewController를 상속받습니다.
 class BaseViewController: UIViewController {
     
