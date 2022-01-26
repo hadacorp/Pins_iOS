@@ -19,6 +19,7 @@ class ViewController: BaseViewController {
     let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
+        view.safeAreaInsets.bottom
         super.viewDidLoad()
         // GPS 사용 허가 받기
         setMapUserLocation()
@@ -123,6 +124,7 @@ class ViewController: BaseViewController {
             }
             .setText(text: "인계동")
     }
+    
 }
 
 // 전처리
