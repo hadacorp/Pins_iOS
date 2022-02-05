@@ -8,16 +8,8 @@
 import UIKit
 
 extension SearchViewController {
-    func setButtonAction() {
-        backBtn()
-    }
-    
+    @objc
     func backBtn() {
-        if let backBtn = UIStorage.shared.getUI(id: "backBtn") as? CustomButton {
-            backBtn.rx.tap.bind{ [weak self] in
-                self?.presentingViewController?.dismiss(animated: true)
-            }
-            .disposed(by: disposeBag)
-        }
+        self.presentingViewController?.dismiss(animated: true)
     }
 }

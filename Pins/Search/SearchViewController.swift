@@ -12,9 +12,6 @@ class SearchViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // 버튼 이벤트 주입
-        setButtonAction()
     }
     
     override func setupUI() {
@@ -38,6 +35,7 @@ class SearchViewController: BaseViewController {
                 $0.width.height.equalTo(40)
             }
             .setImage(image: UIImage(named: "back")!)
+            .setAction(parent: self, action: #selector(backBtn))
         
         CustomButton(parent: self.view)
             .makeConstraints{

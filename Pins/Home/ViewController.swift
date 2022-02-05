@@ -36,6 +36,7 @@ class ViewController: BaseViewController {
             .setShadow(x: 0, y: 4, blur: 8, opacity: 0.16, color: UIColor(hex: "666666").cgColor)
             .setOpacity(opacity: 0.9)
             .setImage(image: UIImage(named: "search")!)
+            .setAction(parent: self, action: #selector(searchLocation))
         
         CustomButton(type: .small, parent: mapView)
             .setSize(width: 40, height: 40)
@@ -73,6 +74,7 @@ class ViewController: BaseViewController {
             .setShadow(x: 0, y: 4, blur: 8, opacity: 0.16, color: UIColor(hex: "666666").cgColor)
             .setOpacity(opacity: 0.9)
             .setImage(image: UIImage(named: "location")!)
+            .setAction(parent: self, action: #selector(getUserLocation))
         
         // 하단 중간 버튼 3개
         CustomButton(type: .middle, parent: mapView)

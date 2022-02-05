@@ -96,4 +96,9 @@ class CustomButton: UIButton {
         self.snp.makeConstraints { maker($0) }
         return self
     }
+    
+    @discardableResult public func setAction(parent: Any, action: Selector) -> CustomButton {
+        self.addTarget(parent, action: action, for: .touchUpInside)
+        return self
+    }
 }
