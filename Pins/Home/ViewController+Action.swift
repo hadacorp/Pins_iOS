@@ -17,28 +17,19 @@ extension ViewController {
     }
     
     // 검색 버튼
+    @objc
     func searchLocation() {
-        if let searchBtn = UIStorage.shared.getUI(id: "search") as? CustomButton {
-            searchBtn.rx.tap.bind{ [weak self] in
-                let vcName = self?.storyboard?.instantiateViewController(withIdentifier: "SearchVC")
-                vcName?.modalPresentationStyle = .fullScreen
-                vcName?.modalTransitionStyle = .crossDissolve
-                self?.present(vcName!, animated: true, completion: nil)
-            }
-            .disposed(by: disposeBag)
-        }
+        let vcName = self.storyboard?.instantiateViewController(withIdentifier: "SearchVC")
+        vcName?.modalPresentationStyle = .fullScreen
+        vcName?.modalTransitionStyle = .crossDissolve
+        self.present(vcName!, animated: true, completion: nil)
     }
     
     // 내 위치로 가기
+    @objc
     func getUserLocation() {
-        if let userLocationBtn = UIStorage.shared.getUI(id: "userLocation") as? CustomButton {
-            userLocationBtn.rx.tap
-                .bind{ [weak self] in
-                    self?.mapView.showsUserLocation = true
-                    self?.mapView.setUserTrackingMode(.follow, animated: true)
-                }
-                .disposed(by: disposeBag)
-        }
+        self.mapView.showsUserLocation = true
+        self.mapView.setUserTrackingMode(.follow, animated: true)
     }
     
     func apiTest() {
