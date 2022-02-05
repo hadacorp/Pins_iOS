@@ -8,12 +8,17 @@
 import Foundation
 
 class SearchViewController: BaseViewController {
+    // MARK: - Property
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // 버튼 이벤트 주입
+        setButtonAction()
     }
     
     override func setupUI() {
-        CustomTextField(id: "searchTextField", parent: self.view)
+        CustomTextField(parent: self.view)
             .makeConstraints{
                 $0.leading.equalTo(16)
                 $0.trailing.equalTo(-16)
@@ -26,7 +31,7 @@ class SearchViewController: BaseViewController {
             .setCursorColor(color: UIColor(hex: "000000"))
             .setFont(name: "NotoSansKR-Regular", size: 16)
         
-        CustomButton(id: "backBtn", parent: self.view)
+        CustomButton(parent: self.view)
             .makeConstraints{
                 $0.leading.equalTo(16)
                 $0.top.equalTo(self.view.safeAreaLayoutGuide).offset(16)
@@ -34,7 +39,7 @@ class SearchViewController: BaseViewController {
             }
             .setImage(image: UIImage(named: "back")!)
         
-        CustomButton(id: "cancelBtn", parent: self.view)
+        CustomButton(parent: self.view)
             .makeConstraints{
                 $0.trailing.equalTo(-16)
                 $0.top.equalTo(self.view.safeAreaLayoutGuide).offset(16)

@@ -16,7 +16,6 @@ public enum CustomButtonType {
 
 // 커스텀 버튼
 class CustomButton: UIButton {
-    var id: String = ""
     var height: CGFloat = 0
     var width: CGFloat = 0
     
@@ -26,14 +25,13 @@ class CustomButton: UIButton {
     }
     
     deinit {
-        UIStorage.shared.releaseUI(id: id)
+//        UIStorage.shared.releaseUI(id: id)
         print("ARC count --")
     }
 
-    convenience init(id: String, parent: UIView) {
+    convenience init(parent: UIView) {
         self.init()
-        self.id = id
-        UIStorage.shared.addUI(id: id, UI: self)
+//        UIStorage.shared.addUI(id: id, UI: self)
         parent.addSubview(self)
     }
     

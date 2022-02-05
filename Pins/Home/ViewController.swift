@@ -16,10 +16,7 @@ class ViewController: BaseViewController {
     let locationManager: CLLocationManager = CLLocationManager()
     let mapView = MKMapView()
     
-    let disposeBag = DisposeBag()
-    
     override func viewDidLoad() {
-        view.safeAreaInsets.bottom
         super.viewDidLoad()
         // GPS 사용 허가 받기
         setMapUserLocation()
@@ -28,7 +25,7 @@ class ViewController: BaseViewController {
     
     override func setupUI() {
         // 위측 버튼 2개
-        CustomButton(id: "search", parent: mapView)
+        CustomButton(parent: mapView)
             .setSize(width: 40, height: 40)
             .makeConstraints{
                 $0.top.equalTo(16 + UIScreenSize.shared.topPadding)
@@ -65,7 +62,7 @@ class ViewController: BaseViewController {
             .setOpacity(opacity: 0.9)
             .setImage(image: UIImage(named: "refresh")!)
         
-        CustomButton(id: "userLocation", parent: mapView)
+        CustomButton(parent: mapView)
             .setSize(width: 40, height: 40)
             .makeConstraints{
                 $0.bottom.equalTo(-84 - UIScreenSize.shared.bottomPadding)
