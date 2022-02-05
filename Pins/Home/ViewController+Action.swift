@@ -19,14 +19,13 @@ extension ViewController {
     // 검색 버튼
     func searchLocation() {
         if let searchBtn = UIStorage.shared.getUI(id: "search") as? CustomButton {
-            searchBtn.rx.tap
-                .bind{ [weak self] in
-                    let vcName = self?.storyboard?.instantiateViewController(withIdentifier: "SearchVC")
-                    vcName?.modalPresentationStyle = .fullScreen
-                    vcName?.modalTransitionStyle = .crossDissolve
-                    self?.present(vcName!, animated: true, completion: nil)
-                }
-                .disposed(by: disposeBag)
+            searchBtn.rx.tap.bind{ [weak self] in
+                let vcName = self?.storyboard?.instantiateViewController(withIdentifier: "SearchVC")
+                vcName?.modalPresentationStyle = .fullScreen
+                vcName?.modalTransitionStyle = .crossDissolve
+                self?.present(vcName!, animated: true, completion: nil)
+            }
+            .disposed(by: disposeBag)
         }
     }
     

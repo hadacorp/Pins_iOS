@@ -10,16 +10,12 @@ import SnapKit
 import SwiftUI
 
 class CustomTextField: UITextField {
-    var id: String = ""
-    
     init() {
         super.init(frame: CGRect.zero)
     }
     
-    convenience init(id: String, parent: UIView) {
+    convenience init(parent: UIView) {
         self.init()
-        self.id = id
-        UIStorage.shared.addUI(id: id, UI: self)
         parent.addSubview(self)
     }
     
