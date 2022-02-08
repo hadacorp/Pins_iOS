@@ -37,6 +37,8 @@
 		B7B5B6F0278E5EEF002BDBEA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B7B5B6EF278E5EEF002BDBEA /* Assets.xcassets */; };
 		B7B5B6F3278E5EEF002BDBEA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7B5B6F1278E5EEF002BDBEA /* LaunchScreen.storyboard */; };
 		B7B5B6FC278E60E2002BDBEA /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B5B6FB278E60E2002BDBEA /* CustomButton.swift */; };
+		B7BBC85727B2A86B003BC76C /* CustomCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7BBC85627B2A86B003BC76C /* CustomCollectionView.swift */; };
+		B7BBC85927B2AECE003BC76C /* ViewController+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7BBC85827B2AECE003BC76C /* ViewController+CollectionView.swift */; };
 		B7C8103D279043A800258CC5 /* ViewController+Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C8103C279043A800258CC5 /* ViewController+Map.swift */; };
 		B7C8103F2790534C00258CC5 /* ViewController+Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C8103E2790534C00258CC5 /* ViewController+Action.swift */; };
 /* End PBXBuildFile section */
@@ -94,6 +96,8 @@
 		B7B5B6F2278E5EEF002BDBEA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B7B5B6F4278E5EEF002BDBEA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B7B5B6FB278E60E2002BDBEA /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		B7BBC85627B2A86B003BC76C /* CustomCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionView.swift; sourceTree = "<group>"; };
+		B7BBC85827B2AECE003BC76C /* ViewController+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+CollectionView.swift"; sourceTree = "<group>"; };
 		B7C8103C279043A800258CC5 /* ViewController+Map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Map.swift"; sourceTree = "<group>"; };
 		B7C8103E2790534C00258CC5 /* ViewController+Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Action.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -140,6 +144,7 @@
 				B7B5B6E7278E5EEE002BDBEA /* ViewController.swift */,
 				B7C8103C279043A800258CC5 /* ViewController+Map.swift */,
 				B7C8103E2790534C00258CC5 /* ViewController+Action.swift */,
+				B7BBC85827B2AECE003BC76C /* ViewController+CollectionView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -232,6 +237,7 @@
 				B7B5B6FB278E60E2002BDBEA /* CustomButton.swift */,
 				B71F24E6278FC33A003D8DE3 /* CustomLabel.swift */,
 				B79B7BC42796557200D43640 /* CustomTextField.swift */,
+				B7BBC85627B2A86B003BC76C /* CustomCollectionView.swift */,
 			);
 			path = CustomUI;
 			sourceTree = "<group>";
@@ -374,6 +380,7 @@
 			files = (
 				B73B4705278EFD3E00A60C37 /* UIScreenSize.swift in Sources */,
 				B7C8103F2790534C00258CC5 /* ViewController+Action.swift in Sources */,
+				B7BBC85727B2A86B003BC76C /* CustomCollectionView.swift in Sources */,
 				B79B7BC327964AD400D43640 /* SearchViewController.swift in Sources */,
 				B74EC84E2791CC9B005745C0 /* Extension+UIView.swift in Sources */,
 				B739C90D27AEC85F00DF5FCF /* SearchViewModel.swift in Sources */,
@@ -390,6 +397,7 @@
 				B7B5B6E6278E5EEE002BDBEA /* SceneDelegate.swift in Sources */,
 				B7B5B6EE278E5EEE002BDBEA /* Pins.xcdatamodeld in Sources */,
 				B76FFD16279324CB00CA9AEB /* NetworkResult.swift in Sources */,
+				B7BBC85927B2AECE003BC76C /* ViewController+CollectionView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

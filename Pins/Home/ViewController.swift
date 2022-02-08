@@ -15,6 +15,8 @@ class ViewController: BaseViewController {
     // MARK: - Property
     let locationManager: CLLocationManager = CLLocationManager()
     let mapView = MKMapView()
+    // 하단 카드뷰 인덱스
+    var currentIdx: CGFloat = 0.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -122,8 +124,24 @@ class ViewController: BaseViewController {
                 $0.top.equalTo(22 + UIScreenSize.shared.topPadding)
             }
             .setText(text: "인계동")
+        
+        // 하단 카드 CollectionView
+        CustomCollectionView(parent: mapView)
+            .setBackgroundColor(color: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0))
+            .makeConstraints {
+                $0.centerX.equalTo(self.mapView)
+                $0.bottom.equalTo(-38)
+                $0.width.equalTo(UIScreenSize.shared.width)
+                $0.height.equalTo(180)
+            }
+            .setDataSource(view: self)
+            .setDelegate(view: self)
+            .setRegister()
+            .setScrollDirection(direction: .horizontal)
+            .setSectionInset(insets: UIEdgeInsets(top: 0, left: 16, bottom: 10, right: 16))
+            .setScrollIndicate(show: false)
+            .setLineSpacing(size: 7)
     }
-    
 }
 
 // 전처리
