@@ -13,16 +13,25 @@ extension ViewController {
     // 버튼 이벤트 주입
     func setButtonAction() {
         getUserLocation()
-        searchLocation()
     }
     
     // 검색 버튼
     @objc
     func searchLocation() {
-        let vcName = self.storyboard?.instantiateViewController(withIdentifier: "SearchVC")
-        vcName?.modalPresentationStyle = .fullScreen
-        vcName?.modalTransitionStyle = .crossDissolve
-        self.present(vcName!, animated: true, completion: nil)
+        guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "SearchVC") else {
+            return
+        }
+        self.navigationController?.isNavigationBarHidden = true
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    // 카드뷰 클릭 시
+    func detailView() {
+        guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "CardDetailVC") else {
+            return
+        }
+        self.navigationController?.isNavigationBarHidden = true
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     // 내 위치로 가기

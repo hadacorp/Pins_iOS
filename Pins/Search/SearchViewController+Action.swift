@@ -10,6 +10,6 @@ import UIKit
 extension SearchViewController {
     @objc
     func backBtn() {
-        self.presentingViewController?.dismiss(animated: true)
+        self.navigationController?.popViewController(animated: true)
     }
 }
