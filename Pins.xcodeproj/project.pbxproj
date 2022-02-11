@@ -26,6 +26,8 @@
 		B76FFD072793103900CA9AEB /* GetHomePinAndCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76FFD062793103900CA9AEB /* GetHomePinAndCard.swift */; };
 		B76FFD0F2793165700CA9AEB /* UnitTestAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76FFD0E2793165700CA9AEB /* UnitTestAPI.swift */; };
 		B76FFD16279324CB00CA9AEB /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76FFD15279324CB00CA9AEB /* NetworkResult.swift */; };
+		B79112A627B6A7980014E7FE /* ViewController+CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79112A527B6A7980014E7FE /* ViewController+CustomCell.swift */; };
+		B79112A827B6AB4E0014E7FE /* CustomImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79112A727B6AB4E0014E7FE /* CustomImage.swift */; };
 		B79B7BC327964AD400D43640 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79B7BC227964AD400D43640 /* SearchViewController.swift */; };
 		B79B7BC52796557200D43640 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79B7BC42796557200D43640 /* CustomTextField.swift */; };
 		B79B7BC727965BFB00D43640 /* SearchViewController+Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79B7BC627965BFB00D43640 /* SearchViewController+Action.swift */; };
@@ -83,6 +85,8 @@
 		B76FFD0C2793165700CA9AEB /* UnitTestAPI.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTestAPI.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B76FFD0E2793165700CA9AEB /* UnitTestAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTestAPI.swift; sourceTree = "<group>"; };
 		B76FFD15279324CB00CA9AEB /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
+		B79112A527B6A7980014E7FE /* ViewController+CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+CustomCell.swift"; sourceTree = "<group>"; };
+		B79112A727B6AB4E0014E7FE /* CustomImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImage.swift; sourceTree = "<group>"; };
 		B79B7BC227964AD400D43640 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		B79B7BC42796557200D43640 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		B79B7BC627965BFB00D43640 /* SearchViewController+Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchViewController+Action.swift"; sourceTree = "<group>"; };
@@ -145,6 +149,7 @@
 				B7C8103C279043A800258CC5 /* ViewController+Map.swift */,
 				B7C8103E2790534C00258CC5 /* ViewController+Action.swift */,
 				B7BBC85827B2AECE003BC76C /* ViewController+CollectionView.swift */,
+				B79112A527B6A7980014E7FE /* ViewController+CustomCell.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -238,6 +243,7 @@
 				B71F24E6278FC33A003D8DE3 /* CustomLabel.swift */,
 				B79B7BC42796557200D43640 /* CustomTextField.swift */,
 				B7BBC85627B2A86B003BC76C /* CustomCollectionView.swift */,
+				B79112A727B6AB4E0014E7FE /* CustomImage.swift */,
 			);
 			path = CustomUI;
 			sourceTree = "<group>";
@@ -389,8 +395,10 @@
 				B7B5B6E8278E5EEE002BDBEA /* ViewController.swift in Sources */,
 				B79B7BC52796557200D43640 /* CustomTextField.swift in Sources */,
 				B73B4707278F02D300A60C37 /* Extension+UIColor.swift in Sources */,
+				B79112A627B6A7980014E7FE /* ViewController+CustomCell.swift in Sources */,
 				B7B5B6FC278E60E2002BDBEA /* CustomButton.swift in Sources */,
 				B79B7BC727965BFB00D43640 /* SearchViewController+Action.swift in Sources */,
+				B79112A827B6AB4E0014E7FE /* CustomImage.swift in Sources */,
 				B7C8103D279043A800258CC5 /* ViewController+Map.swift in Sources */,
 				B7B5B6E4278E5EEE002BDBEA /* AppDelegate.swift in Sources */,
 				B71F24E3278FB23D003D8DE3 /* BaseViewController.swift in Sources */,
