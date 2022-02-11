@@ -7,8 +7,18 @@
 import UIKit
 import SnapKit
 
+struct Category {
+    let accident = 65
+}
+
 // 커스텀 라벨
 class CustomLabel: UILabel {
+    
+    var topInset: CGFloat = 0
+    var bottomInset: CGFloat = 0
+    var leftInset: CGFloat = 0
+    var rightInset: CGFloat = 0
+    
     init() {
         super.init(frame: CGRect.zero)
     }
@@ -19,8 +29,31 @@ class CustomLabel: UILabel {
         parent.addSubview(self)
     }
     
+    convenience init(parent: UIView, top: CGFloat, _ bottom: CGFloat, _ left: CGFloat, _ right: CGFloat) {
+        self.init()
+        
+        parent.addSubview(self)
+    }
+    
     required init?(coder: NSCoder) {
         super.init(coder: coder)!
+    }
+    
+    override func drawText(in rect: CGRect) {
+            let insets = UIEdgeInsets(top: topInset, left: leftInset, bottom: bottomInset, right: rightInset)
+            super.drawText(in: rect.inset(by: insets))
+    }
+
+    override var intrinsicContentSize: CGSize {
+        let size = super.intrinsicContentSize
+        return CGSize(width: size.width + leftInset + rightInset,
+                      height: size.height + topInset + bottomInset)
+    }
+
+    override var bounds: CGRect {
+        didSet {
+            preferredMaxLayoutWidth = bounds.width - (leftInset + rightInset)
+        }
     }
     
     @discardableResult public func setFont(name: String, size: CGFloat) -> CustomLabel {
@@ -37,6 +70,31 @@ class CustomLabel: UILabel {
     
     @discardableResult public func setText(text: String) -> CustomLabel {
         self.text = text
+        
+        return self
+    }
+    
+    @discardableResult public func setBackgroundColor(color: UIColor) -> CustomLabel {
+        self.backgroundColor = color
+        
+        return self
+    }
+    
+    @discardableResult public func setRadius(size: CGFloat) -> CustomLabel {
+        self.layer.cornerRadius = size
+        self.clipsToBounds = true
+        
+        return self
+    }
+    
+    @discardableResult public func setAlignment(alignment: NSTextAlignment) -> CustomLabel {
+        self.textAlignment = alignment
+        
+        return self
+    }
+    
+    @discardableResult public func setLineHeight(size: Int) -> CustomLabel {
+        self.numberOfLines = 2
         
         return self
     }

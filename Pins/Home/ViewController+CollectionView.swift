@@ -8,27 +8,21 @@
 import UIKit
 
 extension ViewController: UICollectionViewDataSource {
+    // 셀 개수
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 5
     }
     
+    // 셀 생성
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
-        cell.backgroundColor = UIColor.white
-        
-        cell.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.16).cgColor
-        cell.layer.shadowOpacity = 1
-        cell.layer.shadowRadius = 4
-        cell.layer.shadowOffset = CGSize(width: 0, height: 4)
-//        cell.layer.shadowPath = UIBezierPath(rect: view.bounds).cgPath
-        
-        cell.layer.cornerRadius = 25
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CustomCell
         
         return cell
     }
 }
 
 extension ViewController: UICollectionViewDelegate {
+    // 셀 드래그
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
             
         if let cv = scrollView as? UICollectionView {

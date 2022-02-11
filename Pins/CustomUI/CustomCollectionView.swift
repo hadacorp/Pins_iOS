@@ -46,7 +46,7 @@ class CustomCollectionView: UICollectionView {
     }
     
     @discardableResult public func setRegister() -> CustomCollectionView {
-        self.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        self.register(CustomCell.self, forCellWithReuseIdentifier: "cell")
         return self
     }
     
