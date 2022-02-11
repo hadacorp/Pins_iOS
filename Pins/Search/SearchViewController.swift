@@ -5,7 +5,7 @@
 //  Created by judongseok on 2022/01/18.
 //
 
-import Foundation
+import UIKit
 
 class SearchViewController: BaseViewController {
     // MARK: - Property
@@ -46,36 +46,3 @@ class SearchViewController: BaseViewController {
             .setImage(image: UIImage(named: "cancel")!)
     }
 }
-
-// 전처리
-#if DEBUG
-
-import SwiftUI
-@available(iOS 13.0, *)
-
-// UIViewControllerRepresentable을 채택
-struct SearchViewControllerRepresentable: UIViewControllerRepresentable {
-    // update
-    // _ uiViewController: UIViewController로 지정
-    func updateUIViewController(_ uiViewController: UIViewController , context: Context) {
-        
-    }
-    // makeui
-    func makeUIViewController(context: Context) -> UIViewController {
-    // Preview를 보고자 하는 Viewcontroller 이름
-    // e.g.)
-        SearchViewController()
-    }
-}
-
-struct SearchViewController_Previews: PreviewProvider {
-    
-    @available(iOS 13.0, *)
-    static var previews: some View {
-        // UIViewControllerRepresentable에 지정된 이름.
-        SearchViewControllerRepresentable()
-// 테스트 해보고자 하는 기기
-            .previewDevice("iPhone 13 mini")
-    }
-}
-#endif

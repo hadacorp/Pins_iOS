@@ -46,6 +46,11 @@ extension ViewController: UICollectionViewDelegate {
             targetContentOffset.pointee = offset
         }
     }
+    
+    // content click
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        detailView()
+    }
 }
 
 extension ViewController: UICollectionViewDelegateFlowLayout {
