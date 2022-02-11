@@ -22,7 +22,10 @@ class ViewController: BaseViewController {
         super.viewDidLoad()
         // GPS 사용 허가 받기
         setMapUserLocation()
-        setButtonAction()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        getUserLocation()
     }
     
     override func setupUI() {
