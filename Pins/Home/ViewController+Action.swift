@@ -10,11 +10,6 @@ import RxSwift
 import RxCocoa
 
 extension ViewController {
-    // 버튼 이벤트 주입
-    func setButtonAction() {
-        getUserLocation()
-    }
-    
     // 검색 버튼
     @objc
     func searchLocation() {
