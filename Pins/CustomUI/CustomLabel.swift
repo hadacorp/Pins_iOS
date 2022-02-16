@@ -94,7 +94,7 @@ class CustomLabel: UILabel {
     }
     
     @discardableResult public func setLineHeight(size: Int) -> CustomLabel {
-        self.numberOfLines = 2
+        self.numberOfLines = size
         
         return self
     }
