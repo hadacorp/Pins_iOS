@@ -22,6 +22,7 @@
 		B739C90D27AEC85F00DF5FCF /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B739C90C27AEC85F00DF5FCF /* SearchViewModel.swift */; };
 		B73B4705278EFD3E00A60C37 /* UIScreenSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73B4704278EFD3E00A60C37 /* UIScreenSize.swift */; };
 		B73B4707278F02D300A60C37 /* Extension+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73B4706278F02D300A60C37 /* Extension+UIColor.swift */; };
+		B74BBA0F27BD4E3700DBDDF0 /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74BBA0E27BD4E3700DBDDF0 /* CustomView.swift */; };
 		B74EC84E2791CC9B005745C0 /* Extension+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74EC84D2791CC9B005745C0 /* Extension+UIView.swift */; };
 		B76FFD072793103900CA9AEB /* GetHomePinAndCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76FFD062793103900CA9AEB /* GetHomePinAndCard.swift */; };
 		B76FFD0F2793165700CA9AEB /* UnitTestAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76FFD0E2793165700CA9AEB /* UnitTestAPI.swift */; };
@@ -83,6 +84,7 @@
 		B739C90C27AEC85F00DF5FCF /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		B73B4704278EFD3E00A60C37 /* UIScreenSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScreenSize.swift; sourceTree = "<group>"; };
 		B73B4706278F02D300A60C37 /* Extension+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIColor.swift"; sourceTree = "<group>"; };
+		B74BBA0E27BD4E3700DBDDF0 /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
 		B74EC84D2791CC9B005745C0 /* Extension+UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIView.swift"; sourceTree = "<group>"; };
 		B76FFD062793103900CA9AEB /* GetHomePinAndCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetHomePinAndCard.swift; sourceTree = "<group>"; };
 		B76FFD0C2793165700CA9AEB /* UnitTestAPI.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTestAPI.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -260,6 +262,7 @@
 				B79B7BC42796557200D43640 /* CustomTextField.swift */,
 				B7BBC85627B2A86B003BC76C /* CustomCollectionView.swift */,
 				B79112A727B6AB4E0014E7FE /* CustomImage.swift */,
+				B74BBA0E27BD4E3700DBDDF0 /* CustomView.swift */,
 			);
 			path = CustomUI;
 			sourceTree = "<group>";
@@ -420,6 +423,7 @@
 				B79B7BC727965BFB00D43640 /* SearchViewController+Action.swift in Sources */,
 				B79112A827B6AB4E0014E7FE /* CustomImage.swift in Sources */,
 				B7C8103D279043A800258CC5 /* ViewController+Map.swift in Sources */,
+				B74BBA0F27BD4E3700DBDDF0 /* CustomView.swift in Sources */,
 				B7B5B6E4278E5EEE002BDBEA /* AppDelegate.swift in Sources */,
 				B71F24E3278FB23D003D8DE3 /* BaseViewController.swift in Sources */,
 				B7B5B6E6278E5EEE002BDBEA /* SceneDelegate.swift in Sources */,
@@ -618,6 +622,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = X843D4L2C2;
@@ -635,6 +640,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.judongseok.Pins;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -646,6 +652,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = X843D4L2C2;
@@ -663,6 +670,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.judongseok.Pins;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
