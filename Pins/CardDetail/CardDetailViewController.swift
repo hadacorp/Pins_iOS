@@ -95,7 +95,7 @@ class CardDetailViewController: BaseViewController {
             .setRadius(size: 10)
             .setAlignment(alignment: .center)
         
-        CustomLabel(parent: self.view)
+        let mainContent = CustomLabel(parent: self.view)
             .makeConstraints{
                 $0.leading.equalTo(16)
                 $0.trailing.equalTo(-16)
@@ -103,6 +103,110 @@ class CardDetailViewController: BaseViewController {
             }
             .setText(text: "광교호수공원에서 강아지 산책해용 저는 말티즈 키우고 있어용 제가 자주 가는 코스로 모셔볼게요~~!! 두시간 정도 생각하고 있는데 ")
             .setFont(name: "NotoSansKR-Regular", size: 15)
-            .setLineHeight(size: 0)
+            .setLineHeight(size: 10)
+        
+        CustomLabel(parent: self.view)
+            .makeConstraints {
+                $0.leading.equalTo(16)
+                // 한줄에 높이 22로 계산
+                $0.top.equalTo(mainContent.snp.bottom).offset(32)
+                $0.height.equalTo(17)
+            }
+            .setText(text: "39분 전")
+            .setFont(name: "NotoSansKR-Regular", size: 12)
+            .setColor(color: UIColor.init(hex: "AFAFAF"))
+        
+        CustomView(parent: self.view)
+            .makeConstraints {
+                $0.top.equalTo(mainContent.snp.bottom).offset(64.5)
+                $0.width.equalTo(self.view)
+                $0.height.equalTo(0.5)
+            }
+            .setColor(color: UIColor(hex: "DEDEDE"))
+        
+        
+        // MARK: - 중단 정보 뷰
+        CustomLabel(parent: self.view)
+            .makeConstraints {
+                $0.leading.equalTo(16)
+                $0.top.equalTo(mainContent.snp.bottom).offset(81)
+                $0.height.equalTo(22)
+            }
+            .setText(text: "정보")
+            .setFont(name: "NotoSansKR-Medium", size: 16)
+        
+        CustomImage(parent: self.view)
+            .makeConstraints {
+                $0.leading.equalTo(16)
+                $0.top.equalTo(mainContent.snp.bottom).offset(119)
+            }
+            .setImage(image: UIImage(named: "iconInteration")!)
+        
+        CustomImage(parent: self.view)
+            .makeConstraints {
+                $0.leading.equalTo(16)
+                $0.top.equalTo(mainContent.snp.bottom).offset(146)
+            }
+            .setImage(image: UIImage(named: "iconTime")!)
+        
+        CustomImage(parent: self.view)
+            .makeConstraints {
+                $0.leading.equalTo(16)
+                $0.top.equalTo(mainContent.snp.bottom).offset(171)
+            }
+            .setImage(image: UIImage(named: "iconAge")!)
+        
+        CustomImage(parent: self.view)
+            .makeConstraints {
+                $0.leading.equalTo(16)
+                $0.top.equalTo(mainContent.snp.bottom).offset(197)
+            }
+            .setImage(image: UIImage(named: "iconGender")!)
+        
+        CustomLabel(parent: self.view)
+            .makeConstraints{
+                $0.leading.equalTo(37)
+                $0.top.equalTo(mainContent.snp.bottom).offset(119)
+                $0.height.equalTo(15)
+            }
+            .setText(text: "경기도 수원시 팔달구 243")
+            .setFont(name: "NotoSansKR-Regular", size: 13)
+        
+        CustomLabel(parent: self.view)
+            .makeConstraints{
+                $0.leading.equalTo(37)
+                $0.top.equalTo(mainContent.snp.bottom).offset(146)
+                $0.height.equalTo(15)
+            }
+            .setText(text: "오늘 오후 9시")
+            .setFont(name: "NotoSansKR-Regular", size: 13)
+        
+        CustomLabel(parent: self.view)
+            .makeConstraints{
+                $0.leading.equalTo(37)
+                $0.top.equalTo(mainContent.snp.bottom).offset(171)
+                $0.height.equalTo(15)
+            }
+            .setText(text: "22살 ~ 26살")
+            .setFont(name: "NotoSansKR-Regular", size: 13)
+        
+        CustomLabel(parent: self.view)
+            .makeConstraints{
+                $0.leading.equalTo(37)
+                $0.top.equalTo(mainContent.snp.bottom).offset(197)
+                $0.height.equalTo(15)
+            }
+            .setText(text: "성별 무관")
+            .setFont(name: "NotoSansKR-Regular", size: 13)
+        
+        CustomView(parent: self.view)
+            .makeConstraints {
+                $0.top.equalTo(mainContent.snp.bottom).offset(225.5)
+                $0.width.equalTo(self.view)
+                $0.height.equalTo(0.5)
+            }
+            .setColor(color: UIColor(hex: "DEDEDE"))
+        
+        // MARK: - 하단 뷰
     }
 }
