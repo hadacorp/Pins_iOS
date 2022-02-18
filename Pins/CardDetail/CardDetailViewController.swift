@@ -208,5 +208,23 @@ class CardDetailViewController: BaseViewController {
             .setColor(color: UIColor(hex: "DEDEDE"))
         
         // MARK: - 하단 뷰
+        
+        CustomLabel(parent: self.view)
+            .makeConstraints {
+                $0.leading.equalTo(16)
+                $0.top.equalTo(mainContent.snp.bottom).offset(242)
+                $0.height.equalTo(22)
+            }
+            .setText(text: "같이 할 사람")
+            .setFont(name: "NotoSansKR-Medium", size: 16)
+        
+        CustomLabel(parent: self.view)
+            .makeConstraints {
+                $0.trailing.equalTo(-16)
+                $0.top.equalTo(mainContent.snp.bottom).offset(245)
+            }
+            .setText(text: "56/100")
+            .setFont(name: "NotoSansKR-Regular", size: 13)
+            .setColor(color: UIColor.init(hex: "999999"))
     }
 }
