@@ -8,14 +8,14 @@ import UIKit
 import SnapKit
 
 class CustomScrollView: UIScrollView {
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
 
     convenience init(parent: UIView) {
         self.init(frame: CGRect(x: 0, y: 0, width: UIScreenSize.shared.width, height: UIScreenSize.shared.height))
-        self.contentSize = CGSize(width: 200, height: 2000)
-        
+                
         parent.addSubview(self)
     }
 

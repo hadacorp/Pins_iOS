@@ -30,6 +30,8 @@
 		B78D071027C11237007DA27B /* CardDetail+CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78D070F27C11237007DA27B /* CardDetail+CustomCell.swift */; };
 		B78D071227C113B3007DA27B /* CardDetail+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78D071127C113B3007DA27B /* CardDetail+CollectionView.swift */; };
 		B78D071427C11C14007DA27B /* CustomScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78D071327C11C14007DA27B /* CustomScrollView.swift */; };
+		B78D071627C13749007DA27B /* CardDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78D071527C13749007DA27B /* CardDetailViewModel.swift */; };
+		B78D071827C13D01007DA27B /* ViewController+CustomCellUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78D071727C13D01007DA27B /* ViewController+CustomCellUI.swift */; };
 		B79112A627B6A7980014E7FE /* ViewController+CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79112A527B6A7980014E7FE /* ViewController+CustomCell.swift */; };
 		B79112A827B6AB4E0014E7FE /* CustomImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79112A727B6AB4E0014E7FE /* CustomImage.swift */; };
 		B79112AD27B6C66D0014E7FE /* CardDetailViewController+Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79112AC27B6C66D0014E7FE /* CardDetailViewController+Action.swift */; };
@@ -96,6 +98,8 @@
 		B78D070F27C11237007DA27B /* CardDetail+CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CardDetail+CustomCell.swift"; sourceTree = "<group>"; };
 		B78D071127C113B3007DA27B /* CardDetail+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CardDetail+CollectionView.swift"; sourceTree = "<group>"; };
 		B78D071327C11C14007DA27B /* CustomScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomScrollView.swift; sourceTree = "<group>"; };
+		B78D071527C13749007DA27B /* CardDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailViewModel.swift; sourceTree = "<group>"; };
+		B78D071727C13D01007DA27B /* ViewController+CustomCellUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+CustomCellUI.swift"; sourceTree = "<group>"; };
 		B79112A527B6A7980014E7FE /* ViewController+CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+CustomCell.swift"; sourceTree = "<group>"; };
 		B79112A727B6AB4E0014E7FE /* CustomImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImage.swift; sourceTree = "<group>"; };
 		B79112AC27B6C66D0014E7FE /* CardDetailViewController+Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CardDetailViewController+Action.swift"; sourceTree = "<group>"; };
@@ -164,6 +168,7 @@
 				B7C8103E2790534C00258CC5 /* ViewController+Action.swift */,
 				B7BBC85827B2AECE003BC76C /* ViewController+CollectionView.swift */,
 				B79112A527B6A7980014E7FE /* ViewController+CustomCell.swift */,
+				B78D071727C13D01007DA27B /* ViewController+CustomCellUI.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -208,6 +213,7 @@
 				B79112B027B6CF350014E7FE /* CardDetailViewController.swift */,
 				B78D070F27C11237007DA27B /* CardDetail+CustomCell.swift */,
 				B78D071127C113B3007DA27B /* CardDetail+CollectionView.swift */,
+				B78D071527C13749007DA27B /* CardDetailViewModel.swift */,
 			);
 			path = CardDetail;
 			sourceTree = "<group>";
@@ -431,11 +437,13 @@
 				B73B4707278F02D300A60C37 /* Extension+UIColor.swift in Sources */,
 				B79112A627B6A7980014E7FE /* ViewController+CustomCell.swift in Sources */,
 				B79112AD27B6C66D0014E7FE /* CardDetailViewController+Action.swift in Sources */,
+				B78D071827C13D01007DA27B /* ViewController+CustomCellUI.swift in Sources */,
 				B7B5B6FC278E60E2002BDBEA /* CustomButton.swift in Sources */,
 				B79B7BC727965BFB00D43640 /* SearchViewController+Action.swift in Sources */,
 				B79112A827B6AB4E0014E7FE /* CustomImage.swift in Sources */,
 				B7C8103D279043A800258CC5 /* ViewController+Map.swift in Sources */,
 				B74BBA0F27BD4E3700DBDDF0 /* CustomView.swift in Sources */,
+				B78D071627C13749007DA27B /* CardDetailViewModel.swift in Sources */,
 				B7B5B6E4278E5EEE002BDBEA /* AppDelegate.swift in Sources */,
 				B71F24E3278FB23D003D8DE3 /* BaseViewController.swift in Sources */,
 				B7B5B6E6278E5EEE002BDBEA /* SceneDelegate.swift in Sources */,

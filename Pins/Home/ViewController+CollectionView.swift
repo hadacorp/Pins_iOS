@@ -17,6 +17,12 @@ extension ViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! ViewControllerCustomCell
         
+        for i in cell.subviews {
+            i.removeFromSuperview()
+        }
+        cell.backgroundColor = .white
+        initCellUI(parent: cell)
+        
         return cell
     }
 }
