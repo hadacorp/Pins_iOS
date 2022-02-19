@@ -101,4 +101,14 @@ class CustomButton: UIButton {
         self.addTarget(parent, action: action, for: .touchUpInside)
         return self
     }
+    
+    @discardableResult public func setTitle(title: String) -> CustomButton {
+        self.setTitle(title, for: .normal)
+        return self
+    }
+    
+    @discardableResult public func setTitleFont(name: String, size: CGFloat) -> CustomButton {
+        self.titleLabel?.font = UIFont(name: name, size: size)
+        return self
+    }
 }
