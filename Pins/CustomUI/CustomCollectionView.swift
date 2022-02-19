@@ -45,8 +45,8 @@ class CustomCollectionView: UICollectionView {
         return self
     }
     
-    @discardableResult public func setRegister() -> CustomCollectionView {
-        self.register(CustomCell.self, forCellWithReuseIdentifier: "cell")
+    @discardableResult public func setRegister(customCell: AnyClass) -> CustomCollectionView {
+        self.register(customCell, forCellWithReuseIdentifier: "cell")
         return self
     }
     
@@ -61,7 +61,7 @@ class CustomCollectionView: UICollectionView {
     }
     
     @discardableResult public func setLineSpacing(size: CGFloat) -> CustomCollectionView {
-        flowLayout.minimumLineSpacing = 7
+        flowLayout.minimumLineSpacing = size
         return self
     }
     

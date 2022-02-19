@@ -95,7 +95,6 @@ class CustomLabel: UILabel {
     
     @discardableResult public func setLineHeight(size: Int) -> CustomLabel {
         self.numberOfLines = size
-        self.lineBreakMode = .byWordWrapping
         return self
     }
     

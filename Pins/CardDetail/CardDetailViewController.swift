@@ -16,8 +16,18 @@ class CardDetailViewController: BaseViewController {
     }
     
     override func setupUI() {
+        // MARK: - 최상위 스크롤 뷰
+        let scrollView = CustomScrollView(parent: self.view)
+            .makeConstraints {
+                $0.leading.top.equalTo(20)
+                $0.trailing.bottom.equalTo(-20)
+            }
+            .setBackgroundColor(color: .blue)
+            .setDelegate(view: self)
+        scrollView.isScrollEnabled = false
+        print(scrollView.contentSize)
         // MARK: - 상단 네비게이션 뷰
-        CustomButton(parent: self.view)
+        CustomButton(parent: scrollView)
             .makeConstraints{
                 $0.leading.equalTo(16)
                 $0.top.equalTo(self.view.safeAreaLayoutGuide).offset(14)
@@ -27,65 +37,65 @@ class CardDetailViewController: BaseViewController {
             .setImage(image: UIImage(named: "smallBack")!)
             .setAction(parent: self, action: #selector(backBtn))
         
-        CustomLabel(parent: self.view)
+        CustomLabel(parent: scrollView)
             .makeConstraints {
-                $0.centerX.equalTo(self.view)
+                $0.centerX.equalTo(scrollView)
                 $0.top.equalTo(self.view.safeAreaLayoutGuide).offset(14)
             }
             .setText(text: "만남 핀")
             .setFont(name: "NotoSansKR-Medium", size: 16)
             .setColor(color: .black)
         
-        CustomButton(parent: self.view)
+        CustomButton(parent: scrollView)
             .makeConstraints{
-                $0.trailing.equalTo(-16)
-                $0.top.equalTo(self.view.safeAreaLayoutGuide).offset(14)
+                $0.leading.equalTo(UIScreenSize.shared.width - 16 - 10)
+                $0.top.equalTo(scrollView.safeAreaLayoutGuide).offset(14)
                 $0.width.equalTo(10)
                 $0.height.equalTo(16)
             }
             .setImage(image: UIImage(named: "btnMore")!)
         
-        CustomView(parent: self.view)
+        CustomView(parent: scrollView)
             .makeConstraints {
-                $0.top.equalTo(self.view.safeAreaLayoutGuide).offset(53.5)
+                $0.top.equalTo(scrollView.safeAreaLayoutGuide).offset(53.5)
                 $0.width.equalTo(self.view)
                 $0.height.equalTo(0.5)
             }
             .setColor(color: UIColor(hex: "DEDEDE"))
         // MARK: - 중단 콘텐츠 부분
-        CustomImage(parent: self.view)
+        CustomImage(parent: scrollView)
             .makeConstraints {
                 $0.leading.equalTo(16)
-                $0.top.equalTo(self.view.safeAreaLayoutGuide).offset(70)
+                $0.top.equalTo(scrollView.safeAreaLayoutGuide).offset(70)
                 $0.width.height.equalTo(35)
             }
             .setImage(image: UIImage(named: "catimage")!)
             .setRadius(size: 17.5)
         
-        CustomLabel(parent: self.view)
+        CustomLabel(parent: scrollView)
             .makeConstraints {
                 $0.leading.equalTo(59)
-                $0.top.equalTo(self.view.safeAreaLayoutGuide).offset(70)
+                $0.top.equalTo(scrollView.safeAreaLayoutGuide).offset(70)
                 $0.height.equalTo(14)
             }
             .setText(text: "가나라다마바사사사")
             .setFont(name: "NotoSansKR-Regular", size: 13)
             .setColor(color: .black)
         
-        CustomLabel(parent: self.view)
+        CustomLabel(parent: scrollView)
             .makeConstraints {
                 $0.leading.equalTo(59)
-                $0.top.equalTo(self.view.safeAreaLayoutGuide).offset(92)
+                $0.top.equalTo(scrollView.safeAreaLayoutGuide).offset(92)
                 $0.height.equalTo(13)
             }
             .setText(text: "25세 남자")
             .setFont(name: "NotoSansKR-Regular", size: 13)
             .setColor(color: UIColor.init(hex: "999999"))
         
-        CustomLabel(parent: self.view)
+        CustomLabel(parent: scrollView)
             .makeConstraints {
-                $0.trailing.equalTo(-16)
-                $0.top.equalTo(self.view.safeAreaLayoutGuide).offset(70)
+                $0.leading.equalTo(Int(UIScreenSize.shared.width) - 16 - Category().accident)
+                $0.top.equalTo(scrollView.safeAreaLayoutGuide).offset(70)
                 $0.width.equalTo(Category().accident)
             }
             .setFont(name: "NotoSansKR-Regular", size: 12)
@@ -95,17 +105,17 @@ class CardDetailViewController: BaseViewController {
             .setRadius(size: 10)
             .setAlignment(alignment: .center)
         
-        let mainContent = CustomLabel(parent: self.view)
+        let mainContent = CustomLabel(parent: scrollView)
             .makeConstraints{
                 $0.leading.equalTo(16)
-                $0.trailing.equalTo(-16)
-                $0.top.equalTo(self.view.safeAreaLayoutGuide).offset(127)
+                $0.top.equalTo(scrollView.safeAreaLayoutGuide).offset(127)
+                $0.width.equalTo(UIScreenSize.shared.width - 32)
             }
-            .setText(text: "광교호수공원에서 강아지 산책해용 저는 말티즈 키우고 있어용 제가 자주 가는 코스로 모셔볼게요~~!! 두시간 정도 생각하고 있는데 ")
+            .setText(text: "광교호수공원에서 강아지 산책해용 저는 말티즈 키우고 있어용 제가 자주 가는 코스로 모셔볼게요~~!! 두시간 정도 생각하고 있는데  두시간 정도 생각하고 있는데  두시간 정도 생각하고 있는데  두시간 정도 생각하고 있는데  두시간 정도 생각하고 있는데  두시간 정도 생각하고 있는데  두시간 정도 생각하고 있는데  두시간 정도 생각하고 있는데  두시간 정도 생각하고 있는데  두시간 정도 생각하고 있는데  두시간 정도 생각하고 있는데두시간 정도 생각하고 있는데두시간 정도 생각하고 있는데두시간 정도 생각하고 있는데두시간 정도 생각하고 있는데두시간 정도 생각하고 있는데두시간 정도 생각하고 있는데 ")
             .setFont(name: "NotoSansKR-Regular", size: 15)
-            .setLineHeight(size: 10)
+            .setLineHeight(size: 0)
         
-        CustomLabel(parent: self.view)
+        CustomLabel(parent: scrollView)
             .makeConstraints {
                 $0.leading.equalTo(16)
                 // 한줄에 높이 22로 계산
@@ -116,17 +126,17 @@ class CardDetailViewController: BaseViewController {
             .setFont(name: "NotoSansKR-Regular", size: 12)
             .setColor(color: UIColor.init(hex: "AFAFAF"))
         
-        CustomView(parent: self.view)
+        CustomView(parent: scrollView)
             .makeConstraints {
                 $0.top.equalTo(mainContent.snp.bottom).offset(64.5)
-                $0.width.equalTo(self.view)
+                $0.width.equalTo(scrollView)
                 $0.height.equalTo(0.5)
             }
             .setColor(color: UIColor(hex: "DEDEDE"))
         
         
         // MARK: - 중단 정보 뷰
-        CustomLabel(parent: self.view)
+        CustomLabel(parent: scrollView)
             .makeConstraints {
                 $0.leading.equalTo(16)
                 $0.top.equalTo(mainContent.snp.bottom).offset(81)
@@ -135,35 +145,35 @@ class CardDetailViewController: BaseViewController {
             .setText(text: "정보")
             .setFont(name: "NotoSansKR-Medium", size: 16)
         
-        CustomImage(parent: self.view)
+        CustomImage(parent: scrollView)
             .makeConstraints {
                 $0.leading.equalTo(16)
                 $0.top.equalTo(mainContent.snp.bottom).offset(119)
             }
             .setImage(image: UIImage(named: "iconInteration")!)
         
-        CustomImage(parent: self.view)
+        CustomImage(parent: scrollView)
             .makeConstraints {
                 $0.leading.equalTo(16)
                 $0.top.equalTo(mainContent.snp.bottom).offset(146)
             }
             .setImage(image: UIImage(named: "iconTime")!)
         
-        CustomImage(parent: self.view)
+        CustomImage(parent: scrollView)
             .makeConstraints {
                 $0.leading.equalTo(16)
                 $0.top.equalTo(mainContent.snp.bottom).offset(171)
             }
             .setImage(image: UIImage(named: "iconAge")!)
         
-        CustomImage(parent: self.view)
+        CustomImage(parent: scrollView)
             .makeConstraints {
                 $0.leading.equalTo(16)
                 $0.top.equalTo(mainContent.snp.bottom).offset(197)
             }
             .setImage(image: UIImage(named: "iconGender")!)
         
-        CustomLabel(parent: self.view)
+        CustomLabel(parent: scrollView)
             .makeConstraints{
                 $0.leading.equalTo(37)
                 $0.top.equalTo(mainContent.snp.bottom).offset(119)
@@ -172,7 +182,7 @@ class CardDetailViewController: BaseViewController {
             .setText(text: "경기도 수원시 팔달구 243")
             .setFont(name: "NotoSansKR-Regular", size: 13)
         
-        CustomLabel(parent: self.view)
+        CustomLabel(parent: scrollView)
             .makeConstraints{
                 $0.leading.equalTo(37)
                 $0.top.equalTo(mainContent.snp.bottom).offset(146)
@@ -181,7 +191,7 @@ class CardDetailViewController: BaseViewController {
             .setText(text: "오늘 오후 9시")
             .setFont(name: "NotoSansKR-Regular", size: 13)
         
-        CustomLabel(parent: self.view)
+        CustomLabel(parent: scrollView)
             .makeConstraints{
                 $0.leading.equalTo(37)
                 $0.top.equalTo(mainContent.snp.bottom).offset(171)
@@ -190,7 +200,7 @@ class CardDetailViewController: BaseViewController {
             .setText(text: "22살 ~ 26살")
             .setFont(name: "NotoSansKR-Regular", size: 13)
         
-        CustomLabel(parent: self.view)
+        CustomLabel(parent: scrollView)
             .makeConstraints{
                 $0.leading.equalTo(37)
                 $0.top.equalTo(mainContent.snp.bottom).offset(197)
@@ -199,17 +209,17 @@ class CardDetailViewController: BaseViewController {
             .setText(text: "성별 무관")
             .setFont(name: "NotoSansKR-Regular", size: 13)
         
-        CustomView(parent: self.view)
+        CustomView(parent: scrollView)
             .makeConstraints {
                 $0.top.equalTo(mainContent.snp.bottom).offset(225.5)
-                $0.width.equalTo(self.view)
+                $0.width.equalTo(scrollView)
                 $0.height.equalTo(0.5)
             }
             .setColor(color: UIColor(hex: "DEDEDE"))
         
         // MARK: - 하단 뷰
         
-        CustomLabel(parent: self.view)
+        CustomLabel(parent: scrollView)
             .makeConstraints {
                 $0.leading.equalTo(16)
                 $0.top.equalTo(mainContent.snp.bottom).offset(242)
@@ -218,13 +228,45 @@ class CardDetailViewController: BaseViewController {
             .setText(text: "같이 할 사람")
             .setFont(name: "NotoSansKR-Medium", size: 16)
         
-        CustomLabel(parent: self.view)
+        CustomLabel(parent: scrollView)
             .makeConstraints {
-                $0.trailing.equalTo(-16)
+                $0.leading.equalTo(UIScreenSize.shared.width - 16 - 100)
+                $0.width.equalTo(100)
                 $0.top.equalTo(mainContent.snp.bottom).offset(245)
             }
             .setText(text: "56/100")
             .setFont(name: "NotoSansKR-Regular", size: 13)
             .setColor(color: UIColor.init(hex: "999999"))
+            .setAlignment(alignment: .right)
+        
+        CustomButton(parent: scrollView)
+            .makeConstraints{
+                $0.bottom.equalTo(scrollView.safeAreaLayoutGuide).offset(-14)
+                $0.leading.equalTo(16)
+                $0.trailing.equalTo(-16)
+                $0.height.equalTo(40)
+            }
+            .setColor(color: UIColor.init(hex: "1059FF").cgColor)
+            .setTitle(title: "같이 하기")
+            .setTitleFont(name: "NotoSansKR-Regular", size: 15)
+            .setRounded(size: 15)
+            .setShadow(x: 0, y: 4, blur: 4, opacity: 0.16, color: UIColor.black.cgColor)
+        
+        // 하단 카드 CollectionView
+        CustomCollectionView(parent: scrollView)
+            .setBackgroundColor(color: .white)
+            .makeConstraints {
+                $0.leading.equalTo(0)
+                $0.top.equalTo(mainContent.snp.bottom).offset(280)
+                $0.width.equalTo(UIScreenSize.shared.width)
+                $0.height.equalTo(70)
+            }
+            .setDataSource(view: self)
+            .setDelegate(view: self)
+            .setRegister(customCell: CardDetailCustomCell.self)
+            .setScrollDirection(direction: .horizontal)
+            .setScrollIndicate(show: false)
+            .setSectionInset(insets: UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16))
+            .setLineSpacing(size: 8)
     }
 }

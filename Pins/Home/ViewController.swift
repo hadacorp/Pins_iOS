@@ -139,7 +139,7 @@ class ViewController: BaseViewController {
             }
             .setDataSource(view: self)
             .setDelegate(view: self)
-            .setRegister()
+            .setRegister(customCell: ViewControllerCustomCell.self)
             .setScrollDirection(direction: .horizontal)
             .setSectionInset(insets: UIEdgeInsets(top: 0, left: 16, bottom: 10, right: 16))
             .setScrollIndicate(show: false)
