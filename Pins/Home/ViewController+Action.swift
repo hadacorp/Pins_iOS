@@ -21,10 +21,11 @@ extension ViewController {
     }
     
     // 카드뷰 클릭 시
-    func detailView() {
-        guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "CardDetailVC") else {
+    func detailView(card: CardInfo) {
+        guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "CardDetailVC") as? CardDetailViewController else {
             return
         }
+        vc.viewModel.card = card
         self.navigationController?.isNavigationBarHidden = true
         self.navigationController?.pushViewController(vc, animated: true)
     }

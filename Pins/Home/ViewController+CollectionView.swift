@@ -10,7 +10,7 @@ import UIKit
 extension ViewController: UICollectionViewDataSource {
     // 셀 개수
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return viewModel.cards.count
     }
     
     // 셀 생성
@@ -21,7 +21,7 @@ extension ViewController: UICollectionViewDataSource {
             i.removeFromSuperview()
         }
         cell.backgroundColor = .white
-        initCellUI(parent: cell)
+        initCellUI(parent: cell, card: viewModel.cards[indexPath.row])
         
         return cell
     }
@@ -55,7 +55,7 @@ extension ViewController: UICollectionViewDelegate {
     
     // content click
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        detailView()
+        detailView(card: viewModel.cards[indexPath.row])
     }
 }
 

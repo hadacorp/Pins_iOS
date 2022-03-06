@@ -23,6 +23,12 @@ class CustomImage: UIImageView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    @discardableResult public func setContentMode(mode: UIView.ContentMode) -> CustomImage {
+        self.contentMode = mode
+        
+        return self
+    }
+    
     @discardableResult public func setImage(image: UIImage) -> CustomImage {
         self.image = image
         

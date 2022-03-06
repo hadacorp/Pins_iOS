@@ -8,7 +8,9 @@
 import Foundation
 
 class CardDetailViewModel {
-    let tempArr = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1]
+    let tempArr = [0, 0, 0, 0, 0, 0, 0, 0, 0, 1]
+    
+    var card: CardInfo = CardInfo(name: "", age: "", category: "", title: "", position: "", time: "", ageRange: "", gender: "")
     
     func getTempArrCount() -> Int {
         return tempArr.count

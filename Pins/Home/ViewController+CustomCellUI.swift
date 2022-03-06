@@ -8,14 +8,14 @@
 import UIKit
 
 extension ViewController {
-    func initCellUI(parent: UIView) {
+    func initCellUI(parent: UIView, card: CardInfo) {
         CustomLabel(parent: parent)
             .makeConstraints {
                 $0.top.equalTo(18)
                 $0.leading.equalTo(59)
                 $0.height.equalTo(14)
             }
-            .setText(text: "가나다라마바사")
+            .setText(text: card.name)
             .setFont(name: "NotoSansKR-Regular", size: 13)
         
         CustomImage(parent: parent)
@@ -33,7 +33,7 @@ extension ViewController {
                 $0.leading.equalTo(59)
                 $0.height.equalTo(13)
             }
-            .setText(text: "23살 여자")
+            .setText(text: card.age)
             .setFont(name: "NotoSansKR-Regular", size: 13)
             .setColor(color: UIColor.init(hex: "#999999"))
         
@@ -45,7 +45,7 @@ extension ViewController {
                 $0.width.equalTo(Category().accident)
             }
             .setFont(name: "NotoSansKR-Regular", size: 12)
-            .setText(text: "사건사고")
+            .setText(text: card.category)
             .setBackgroundColor(color: UIColor.init(hex: "#1059FF"))
             .setColor(color: .white)
             .setRadius(size: 10)
@@ -57,7 +57,7 @@ extension ViewController {
                 $0.leading.equalTo(16)
                 $0.trailing.equalTo(-16)
             }
-            .setText(text: "광교호수공원에서 강아지 산책해용 저는 말티즈 키우고 있어용 제가 자주 가는 코스로 모셔볼게 용가리어카센타이어부자식칼국수제비")
+            .setText(text: card.title)
             .setFont(name: "NotoSansKR-Regular", size: 15)
             .setLineHeight(size: 2)
         
@@ -76,7 +76,7 @@ extension ViewController {
                 $0.bottom.equalTo(-22)
                 $0.height.equalTo(14)
             }
-            .setText(text: "이번주 금요일 오후 2시 05분")
+            .setText(text: card.time)
             .setFont(name: "NotoSansKR-Regular", size: 13)
             .setColor(color: UIColor.init(hex: "#999999"))
         
