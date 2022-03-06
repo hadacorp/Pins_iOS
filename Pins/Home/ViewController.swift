@@ -17,6 +17,8 @@ class ViewController: BaseViewController {
     let mapView = MKMapView()
     // 하단 카드뷰 인덱스
     var currentIdx: CGFloat = 0.0
+    // viewModel
+    let viewModel = ViewControllerViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()

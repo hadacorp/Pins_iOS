@@ -10,6 +10,7 @@ import UIKit
 class CardDetailViewController: BaseViewController {
     // MARK: - Property
     let viewModel = CardDetailViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -79,7 +80,7 @@ class CardDetailViewController: BaseViewController {
                 $0.top.equalTo(contentsView.safeAreaLayoutGuide).offset(70)
                 $0.height.equalTo(14)
             }
-            .setText(text: "가나라다마바사사사")
+            .setText(text: viewModel.card.name)
             .setFont(name: "NotoSansKR-Regular", size: 13)
             .setColor(color: .black)
         
@@ -89,7 +90,7 @@ class CardDetailViewController: BaseViewController {
                 $0.top.equalTo(contentsView.safeAreaLayoutGuide).offset(92)
                 $0.height.equalTo(13)
             }
-            .setText(text: "25세 남자")
+            .setText(text: viewModel.card.age)
             .setFont(name: "NotoSansKR-Regular", size: 13)
             .setColor(color: UIColor.init(hex: "999999"))
         
@@ -100,21 +101,67 @@ class CardDetailViewController: BaseViewController {
                 $0.width.equalTo(Category().accident)
             }
             .setFont(name: "NotoSansKR-Regular", size: 12)
-            .setText(text: "사건사고")
+            .setText(text: viewModel.card.category)
             .setBackgroundColor(color: UIColor.init(hex: "#1059FF"))
             .setColor(color: .white)
             .setRadius(size: 10)
             .setAlignment(alignment: .center)
         
-        let mainContent = CustomLabel(parent: contentsView)
-            .makeConstraints{
-                $0.leading.equalTo(16)
-                $0.top.equalTo(contentsView.safeAreaLayoutGuide).offset(127)
-                $0.width.equalTo(UIScreenSize.shared.width - 32)
-            }
-            .setText(text: "광교호수공원에서 강아지 산책해용 저는 말티즈 키우고 있어용 제가 자주 가는 코스로 모셔볼게요~~!! 두시간 정도 생각하고 있는데  두시간 정도 생각하고 있는데  두시간 정도 생각하고 있는데  두시간 정도 생각하고 있는데  두시간 정도 생각하고 있는데  두시간 정도 생각하고 있는데  두시간 정도 생각하고 있는데  두시간 정도 생각하고 있는데  두시간 정도 생각하고 있는데  두시간 정도 생각하고 있는데  두시간 정도 생각하고 있는데두시간 정도 생각하고 있는데두시간 정도 생각하고 있는데두시간 정도 생각하고 있는데두시간 정도 생각하고 있는데두시간 정도 생각하고 있는데두시간 정도 생각하고 있는데 ")
-            .setFont(name: "NotoSansKR-Regular", size: 15)
-            .setLineHeight(size: 0)
+        
+        var mainContent = CustomLabel()
+        // 이미지가 있으면
+        if viewModel.card.image != nil {
+            let image = CustomImage(parent: contentsView)
+                .makeConstraints{
+                    $0.top.equalTo(contentsView.safeAreaLayoutGuide).offset(127)
+                    $0.height.equalTo(375)
+                    $0.centerX.equalTo(contentsView)
+                }
+                .setImage(image: UIImage(named: viewModel.card.image!)!)
+                .setContentMode(mode: .scaleAspectFit)
+                
+            image.backgroundColor = .red
+            
+            mainContent = CustomLabel(parent: contentsView)
+                .makeConstraints{
+                    $0.leading.equalTo(16)
+                    $0.top.equalTo(image.snp.bottom).offset(22)
+                    $0.width.equalTo(UIScreenSize.shared.width - 32)
+                }
+                .setText(text: viewModel.card.title)
+                .setFont(name: "NotoSansKR-Regular", size: 15)
+                .setLineHeight(size: 0)
+            
+            // 스크롤뷰의 콘텐츠뷰 사이즈 초기화
+            contentsView
+                .makeConstraints {
+                    $0.edges.equalTo(0)
+                    $0.width.equalTo(scrollView)
+                    $0.height.equalTo(mainContent.snp.height).offset(595 + 400)
+                }
+        }
+        // 이미지가 없으면
+        else {
+            mainContent = CustomLabel(parent: contentsView)
+                .makeConstraints{
+                    $0.leading.equalTo(16)
+                    $0.top.equalTo(contentsView.safeAreaLayoutGuide).offset(127)
+                    $0.width.equalTo(UIScreenSize.shared.width - 32)
+                }
+                .setText(text: viewModel.card.title)
+                .setFont(name: "NotoSansKR-Regular", size: 15)
+                .setLineHeight(size: 0)
+            
+            // 스크롤뷰의 콘텐츠뷰 사이즈 초기화
+            contentsView
+                .makeConstraints {
+                    $0.edges.equalTo(0)
+                    $0.width.equalTo(scrollView)
+                    $0.height.equalTo(mainContent.snp.height).offset(595)
+                }
+        }
+        
+        
         
         CustomLabel(parent: contentsView)
             .makeConstraints {
@@ -180,7 +227,7 @@ class CardDetailViewController: BaseViewController {
                 $0.top.equalTo(mainContent.snp.bottom).offset(119)
                 $0.height.equalTo(15)
             }
-            .setText(text: "경기도 수원시 팔달구 243")
+            .setText(text: viewModel.card.position)
             .setFont(name: "NotoSansKR-Regular", size: 13)
         
         CustomLabel(parent: contentsView)
@@ -189,7 +236,7 @@ class CardDetailViewController: BaseViewController {
                 $0.top.equalTo(mainContent.snp.bottom).offset(146)
                 $0.height.equalTo(15)
             }
-            .setText(text: "오늘 오후 9시")
+            .setText(text: viewModel.card.time)
             .setFont(name: "NotoSansKR-Regular", size: 13)
         
         CustomLabel(parent: contentsView)
@@ -198,7 +245,7 @@ class CardDetailViewController: BaseViewController {
                 $0.top.equalTo(mainContent.snp.bottom).offset(171)
                 $0.height.equalTo(15)
             }
-            .setText(text: "22살 ~ 26살")
+            .setText(text: viewModel.card.ageRange)
             .setFont(name: "NotoSansKR-Regular", size: 13)
         
         CustomLabel(parent: contentsView)
@@ -207,7 +254,7 @@ class CardDetailViewController: BaseViewController {
                 $0.top.equalTo(mainContent.snp.bottom).offset(197)
                 $0.height.equalTo(15)
             }
-            .setText(text: "성별 무관")
+            .setText(text: viewModel.card.gender)
             .setFont(name: "NotoSansKR-Regular", size: 13)
         
         CustomView(parent: contentsView)
@@ -268,13 +315,5 @@ class CardDetailViewController: BaseViewController {
             .setScrollIndicate(show: false)
             .setSectionInset(insets: UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16))
             .setLineSpacing(size: 8)
-        
-        // 스크롤뷰의 콘텐츠뷰 사이즈 초기화
-        contentsView
-            .makeConstraints {
-                $0.edges.equalTo(0)
-                $0.width.equalTo(scrollView)
-                $0.height.equalTo(mainContent.snp.height).offset(595)
-            }
     }
 }
