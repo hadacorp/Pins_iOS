@@ -12,6 +12,8 @@ class CardDetailViewModel {
     
     var card: CardInfo = CardInfo(name: "", age: "", category: "", title: "", position: "", time: "", ageRange: "", gender: "")
     
+    var isJoinHidden: Bool = true
+    
     func getTempArrCount() -> Int {
         return tempArr.count
     }

@@ -111,4 +111,9 @@ class CustomButton: UIButton {
         self.titleLabel?.font = UIFont(name: name, size: size)
         return self
     }
+    
+    @discardableResult public func setTitleColor(color: UIColor) -> CustomButton {
+        self.setTitleColor(color, for: .normal)
+        return self
+    }
 }
