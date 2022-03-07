@@ -16,12 +16,14 @@ class CardDetailViewController: BaseViewController {
     var joinBackground: CustomView!
     var applyBtn: CustomButton!
     var cancelBtn: CustomButton!
+    var whiteCard: CustomView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
         setJoinView()
         rxSetup()
+        setNotificationCenter()
     }
     
     override func setupUI() {
