@@ -53,6 +53,12 @@ class CustomTextField: UITextField {
         return self
     }
     
+    @discardableResult public func setColor(color: UIColor) -> CustomTextField {
+        self.backgroundColor = color
+        
+        return self
+    }
+    
     @discardableResult public func makeConstraints(_ maker: @escaping (ConstraintMaker) -> Void) -> CustomTextField {
         self.snp.makeConstraints { maker($0) }
         return self

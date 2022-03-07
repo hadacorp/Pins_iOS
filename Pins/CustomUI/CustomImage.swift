@@ -24,8 +24,8 @@ class CustomImage: UIImageView {
     }
     
     @discardableResult public func setContentMode(mode: UIView.ContentMode) -> CustomImage {
+        self.clipsToBounds = true
         self.contentMode = mode
-        
         return self
     }
     

@@ -29,6 +29,8 @@
 		B76FFD072793103900CA9AEB /* GetHomePinAndCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76FFD062793103900CA9AEB /* GetHomePinAndCard.swift */; };
 		B76FFD0F2793165700CA9AEB /* UnitTestAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76FFD0E2793165700CA9AEB /* UnitTestAPI.swift */; };
 		B76FFD16279324CB00CA9AEB /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76FFD15279324CB00CA9AEB /* NetworkResult.swift */; };
+		B772035C27D5DA2700D44AF7 /* JoinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B772035B27D5DA2700D44AF7 /* JoinView.swift */; };
+		B772035E27D5DF8500D44AF7 /* CustomTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B772035D27D5DF8500D44AF7 /* CustomTextView.swift */; };
 		B78D071027C11237007DA27B /* CardDetail+CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78D070F27C11237007DA27B /* CardDetail+CustomCell.swift */; };
 		B78D071227C113B3007DA27B /* CardDetail+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78D071127C113B3007DA27B /* CardDetail+CollectionView.swift */; };
 		B78D071427C11C14007DA27B /* CustomScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78D071327C11C14007DA27B /* CustomScrollView.swift */; };
@@ -99,6 +101,8 @@
 		B76FFD0C2793165700CA9AEB /* UnitTestAPI.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTestAPI.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B76FFD0E2793165700CA9AEB /* UnitTestAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTestAPI.swift; sourceTree = "<group>"; };
 		B76FFD15279324CB00CA9AEB /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
+		B772035B27D5DA2700D44AF7 /* JoinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinView.swift; sourceTree = "<group>"; };
+		B772035D27D5DF8500D44AF7 /* CustomTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextView.swift; sourceTree = "<group>"; };
 		B78D070F27C11237007DA27B /* CardDetail+CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CardDetail+CustomCell.swift"; sourceTree = "<group>"; };
 		B78D071127C113B3007DA27B /* CardDetail+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CardDetail+CollectionView.swift"; sourceTree = "<group>"; };
 		B78D071327C11C14007DA27B /* CustomScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomScrollView.swift; sourceTree = "<group>"; };
@@ -212,6 +216,14 @@
 			path = UnitTestAPI;
 			sourceTree = "<group>";
 		};
+		B772035A27D5D9FB00D44AF7 /* CardDetailJoin */ = {
+			isa = PBXGroup;
+			children = (
+				B772035B27D5DA2700D44AF7 /* JoinView.swift */,
+			);
+			path = CardDetailJoin;
+			sourceTree = "<group>";
+		};
 		B79112A927B6C60E0014E7FE /* CardDetail */ = {
 			isa = PBXGroup;
 			children = (
@@ -256,6 +268,7 @@
 		B7B5B6E2278E5EEE002BDBEA /* Pins */ = {
 			isa = PBXGroup;
 			children = (
+				B772035A27D5D9FB00D44AF7 /* CardDetailJoin */,
 				B79112A927B6C60E0014E7FE /* CardDetail */,
 				B79B7BC127964AC400D43640 /* Search */,
 				B7BC719027952BD800A229A0 /* Extension */,
@@ -284,6 +297,7 @@
 				B79112A727B6AB4E0014E7FE /* CustomImage.swift */,
 				B74BBA0E27BD4E3700DBDDF0 /* CustomView.swift */,
 				B78D071327C11C14007DA27B /* CustomScrollView.swift */,
+				B772035D27D5DF8500D44AF7 /* CustomTextView.swift */,
 			);
 			path = CustomUI;
 			sourceTree = "<group>";
@@ -436,6 +450,7 @@
 				B78D071027C11237007DA27B /* CardDetail+CustomCell.swift in Sources */,
 				B79112AF27B6C8640014E7FE /* Extension+ViewController.swift in Sources */,
 				B71F24E7278FC33A003D8DE3 /* CustomLabel.swift in Sources */,
+				B772035E27D5DF8500D44AF7 /* CustomTextView.swift in Sources */,
 				B78D071227C113B3007DA27B /* CardDetail+CollectionView.swift in Sources */,
 				B76FFD072793103900CA9AEB /* GetHomePinAndCard.swift in Sources */,
 				B7B5B6E8278E5EEE002BDBEA /* ViewController.swift in Sources */,
@@ -443,6 +458,7 @@
 				B78D071427C11C14007DA27B /* CustomScrollView.swift in Sources */,
 				B79B7BC52796557200D43640 /* CustomTextField.swift in Sources */,
 				B73B4707278F02D300A60C37 /* Extension+UIColor.swift in Sources */,
+				B772035C27D5DA2700D44AF7 /* JoinView.swift in Sources */,
 				B79112A627B6A7980014E7FE /* ViewController+CustomCell.swift in Sources */,
 				B79112AD27B6C66D0014E7FE /* CardDetailViewController+Action.swift in Sources */,
 				B78D071827C13D01007DA27B /* ViewController+CustomCellUI.swift in Sources */,
