@@ -18,9 +18,9 @@ extension CardDetailViewController {
             .setColor(color: UIColor.init(_colorLiteralRed: 0, green: 0, blue: 0, alpha: 0.4))
             .setHidden(hidden: viewModel.isJoinHidden)
         
-        let white = CustomView(parent: joinBackground)
+        whiteCard = CustomView(parent: joinBackground)
             .makeConstraints {
-                $0.top.equalTo(self.view.safeAreaInsets).offset(214)
+                $0.bottom.equalTo(self.view.safeAreaInsets).offset(-224)
                 $0.leading.equalTo(16)
                 $0.trailing.equalTo(-16)
                 $0.height.equalTo(296)
@@ -28,7 +28,7 @@ extension CardDetailViewController {
             .setColor(color: .white)
             .setRadius(size: 20)
         
-        CustomLabel(parent: white)
+        CustomLabel(parent: whiteCard)
             .makeConstraints {
                 $0.top.equalTo(16)
                 $0.leading.equalTo(16)
@@ -36,7 +36,7 @@ extension CardDetailViewController {
             .setText(text: "첫인사를 작성해요")
             .setFont(name: "NotoSansKR-Regular", size: 18)
         
-        CustomTextView(parent: white)
+        CustomTextView(parent: whiteCard)
             .makeConstraints {
                 $0.top.equalTo(58)
                 $0.leading.equalTo(16)
@@ -50,7 +50,7 @@ extension CardDetailViewController {
             .setPadding(padding: UIEdgeInsets(top: 8, left: 8, bottom: 0, right: 0))
             .setPlaceholder(string: "최대 50자", parent: self)
         
-        CustomLabel(parent: white)
+        CustomLabel(parent: whiteCard)
             .makeConstraints {
                 $0.top.equalTo(176)
                 $0.leading.equalTo(16)
@@ -59,7 +59,7 @@ extension CardDetailViewController {
             .setText(text: "작성 후엔 수정할 수 없으니 신중하게 :)")
             .setFont(name: "NotoSansKR-Regular", size: 14)
         
-        CustomLabel(parent: white)
+        CustomLabel(parent: whiteCard)
             .makeConstraints {
                 $0.top.equalTo(196)
                 $0.leading.equalTo(16)
@@ -68,7 +68,7 @@ extension CardDetailViewController {
             .setText(text: "핀 주인이 확인할 때까지 조금만 기다려봐요!")
             .setFont(name: "NotoSansKR-Regular", size: 14)
         
-        cancelBtn = CustomButton(parent: white)
+        cancelBtn = CustomButton(parent: whiteCard)
             .makeConstraints {
                 $0.top.equalTo(240)
                 $0.trailing.equalTo(-126)
@@ -81,7 +81,7 @@ extension CardDetailViewController {
             .setTitleFont(name: "NotoSansKR-Regular", size: 15)
             .setTitleColor(color: .black)
         
-        applyBtn = CustomButton(parent: white)
+        applyBtn = CustomButton(parent: whiteCard)
             .makeConstraints {
                 $0.top.equalTo(240)
                 $0.trailing.equalTo(-16)

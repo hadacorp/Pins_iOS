@@ -22,6 +22,8 @@ extension CardDetailViewController {
         else {
             viewModel.isJoinHidden = true
             joinBackground.setHidden(hidden: viewModel.isJoinHidden)
+            self.view.endEditing(true)
+            return
         }
     }
     
