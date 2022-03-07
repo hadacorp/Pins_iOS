@@ -34,6 +34,11 @@ class CustomView: UIView {
         return self
     }
     
+    @discardableResult public func setHidden(hidden: Bool) -> CustomView {
+        self.isHidden = hidden
+        return self
+    }
+    
     @discardableResult public func setRadius(size: CGFloat) -> CustomView {
         self.layer.cornerRadius = size
         self.clipsToBounds = true

@@ -11,10 +11,17 @@ class CardDetailViewController: BaseViewController {
     // MARK: - Property
     let viewModel = CardDetailViewModel()
     
+    // MARK: - Public Property
+    var joinBtn: CustomButton!
+    var joinBackground: CustomView!
+    var applyBtn: CustomButton!
+    var cancelBtn: CustomButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
         setJoinView()
+        rxSetup()
     }
     
     override func setupUI() {
@@ -287,7 +294,7 @@ class CardDetailViewController: BaseViewController {
             .setColor(color: UIColor.init(hex: "999999"))
             .setAlignment(alignment: .right)
         
-        CustomButton(parent: contentsView)
+        joinBtn = CustomButton(parent: contentsView)
             .makeConstraints{
                 $0.top.equalTo(mainContent.snp.bottom).offset(450)
                 $0.leading.equalTo(16)
@@ -299,6 +306,7 @@ class CardDetailViewController: BaseViewController {
             .setTitleFont(name: "NotoSansKR-Regular", size: 15)
             .setRounded(size: 15)
             .setShadow(x: 0, y: 4, blur: 4, opacity: 0.16, color: UIColor.black.cgColor)
+            
         
         // 하단 카드 CollectionView
         CustomCollectionView(parent: contentsView)

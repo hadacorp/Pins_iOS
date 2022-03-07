@@ -40,6 +40,14 @@ class CustomTextView: UITextView {
         return self
     }
     
+    @discardableResult public func setPlaceholder(string: String, parent: AnyObject) -> CustomTextView {
+        self.delegate = parent as? UITextViewDelegate
+        self.text = string
+        self.textColor = UIColor.lightGray
+        
+        return self
+    }
+    
     @discardableResult public func setFont(name: String, size: CGFloat) -> CustomTextView {
         self.font = UIFont(name: name, size: size)
         
