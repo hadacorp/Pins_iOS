@@ -14,6 +14,7 @@ class CardDetailViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        setJoinView()
     }
     
     override func setupUI() {
@@ -112,13 +113,13 @@ class CardDetailViewController: BaseViewController {
         // 이미지가 있으면
         if viewModel.card.image != nil {
             let image = CustomImage(parent: contentsView)
+                .setImage(image: UIImage(named: viewModel.card.image!)!)
+                .setContentMode(mode: .scaleAspectFill)
                 .makeConstraints{
                     $0.top.equalTo(contentsView.safeAreaLayoutGuide).offset(127)
-                    $0.height.equalTo(375)
+                    $0.width.height.equalTo(contentsView.snp.width)
                     $0.centerX.equalTo(contentsView)
                 }
-                .setImage(image: UIImage(named: viewModel.card.image!)!)
-                .setContentMode(mode: .scaleAspectFit)
                 
             image.backgroundColor = .red
             
@@ -137,7 +138,7 @@ class CardDetailViewController: BaseViewController {
                 .makeConstraints {
                     $0.edges.equalTo(0)
                     $0.width.equalTo(scrollView)
-                    $0.height.equalTo(mainContent.snp.height).offset(595 + 400)
+                    $0.height.equalTo(mainContent.snp.height).offset(631 + 22 + UIScreenSize.shared.width)
                 }
         }
         // 이미지가 없으면
@@ -157,7 +158,7 @@ class CardDetailViewController: BaseViewController {
                 .makeConstraints {
                     $0.edges.equalTo(0)
                     $0.width.equalTo(scrollView)
-                    $0.height.equalTo(mainContent.snp.height).offset(595)
+                    $0.height.equalTo(mainContent.snp.height).offset(631)
                 }
         }
         
@@ -288,7 +289,7 @@ class CardDetailViewController: BaseViewController {
         
         CustomButton(parent: contentsView)
             .makeConstraints{
-                $0.top.equalTo(mainContent.snp.bottom).offset(414)
+                $0.top.equalTo(mainContent.snp.bottom).offset(450)
                 $0.leading.equalTo(16)
                 $0.trailing.equalTo(-16)
                 $0.height.equalTo(40)
