@@ -54,7 +54,7 @@ class CardDetailViewController: BaseViewController {
                 $0.centerX.equalTo(contentsView)
                 $0.top.equalTo(contentsView.safeAreaLayoutGuide).offset(14)
             }
-            .setText(text: "만남 핀")
+            .setText(text: viewModel.getCardType())
             .setFont(name: "NotoSansKR-Medium", size: 16)
             .setColor(color: .black)
         
@@ -66,6 +66,7 @@ class CardDetailViewController: BaseViewController {
                 $0.height.equalTo(16)
             }
             .setImage(image: UIImage(named: "btnMore")!)
+            .setAction(parent: self, action: #selector(moreBtn))
         
         CustomView(parent: contentsView)
             .makeConstraints {
@@ -129,7 +130,7 @@ class CardDetailViewController: BaseViewController {
                     $0.width.height.equalTo(contentsView.snp.width)
                     $0.centerX.equalTo(contentsView)
                 }
-                
+            
             image.backgroundColor = .red
             
             mainContent = CustomLabel(parent: contentsView)
@@ -308,7 +309,7 @@ class CardDetailViewController: BaseViewController {
             .setTitleFont(name: "NotoSansKR-Regular", size: 15)
             .setRounded(size: 15)
             .setShadow(x: 0, y: 4, blur: 4, opacity: 0.16, color: UIColor.black.cgColor)
-            
+        
         
         // 하단 카드 CollectionView
         CustomCollectionView(parent: contentsView)

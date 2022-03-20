@@ -5,12 +5,25 @@
 //  Created by judongseok on 2022/02/12.
 //
 
-import Foundation
+import UIKit
 
 extension CardDetailViewController {
     @objc
     func backBtn() {
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    @objc
+    func moreBtn() {
+        let myActionSheet =  UIAlertController(title: nil, message: nil, preferredStyle: UIAlertController.Style.actionSheet)
+        myActionSheet.addAction(UIAlertAction(title: "닫기", style: UIAlertAction.Style.cancel, handler: nil))
+        myActionSheet.addAction(UIAlertAction(title: "관심 핀에 추가", style: UIAlertAction.Style.default, handler: { (ACTION :UIAlertAction!)in
+            print("관심핀에 추가...")
+        }))
+        myActionSheet.addAction(UIAlertAction(title: "신고", style: UIAlertAction.Style.destructive, handler: { (ACTION :UIAlertAction!)in
+            print("신고...")
+        }))
+        self.present(myActionSheet, animated: true, completion: nil)
     }
     
     func reload() {

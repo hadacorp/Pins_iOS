@@ -9,6 +9,7 @@
 import Foundation
 
 struct CardInfo {
+    var type: String
     var name: String
     var age: String
     var category: String
@@ -18,4 +19,7 @@ struct CardInfo {
     var ageRange: String
     var gender: String
     var image: String?
+    var comment: String?
+    var people: String?
 }
+
