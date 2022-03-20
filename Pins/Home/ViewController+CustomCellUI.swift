@@ -9,6 +9,17 @@ import UIKit
 
 extension ViewController {
     func initCellUI(parent: UIView, card: CardInfo) {
+        if card.type == "Meeting" {
+            initMeeting(parent: parent, card: card)
+        }
+        else if card.type == "Story" {
+            initStory(parent: parent, card: card)
+        }
+        else if card.type == "Community" {
+            initCommunity(parent: parent, card: card)
+        }
+    }
+    func initBase(parent: UIView, card: CardInfo) {
         CustomLabel(parent: parent)
             .makeConstraints {
                 $0.top.equalTo(18)
@@ -60,6 +71,49 @@ extension ViewController {
             .setText(text: card.title)
             .setFont(name: "NotoSansKR-Regular", size: 15)
             .setLineHeight(size: 2)
+    }
+    
+    func initCommunity(parent: UIView, card: CardInfo) {
+        initBase(parent: parent, card: card)
+        
+        CustomImage(parent: parent)
+            .makeConstraints {
+                $0.leading.equalTo(16)
+                $0.bottom.equalTo(-23)
+            }
+            .setImage(image: UIImage(named: "iconPeople")!)
+        
+        CustomLabel(parent: parent)
+            .makeConstraints {
+                $0.leading.equalTo(37)
+                $0.bottom.equalTo(-23)
+            }
+            .setText(text: card.people ?? "")
+            .setFont(name: "NotoSansKR-Regular", size: 13)
+            .setColor(color: UIColor.init(hex: "#999999"))
+    }
+    
+    func initStory(parent: UIView, card: CardInfo) {
+        initBase(parent: parent, card: card)
+        
+        CustomImage(parent: parent)
+            .makeConstraints {
+                $0.leading.equalTo(16)
+                $0.bottom.equalTo(-23)
+            }
+            .setImage(image: UIImage(named: "iconComment")!)
+        
+        CustomLabel(parent: parent)
+            .makeConstraints {
+                $0.leading.equalTo(37)
+                $0.bottom.equalTo(-23)
+            }
+            .setText(text: card.comment ?? "")
+            .setFont(name: "NotoSansKR-Regular", size: 13)
+            .setColor(color: UIColor.init(hex: "#999999"))
+    }
+    func initMeeting(parent: UIView, card: CardInfo) {
+        initBase(parent: parent, card: card)
         
         CustomImage(parent: parent)
             .makeConstraints {
