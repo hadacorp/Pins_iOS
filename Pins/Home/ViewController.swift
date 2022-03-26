@@ -20,10 +20,18 @@ class ViewController: BaseViewController {
     // viewModel
     let viewModel = ViewControllerViewModel()
     
+    // MARK: - Public Variable
+    var interactionBackground: CustomView = CustomView()
+    var interactionBtn: CustomButton = CustomButton()
+    var interactionCancel: CustomButton = CustomButton()
+    
+    // MARK: - ViewController Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         // GPS 사용 허가 받기
         setMapUserLocation()
+        interactionUI()
+        rxSetup()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -91,22 +99,22 @@ class ViewController: BaseViewController {
                 $0.leading.equalTo(16)
             }
             .setColor(color: UIColor.white.cgColor)
-            .setRounded(size: 16)
+            .setRounded(size: 20)
             .setShadow(x: 0, y: 4, blur: 8, opacity: 0.16, color: UIColor(hex: "666666").cgColor)
             .setOpacity(opacity: 0.9)
             .setImage(image: UIImage(named: "message")!)
         
-        CustomButton(type: .middle, parent: mapView)
+        interactionBtn = CustomButton(type: .middle, parent: mapView)
             .setSize(width: 50, height: 50)
             .makeConstraints{
                 $0.bottom.equalTo(-14 - UIScreenSize.shared.bottomPadding)
                 $0.centerX.equalTo(self.mapView)
             }
             .setColor(color: UIColor(hex: "1059FF").cgColor)
-            .setRounded(size: 16)
+            .setRounded(size: 20)
             .setShadow(x: 0, y: 4, blur: 8, opacity: 0.16, color: UIColor(hex: "666666").cgColor)
             .setOpacity(opacity: 0.9)
-            .setImage(image: UIImage(named: "plus")!)
+            .setImage(image: UIImage(named: "pinImage")!)
         
         CustomButton(type: .middle, parent: mapView)
             .setSize(width: 50, height: 50)
@@ -115,7 +123,7 @@ class ViewController: BaseViewController {
                 $0.trailing.equalTo(-16)
             }
             .setColor(color: UIColor.white.cgColor)
-            .setRounded(size: 16)
+            .setRounded(size: 20)
             .setShadow(x: 0, y: 4, blur: 8, opacity: 0.16, color: UIColor(hex: "666666").cgColor)
             .setOpacity(opacity: 0.9)
             .setImage(image: UIImage(named: "community")!)
@@ -146,6 +154,7 @@ class ViewController: BaseViewController {
             .setSectionInset(insets: UIEdgeInsets(top: 0, left: 16, bottom: 10, right: 16))
             .setScrollIndicate(show: false)
             .setLineSpacing(size: 7)
+            .setOpacity(value: 0)
     }
 }
 
