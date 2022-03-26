@@ -37,6 +37,28 @@ extension ViewController {
         self.mapView.setUserTrackingMode(.follow, animated: true)
     }
     
+    // 상호작용 버튼
+    func interactionBtnAction() {
+        if interactionBackground.isHidden {
+            interactionBackground.setHidden(hidden: false)
+            interactionBtn.setOpacity(opacity: 0)
+        }
+        else {
+            interactionBackground.setHidden(hidden: true)
+            interactionBtn.setOpacity(opacity: 0.9)
+        }
+    }
+    
+    func rxSetup() {
+        interactionBtn.rx.tap
+            .subscribe(onNext: { [weak self] in self?.interactionBtnAction() })
+            .disposed(by: disposeBag)
+        
+        interactionCancel.rx.tap
+            .subscribe(onNext: { [weak self] in self?.interactionBtnAction() })
+            .disposed(by: disposeBag)
+    }
+    
     func apiTest() {
         NetworkService().getHomePinAndCard { (response) in
             switch(response) {

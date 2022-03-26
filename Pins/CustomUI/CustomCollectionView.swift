@@ -65,6 +65,11 @@ class CustomCollectionView: UICollectionView {
         return self
     }
     
+    @discardableResult public func setOpacity(value: Float) -> CustomCollectionView {
+        self.layer.opacity = value
+        return self
+    }
+    
     @discardableResult public func setScrollIndicate(show: Bool) -> CustomCollectionView {
         self.showsHorizontalScrollIndicator = show
         self.showsVerticalScrollIndicator = show
