@@ -60,21 +60,6 @@ extension ViewController {
     }
     
     func apiTest() {
-        NetworkService().getHomePinAndCard { (response) in
-            switch(response) {
-            case .success(let personData):
-                if let data = personData as? User {
-                    print(data)
-                }
-            case .requestErr(let message):
-                print("requestErr", message)
-            case .pathErr:
-                print("pathErr")
-            case .serverErr:
-                print("serveErr")
-            case .networkFail:
-                print("networkFail")
-            }
-        }
+        
     }
 }

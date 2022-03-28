@@ -18,6 +18,8 @@ extension ViewController: MKMapViewDelegate, CLLocationManagerDelegate {
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         // 어느 정도 거리의 위치 변화가 생겼을 때 알림을 받을 것인지, 현재 디폴트 값
         locationManager.distanceFilter = kCLDistanceFilterNone
+        
+        print(locationManager.location?.coordinate)
     }
     
     override func didReceiveMemoryWarning() {

@@ -57,8 +57,7 @@
 		B7B5B6FC278E60E2002BDBEA /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B5B6FB278E60E2002BDBEA /* CustomButton.swift */; };
 		B7BBC85727B2A86B003BC76C /* CustomCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7BBC85627B2A86B003BC76C /* CustomCollectionView.swift */; };
 		B7BBC85927B2AECE003BC76C /* ViewController+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7BBC85827B2AECE003BC76C /* ViewController+CollectionView.swift */; };
-		B7BC247927F1BEFF00A1CC53 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B7B5B6F4278E5EEF002BDBEA /* Info.plist */; };
-		B7BC247B27F1BF4E00A1CC53 /* PinInfro.plist in Resources */ = {isa = PBXBuildFile; fileRef = B7BC247A27F1BF4E00A1CC53 /* PinInfro.plist */; };
+		B7BC247B27F1BF4E00A1CC53 /* PinInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = B7BC247A27F1BF4E00A1CC53 /* PinInfo.plist */; };
 		B7BC247E27F1BFC700A1CC53 /* Pins+Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7BC247D27F1BFC700A1CC53 /* Pins+Bundle.swift */; };
 		B7C8103D279043A800258CC5 /* ViewController+Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C8103C279043A800258CC5 /* ViewController+Map.swift */; };
 		B7C8103F2790534C00258CC5 /* ViewController+Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C8103E2790534C00258CC5 /* ViewController+Action.swift */; };
@@ -137,7 +136,7 @@
 		B7B5B6FB278E60E2002BDBEA /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		B7BBC85627B2A86B003BC76C /* CustomCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionView.swift; sourceTree = "<group>"; };
 		B7BBC85827B2AECE003BC76C /* ViewController+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+CollectionView.swift"; sourceTree = "<group>"; };
-		B7BC247A27F1BF4E00A1CC53 /* PinInfro.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = PinInfro.plist; sourceTree = "<group>"; };
+		B7BC247A27F1BF4E00A1CC53 /* PinInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = PinInfo.plist; sourceTree = "<group>"; };
 		B7BC247D27F1BFC700A1CC53 /* Pins+Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Pins+Bundle.swift"; sourceTree = "<group>"; };
 		B7C8103C279043A800258CC5 /* ViewController+Map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Map.swift"; sourceTree = "<group>"; };
 		B7C8103E2790534C00258CC5 /* ViewController+Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Action.swift"; sourceTree = "<group>"; };
@@ -304,7 +303,7 @@
 				B7B5B6EF278E5EEF002BDBEA /* Assets.xcassets */,
 				B7B5B6F1278E5EEF002BDBEA /* LaunchScreen.storyboard */,
 				B7B5B6F4278E5EEF002BDBEA /* Info.plist */,
-				B7BC247A27F1BF4E00A1CC53 /* PinInfro.plist */,
+				B7BC247A27F1BF4E00A1CC53 /* PinInfo.plist */,
 				B7BC247D27F1BFC700A1CC53 /* Pins+Bundle.swift */,
 				B7B5B6EC278E5EEE002BDBEA /* Pins.xcdatamodeld */,
 			);
@@ -446,8 +445,7 @@
 				B71F24EF278FC6A0003D8DE3 /* NotoSansKR-Light.otf in Resources */,
 				B7B5B6EB278E5EEE002BDBEA /* Main.storyboard in Resources */,
 				B71F24F0278FC6A1003D8DE3 /* NotoSansKR-Regular.otf in Resources */,
-				B7BC247927F1BEFF00A1CC53 /* Info.plist in Resources */,
-				B7BC247B27F1BF4E00A1CC53 /* PinInfro.plist in Resources */,
+				B7BC247B27F1BF4E00A1CC53 /* PinInfo.plist in Resources */,
 				B71F24F3278FC6A1003D8DE3 /* NotoSansKR-Black.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
