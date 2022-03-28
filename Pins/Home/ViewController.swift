@@ -36,6 +36,18 @@ class ViewController: BaseViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         getUserLocation()
+        NetworkService().getHomePinAndCard(param: HomePinRequest(latitude: 37.2832947196604,
+                                                                 longitude: 127.0445583493555,
+                                                                 keyword: "",
+                                                                 meetDate: "",
+                                                                 startMeetTime: "",
+                                                                 endMeetTime: "",
+                                                                 minAge: 20,
+                                                                 maxAge: 99,
+                                                                 meetGender: "Both",
+                                                                 meetingPinCategory: "",
+                                                                 communityPinCategory: "",
+                                                                 storyPinCategory: ""))
     }
     
     override func setupUI() {

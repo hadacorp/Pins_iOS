@@ -16,4 +16,13 @@ extension Bundle {
         
         return key
     }
+    
+    var token: String {
+        guard let file = self.path(forResource: "PinInfo", ofType: "plist") else { return "" }
+        
+        guard let resource = NSDictionary(contentsOfFile: file) else { return "" }
+        guard let key = resource["TOKEN"] as? String else { fatalError("PinInfo.plist에 TOKEN 설정을 해주세요.") }
+        
+        return key
+    }
 }
