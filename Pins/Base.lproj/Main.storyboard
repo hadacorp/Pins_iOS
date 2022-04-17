@@ -68,7 +68,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FoV-8W-YMw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="43" y="85"/>
+            <point key="canvasLocation" x="-13" y="89"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="pyS-Nt-gFK">
@@ -81,7 +81,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="wyE-h1-gLC"/>
+                        <segue destination="Lud-Ss-m7W" kind="relationship" relationship="rootViewController" id="W87-h2-7em"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Xl-7I-EvA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
