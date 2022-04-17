@@ -47,6 +47,11 @@ class CustomTextField: UITextField {
         return self
     }
     
+    @discardableResult public func setPlaceholder(text: String, color: UIColor) -> CustomTextField {
+        self.attributedPlaceholder = NSAttributedString(string: text, attributes: [NSAttributedString.Key.foregroundColor : color])
+        return self
+    }
+    
     @discardableResult public func setFont(name: String, size: CGFloat) -> CustomTextField {
         self.font = UIFont(name: name, size: size)
         
@@ -55,6 +60,18 @@ class CustomTextField: UITextField {
     
     @discardableResult public func setColor(color: UIColor) -> CustomTextField {
         self.backgroundColor = color
+        
+        return self
+    }
+    
+    @discardableResult public func setDelegate(delegate: Any) -> CustomTextField {
+        self.delegate = delegate as? UITextFieldDelegate
+        
+        return self
+    }
+    
+    @discardableResult public func setTextColor(color: UIColor) -> CustomTextField {
+        self.textColor = color
         
         return self
     }

@@ -26,6 +26,7 @@
 		B74EC84E2791CC9B005745C0 /* Extension+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74EC84D2791CC9B005745C0 /* Extension+UIView.swift */; };
 		B75462D1280C5AEA005C44C2 /* LoginViewController+Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75462D0280C5AEA005C44C2 /* LoginViewController+Action.swift */; };
 		B75462D4280C5B97005C44C2 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75462D3280C5B97005C44C2 /* SignUpViewController.swift */; };
+		B75462D6280C6BA8005C44C2 /* SignUpViewController+Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75462D5280C6BA8005C44C2 /* SignUpViewController+Action.swift */; };
 		B75C4EF127D50A97003E7B8A /* ViewControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75C4EF027D50A97003E7B8A /* ViewControllerViewModel.swift */; };
 		B75C4EF327D50AB1003E7B8A /* ViewControllerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75C4EF227D50AB1003E7B8A /* ViewControllerModel.swift */; };
 		B75C618127EF566C00A0FEE0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75C618027EF566C00A0FEE0 /* LoginViewController.swift */; };
@@ -104,6 +105,7 @@
 		B74EC84D2791CC9B005745C0 /* Extension+UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIView.swift"; sourceTree = "<group>"; };
 		B75462D0280C5AEA005C44C2 /* LoginViewController+Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginViewController+Action.swift"; sourceTree = "<group>"; };
 		B75462D3280C5B97005C44C2 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		B75462D5280C6BA8005C44C2 /* SignUpViewController+Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SignUpViewController+Action.swift"; sourceTree = "<group>"; };
 		B75C4EF027D50A97003E7B8A /* ViewControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerViewModel.swift; sourceTree = "<group>"; };
 		B75C4EF227D50AB1003E7B8A /* ViewControllerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerModel.swift; sourceTree = "<group>"; };
 		B75C618027EF566C00A0FEE0 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -218,6 +220,7 @@
 			isa = PBXGroup;
 			children = (
 				B75462D3280C5B97005C44C2 /* SignUpViewController.swift */,
+				B75462D5280C6BA8005C44C2 /* SignUpViewController+Action.swift */,
 			);
 			path = SingUp;
 			sourceTree = "<group>";
@@ -495,6 +498,7 @@
 				B71F24E7278FC33A003D8DE3 /* CustomLabel.swift in Sources */,
 				B7BC247E27F1BFC700A1CC53 /* Pins+Bundle.swift in Sources */,
 				B772035E27D5DF8500D44AF7 /* CustomTextView.swift in Sources */,
+				B75462D6280C6BA8005C44C2 /* SignUpViewController+Action.swift in Sources */,
 				B78D071227C113B3007DA27B /* CardDetail+CollectionView.swift in Sources */,
 				B76FFD072793103900CA9AEB /* GetHomePinAndCard.swift in Sources */,
 				B7B5B6E8278E5EEE002BDBEA /* ViewController.swift in Sources */,
