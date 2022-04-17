@@ -4,7 +4,7 @@
 //
 //  Created by judongseok on 2022/04/17.
 //
-
+import UIKit
 import Foundation
 
 extension LoginViewController {
@@ -14,4 +14,6 @@ extension LoginViewController {
         let signUpView = SignUpViewController()
         self.navigationController?.pushViewController(signUpView, animated: true)
     }
+    
+    
 }
