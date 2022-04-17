@@ -105,7 +105,6 @@ struct NetworkService {
                 case .success:
                     print(url)
                     let jsonData = try? JSONDecoder().decode(HomeCards.self, from: response.data!)
-                    print(jsonData)
                 case let .failure(error):
                     print(error)
                 }

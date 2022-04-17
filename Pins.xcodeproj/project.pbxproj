@@ -24,6 +24,8 @@
 		B73B4707278F02D300A60C37 /* Extension+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73B4706278F02D300A60C37 /* Extension+UIColor.swift */; };
 		B74BBA0F27BD4E3700DBDDF0 /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74BBA0E27BD4E3700DBDDF0 /* CustomView.swift */; };
 		B74EC84E2791CC9B005745C0 /* Extension+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74EC84D2791CC9B005745C0 /* Extension+UIView.swift */; };
+		B75462D1280C5AEA005C44C2 /* LoginViewController+Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75462D0280C5AEA005C44C2 /* LoginViewController+Action.swift */; };
+		B75462D4280C5B97005C44C2 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75462D3280C5B97005C44C2 /* SignUpViewController.swift */; };
 		B75C4EF127D50A97003E7B8A /* ViewControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75C4EF027D50A97003E7B8A /* ViewControllerViewModel.swift */; };
 		B75C4EF327D50AB1003E7B8A /* ViewControllerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75C4EF227D50AB1003E7B8A /* ViewControllerModel.swift */; };
 		B75C618127EF566C00A0FEE0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75C618027EF566C00A0FEE0 /* LoginViewController.swift */; };
@@ -100,6 +102,8 @@
 		B73B4706278F02D300A60C37 /* Extension+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIColor.swift"; sourceTree = "<group>"; };
 		B74BBA0E27BD4E3700DBDDF0 /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
 		B74EC84D2791CC9B005745C0 /* Extension+UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIView.swift"; sourceTree = "<group>"; };
+		B75462D0280C5AEA005C44C2 /* LoginViewController+Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginViewController+Action.swift"; sourceTree = "<group>"; };
+		B75462D3280C5B97005C44C2 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		B75C4EF027D50A97003E7B8A /* ViewControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerViewModel.swift; sourceTree = "<group>"; };
 		B75C4EF227D50AB1003E7B8A /* ViewControllerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerModel.swift; sourceTree = "<group>"; };
 		B75C618027EF566C00A0FEE0 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -210,10 +214,19 @@
 			path = Utill;
 			sourceTree = "<group>";
 		};
+		B75462D2280C5B7B005C44C2 /* SingUp */ = {
+			isa = PBXGroup;
+			children = (
+				B75462D3280C5B97005C44C2 /* SignUpViewController.swift */,
+			);
+			path = SingUp;
+			sourceTree = "<group>";
+		};
 		B75C617F27EF564C00A0FEE0 /* Login */ = {
 			isa = PBXGroup;
 			children = (
 				B75C618027EF566C00A0FEE0 /* LoginViewController.swift */,
+				B75462D0280C5AEA005C44C2 /* LoginViewController+Action.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -289,6 +302,7 @@
 		B7B5B6E2278E5EEE002BDBEA /* Pins */ = {
 			isa = PBXGroup;
 			children = (
+				B75462D2280C5B7B005C44C2 /* SingUp */,
 				B75C617F27EF564C00A0FEE0 /* Login */,
 				B79112A927B6C60E0014E7FE /* CardDetail */,
 				B79B7BC127964AC400D43640 /* Search */,
@@ -465,6 +479,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B75462D1280C5AEA005C44C2 /* LoginViewController+Action.swift in Sources */,
 				B73B4705278EFD3E00A60C37 /* UIScreenSize.swift in Sources */,
 				B7C8103F2790534C00258CC5 /* ViewController+Action.swift in Sources */,
 				B7BBC85727B2A86B003BC76C /* CustomCollectionView.swift in Sources */,
@@ -496,6 +511,7 @@
 				B79B7BC727965BFB00D43640 /* SearchViewController+Action.swift in Sources */,
 				B79112A827B6AB4E0014E7FE /* CustomImage.swift in Sources */,
 				B7C8103D279043A800258CC5 /* ViewController+Map.swift in Sources */,
+				B75462D4280C5B97005C44C2 /* SignUpViewController.swift in Sources */,
 				B74BBA0F27BD4E3700DBDDF0 /* CustomView.swift in Sources */,
 				B78D071627C13749007DA27B /* CardDetailViewModel.swift in Sources */,
 				B7B5B6E4278E5EEE002BDBEA /* AppDelegate.swift in Sources */,
