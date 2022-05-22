@@ -12,6 +12,7 @@ class SearchViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = .white
     }
     
     override func setupUI() {

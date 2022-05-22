@@ -36,4 +36,12 @@ extension SignUpViewController {
             }
         }
     }
+    func rxSetup(){
+        backButton.rx.tap
+            .subscribe(onNext: { [weak self] in
+                self?.navigationController?.popViewController(animated: true)
+                print("asdf")
+            })
+            .disposed(by: disposeBag)
+    }
 }

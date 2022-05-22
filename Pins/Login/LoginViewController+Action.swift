@@ -9,11 +9,19 @@ import Foundation
 
 extension LoginViewController {
     // 회원가입 뷰로 넘어가기
-    @objc
-    func signUp() {
-        let signUpView = SignUpViewController()
-        self.navigationController?.pushViewController(signUpView, animated: true)
+    func rxSetup() {
+        signupBtn.rx.tap
+            .subscribe(onNext: { [weak self] in
+                let signupView = SignUpViewController()
+                self?.navigationController?.pushViewController(signupView, animated: true)
+            })
+            .disposed(by: disposeBag)
+        
+        signinBtn.rx.tap
+            .subscribe(onNext: { [weak self] in
+                let signinView = ViewController()
+                self?.navigationController?.pushViewController(signinView, animated: true)
+            })
+            .disposed(by: disposeBag)
     }
-    
-    
 }

@@ -9,12 +9,17 @@ import Foundation
 import SwiftUI
 
 class LoginViewController: BaseViewController {
+    // MARK: - public variable
+    var signupBtn: CustomButton!
+    var signinBtn: CustomButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        rxSetup()
     }
     
     override func setupUI() {
-        CustomButton(parent: self.view)
+        signupBtn = CustomButton(parent: self.view)
             .makeConstraints {
                 $0.bottom.equalTo(self.view.safeAreaLayoutGuide).offset(-33)
                 $0.trailing.equalTo(-16)
@@ -27,9 +32,8 @@ class LoginViewController: BaseViewController {
             .setTitleColor(color: .white)
             .setShadow(x: 0, y: 4, blur: 8, opacity: 0.16, color: UIColor.black.cgColor)
             .setTitleFont(name: "NotoSansKR-Regular", size: 16)
-            .setAction(parent: self, action: #selector(signUp))
         
-        CustomButton(parent: self.view)
+        signinBtn = CustomButton(parent: self.view)
             .makeConstraints {
                 $0.bottom.equalTo(self.view.safeAreaLayoutGuide).offset(-33)
                 $0.leading.equalTo(16)
