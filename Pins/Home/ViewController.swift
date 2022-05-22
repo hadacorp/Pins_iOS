@@ -24,6 +24,7 @@ class ViewController: BaseViewController {
     var interactionBackground: CustomView = CustomView()
     var interactionBtn: CustomButton = CustomButton()
     var interactionCancel: CustomButton = CustomButton()
+    var searchBtn: CustomButton!
     
     // MARK: - ViewController Cycle
     override func viewDidLoad() {
@@ -52,7 +53,7 @@ class ViewController: BaseViewController {
     
     override func setupUI() {
         // 위측 버튼 2개
-        CustomButton(parent: mapView)
+        searchBtn = CustomButton(parent: mapView)
             .setSize(width: 40, height: 40)
             .makeConstraints{
                 $0.top.equalTo(16 + UIScreenSize.shared.topPadding)

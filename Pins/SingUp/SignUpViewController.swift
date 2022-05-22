@@ -9,23 +9,24 @@ import Foundation
 import UIKit
 
 class SignUpViewController: BaseViewController {
-    // public variable
+    // MARK: - public variable
     var nameTextField: CustomTextField!
     var namePlaceholder: CustomLabel!
+    var backButton: CustomButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         nameTextField.becomeFirstResponder()
+        rxSetup()
     }
     
     override func setupUI() {
         self.view.backgroundColor = .white
         
-        CustomButton(parent: self.view)
+        backButton = CustomButton(parent: self.view)
             .makeConstraints {
-                $0.top.equalTo(self.view.safeAreaLayoutGuide).offset(14)
-                $0.leading.equalTo(16)
+                $0.top.equalTo(self.view.safeAreaLayoutGuide).offset(0)
+                $0.leading.equalTo(0)
             }
             .setImage(image: UIImage(named: "back")!)
         

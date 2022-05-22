@@ -188,6 +188,7 @@
 			children = (
 				B76FFD0527930C4D00CA9AEB /* API */,
 				B7B5B6E7278E5EEE002BDBEA /* ViewController.swift */,
+				B75C618227EF5C5200A0FEE0 /* ViewController+Interaction.swift */,
 				B7C8103C279043A800258CC5 /* ViewController+Map.swift */,
 				B7C8103E2790534C00258CC5 /* ViewController+Action.swift */,
 				B7BBC85827B2AECE003BC76C /* ViewController+CollectionView.swift */,
@@ -238,7 +239,6 @@
 			isa = PBXGroup;
 			children = (
 				B76FFD062793103900CA9AEB /* GetHomePinAndCard.swift */,
-				B75C618227EF5C5200A0FEE0 /* ViewController+Interaction.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";

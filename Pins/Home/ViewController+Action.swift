@@ -13,9 +13,11 @@ extension ViewController {
     // 검색 버튼
     @objc
     func searchLocation() {
+        print("asdf")
         guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "SearchVC") else {
             return
         }
+        print("asdf")
         self.navigationController?.isNavigationBarHidden = true
         self.navigationController?.pushViewController(vc, animated: true)
     }
@@ -56,6 +58,13 @@ extension ViewController {
         
         interactionCancel.rx.tap
             .subscribe(onNext: { [weak self] in self?.interactionBtnAction() })
+            .disposed(by: disposeBag)
+    
+        searchBtn.rx.tap
+            .subscribe(onNext: { [weak self] in
+                let searchVC = SearchViewController()
+                self?.navigationController?.pushViewController(searchVC, animated: true)
+            })
             .disposed(by: disposeBag)
     }
     
