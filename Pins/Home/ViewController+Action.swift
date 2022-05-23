@@ -10,23 +10,9 @@ import RxSwift
 import RxCocoa
 
 extension ViewController {
-    // 검색 버튼
-    @objc
-    func searchLocation() {
-        print("asdf")
-        guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "SearchVC") else {
-            return
-        }
-        print("asdf")
-        self.navigationController?.isNavigationBarHidden = true
-        self.navigationController?.pushViewController(vc, animated: true)
-    }
-    
     // 카드뷰 클릭 시
     func detailView(card: CardInfo) {
-        guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "CardDetailVC") as? CardDetailViewController else {
-            return
-        }
+        let vc = CardDetailViewController()
         vc.viewModel.card = card
         self.navigationController?.isNavigationBarHidden = true
         self.navigationController?.pushViewController(vc, animated: true)
@@ -63,6 +49,7 @@ extension ViewController {
         searchBtn.rx.tap
             .subscribe(onNext: { [weak self] in
                 let searchVC = SearchViewController()
+                print("asdf")
                 self?.navigationController?.pushViewController(searchVC, animated: true)
             })
             .disposed(by: disposeBag)
