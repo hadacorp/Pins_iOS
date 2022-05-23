@@ -21,6 +21,10 @@ extension SignUpViewController {
                 }
                 namePlaceholder.superview?.layoutIfNeeded()
             }
+            
+            // 확인 버튼 opacity 조정
+            nextButton.setOpacity(opacity: 1.0)
+            viewModel.isNext = true
         }
         else {
             UIView.animate(withDuration: 0.2, delay: 0) { [self] in
@@ -34,13 +38,30 @@ extension SignUpViewController {
                 }
                 namePlaceholder.superview?.layoutIfNeeded()
             }
+            
+            // 확인 버튼 opacity 조정
+            nextButton.setOpacity(opacity: 0.5)
+            viewModel.isNext = false
         }
     }
     func rxSetup(){
         backButton.rx.tap
             .subscribe(onNext: { [weak self] in
                 self?.navigationController?.popViewController(animated: true)
-                print("asdf")
+            })
+            .disposed(by: disposeBag)
+        
+        nameTextField.rx.text
+            .subscribe(onNext: { [weak self] text in
+                self?.namePlaceholderAnimation(isTyping: self?.nameTextField.text == "" ? false : true)
+            })
+            .disposed(by: disposeBag)
+        
+        nextButton.rx.tap
+            .subscribe(onNext: { [weak self] in
+                if self!.viewModel.isNext {
+                    print("화면 전환")
+                }
             })
             .disposed(by: disposeBag)
     }
