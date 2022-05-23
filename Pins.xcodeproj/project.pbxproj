@@ -22,6 +22,7 @@
 		B739C90D27AEC85F00DF5FCF /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B739C90C27AEC85F00DF5FCF /* SearchViewModel.swift */; };
 		B73B4705278EFD3E00A60C37 /* UIScreenSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73B4704278EFD3E00A60C37 /* UIScreenSize.swift */; };
 		B73B4707278F02D300A60C37 /* Extension+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73B4706278F02D300A60C37 /* Extension+UIColor.swift */; };
+		B73D3B3F283BBA7D00135E7F /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73D3B3E283BBA7D00135E7F /* SignUpViewModel.swift */; };
 		B74BBA0F27BD4E3700DBDDF0 /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74BBA0E27BD4E3700DBDDF0 /* CustomView.swift */; };
 		B74EC84E2791CC9B005745C0 /* Extension+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74EC84D2791CC9B005745C0 /* Extension+UIView.swift */; };
 		B75462D1280C5AEA005C44C2 /* LoginViewController+Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75462D0280C5AEA005C44C2 /* LoginViewController+Action.swift */; };
@@ -100,6 +101,7 @@
 		B739C90C27AEC85F00DF5FCF /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		B73B4704278EFD3E00A60C37 /* UIScreenSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScreenSize.swift; sourceTree = "<group>"; };
 		B73B4706278F02D300A60C37 /* Extension+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIColor.swift"; sourceTree = "<group>"; };
+		B73D3B3E283BBA7D00135E7F /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		B74BBA0E27BD4E3700DBDDF0 /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
 		B74EC84D2791CC9B005745C0 /* Extension+UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIView.swift"; sourceTree = "<group>"; };
 		B75462D0280C5AEA005C44C2 /* LoginViewController+Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginViewController+Action.swift"; sourceTree = "<group>"; };
@@ -220,6 +222,7 @@
 			children = (
 				B75462D3280C5B97005C44C2 /* SignUpViewController.swift */,
 				B75462D5280C6BA8005C44C2 /* SignUpViewController+Action.swift */,
+				B73D3B3E283BBA7D00135E7F /* SignUpViewModel.swift */,
 			);
 			path = SingUp;
 			sourceTree = "<group>";
@@ -487,6 +490,7 @@
 				B79B7BC327964AD400D43640 /* SearchViewController.swift in Sources */,
 				B74EC84E2791CC9B005745C0 /* Extension+UIView.swift in Sources */,
 				B79112B127B6CF350014E7FE /* CardDetailViewController.swift in Sources */,
+				B73D3B3F283BBA7D00135E7F /* SignUpViewModel.swift in Sources */,
 				B739C90D27AEC85F00DF5FCF /* SearchViewModel.swift in Sources */,
 				B78D071027C11237007DA27B /* CardDetail+CustomCell.swift in Sources */,
 				B75C618327EF5C5200A0FEE0 /* ViewController+Interaction.swift in Sources */,

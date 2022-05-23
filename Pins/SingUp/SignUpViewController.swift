@@ -10,16 +10,25 @@ import UIKit
 
 class SignUpViewController: BaseViewController {
     // MARK: - public variable
+    let viewModel = SignUpViewModel()
     var nameTextField: CustomTextField!
     var namePlaceholder: CustomLabel!
     var backButton: CustomButton!
+    var nextButton: CustomButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.isNavigationBarHidden = true
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         nameTextField.becomeFirstResponder()
         rxSetup()
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated) // observer를 전부 제거
+        NotificationCenter.default.removeObserver(self)
+    }
+
     
     override func setupUI() {
         self.view.backgroundColor = .white
@@ -71,12 +80,29 @@ class SignUpViewController: BaseViewController {
                 $0.height.equalTo(2)
             }
             .setColor(color: UIColor.init(hex: "1DAAF3"))
+        
+        nextButton = CustomButton(parent: self.view)
+            .setColor(color: UIColor.systemBlue.cgColor)
+            .setOpacity(opacity: 0.5)
+            .setTitle(title: "확인")
+            .setTitleFont(name: "NotoSansKR-Regular", size: 20)
     }
 }
 
-extension SignUpViewController: UITextFieldDelegate {
-    func textFieldDidChangeSelection(_ textField: UITextField) {
-        // 애니메이션 작동
-        namePlaceholderAnimation(isTyping: textField.text == "" ? false : true)
+extension SignUpViewController {
+    @objc func keyboardWillShow(_ notification:NSNotification) {
+        if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
+            let keyboardRectangle = keyboardFrame.cgRectValue
+            let keyboardHeight = keyboardRectangle.height
+            print("keyboardHeight = \(keyboardHeight)")
+            
+            nextButton
+                .makeConstraints {
+                    $0.leading.equalTo(0)
+                    $0.trailing.equalTo(0)
+                    $0.height.equalTo(50)
+                    $0.bottom.equalTo(-keyboardHeight)
+                }
+        }
     }
 }
