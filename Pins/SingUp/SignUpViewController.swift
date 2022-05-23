@@ -16,6 +16,7 @@ class SignUpViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.isNavigationBarHidden = true
         nameTextField.becomeFirstResponder()
         rxSetup()
     }
