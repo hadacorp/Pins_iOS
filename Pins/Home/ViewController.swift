@@ -29,6 +29,9 @@ class ViewController: BaseViewController {
     // MARK: - ViewController Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationController?.isNavigationBarHidden = true
+        
         // GPS 사용 허가 받기
         setMapUserLocation()
         interactionUI()
