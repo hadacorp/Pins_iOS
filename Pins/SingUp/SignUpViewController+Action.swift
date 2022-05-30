@@ -5,7 +5,7 @@
 //  Created by judongseok on 2022/04/18.
 //
 
-import UIKit
+import UIKit 
 
 extension SignUpViewController {
     func namePlaceholderAnimation(isTyping: Bool) {
