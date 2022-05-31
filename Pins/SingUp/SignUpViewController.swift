@@ -12,7 +12,9 @@ class SignUpViewController: BaseViewController {
     // MARK: - public variable
     let viewModel = SignUpViewModel()
     var nameTextField: CustomTextField!
+    var nameLabel: CustomLabel!
     var namePlaceholder: CustomLabel!
+    var nameLine: CustomView!
     var backButton: CustomButton!
     var nextButton: CustomButton!
     
@@ -40,12 +42,13 @@ class SignUpViewController: BaseViewController {
             }
             .setImage(image: UIImage(named: "back")!)
         
-        CustomLabel(parent: self.view)
+        nameLabel = CustomLabel(parent: self.view)
             .makeConstraints {
                 $0.top.equalTo(self.view.safeAreaLayoutGuide).offset(67)
                 $0.leading.equalTo(16)
             }
-            .setText(text: "이름을 입력해 주세요.")
+            .setText(text: "만나서 반가워요 :)\n이름을 알려주세요")
+            .setLineHeight(size: 2)
             .setFont(name: "NotoSansKR-Medium", size: 20)
             .setColor(color: UIColor.black)
         
@@ -53,7 +56,7 @@ class SignUpViewController: BaseViewController {
             .makeConstraints{
                 $0.leading.equalTo(16)
                 $0.trailing.equalTo(-16)
-                $0.top.equalTo(self.view.safeAreaLayoutGuide).offset(140)
+                $0.top.equalTo(self.nameLabel.snp.bottom).offset(30)
                 $0.height.equalTo(37)
             }
             .setCursorColor(color: UIColor(hex: "1DAAF3"))
@@ -72,11 +75,11 @@ class SignUpViewController: BaseViewController {
             .setText(text: "이름")
             .setColor(color: UIColor.init(hex: "999999"))
         
-        CustomView(parent: self.view)
+        nameLine = CustomView(parent: self.view)
             .makeConstraints {
                 $0.leading.equalTo(16)
                 $0.trailing.equalTo(-16)
-                $0.top.equalTo(self.view.safeAreaLayoutGuide).offset(172)
+                $0.top.equalTo(self.namePlaceholder.snp.bottom).offset(0)
                 $0.height.equalTo(2)
             }
             .setColor(color: UIColor.init(hex: "1DAAF3"))
