@@ -79,7 +79,7 @@ class SignUpViewController: BaseViewController {
             .makeConstraints {
                 $0.leading.equalTo(16)
                 $0.trailing.equalTo(-16)
-                $0.top.equalTo(self.namePlaceholder.snp.bottom).offset(0)
+                $0.top.equalTo(self.nameTextField.snp.bottom).offset(0)
                 $0.height.equalTo(2)
             }
             .setColor(color: UIColor.init(hex: "1DAAF3"))
