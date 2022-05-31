@@ -44,6 +44,7 @@ extension SignUpViewController {
             viewModel.isNext = false
         }
     }
+    
     func rxSetup(){
         backButton.rx.tap
             .subscribe(onNext: { [weak self] in
@@ -51,9 +52,22 @@ extension SignUpViewController {
             })
             .disposed(by: disposeBag)
         
+        // 이름 텍스트 필드에 입력할 때
         nameTextField.rx.text
             .subscribe(onNext: { [weak self] text in
                 self?.namePlaceholderAnimation(isTyping: self?.nameTextField.text == "" ? false : true)
+                if let text = text {
+                    let set: Set<String> = Set(text.map{ $0.description })
+                    
+                    // 올바른 텍스트 검사
+                    if set.intersection((self?.viewModel.hangul)!).count > 0 {
+                        self?.nameLine.setColor(color: UIColor.red)
+                    }
+                    else {
+                        self?.nameLine.setColor(color: UIColor.init(hex: "1DAAF3"))
+                    }
+                }
+                
             })
             .disposed(by: disposeBag)
         
