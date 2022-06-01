@@ -217,12 +217,20 @@
 			path = Utill;
 			sourceTree = "<group>";
 		};
-		B75462D2280C5B7B005C44C2 /* SingUp */ = {
+		B7473A2A28465C5B0071C031 /* SignupName */ = {
 			isa = PBXGroup;
 			children = (
 				B75462D3280C5B97005C44C2 /* SignUpViewController.swift */,
 				B75462D5280C6BA8005C44C2 /* SignUpViewController+Action.swift */,
 				B73D3B3E283BBA7D00135E7F /* SignUpViewModel.swift */,
+			);
+			path = SignupName;
+			sourceTree = "<group>";
+		};
+		B75462D2280C5B7B005C44C2 /* SingUp */ = {
+			isa = PBXGroup;
+			children = (
+				B7473A2A28465C5B0071C031 /* SignupName */,
 			);
 			path = SingUp;
 			sourceTree = "<group>";
