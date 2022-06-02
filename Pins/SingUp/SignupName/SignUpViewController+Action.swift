@@ -21,10 +21,6 @@ extension SignUpViewController {
                 }
                 namePlaceholder.superview?.layoutIfNeeded()
             }
-            
-            // 확인 버튼 opacity 조정
-            nextButton.setOpacity(opacity: 1.0)
-            viewModel.isNext = true
         }
         else {
             UIView.animate(withDuration: 0.2, delay: 0) { [self] in
@@ -38,8 +34,17 @@ extension SignUpViewController {
                 }
                 namePlaceholder.superview?.layoutIfNeeded()
             }
-            
+            nameButtonAction(on: false)
+        }
+    }
+    
+    func nameButtonAction(on: Bool) {
+        if on {
             // 확인 버튼 opacity 조정
+            nextButton.setOpacity(opacity: 1.0)
+            viewModel.isNext = true
+        }
+        else {
             nextButton.setOpacity(opacity: 0.5)
             viewModel.isNext = false
         }
@@ -56,15 +61,22 @@ extension SignUpViewController {
         nameTextField.rx.text
             .subscribe(onNext: { [weak self] text in
                 self?.namePlaceholderAnimation(isTyping: self?.nameTextField.text == "" ? false : true)
+                
                 if let text = text {
                     let set: Set<String> = Set(text.map{ $0.description })
                     
                     // 올바른 텍스트 검사
                     if set.intersection((self?.viewModel.hangul)!).count > 0 {
                         self?.nameLine.setColor(color: UIColor.red)
+                        
+                        // 확인 버튼 opacity 조정
+                        self?.nameButtonAction(on: false)
                     }
                     else {
                         self?.nameLine.setColor(color: UIColor.init(hex: "1DAAF3"))
+                        
+                        // 확인 버튼 opacity 조정
+                        self?.nameButtonAction(on: true)
                     }
                 }
                 
