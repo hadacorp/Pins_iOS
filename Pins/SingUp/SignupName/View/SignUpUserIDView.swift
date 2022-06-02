@@ -9,6 +9,9 @@ import UIKit
 
 extension SignUpViewController {
     func initUserID() {
+        contentLabel.setText(text: "본인 인증을 위해\n주민등록번호를 입력해 주세요")
+            .setLineHeight(size: 2)
+        
         userIDTextField = CustomTextField(parent: self.view)
             .makeConstraints{
                 $0.leading.equalTo(16)

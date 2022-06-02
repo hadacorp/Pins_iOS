@@ -22,6 +22,7 @@ extension SignUpViewController {
             .makeConstraints {
                 $0.top.equalTo(self.view.safeAreaLayoutGuide).offset(67)
                 $0.leading.equalTo(16)
+                $0.trailing.equalTo(-16)
             }
             .setText(text: "만나서 반가워요 :)\n이름을 알려주세요")
             .setLineHeight(size: 2)
