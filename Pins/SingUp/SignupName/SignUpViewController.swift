@@ -7,19 +7,31 @@
 
 import Foundation
 import UIKit
+import RxSwift
+import RxCocoa
 
-class SignUpViewController: BaseViewController {
+class SignUpViewController: UIViewController {
     // MARK: - public variable
+    // ViewModel
     let viewModel = SignUpViewModel()
+    // DisposeBag
+    let disposeBag = DisposeBag()
+    // Name UI
+    var nameBackground: CustomView!
     var nameTextField: CustomTextField!
-    var nameLabel: CustomLabel!
+    var contentLabel: CustomLabel!
     var namePlaceholder: CustomLabel!
     var nameLine: CustomView!
-    var backButton: CustomButton!
     var nextButton: CustomButton!
+    // UserID UI
+    var userIDTextField: CustomTextField!
+    
+    // Back Button
+    var backButton: CustomButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUI()
         self.navigationController?.isNavigationBarHidden = true
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         nameTextField.becomeFirstResponder()
@@ -29,66 +41,6 @@ class SignUpViewController: BaseViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated) // observer를 전부 제거
         NotificationCenter.default.removeObserver(self)
-    }
-
-    
-    override func setupUI() {
-        self.view.backgroundColor = .white
-        
-        backButton = CustomButton(parent: self.view)
-            .makeConstraints {
-                $0.top.equalTo(self.view.safeAreaLayoutGuide).offset(0)
-                $0.leading.equalTo(0)
-            }
-            .setImage(image: UIImage(named: "back")!)
-        
-        nameLabel = CustomLabel(parent: self.view)
-            .makeConstraints {
-                $0.top.equalTo(self.view.safeAreaLayoutGuide).offset(67)
-                $0.leading.equalTo(16)
-            }
-            .setText(text: "만나서 반가워요 :)\n이름을 알려주세요")
-            .setLineHeight(size: 2)
-            .setFont(name: "NotoSansKR-Medium", size: 20)
-            .setColor(color: UIColor.black)
-        
-        nameTextField = CustomTextField(parent: self.view)
-            .makeConstraints{
-                $0.leading.equalTo(16)
-                $0.trailing.equalTo(-16)
-                $0.top.equalTo(self.nameLabel.snp.bottom).offset(30)
-                $0.height.equalTo(37)
-            }
-            .setCursorColor(color: UIColor(hex: "1DAAF3"))
-            .setTextColor(color: UIColor.black)
-            .setFont(name: "NotoSansKR-Regular", size: 16)
-            .setDelegate(delegate: self)
-        
-        namePlaceholder = CustomLabel(parent: nameTextField)
-            .makeConstraints { [self] in
-                // $0.bottom.equalTo(nameTextField.snp.top).offset(1)
-                $0.bottom.equalTo(nameTextField.snp.bottom)
-                $0.leading.equalTo(0)
-                $0.height.equalTo(37)
-            }
-            .setFont(name: "NotoSansKR-Regular", size: 20)
-            .setText(text: "이름")
-            .setColor(color: UIColor.init(hex: "999999"))
-        
-        nameLine = CustomView(parent: self.view)
-            .makeConstraints {
-                $0.leading.equalTo(16)
-                $0.trailing.equalTo(-16)
-                $0.top.equalTo(self.nameTextField.snp.bottom).offset(0)
-                $0.height.equalTo(2)
-            }
-            .setColor(color: UIColor.init(hex: "1DAAF3"))
-        
-        nextButton = CustomButton(parent: self.view)
-            .setColor(color: UIColor.systemBlue.cgColor)
-            .setOpacity(opacity: 0.5)
-            .setTitle(title: "확인")
-            .setTitleFont(name: "NotoSansKR-Regular", size: 20)
     }
 }
 
