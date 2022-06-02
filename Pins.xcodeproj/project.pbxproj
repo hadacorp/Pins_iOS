@@ -32,6 +32,8 @@
 		B75C4EF327D50AB1003E7B8A /* ViewControllerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75C4EF227D50AB1003E7B8A /* ViewControllerModel.swift */; };
 		B75C618127EF566C00A0FEE0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75C618027EF566C00A0FEE0 /* LoginViewController.swift */; };
 		B75C618327EF5C5200A0FEE0 /* ViewController+Interaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75C618227EF5C5200A0FEE0 /* ViewController+Interaction.swift */; };
+		B764072B2848FFEE002B8143 /* SignUpNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B764072A2848FFEE002B8143 /* SignUpNameView.swift */; };
+		B764072D28490215002B8143 /* SignUpUserIDView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B764072C28490215002B8143 /* SignUpUserIDView.swift */; };
 		B76FFD072793103900CA9AEB /* GetHomePinAndCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76FFD062793103900CA9AEB /* GetHomePinAndCard.swift */; };
 		B76FFD0F2793165700CA9AEB /* UnitTestAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76FFD0E2793165700CA9AEB /* UnitTestAPI.swift */; };
 		B76FFD16279324CB00CA9AEB /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76FFD15279324CB00CA9AEB /* NetworkResult.swift */; };
@@ -111,6 +113,8 @@
 		B75C4EF227D50AB1003E7B8A /* ViewControllerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerModel.swift; sourceTree = "<group>"; };
 		B75C618027EF566C00A0FEE0 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		B75C618227EF5C5200A0FEE0 /* ViewController+Interaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Interaction.swift"; sourceTree = "<group>"; };
+		B764072A2848FFEE002B8143 /* SignUpNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpNameView.swift; sourceTree = "<group>"; };
+		B764072C28490215002B8143 /* SignUpUserIDView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpUserIDView.swift; sourceTree = "<group>"; };
 		B76FFD062793103900CA9AEB /* GetHomePinAndCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetHomePinAndCard.swift; sourceTree = "<group>"; };
 		B76FFD0C2793165700CA9AEB /* UnitTestAPI.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTestAPI.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B76FFD0E2793165700CA9AEB /* UnitTestAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTestAPI.swift; sourceTree = "<group>"; };
@@ -220,6 +224,7 @@
 		B7473A2A28465C5B0071C031 /* SignupName */ = {
 			isa = PBXGroup;
 			children = (
+				B764072E2849021A002B8143 /* View */,
 				B75462D3280C5B97005C44C2 /* SignUpViewController.swift */,
 				B75462D5280C6BA8005C44C2 /* SignUpViewController+Action.swift */,
 				B73D3B3E283BBA7D00135E7F /* SignUpViewModel.swift */,
@@ -242,6 +247,15 @@
 				B75462D0280C5AEA005C44C2 /* LoginViewController+Action.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		B764072E2849021A002B8143 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B764072A2848FFEE002B8143 /* SignUpNameView.swift */,
+				B764072C28490215002B8143 /* SignUpUserIDView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		B76FFD0527930C4D00CA9AEB /* API */ = {
@@ -505,6 +519,7 @@
 				B79112AF27B6C8640014E7FE /* Extension+ViewController.swift in Sources */,
 				B71F24E7278FC33A003D8DE3 /* CustomLabel.swift in Sources */,
 				B7BC247E27F1BFC700A1CC53 /* Pins+Bundle.swift in Sources */,
+				B764072B2848FFEE002B8143 /* SignUpNameView.swift in Sources */,
 				B772035E27D5DF8500D44AF7 /* CustomTextView.swift in Sources */,
 				B75462D6280C6BA8005C44C2 /* SignUpViewController+Action.swift in Sources */,
 				B78D071227C113B3007DA27B /* CardDetail+CollectionView.swift in Sources */,
@@ -523,6 +538,7 @@
 				B79B7BC727965BFB00D43640 /* SearchViewController+Action.swift in Sources */,
 				B79112A827B6AB4E0014E7FE /* CustomImage.swift in Sources */,
 				B7C8103D279043A800258CC5 /* ViewController+Map.swift in Sources */,
+				B764072D28490215002B8143 /* SignUpUserIDView.swift in Sources */,
 				B75462D4280C5B97005C44C2 /* SignUpViewController.swift in Sources */,
 				B74BBA0F27BD4E3700DBDDF0 /* CustomView.swift in Sources */,
 				B78D071627C13749007DA27B /* CardDetailViewModel.swift in Sources */,
