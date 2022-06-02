@@ -87,6 +87,7 @@ extension SignUpViewController {
             .subscribe(onNext: { [weak self] in
                 if self!.viewModel.isNext {
                     print("화면 전환")
+                    self?.initUserID()
                     self?.downNameUI()
                 }
             })
